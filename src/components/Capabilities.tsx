@@ -59,7 +59,7 @@ function EnvelopeCard({ cap, index }: { cap: any; index: number; key?: any }) {
         stiffness: 70,
         damping: 14,
       }}
-      className="relative w-full aspect-[3/4] group perspective-1000 cursor-pointer"
+      className="relative w-full aspect-3/4 group perspective-1000 cursor-pointer"
     >
       {/* 3D Envelope Container */}
       <div className="w-full h-full relative preserve-3d group-hover:rotate-x-12 transition-transform duration-700 ease-in-out">
@@ -68,7 +68,7 @@ function EnvelopeCard({ cap, index }: { cap: any; index: number; key?: any }) {
 
         {/* Back of Envelope */}
         <div className="absolute inset-0 bg-dark-bg/80 border border-white/5 rounded-2xl shadow-inner z-0 overflow-hidden">
-          <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/50 to-transparent" />
+          <div className="absolute inset-x-0 bottom-0 h-1/2 bg-linear-to-t from-black/50 to-transparent" />
         </div>
 
         {/* The Letter (Content inside) */}
@@ -85,7 +85,7 @@ function EnvelopeCard({ cap, index }: { cap: any; index: number; key?: any }) {
                 repeat: Infinity,
                 delay: index * 0.3,
               }}
-              className={`w-12 h-12 rounded-full bg-gradient-to-br ${cap.color} flex items-center justify-center mb-4 shadow-lg`}
+              className={`w-12 h-12 rounded-full bg-linear-to-br ${cap.color} flex items-center justify-center mb-4 shadow-lg`}
             >
               <cap.icon className="text-white w-6 h-6" />
             </motion.div>
@@ -106,7 +106,7 @@ function EnvelopeCard({ cap, index }: { cap: any; index: number; key?: any }) {
 
         {/* Envelope Front Bottom Fold */}
         <div
-          className="absolute bottom-0 left-0 right-0 h-2/3 bg-white/[0.02] backdrop-blur-md rounded-b-2xl z-20"
+          className="absolute bottom-0 left-0 right-0 h-2/3 bg-white/2 backdrop-blur-md rounded-b-2xl z-20"
           style={{
             clipPath:
               "polygon(0% 100%, 100% 100%, 100% 30%, 50% 0%, 0% 30%)",
@@ -117,8 +117,8 @@ function EnvelopeCard({ cap, index }: { cap: any; index: number; key?: any }) {
 
         {/* Envelope Top Flap (The seal) */}
         <div
-          className="absolute top-0 left-0 right-0 h-1/2 bg-white/[0.05] backdrop-blur-xl border-x border-t border-white/10 rounded-t-2xl z-40 
-                        origin-top transform-gpu transition-all duration-700 ease-in-out group-hover:rotate-x-[180deg] group-hover:opacity-0"
+          className="absolute top-0 left-0 right-0 h-1/2 bg-white/5 backdrop-blur-xl border-x border-t border-white/10 rounded-t-2xl z-40 
+                        origin-top transform-gpu transition-all duration-700 ease-in-out group-hover:rotate-x-180 group-hover:opacity-0"
           style={{
             clipPath: "polygon(0% 0%, 100% 0%, 50% 100%)",
           }}
@@ -159,7 +159,7 @@ export default function Capabilities({ isActive }: { isActive?: boolean }) {
               initial={{ width: 0 }}
               animate={{ width: 48 }}
               transition={{ delay: 0.3, duration: 0.5 }}
-              className="h-[1px] bg-brand-blue"
+              className="h-px bg-brand-blue"
             />
             <span className="text-brand-blue font-bold tracking-[0.3em] uppercase text-[10px]">
               Capabilities
@@ -168,7 +168,7 @@ export default function Capabilities({ isActive }: { isActive?: boolean }) {
               initial={{ width: 0 }}
               animate={{ width: 48 }}
               transition={{ delay: 0.3, duration: 0.5 }}
-              className="h-[1px] bg-brand-blue"
+              className="h-px bg-brand-blue"
             />
           </motion.div>
 

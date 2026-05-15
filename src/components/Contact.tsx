@@ -18,7 +18,7 @@ export default function Contact({ isActive }: { isActive?: boolean }) {
     >
       {/* Background */}
       <div className="absolute inset-0 bg-grid opacity-10" />
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-brand-blue/10 blur-[150px] rounded-full pointer-events-none" />
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-175 h-125 bg-brand-blue/10 blur-[150px] rounded-full pointer-events-none" />
 
       {/* Main Content */}
       <div className="flex-1 flex flex-col justify-center px-8 md:px-16 pt-20 pb-6 relative z-10 min-h-0">
@@ -27,14 +27,14 @@ export default function Contact({ isActive }: { isActive?: boolean }) {
           initial={{ opacity: 0, y: 60, scale: 0.9 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-          className="text-center mb-8 flex-shrink-0"
+          className="text-center mb-8 shrink-0"
         >
           <div className="flex items-center justify-center gap-3 mb-3">
             <motion.div
               initial={{ width: 0 }}
               animate={{ width: 40 }}
               transition={{ delay: 0.4, duration: 0.4 }}
-              className="h-[1px] bg-brand-cyan"
+              className="h-px bg-brand-cyan"
             />
             <span className="text-brand-cyan font-bold tracking-[0.3em] uppercase text-[10px]">
               Get In Touch
@@ -43,12 +43,12 @@ export default function Contact({ isActive }: { isActive?: boolean }) {
               initial={{ width: 0 }}
               animate={{ width: 40 }}
               transition={{ delay: 0.4, duration: 0.4 }}
-              className="h-[1px] bg-brand-cyan"
+              className="h-px bg-brand-cyan"
             />
           </div>
           <h2 className="text-4xl md:text-6xl font-display font-bold tracking-tighter leading-none mb-2">
             Initiate{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-blue to-brand-cyan">
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-brand-blue to-brand-cyan">
               Protocol
             </span>
           </h2>
@@ -97,7 +97,7 @@ export default function Contact({ isActive }: { isActive?: boolean }) {
                 >
                   <motion.div
                     whileHover={{ scale: 1.1, rotate: 5 }}
-                    className="w-10 h-10 rounded-xl bg-brand-blue/10 border border-brand-blue/20 flex items-center justify-center flex-shrink-0 group-hover:bg-brand-blue/20 transition-colors"
+                    className="w-10 h-10 rounded-xl bg-brand-blue/10 border border-brand-blue/20 flex items-center justify-center shrink-0 group-hover:bg-brand-blue/20 transition-colors"
                   >
                     <item.icon className="text-brand-cyan w-4 h-4" />
                   </motion.div>
@@ -214,7 +214,7 @@ export default function Contact({ isActive }: { isActive?: boolean }) {
                   <input
                     type="text"
                     placeholder="Full Name"
-                    className="w-full bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-white/20 focus:outline-none focus:border-brand-blue focus:shadow-[0_0_20px_rgba(0,112,243,0.15)] transition-all"
+                    className="w-full bg-white/3 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-white/20 focus:outline-none focus:border-brand-blue focus:shadow-[0_0_20px_rgba(0,112,243,0.15)] transition-all"
                   />
                 </div>
                 <div className="space-y-1.5">
@@ -224,7 +224,7 @@ export default function Contact({ isActive }: { isActive?: boolean }) {
                   <input
                     type="email"
                     placeholder="Email Address"
-                    className="w-full bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-white/20 focus:outline-none focus:border-brand-blue focus:shadow-[0_0_20px_rgba(0,112,243,0.15)] transition-all"
+                    className="w-full bg-white/3 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-white/20 focus:outline-none focus:border-brand-blue focus:shadow-[0_0_20px_rgba(0,112,243,0.15)] transition-all"
                   />
                 </div>
               </motion.div>
@@ -242,14 +242,14 @@ export default function Contact({ isActive }: { isActive?: boolean }) {
                   <input
                     type="text"
                     placeholder="Organization"
-                    className="w-full bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-white/20 focus:outline-none focus:border-brand-blue focus:shadow-[0_0_20px_rgba(0,112,243,0.15)] transition-all"
+                    className="w-full bg-white/3 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-white/20 focus:outline-none focus:border-brand-blue focus:shadow-[0_0_20px_rgba(0,112,243,0.15)] transition-all"
                   />
                 </div>
                 <div className="space-y-1.5">
                   <label className="text-[9px] font-bold uppercase tracking-widest text-white/30 ml-1">
                     Subject
                   </label>
-                  <select className="w-full bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3 text-sm text-white/70 focus:outline-none focus:border-brand-blue focus:shadow-[0_0_20px_rgba(0,112,243,0.15)] transition-all appearance-none">
+                  <select className="w-full bg-white/3 border border-white/10 rounded-xl px-4 py-3 text-sm text-white/70 focus:outline-none focus:border-brand-blue focus:shadow-[0_0_20px_rgba(0,112,243,0.15)] transition-all appearance-none">
                     <option className="bg-dark-bg">Project Collaboration</option>
                     <option className="bg-dark-bg">Regulatory Strategy</option>
                     <option className="bg-dark-bg">R&D Partnership</option>
@@ -270,7 +270,7 @@ export default function Contact({ isActive }: { isActive?: boolean }) {
                 <textarea
                   rows={4}
                   placeholder="Describe your project or inquiry..."
-                  className="w-full h-full min-h-[100px] bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-white/20 focus:outline-none focus:border-brand-blue focus:shadow-[0_0_20px_rgba(0,112,243,0.15)] transition-all resize-none"
+                  className="w-full h-full min-h-25 bg-white/3 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-white/20 focus:outline-none focus:border-brand-blue focus:shadow-[0_0_20px_rgba(0,112,243,0.15)] transition-all resize-none"
                 />
               </motion.div>
 

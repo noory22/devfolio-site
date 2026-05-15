@@ -3,7 +3,7 @@ import { motion } from "motion/react";
 const navItems = [
   { name: "Intro", index: 0 },
   { name: "Services", index: 8 },
-  { name: "Product", index: 16 },
+  // { name: "Product", index: 16 },
 ];
 
 const containerVariants = {

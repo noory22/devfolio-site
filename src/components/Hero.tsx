@@ -49,7 +49,7 @@ export default function Hero({ isActive }: { isActive?: boolean }) {
         initial={{ scale: 0, opacity: 0 }}
         animate={{ scale: 3, opacity: [0, 0.15, 0] }}
         transition={{ duration: 1.5, ease: "easeOut" }}
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] rounded-full bg-brand-blue/30 pointer-events-none"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-75 h-75 rounded-full bg-brand-blue/30 pointer-events-none"
       />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10 text-center">

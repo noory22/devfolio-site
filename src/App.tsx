@@ -4,11 +4,11 @@ import Hero from "./components/Hero";
 import Mission from "./components/Mission";
 import Capabilities from "./components/Capabilities";
 import Labs from "./components/Labs";
-import Regulatory from "./components/Regulatory";
+// import Regulatory from "./components/Regulatory";
 import Contact from "./components/Contact";
 import { motion, AnimatePresence } from "motion/react";
 
-const TOTAL_SLIDES = 20;
+const TOTAL_SLIDES = 17;
 
 // --- Unique transition variants per slide ---
 const slideTransitions = [
@@ -42,13 +42,7 @@ const slideTransitions = [
     animate: { opacity: 1, scale: 1, transition: { duration: 0.8 } },
     exit: { opacity: 0, scale: 1.2, transition: { duration: 0.5 } },
   },
-  // 5: Pak Facility
-  {
-    initial: { opacity: 0, y: 100 },
-    animate: { opacity: 1, y: 0, transition: { duration: 0.8 } },
-    exit: { opacity: 0, y: -100, transition: { duration: 0.5 } },
-  },
-  // 6: US Facility
+  // 5: Global Locations
   {
     initial: { opacity: 0, y: 100 },
     animate: { opacity: 1, y: 0, transition: { duration: 0.8 } },
@@ -109,23 +103,23 @@ const slideTransitions = [
     exit: { opacity: 0, scale: 0.8, transition: { duration: 0.6 } },
   },
   // 16: Products Intro
-  {
-    initial: { opacity: 0, y: "100vh" },
-    animate: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.77, 0, 0.175, 1] as [number, number, number, number] } },
-    exit: { opacity: 0, y: "-100vh", transition: { duration: 0.6 } },
-  },
+  // {
+  //   initial: { opacity: 0, y: "100vh" },
+  //   animate: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.77, 0, 0.175, 1] as [number, number, number, number] } },
+  //   exit: { opacity: 0, y: "-100vh", transition: { duration: 0.6 } },
+  // },
   // 17: RPM Demo Showcase
-  {
-    initial: { opacity: 0, scale: 0.95 },
-    animate: { opacity: 1, scale: 1, transition: { duration: 0.5 } },
-    exit: { opacity: 0, transition: { duration: 0.3 } },
-  },
+  // {
+  //   initial: { opacity: 0, scale: 0.95 },
+  //   animate: { opacity: 1, scale: 1, transition: { duration: 0.5 } },
+  //   exit: { opacity: 0, transition: { duration: 0.3 } },
+  // },
   // 18: Pricing
-  {
-    initial: { opacity: 0, x: -100 },
-    animate: { opacity: 1, x: 0, transition: { duration: 0.8, ease: [0.33, 1, 0.68, 1] as [number, number, number, number] } },
-    exit: { opacity: 0, x: 100, transition: { duration: 0.5 } },
-  },
+  // {
+  //   initial: { opacity: 0, x: -100 },
+  //   animate: { opacity: 1, x: 0, transition: { duration: 0.8, ease: [0.33, 1, 0.68, 1] as [number, number, number, number] } },
+  //   exit: { opacity: 0, x: 100, transition: { duration: 0.5 } },
+  // },
   // 19: Thank You
   {
     initial: { opacity: 0, clipPath: "inset(50% 0% 50% 0%)" },
@@ -144,8 +138,7 @@ const slideComponents = [
   Content.SoftwareTeam,
   Content.RMTBackground,
   Content.OurCompany,
-  Content.PakFacility,
-  Content.USFacility,
+  Content.GlobalLocations,
   Content.AnimatedMap,
   Content.ServicesIntro,
   Content.ServicesCategories,
@@ -154,10 +147,10 @@ const slideComponents = [
   Content.Cat3Details,
   Content.Cat5Details,
   Content.Cat4Details,
-  Regulatory,
-  Content.ProductsIntro,
-  Content.RPMDemo,
-  Content.Pricing,
+  // Regulatory,
+  // Content.ProductsIntro,
+  // Content.RPMDemo,
+  // Content.Pricing,
   Content.ThankYou
 ];
 
@@ -179,26 +172,23 @@ function getDirectionVariants(slideIndex: number, direction: number) {
 import * as Backgrounds from "./components/Backgrounds";
 
 const BackgroundMapping = [
-  Backgrounds.BubblesBG,
-  Backgrounds.AuroraBG,
-  Backgrounds.TechNetworkBG,
-  Backgrounds.FloatingCubesBG,
-  Backgrounds.AuroraBG,
-  Backgrounds.DNAHelixBG,
-  Backgrounds.GridPulseBG,
-  Backgrounds.FloatingCubesBG,
-  Backgrounds.AuroraBG, // Services Intro
-  () => null, // Categories (Medical Solutions)
-  Backgrounds.TechNetworkBG, // Cat 1
-  Backgrounds.FloatingCubesBG, // Cat 2
-  Backgrounds.AuroraBG, // Cat 3
-  Backgrounds.DNAHelixBG, // Cat 5
-  Backgrounds.GridPulseBG, // Cat 4
-  Backgrounds.CyberGridBG, // Regulatory
-  Backgrounds.AuroraBG, // Products Intro
-  Backgrounds.TechNetworkBG, // RPM Demo Showcase
-  Backgrounds.DNAHelixBG, // Pricing
-  Backgrounds.AuroraBG, // Thank You
+  Backgrounds.BubblesBG,      // 0: Hero
+  Backgrounds.AuroraBG,       // 1: CEO Intro
+  Backgrounds.TechNetworkBG,  // 2: Software Team
+  Backgrounds.FloatingCubesBG,// 3: RMT Background
+  Backgrounds.AuroraBG,       // 4: Our Company
+  Backgrounds.DNAHelixBG,     // 5: Global Locations (Merged)
+  Backgrounds.GridPulseBG,    // 6: Animated Map
+  Backgrounds.AuroraBG,       // 7: Services Intro
+  () => null,                 // 8: Categories
+  Backgrounds.TechNetworkBG,  // 9: Cat 1
+  Backgrounds.FloatingCubesBG,// 10: Cat 2
+  Backgrounds.AuroraBG,       // 11: Cat 3
+  Backgrounds.DNAHelixBG,     // 12: Cat 5
+  Backgrounds.GridPulseBG,    // 13: Cat 4
+  // Backgrounds.TechNetworkBG,  // 14: RPM Demo Showcase
+  // Backgrounds.DNAHelixBG,     // 15: Pricing
+  Backgrounds.AuroraBG,       // 16: Thank You
 ];
 
 import { ChevronLeft, ChevronRight, ChevronUp, ChevronDown } from "lucide-react";
@@ -215,9 +205,9 @@ export default function App() {
   const isServices = currentSlide >= 8 && currentSlide <= 15;
 
   const getCategoryRange = (index: number) => {
-    if (index < 8) return [0, 7];     // Intro
-    if (index < 16) return [8, 15];    // Services
-    return [16, 19];                  // Products
+    if (index < 7) return [0, 6];      // Intro (Slides 1-7)
+    if (index < 15) return [7, 14];     // Services (Slides 8-15)
+    return [15, 16];                   // Products (Slides 16-17)
   };
 
   const [min, max] = getCategoryRange(currentSlide);
@@ -320,7 +310,7 @@ export default function App() {
 
 
       {/* Progress Bar */}
-      <div className="fixed top-0 left-0 right-0 h-1 bg-white/10 z-[60]">
+      <div className="fixed top-0 left-0 right-0 h-1 bg-white/10 z-60">
         <motion.div
           className="h-full bg-brand-blue origin-left"
           animate={{ width: `${progressPercent}%` }}
@@ -341,12 +331,16 @@ export default function App() {
             initial={currentVariants.initial}
             animate={currentVariants.animate}
             exit={currentVariants.exit}
-            className="w-screen h-screen flex-shrink-0 overflow-hidden flex items-center justify-center relative z-10"
+            className="w-screen h-screen shrink-0 overflow-hidden flex items-center justify-center relative z-10"
             style={{ transformStyle: "preserve-3d" }}
           >
             <CurrentSlideComponent
               isActive={true}
-              onSelect={currentSlide === 9 ? (idx: number) => navigateTo(idx) : undefined}
+              onSelect={(idx: number) => {
+                if (currentSlide === 8) {
+                  navigateTo(idx);
+                }
+              }}
             />
           </motion.section>
         </AnimatePresence>

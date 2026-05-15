@@ -46,7 +46,7 @@ export const TechNetworkBG = () => (
         {[...Array(15)].map((_, i) => (
             <motion.div
                 key={i}
-                className="absolute h-px bg-gradient-to-r from-transparent via-brand-cyan/50 to-transparent w-64"
+                className="absolute h-px bg-linear-to-r from-transparent via-brand-cyan/50 to-transparent w-64"
                 style={{
                     top: `${Math.random() * 100}%`,
                     left: `${Math.random() * 100}%`,
@@ -148,7 +148,7 @@ export const GridPulseBG = () => (
                 scale: [0.8, 1.2, 0.8],
             }}
             transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
-            className="absolute inset-0 bg-gradient-to-b from-brand-blue/10 to-transparent"
+            className="absolute inset-0 bg-linear-to-b from-brand-blue/10 to-transparent"
         />
     </div>
 );
@@ -180,19 +180,19 @@ export const GlowingWavesBG = () => (
 
 export const CyberGridBG = () => (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute inset-0 opacity-20 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px]" />
+        <div className="absolute inset-0 opacity-20 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-size-[40px_40px]" />
         <motion.div 
             animate={{
                 opacity: [0.1, 0.3, 0.1],
                 scale: [1, 1.1, 1],
             }}
             transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
-            className="absolute inset-0 bg-gradient-to-tr from-brand-blue/5 via-transparent to-brand-cyan/5"
+            className="absolute inset-0 bg-linear-to-tr from-brand-blue/5 via-transparent to-brand-cyan/5"
         />
         {[...Array(5)].map((_, i) => (
             <motion.div
                 key={i}
-                className="absolute h-px w-full bg-gradient-to-r from-transparent via-brand-cyan/30 to-transparent"
+                className="absolute h-px w-full bg-linear-to-r from-transparent via-brand-cyan/30 to-transparent"
                 style={{ top: `${20 * i + 10}%` }}
                 animate={{
                     x: ['-100%', '100%'],

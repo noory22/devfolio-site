@@ -1,12 +1,5 @@
 import { motion } from "motion/react";
-import {
-  FileText,
-  Shield,
-  CheckCircle,
-  Lock,
-  Globe,
-  Award,
-} from "lucide-react";
+import {FileText,Shield,CheckCircle,Lock,Globe,Award,} from "lucide-react";
 import { useState } from "react";
 
 const standards = [
@@ -87,7 +80,7 @@ function FlipCard({
         stiffness: 60,
         damping: 14,
       }}
-      className="relative aspect-[3/4] w-full cursor-pointer"
+      className="relative aspect-3/4 w-full cursor-pointer"
       style={{ perspective: "1000px" }}
       onMouseEnter={() => setFlipped(true)}
       onMouseLeave={() => setFlipped(false)}
@@ -117,7 +110,7 @@ function FlipCard({
                 repeat: Infinity,
                 delay: index * 0.4,
               }}
-              className={`w-14 h-14 rounded-xl bg-gradient-to-br ${std.gradient} flex items-center justify-center shadow-lg`}
+              className={`w-14 h-14 rounded-xl bg-linear-to-br ${std.gradient} flex items-center justify-center shadow-lg`}
             >
               <std.icon className="w-7 h-7 text-white" />
             </motion.div>
@@ -164,7 +157,7 @@ function FlipCard({
             style={{ background: std.color }}
           />
           <div
-            className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${std.gradient} flex items-center justify-center shadow-xl mb-4 relative z-10`}
+            className={`w-16 h-16 rounded-2xl bg-linear-to-br ${std.gradient} flex items-center justify-center shadow-xl mb-4 relative z-10`}
           >
             <std.icon className="w-8 h-8 text-white" />
           </div>
@@ -190,7 +183,7 @@ export default function Regulatory({ isActive }: { isActive?: boolean }) {
       className="h-screen w-screen flex flex-col justify-center bg-dark-bg relative overflow-hidden"
     >
       <div className="absolute inset-0 bg-grid opacity-10" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-brand-blue/8 blur-[150px] rounded-full pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-175 h-175 bg-brand-blue/8 blur-[150px] rounded-full pointer-events-none" />
 
       <div className="w-full h-full flex flex-col justify-center px-6 md:px-16 pt-24 overflow-hidden">
         {/* Centered Header — zoom out entrance */}
@@ -205,7 +198,7 @@ export default function Regulatory({ isActive }: { isActive?: boolean }) {
               initial={{ width: 0 }}
               animate={{ width: 40 }}
               transition={{ delay: 0.3, duration: 0.4 }}
-              className="h-[1px] bg-brand-blue"
+              className="h-px bg-brand-blue"
             />
             <span className="text-brand-blue font-bold tracking-[0.3em] uppercase text-[10px]">
               Compliance
@@ -214,12 +207,12 @@ export default function Regulatory({ isActive }: { isActive?: boolean }) {
               initial={{ width: 0 }}
               animate={{ width: 40 }}
               transition={{ delay: 0.3, duration: 0.4 }}
-              className="h-[1px] bg-brand-blue"
+              className="h-px bg-brand-blue"
             />
           </div>
           <h2 className="text-5xl md:text-7xl font-display font-bold tracking-tighter leading-none mb-4">
             The{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-blue to-brand-cyan">
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-brand-blue to-brand-cyan">
               Vault
             </span>{" "}
             of Trust

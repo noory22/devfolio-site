@@ -60,7 +60,7 @@
 }
 
 .glass {
-  @apply bg-white/[0.03] border border-white/[0.08];
+  @apply bg-white/3 border border-white/8;
 }
 
 .glass-dark {
@@ -68,7 +68,7 @@
 }
 
 .card-border-animated {
-  @apply relative p-[1px] overflow-hidden rounded-3xl;
+  @apply relative p-px overflow-hidden rounded-3xl;
 }
 
 .card-border-animated::before {
@@ -87,7 +87,7 @@
 }
 
 .text-gradient {
-  @apply bg-clip-text text-transparent bg-gradient-to-r from-brand-blue via-brand-cyan to-brand-blue bg-[length:200%_auto] animate-gradient;
+  @apply bg-clip-text text-transparent bg-linear-to-r from-brand-blue via-brand-cyan to-brand-blue bg-size-[200%_auto] animate-gradient;
 }
 
 .bg-grid {

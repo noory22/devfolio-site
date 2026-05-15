@@ -58,7 +58,7 @@ export const AboutUs = ({ ...props }) => (
             <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
-                className="glass-dark p-8 rounded-[2rem] border border-white/10"
+                className="glass-dark p-8 rounded-4xl border border-white/10"
             >
                 <div className="aspect-square bg-brand-blue/10 rounded-xl flex items-center justify-center border border-brand-blue/20 overflow-hidden">
                     <motion.div
@@ -95,7 +95,7 @@ export const Expertise = () => (
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: i * 0.1, duration: 0.5 }}
-                    className="relative group p-[1px] rounded-3xl overflow-hidden bg-white/5 shadow-[0_0_20px_rgba(0,112,243,0.1)]"
+                    className="relative group p-px rounded-3xl overflow-hidden bg-white/5 shadow-[0_0_20px_rgba(0,112,243,0.1)]"
                 >
                     {/* Rotating Border - Always Visible */}
                     <motion.div
@@ -146,7 +146,7 @@ export const SoftwareTeam = () => {
                             <img
                                 src={`/assets/${member.image}`}
                                 alt={member.name}
-                                className={`w-full h-full object-cover transition-all duration-700 ${activeIdx === i ? 'grayscale-0 opacity-100 scale-110' : 'grayscale opacity-70 group-hover:grayscale-[30%] group-hover:opacity-100'}`}
+                                className="w-full h-full object-cover transition-all duration-700 grayscale-0 opacity-100"
                             />
                         </div>
                         <h3 className="text-base md:text-lg font-bold text-white group-hover:text-brand-cyan transition-colors">{member.name}</h3>
@@ -167,16 +167,16 @@ export const CEOIntro = () => {
             <SubHeading>LEADERSHIP</SubHeading>
             <Heading gradient>Chief Executive Officer</Heading>
             <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 items-center">
-                <div className="md:col-span-5 lg:col-span-4 relative group max-w-[260px] md:max-w-[300px] mx-auto w-full">
+                <div className="md:col-span-5 lg:col-span-4 relative group max-w-65 md:max-w-75 mx-auto w-full">
                     <div
-                        className="relative rounded-2xl overflow-hidden aspect-[3/4] md:aspect-[3/4] lg:aspect-[3/4] bg-[#0a0a0a] cursor-pointer shadow-[0_0_20px_rgba(0,223,216,0.05)] group-hover:shadow-[0_0_30px_rgba(0,223,216,0.15)] transition-shadow duration-500"
+                        className="relative rounded-2xl overflow-hidden aspect-3/4 md:aspect-3/4 lg:aspect-3/4 bg-dark-surface cursor-pointer shadow-[0_0_20px_rgba(0,223,216,0.05)] group-hover:shadow-[0_0_30px_rgba(0,223,216,0.15)] transition-shadow duration-500"
                         onClick={() => setIsActive(!isActive)}
                     >
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent z-10" />
+                        <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/20 to-transparent z-10" />
                         <img
                             src="/assets/dr.murtaza.jpg"
                             alt="Prof Dr Murtaza Najabat Ali"
-                            className={`w-full h-full object-cover transition-all duration-700 ${isActive ? 'grayscale-0 opacity-100 scale-105' : 'grayscale opacity-80 group-hover:grayscale-[30%] group-hover:opacity-100'}`}
+                            className="w-full h-full object-cover transition-all duration-700 grayscale-0 opacity-100"
                         />
                         <div className="absolute bottom-6 left-6 right-6 z-20">
                             <h3 className="text-xl md:text-2xl font-bold text-white tracking-tight">Prof Dr Murtaza Najabat Ali</h3>
@@ -240,13 +240,13 @@ export const RMTBackground = () => (
                 </div>
             </div>
             <div className="relative group lg:h-full flex items-center">
-                <div className="glass-dark rounded-[2rem] md:rounded-[3rem] border border-white/10 overflow-hidden w-full aspect-square md:aspect-video lg:aspect-auto lg:h-[80%] flex items-center justify-center relative">
+                <div className="glass-dark rounded-4xl md:rounded-[3rem] border border-white/10 overflow-hidden w-full aspect-square md:aspect-video lg:aspect-auto lg:h-[80%] flex items-center justify-center relative">
                     <img src="/assets/leagacy.png" alt="RMT Legacy" className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-700 group-hover:scale-105" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
+                    <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
                     <motion.div
                         animate={{ scale: [1, 1.05, 1], opacity: [0.3, 0.5, 0.3] }}
                         transition={{ duration: 5, repeat: Infinity }}
-                        className="absolute inset-4 border border-brand-cyan/20 rounded-[1.5rem] md:rounded-[2.5rem] pointer-events-none"
+                        className="absolute inset-4 border border-brand-cyan/20 rounded-3xl md:rounded-[2.5rem] pointer-events-none"
                     />
                 </div>
             </div>
@@ -271,9 +271,9 @@ export const OurCompany = () => (
                 <motion.div
                     key={i}
                     whileHover={{ y: -10 }}
-                    className="glass-dark p-8 md:p-10 rounded-[2rem] md:rounded-[2.5rem] border border-white/10 relative overflow-hidden group text-left sm:text-center"
+                    className="glass-dark p-8 md:p-10 rounded-4xl md:rounded-[2.5rem] border border-white/10 relative overflow-hidden group text-left sm:text-center"
                 >
-                    <div className="absolute top-0 right-0 p-6 md:p-8 text-4xl md:text-6xl font-bold text-white/[0.03] group-hover:text-brand-cyan/10 transition-colors">0{i + 1}</div>
+                    <div className="absolute top-0 right-0 p-6 md:p-8 text-4xl md:text-6xl font-bold text-white/3 group-hover:text-brand-cyan/10 transition-colors">0{i + 1}</div>
                     <h3 className="text-xl md:text-2xl font-bold mb-4 text-brand-cyan">{wing.title}</h3>
                     <p className="text-white/50 text-sm md:text-base leading-relaxed">{wing.desc}</p>
                 </motion.div>
@@ -282,70 +282,84 @@ export const OurCompany = () => (
     </Container>
 );
 
-// 6. Pak Facility
-export const PakFacility = () => (
+// 6. Global Locations
+export const GlobalLocations = () => (
     <Container>
-        <SubHeading>Off-Shore Facility</SubHeading>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-12 items-center">
-            <div className="order-2 lg:order-1 relative group">
-                <div className="glass-dark rounded-[2rem] md:rounded-[3rem] border border-white/10 overflow-hidden aspect-video lg:aspect-square flex items-center justify-center relative">
-                    <img src="/assets/pak-facility.png" alt="Pakistan Facility" className="w-full h-full object-cover object-left-top opacity-80 group-hover:opacity-100 transition-opacity duration-700 group-hover:scale-105" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
-                    <div className="absolute bottom-6 left-6 right-6 md:bottom-10 md:left-10 text-left pointer-events-none">
-                        <div className="text-brand-cyan text-3xl md:text-5xl mb-2 lg:mb-4">🇵🇰</div>
-                        <h3 className="text-xl md:text-3xl font-bold text-white mb-1">Islamabad</h3>
-                        <p className="text-brand-cyan/80 font-mono text-xs tracking-widest uppercase">R&D and Production</p>
-                    </div>
-                </div>
-            </div>
-            <div className="order-1 lg:order-2">
-                <Heading gradient>Pakistan Facility</Heading>
-                <p className="text-lg md:text-xl text-white/60 font-light leading-relaxed mb-6 md:mb-8">
-                    Our state-of-the-art facility in Islamabad serves as our primary off-shore R&D and production hub, featuring advanced laboratories and certified cleanrooms.
-                </p>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    {["Biomaterials Lab", "Software & AI Suite", "ISO Class Cleanrooms", "Mechanical Workshop"].map((item, i) => (
-                        <div key={i} className="flex items-center gap-3 text-white/80">
-                            <div className="w-1.5 h-1.5 rounded-full bg-brand-cyan" />
-                            <span className="font-medium text-sm md:text-base">{item}</span>
-                        </div>
-                    ))}
-                </div>
-            </div>
+        <div className="text-center mb-8 md:mb-12">
+            <SubHeading>OUR LOCATIONS</SubHeading>
+            {/* <Heading gradient className="text-3xl md:text-5xl">Global Strategic Presence</Heading> */}
         </div>
-    </Container>
-);
-
-// 7. US Facility
-export const USFacility = () => (
-    <Container>
-        <SubHeading>Head Office</SubHeading>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-12 items-center">
-            <div>
-                <Heading gradient>United States Headquarters</Heading>
-                <p className="text-lg md:text-xl text-white/60 font-light leading-relaxed mb-6 md:mb-8">
-                    Our global headquarters in Minnesota oversees our international operations, regulatory compliance, and strategic partnerships.
-                </p>
-                <div className="glass-dark p-6 md:p-8 rounded-2xl md:rounded-3xl border border-white/10">
-                    <h3 className="text-brand-blue font-bold uppercase tracking-widest text-xs md:text-sm mb-3 md:mb-4">Location</h3>
-                    <p className="text-white/80 text-sm md:text-base">
-                        Saint Cloud Office<br />
-                        Edgewater Business Centre<br />
-                        Sartell, Minnesota, USA
-                    </p>
-                </div>
-            </div>
-            <div className="relative group">
-                <div className="glass-dark rounded-[2rem] md:rounded-[3rem] border border-white/10 overflow-hidden aspect-video lg:aspect-square flex items-center justify-center relative">
-                    <img src="/assets/us-facility.png" alt="United States Facility" className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-700 group-hover:scale-105" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
-                    <div className="absolute bottom-6 left-6 right-6 md:bottom-10 md:left-10 text-left pointer-events-none">
-                        <div className="text-brand-blue text-3xl md:text-5xl mb-2 lg:mb-4">🇺🇸</div>
-                        <h3 className="text-xl md:text-3xl font-bold text-white mb-1">Minnesota</h3>
-                        <p className="text-brand-blue/80 font-mono text-xs tracking-widest uppercase">Global Headquarters</p>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-stretch">
+            {/* Pakistan Facility */}
+            <motion.div 
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                className="relative group h-full"
+            >
+                <div className="glass-dark rounded-3xl md:rounded-[2.5rem] border border-white/10 overflow-hidden flex flex-col h-full transition-all duration-500 hover:border-brand-cyan/30">
+                    <div className="relative aspect-video overflow-hidden shrink-0">
+                        <img src="/assets/pak-facility.png" alt="Pakistan Facility" className="w-full h-full object-cover object-top-left opacity-80 group-hover:opacity-100 transition-opacity duration-700 group-hover:scale-105" />
+                        <div className="absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
+                        <div className="absolute bottom-4 left-6 text-left pointer-events-none">
+                            <div className="text-brand-cyan text-2xl md:text-4xl mb-1">🇵🇰</div>
+                            <h3 className="text-xl md:text-2xl font-bold text-white">Islamabad</h3>
+                            <p className="text-brand-cyan/80 font-mono text-[10px] tracking-widest uppercase">R&D and Production Hub</p>
+                        </div>
+                    </div>
+                    <div className="p-6 md:p-8 flex flex-col grow justify-between">
+                        <div>
+                            <Heading gradient className="text-xl md:text-2xl mb-4">Pakistan R&D Facility</Heading>
+                            <p className="text-sm md:text-base text-white/50 font-light leading-relaxed mb-6">
+                                Our primary off-shore R&D and production hub, featuring advanced laboratories and certified cleanrooms for medical device innovation.
+                            </p>
+                            <div className="grid grid-cols-2 gap-3">
+                                {["Biomaterials Lab", "Software & AI Suite", "ISO Cleanrooms", "Mechanical Workshop"].map((item, i) => (
+                                    <div key={i} className="flex items-center gap-2 text-white/70">
+                                        <div className="w-1 h-1 rounded-full bg-brand-cyan" />
+                                        <span className="font-medium text-xs md:text-sm">{item}</span>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </motion.div>
+
+            {/* US Headquarters */}
+            <motion.div 
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                className="relative group h-full"
+            >
+                <div className="glass-dark rounded-3xl md:rounded-[2.5rem] border border-white/10 overflow-hidden flex flex-col h-full transition-all duration-500 hover:border-brand-blue/30">
+                    <div className="relative aspect-video overflow-hidden shrink-0">
+                        <img src="/assets/us-facility.png" alt="United States Facility" className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-700 group-hover:scale-105" />
+                        <div className="absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
+                        <div className="absolute bottom-4 left-6 text-left pointer-events-none">
+                            <div className="text-brand-blue text-2xl md:text-4xl mb-1">🇺🇸</div>
+                            <h3 className="text-xl md:text-2xl font-bold text-white">Minnesota</h3>
+                            <p className="text-brand-blue/80 font-mono text-[10px] tracking-widest uppercase">Global Headquarters</p>
+                        </div>
+                    </div>
+                    <div className="p-6 md:p-8 flex flex-col grow justify-between">
+                        <div>
+                            <Heading gradient className="text-xl md:text-2xl mb-4">United States Headquarters</Heading>
+                            <p className="text-sm md:text-base text-white/50 font-light leading-relaxed mb-6">
+                                Our Minnesota-based headquarters oversees global operations, ensuring regulatory excellence and managing strategic international partnerships.
+                            </p>
+                            <div className="bg-white/5 p-4 rounded-xl border border-white/10">
+                                <h4 className="text-brand-blue font-bold uppercase tracking-widest text-[10px] mb-2">Primary Office</h4>
+                                <p className="text-white/70 text-xs md:text-sm leading-relaxed">
+                                    Saint Cloud Office, Edgewater Business Centre<br />
+                                    Sartell, Minnesota, USA
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </motion.div>
         </div>
     </Container>
 );
@@ -548,14 +562,14 @@ export const AnimatedMap = () => {
                             <div className="absolute right-full mr-2 md:mr-4 flex-row items-center whitespace-nowrap hidden sm:flex">
                                 <div className="text-right mr-2 md:mr-4 bg-black/60 p-3 lg:p-4 rounded-xl border border-white/10 backdrop-blur-md shadow-[0_0_30px_rgba(0,112,243,0.15)]">
                                     <p className="text-brand-cyan font-bold text-sm md:text-xl lg:text-2xl leading-tight mb-1">Head Office</p>
-                                    <p className="text-white text-[10px] md:text-xs lg:text-sm leading-snug font-medium text-white/80 italic">in Saint Cloud<br />Edgewater Business Centre<br />Sartell, Minnesota, USA</p>
+                                    <p className="text-white text-[10px] md:text-xs lg:text-sm leading-snug font-medium italic">in Saint Cloud<br />Edgewater Business Centre<br />Sartell, Minnesota, USA</p>
                                 </div>
                                 <div className="w-4 md:w-16 h-px bg-brand-cyan" />
                                 <div className="w-1.5 h-1.5 rounded-full bg-brand-cyan -ml-1 shadow-[0_0_10px_#00dfd8]" />
                             </div>
 
                             <div className="relative flex items-center justify-center">
-                                <motion.div animate={{ scale: [1, 2.5, 1], opacity: [0.6, 0, 0.6] }} transition={{ duration: 2, repeat: Infinity }} className="absolute inset-[-6px] border border-brand-cyan rounded-full" />
+                                <motion.div animate={{ scale: [1, 2.5, 1], opacity: [0.6, 0, 0.6] }} transition={{ duration: 2, repeat: Infinity }} className="absolute -inset-1.5 border border-brand-cyan rounded-full" />
                                 <div className="w-5 h-5 bg-red-600 rounded-full relative z-10 shadow-[0_0_20px_rgba(239,68,68,0.8)] border-[3px] border-white flex items-center justify-center group-hover:scale-125 transition-transform">
                                     <div className="w-1.5 h-1.5 bg-white rounded-full"></div>
                                 </div>
@@ -570,7 +584,7 @@ export const AnimatedMap = () => {
                             className="absolute top-[48%] md:top-[45%] left-[66%] md:left-[68%] -translate-x-1/2 -translate-y-1/2 flex items-center z-30 group"
                         >
                             <div className="relative flex items-center justify-center">
-                                <motion.div animate={{ scale: [1, 2.5, 1], opacity: [0.6, 0, 0.6] }} transition={{ duration: 2, repeat: Infinity, delay: 1 }} className="absolute inset-[-6px] border border-brand-cyan rounded-full" />
+                                <motion.div animate={{ scale: [1, 2.5, 1], opacity: [0.6, 0, 0.6] }} transition={{ duration: 2, repeat: Infinity, delay: 1 }} className="absolute -inset-1.5 border border-brand-cyan rounded-full" />
                                 <div className="w-5 h-5 bg-red-600 rounded-full relative z-10 shadow-[0_0_20px_rgba(239,68,68,0.8)] border-[3px] border-white flex items-center justify-center group-hover:scale-125 transition-transform">
                                     <div className="w-1.5 h-1.5 bg-white rounded-full"></div>
                                 </div>
@@ -604,87 +618,87 @@ export const ServicesIntro = () => (
 );
 
 // 12. Products Intro
-export const ProductsIntro = () => (
-    <Container className="text-center items-center">
-        <SubHeading>PRODUCTS</SubHeading>
-        <Heading gradient>Innovative Software Solutions for Modern Healthcare</Heading>
-        <p className="max-w-4xl text-lg md:text-xl text-white/50 font-light leading-relaxed">
-            Our suite of specialized products empowers medical professionals, streamlines clinical workflows, and enhances patient engagement. From care management software to advanced remote diagnostics, our platforms are engineered to meet the highest regulatory standards while delivering exceptional performance and reliability.
-        </p>
-    </Container>
-);
+// export const ProductsIntro = () => (
+//     <Container className="text-center items-center">
+//         <SubHeading>PRODUCTS</SubHeading>
+//         <Heading gradient>Innovative Software Solutions for Modern Healthcare</Heading>
+//         <p className="max-w-4xl text-lg md:text-xl text-white/50 font-light leading-relaxed">
+//             Our suite of specialized products empowers medical professionals, streamlines clinical workflows, and enhances patient engagement. From care management software to advanced remote diagnostics, our platforms are engineered to meet the highest regulatory standards while delivering exceptional performance and reliability.
+//         </p>
+//     </Container>
+// );
 
 // 12.5 RPM Demo Showcase
-export const RPMDemo = () => (
-    <Container className="text-center items-center justify-center py-6">
-        <div className="mb-4">
-            <SubHeading>RPM DEMO</SubHeading>
-            <Heading gradient>Remote Patient Monitoring</Heading>
-        </div>
+// export const RPMDemo = () => (
+//     <Container className="text-center items-center justify-center py-6">
+//         <div className="mb-4">
+//             <SubHeading>RPM DEMO</SubHeading>
+//             <Heading gradient>Remote Patient Monitoring</Heading>
+//         </div>
 
-        <div className="flex flex-col lg:flex-row items-center justify-center gap-4 lg:gap-8 max-w-7xl mx-auto w-full px-4 group h-auto">
-            {/* Desktop Dashboard Link - Left (Wider) */}
-            <motion.div
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8 }}
-                className="w-full lg:w-[60%] flex flex-col"
-            >
-                <a
-                    href="https://rpm-demo-eta.vercel.app/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block relative rounded-[1.5rem] overflow-hidden border border-white/10 shadow-2xl transition-all duration-700 hover:border-brand-blue/40 hover:shadow-brand-blue/20 group/link h-full"
-                >
-                    <div className="absolute inset-0 bg-gradient-to-tr from-brand-blue/10 to-transparent opacity-0 group-hover/link:opacity-100 transition-opacity duration-500 z-10" />
-                    <img
-                        src="/assets/rpm-img.png"
-                        alt="RPM Demo Dashboard"
-                        loading="eager"
-                        className="w-full h-auto max-h-[35vh] lg:max-h-[42vh] object-cover lg:object-fill transform transition-transform duration-1000 group-hover/link:scale-[1.02]"
-                    />
-                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover/link:opacity-100 transition-all duration-500 z-20 scale-90 group-hover/link:scale-100">
-                        <div className="px-5 py-2.5 bg-black/60 backdrop-blur-xl border border-white/20 rounded-full flex items-center gap-2.5 shadow-2xl">
-                            <span className="text-white font-bold tracking-[0.2em] uppercase text-[9px]">Dashboard Demo</span>
-                            <ExternalLink size={14} className="text-brand-blue" />
-                        </div>
-                    </div>
-                </a>
-            </motion.div>
+//         <div className="flex flex-col lg:flex-row items-center justify-center gap-4 lg:gap-8 max-w-7xl mx-auto w-full px-4 group h-auto">
+//             {/* Desktop Dashboard Link - Left (Wider) */}
+//             <motion.div
+//                 initial={{ opacity: 0, x: -30 }}
+//                 whileInView={{ opacity: 1, x: 0 }}
+//                 transition={{ duration: 0.8 }}
+//                 className="w-full lg:w-[60%] flex flex-col"
+//             >
+//                 <a
+//                     href="https://rpm-demo-eta.vercel.app/"
+//                     target="_blank"
+//                     rel="noopener noreferrer"
+//                     className="block relative rounded-3xl overflow-hidden border border-white/10 shadow-2xl transition-all duration-700 hover:border-brand-blue/40 hover:shadow-brand-blue/20 group/link h-full"
+//                 >
+//                     <div className="absolute inset-0 bg-linear-to-tr from-brand-blue/10 to-transparent opacity-0 group-hover/link:opacity-100 transition-opacity duration-500 z-10" />
+//                     <img
+//                         src="/assets/rpm-img.png"
+//                         alt="RPM Demo Dashboard"
+//                         loading="eager"
+//                         className="w-full h-auto max-h-[35vh] lg:max-h-[42vh] object-cover lg:object-fill transform transition-transform duration-1000 group-hover/link:scale-[1.02]"
+//                     />
+//                     <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover/link:opacity-100 transition-all duration-500 z-20 scale-90 group-hover/link:scale-100">
+//                         <div className="px-5 py-2.5 bg-black/60 backdrop-blur-xl border border-white/20 rounded-full flex items-center gap-2.5 shadow-2xl">
+//                             <span className="text-white font-bold tracking-[0.2em] uppercase text-[9px]">Dashboard Demo</span>
+//                             <ExternalLink size={14} className="text-brand-blue" />
+//                         </div>
+//                     </div>
+//                 </a>
+//             </motion.div>
 
-            {/* Mobile App Link - Right (Narrower but increased) */}
-            <motion.div
-                initial={{ opacity: 0, x: 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8 }}
-                className="w-full lg:w-[35%] flex flex-col"
-            >
-                <a
-                    href="https://proactivecare-rpm.vercel.app/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block relative transition-all duration-700 group/app h-full"
-                >
-                    <img
-                        src="/assets/mobile-app.png"
-                        alt="RPM Mobile App"
-                        loading="eager"
-                        className="w-full h-auto max-h-[40vh] lg:max-h-[55vh] object-contain transform transition-transform duration-1000 group-hover/app:scale-[1.02]"
-                    />
-                    <div className="absolute inset-[20%] inset-x-[25%] flex items-center justify-center opacity-0 group-hover/app:opacity-100 transition-all duration-500 z-20 scale-90 group-hover/app:scale-100">
-                        <div className="px-5 py-2.5 bg-black/60 backdrop-blur-xl border border-white/20 rounded-full flex items-center gap-2.5 shadow-2xl">
-                            <span className="text-white font-bold tracking-[0.2em] uppercase text-[9px]">Mobile App</span>
-                            <ExternalLink size={14} className="text-brand-cyan" />
-                        </div>
-                    </div>
-                </a>
-            </motion.div>
+//             {/* Mobile App Link - Right (Narrower but increased) */}
+//             <motion.div
+//                 initial={{ opacity: 0, x: 30 }}
+//                 whileInView={{ opacity: 1, x: 0 }}
+//                 transition={{ duration: 0.8 }}
+//                 className="w-full lg:w-[35%] flex flex-col"
+//             >
+//                 <a
+//                     href="https://proactivecare-rpm.vercel.app/"
+//                     target="_blank"
+//                     rel="noopener noreferrer"
+//                     className="block relative transition-all duration-700 group/app h-full"
+//                 >
+//                     <img
+//                         src="/assets/mobile-app.png"
+//                         alt="RPM Mobile App"
+//                         loading="eager"
+//                         className="w-full h-auto max-h-[40vh] lg:max-h-[55vh] object-contain transform transition-transform duration-1000 group-hover/app:scale-[1.02]"
+//                     />
+//                     <div className="absolute inset-[20%] inset-x-[25%] flex items-center justify-center opacity-0 group-hover/app:opacity-100 transition-all duration-500 z-20 scale-90 group-hover/app:scale-100">
+//                         <div className="px-5 py-2.5 bg-black/60 backdrop-blur-xl border border-white/20 rounded-full flex items-center gap-2.5 shadow-2xl">
+//                             <span className="text-white font-bold tracking-[0.2em] uppercase text-[9px]">Mobile App</span>
+//                             <ExternalLink size={14} className="text-brand-cyan" />
+//                         </div>
+//                     </div>
+//                 </a>
+//             </motion.div>
 
-            {/* Ambient Background Glow */}
-            <div className="absolute -inset-20 bg-brand-cyan/5 blur-[120px] rounded-full -z-10 pointer-events-none opacity-50" />
-        </div>
-    </Container>
-);
+//             {/* Ambient Background Glow */}
+//             <div className="absolute -inset-20 bg-brand-cyan/5 blur-[120px] rounded-full -z-10 pointer-events-none opacity-50" />
+//         </div>
+//     </Container>
+// );
 
 export const ServicesCategories = ({ onSelect }: { onSelect: (index: number) => void }) => {
     const categories = [
@@ -710,11 +724,11 @@ export const ServicesCategories = ({ onSelect }: { onSelect: (index: number) => 
                         viewport={{ once: true }}
                         transition={{ delay: i * 0.1 }}
                         whileHover={{ y: -10, scale: 1.02 }}
-                        onClick={() => onSelect(10 + i)}
+                        onClick={() => onSelect(9 + i)}
                         className="group relative cursor-pointer flex flex-col h-full"
                     >
                         {/* Continuous Border Animation */}
-                        <div className="absolute inset-0 rounded-[2rem] p-[2px] overflow-hidden">
+                        <div className="absolute inset-0 rounded-4xl p-0.5 overflow-hidden">
                             <motion.div
                                 animate={{ rotate: 360 }}
                                 transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
@@ -722,7 +736,7 @@ export const ServicesCategories = ({ onSelect }: { onSelect: (index: number) => 
                             />
                         </div>
 
-                        <div className="relative h-full glass-dark border border-white/5 rounded-[2rem] p-8 md:p-10 flex flex-col items-center text-center group-hover:border-brand-cyan/40 group-hover:bg-black/90 transition-all duration-500 shadow-2xl overflow-hidden z-10">
+                        <div className="relative h-full glass-dark border border-white/5 rounded-4xl p-8 md:p-10 flex flex-col items-center text-center group-hover:border-brand-cyan/40 group-hover:bg-black/90 transition-all duration-500 shadow-2xl overflow-hidden z-10">
                             {/* Animated Icon Container */}
                             <div className={`mb-6 w-16 h-16 flex items-center justify-center rounded-2xl bg-brand-${cat.color}/10 text-brand-${cat.color} border border-brand-${cat.color}/20 group-hover:bg-brand-${cat.color} group-hover:text-black transition-all duration-500 shadow-lg group-hover:shadow-brand-${cat.color}/40 relative overflow-hidden shrink-0`}>
                                 <cat.icon size={32} className="relative z-10 group-hover:scale-110 transition-transform duration-500" />
@@ -741,7 +755,7 @@ export const ServicesCategories = ({ onSelect }: { onSelect: (index: number) => 
                             </div>
 
                             {/* Decorative corner element */}
-                            <div className="absolute top-0 right-0 p-6 text-6xl font-bold text-white/[0.02] group-hover:text-brand-cyan/[0.05] transition-colors pointer-events-none">0{i + 1}</div>
+                            <div className="absolute top-0 right-0 p-6 text-6xl font-bold text-white/2 group-hover:text-brand-cyan/5 transition-colors pointer-events-none">0{i + 1}</div>
                         </div>
                     </motion.div>
                 ))}
@@ -762,7 +776,7 @@ export const CategoryDetail = ({ title, items, categoryNum, description }: { tit
             </motion.div>
             <div>
                 <SubHeading className="text-[10px] md:text-xs mb-2">SERVICE CATEGORY</SubHeading>
-                <Heading gradient className="text-2xl md:text-4xl leading-tight !mb-0">{title}</Heading>
+                <Heading gradient className="text-2xl md:text-4xl leading-tight mb-0!">{title}</Heading>
             </div>
         </div>
         {description && (
@@ -790,7 +804,7 @@ export const CategoryDetail = ({ title, items, categoryNum, description }: { tit
                     className="group relative flex flex-col h-full"
                 >
                     {/* Continuous Border Animation for detail cards */}
-                    <div className="absolute inset-0 rounded-[1.5rem] p-[1.5px] overflow-hidden">
+                    <div className="absolute inset-0 rounded-3xl p-[1.5px] overflow-hidden">
                         <motion.div
                             animate={{ rotate: 360 }}
                             transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
@@ -798,9 +812,9 @@ export const CategoryDetail = ({ title, items, categoryNum, description }: { tit
                         />
                     </div>
 
-                    <div className="relative h-full flex flex-col bg-[#0a0a0a]/95 backdrop-blur-md rounded-[1.5rem] p-6 md:p-8 z-10 border border-white/5 transition-all duration-300 group-hover:border-brand-cyan/20 group-hover:shadow-[0_0_30px_rgba(0,223,216,0.15)]">
+                    <div className="relative h-full flex flex-col bg-dark-surface/95 backdrop-blur-md rounded-3xl p-6 md:p-8 z-10 border border-white/5 transition-all duration-300 group-hover:border-brand-cyan/20 group-hover:shadow-[0_0_30px_rgba(0,223,216,0.15)]">
                         {/* Compact Decorative Number */}
-                        <div className="absolute top-0 right-0 p-6 text-5xl font-bold text-white/[0.01] group-hover:text-brand-cyan/[0.03] transition-colors pointer-events-none">0{i + 1}</div>
+                        <div className="absolute top-0 right-0 p-6 text-5xl font-bold text-white/1 group-hover:text-brand-cyan/3 transition-colors pointer-events-none">0{i + 1}</div>
 
                         <div className="mb-4 w-10 h-10 flex items-center justify-center rounded-xl bg-brand-cyan/10 text-brand-cyan border border-brand-cyan/20 group-hover:bg-brand-cyan group-hover:text-black transition-all duration-500 shadow-lg relative overflow-hidden shrink-0">
                             <span className="text-xs font-bold z-10">{i + 1}</span>
@@ -810,7 +824,7 @@ export const CategoryDetail = ({ title, items, categoryNum, description }: { tit
                         <h3 className="text-lg md:text-xl font-bold mb-2 group-hover:text-brand-cyan transition-colors duration-300 leading-snug">
                             {item.title}
                         </h3>
-                        <p className="text-white/40 text-xs md:text-sm leading-relaxed group-hover:text-white/80 transition-colors flex-grow">
+                        <p className="text-white/40 text-xs md:text-sm leading-relaxed group-hover:text-white/80 transition-colors grow">
                             {item.desc}
                         </p>
 
@@ -835,7 +849,7 @@ export const Cat1Details = () => (
             { title: "Generative AI for Healthcare", desc: "Revolutionizing patient care with custom AI models that produce synthetic data, automate clinical notes, and create engaging patient education materials." },
             { title: "AI-Powered Clinical Decision Support", desc: "Harnessing real-time patient data to empower clinicians with intelligent, evidence-based diagnostic and treatment recommendations." },
             { title: "Predictive Health Analytics", desc: "Sophisticated algorithms identifying at-risk individuals early, transforming healthcare from reactive to proactive intervention." },
-            { title: "Intelligent Audit & Compliance", desc: "Continuous, automated monitoring of software and data integrity, ensuring ironclad compliance and instant anomaly detection." },
+            { title: "Custom AI Solutions", desc: "Purpose-built AI systems that learn from your data, adapt to your processes, and evolve with your business needs for maximum impact." },
             { title: "AI-Enabled Billing Efficiency", desc: "Strategic automation of medical coding and billing, slashing denials and accelerating reimbursement cycles." }
         ]}
     />
@@ -845,13 +859,13 @@ export const Cat5Details = () => (
     <CategoryDetail
         categoryNum="04"
         title="Software Compliance"
-        description="This critical group demonstrates your commitment to security, quality, and ongoing reliability."
+        // description="This critical group demonstrates your commitment to security, quality, and ongoing reliability."
         items={[
             { title: "Quality Assurance (QA) for Medical Software", desc: "Ensuring software reliability and performance through comprehensive SQA and SDLC management." },
             { title: "IEC 62304 Compliance & Consultation (Medical Device Software)", desc: "Expert guidance on Medical Device Software lifecycle processes to meet international safety standards." },
             { title: "HIPAA Compliance & Security Implementation", desc: "Implementing enterprise-grade encryption and access controls for Protected Health Information (PHI)." },
             { title: "ONC Health IT Certification Support", desc: "Strategic assistance in navigating the certification process for health information technology." },
-            { title: "Ongoing Maintenance & Technical Support (IT Support for Medical Software)", desc: "Reliable IT support, bug fixes, security patches, and continuous performance monitoring." }
+            { title: "FHIR Integration", desc: "Seamless integration of FHIR APIs with EHR systems using FHIR standards for structured health data exchange, secure real-time synchronization, interoperability, and scalable patient record management." }
         ]}
     />
 );
@@ -863,7 +877,7 @@ export const Cat2Details = () => {
         { title: "Remote Patient Monitoring (RPM)", desc: "Comprehensive platforms with patient-facing apps and provider dashboards for remote health tracking." },
         { title: "Electronic Health Records (EHR)", desc: "Comprehensive EHR systems enabling seamless health data management, interoperability, and regulatory compliance." },
         { title: "Medical Imaging & Analysis", desc: "Software for secure storage, viewing, annotation, and AI-powered analysis of medical images." },
-        { title: "Drug Discovery Platforms", desc: "Specialized software to manage research data, streamline clinical trials, and support the drug lifecycle." }
+        // { title: "Drug Discovery Platforms", desc: "Specialized software to manage research data, streamline clinical trials, and support the drug lifecycle." }
     ];
 
     return (
@@ -878,10 +892,10 @@ export const Cat2Details = () => {
                 </motion.div>
                 <div>
                     <SubHeading className="text-[10px] md:text-xs mb-2">SERVICE CATEGORY</SubHeading>
-                    <Heading gradient className="text-2xl md:text-4xl leading-tight !mb-0">Application & Platform Development</Heading>
+                    <Heading gradient className="text-2xl md:text-4xl leading-tight mb-0!">Application & Platform Development</Heading>
                 </div>
             </div>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-5 w-full">
+            <div className="grid grid-cols-2 md:grid-cols-6 gap-4 md:gap-5 w-full">
                 {items.map((item, i) => (
                     <motion.div
                         key={i}
@@ -890,7 +904,13 @@ export const Cat2Details = () => {
                         viewport={{ once: true }}
                         transition={{ delay: i * 0.05 }}
                         whileHover={{ y: -6, scale: 1.02, transition: { duration: 0.2 } }}
-                        className="group relative flex flex-col h-full"
+                        className={`group relative flex flex-col h-full ${
+                            items.length === 5 
+                                ? (i < 3 ? 'md:col-span-2' : 'md:col-span-3') 
+                                : 'md:col-span-2'
+                        } ${
+                            (i === items.length - 1 && items.length % 2 !== 0) ? 'col-span-2' : 'col-span-1'
+                        }`}
                     >
                         <div className="absolute inset-0 rounded-2xl p-[1.5px] overflow-hidden">
                             <motion.div
@@ -899,12 +919,12 @@ export const Cat2Details = () => {
                                 className="absolute inset-[-150%] bg-[conic-gradient(from_0deg,transparent_20%,#0070f3_40%,#00dfd8_60%,transparent_80%)] opacity-20 group-hover:opacity-100 transition-opacity duration-500"
                             />
                         </div>
-                        <div className="relative h-full flex flex-col bg-[#0a0a0a]/95 backdrop-blur-md rounded-2xl p-5 md:p-6 z-10 border border-white/5 transition-all duration-300 group-hover:border-brand-cyan/20 group-hover:shadow-[0_0_30px_rgba(0,223,216,0.15)]">
+                        <div className="relative h-full flex flex-col bg-dark-surface/95 backdrop-blur-md rounded-2xl p-5 md:p-6 z-10 border border-white/5 transition-all duration-300 group-hover:border-brand-cyan/20 group-hover:shadow-[0_0_30px_rgba(0,223,216,0.15)]">
                             <div className="mb-3 w-9 h-9 flex items-center justify-center rounded-lg bg-brand-blue/10 text-brand-blue border border-brand-blue/20 group-hover:bg-brand-blue group-hover:text-white transition-all duration-500 shrink-0">
                                 <span className="text-xs font-bold">{i + 1}</span>
                             </div>
                             <h3 className="text-base md:text-lg font-bold mb-2 group-hover:text-brand-cyan transition-colors duration-300 leading-snug">{item.title}</h3>
-                            <p className="text-white/40 text-xs leading-relaxed group-hover:text-white/70 transition-colors flex-grow">{item.desc}</p>
+                            <p className="text-white/40 text-xs leading-relaxed group-hover:text-white/70 transition-colors grow">{item.desc}</p>
                         </div>
                     </motion.div>
                 ))}
@@ -945,7 +965,7 @@ export const Cat4Details = () => {
                 </motion.div>
                 <div>
                     <SubHeading className="text-[10px] md:text-xs mb-2">SERVICE CATEGORY</SubHeading>
-                    <Heading gradient className="text-2xl md:text-4xl leading-tight !mb-0">Infrastructure & Lifecycle Management</Heading>
+                    <Heading gradient className="text-2xl md:text-4xl leading-tight mb-0!">Infrastructure & Lifecycle Management</Heading>
                 </div>
             </div>
 
@@ -965,7 +985,7 @@ export const Cat4Details = () => {
                         <div className="flex-1">
                             <h3 className="text-lg md:text-xl font-bold mb-2 group-hover:text-brand-cyan transition-colors duration-300">{item.title}</h3>
                             <p className="text-white/50 text-sm leading-relaxed group-hover:text-white/80 transition-colors">{item.desc}</p>
-                            <div className="mt-3 h-px w-full bg-gradient-to-r from-brand-cyan/20 via-brand-blue/10 to-transparent" />
+                            <div className="mt-3 h-px w-full bg-linear-to-r from-brand-cyan/20 via-brand-blue/10 to-transparent" />
                         </div>
                     </motion.div>
                 ))}
@@ -975,42 +995,42 @@ export const Cat4Details = () => {
 };
 
 // 12. Products Intro
-export const CareManagement = () => (
-    <Container className="text-center items-center px-4 md:px-6">
-        <SubHeading>PRODUCTS</SubHeading>
-        <Heading gradient>CARE MANAGEMENT</Heading>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-5xl">
-            <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                className="relative group p-[1px] rounded-[2rem] md:rounded-[2.5rem] overflow-hidden bg-white/5"
-            >
-                <div className="relative card-content text-left bg-[#080808] h-full w-full rounded-[calc(2rem-1px)] md:rounded-[calc(2.5rem-1px)] z-10 p-6 md:p-10 group-hover:bg-black/80 transition-colors">
-                    <h3 className="text-2xl md:text-3xl font-bold mb-4 text-brand-blue">EHR</h3>
-                    <p className="text-white/50 text-sm md:text-base leading-relaxed">
-                        EHR solution simplifies patient data management, offering quick access to medical records, diagnosis, treatments, and test results. It enhances data sharing and improves coordination, streamlining patient care and reducing errors.
-                    </p>
-                    <div className="mt-6 md:mt-8 h-1 w-20 md:w-24 bg-brand-blue/30 rounded-full" />
-                </div>
-            </motion.div>
-            <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                className="relative group p-[1px] rounded-[2rem] md:rounded-[2.5rem] overflow-hidden bg-white/5"
-            >
-                <div className="relative card-content text-left bg-[#080808] h-full w-full rounded-[calc(2rem-1px)] md:rounded-[calc(2.5rem-1px)] z-10 p-6 md:p-10 group-hover:bg-black/80 transition-colors">
-                    <h3 className="text-2xl md:text-3xl font-bold mb-4 text-brand-cyan">AI AUTOMATION</h3>
-                    <p className="text-white/50 text-sm md:text-base leading-relaxed">
-                        AI Automation tool leverages advanced algorithms to streamline repetitive tasks, improve efficiency, and reduce human error. By integrating AI into workflows enhances the decision-making, boosts productivity and allow teams to focus on more strategic initiatives.
-                    </p>
-                    <div className="mt-6 md:mt-8 h-1 w-20 md:w-24 bg-brand-cyan/30 rounded-full" />
-                </div>
-            </motion.div>
-        </div>
-    </Container>
-);
+// export const CareManagement = () => (
+//     <Container className="text-center items-center px-4 md:px-6">
+//         <SubHeading>PRODUCTS</SubHeading>
+//         <Heading gradient>CARE MANAGEMENT</Heading>
+//         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-5xl">
+//             <motion.div
+//                 initial={{ opacity: 0, scale: 0.95 }}
+//                 whileInView={{ opacity: 1, scale: 1 }}
+//                 viewport={{ once: true }}
+//                 className="relative group p-px rounded-4xl md:rounded-[2.5rem] overflow-hidden bg-white/5"
+//             >
+//                 <div className="relative card-content text-left bg-[#080808] h-full w-full rounded-[calc(2rem-1px)] md:rounded-[calc(2.5rem-1px)] z-10 p-6 md:p-10 group-hover:bg-black/80 transition-colors">
+//                     <h3 className="text-2xl md:text-3xl font-bold mb-4 text-brand-blue">EHR</h3>
+//                     <p className="text-white/50 text-sm md:text-base leading-relaxed">
+//                         EHR solution simplifies patient data management, offering quick access to medical records, diagnosis, treatments, and test results. It enhances data sharing and improves coordination, streamlining patient care and reducing errors.
+//                     </p>
+//                     <div className="mt-6 md:mt-8 h-1 w-20 md:w-24 bg-brand-blue/30 rounded-full" />
+//                 </div>
+//             </motion.div>
+//             <motion.div
+//                 initial={{ opacity: 0, scale: 0.95 }}
+//                 whileInView={{ opacity: 1, scale: 1 }}
+//                 viewport={{ once: true }}
+//                 className="relative group p-px rounded-4xl md:rounded-[2.5rem] overflow-hidden bg-white/5"
+//             >
+//                 <div className="relative card-content text-left bg-[#080808] h-full w-full rounded-[calc(2rem-1px)] md:rounded-[calc(2.5rem-1px)] z-10 p-6 md:p-10 group-hover:bg-black/80 transition-colors">
+//                     <h3 className="text-2xl md:text-3xl font-bold mb-4 text-brand-cyan">AI AUTOMATION</h3>
+//                     <p className="text-white/50 text-sm md:text-base leading-relaxed">
+//                         AI Automation tool leverages advanced algorithms to streamline repetitive tasks, improve efficiency, and reduce human error. By integrating AI into workflows enhances the decision-making, boosts productivity and allow teams to focus on more strategic initiatives.
+//                     </p>
+//                     <div className="mt-6 md:mt-8 h-1 w-20 md:w-24 bg-brand-cyan/30 rounded-full" />
+//                 </div>
+//             </motion.div>
+//         </div>
+//     </Container>
+// );
 
 // 13. Remote Care
 export const RemoteCare = () => (
@@ -1035,9 +1055,9 @@ export const RemoteCare = () => (
                 <motion.div
                     animate={{ scale: [1, 1.05, 1], rotate: [0, 2, 0] }}
                     transition={{ duration: 6, repeat: Infinity }}
-                    className="w-full h-[300px] lg:h-[400px] glass shadow-2xl rounded-[3rem] border border-white/10 relative overflow-hidden"
+                    className="w-full h-75 lg:h-100 glass shadow-2xl rounded-[3rem] border border-white/10 relative overflow-hidden"
                 >
-                    <div className="absolute inset-0 bg-gradient-to-br from-brand-blue/20 to-transparent" />
+                    <div className="absolute inset-0 bg-linear-to-br from-brand-blue/20 to-transparent" />
                     <div className="flex items-center justify-center h-full">
                         <motion.div animate={{ opacity: [0.3, 0.6, 0.3] }} transition={{ duration: 2, repeat: Infinity }} className="w-1/2 h-px bg-brand-cyan" />
                     </div>
@@ -1063,8 +1083,8 @@ export const PreventiveCare = () => (
                     whileHover={{ scale: 1.02 }}
                     className="group relative"
                 >
-                    <div className={`absolute -inset-1 bg-gradient-to-r ${item.color === 'brand-blue' ? 'from-brand-blue to-purple-600' : 'from-brand-cyan to-blue-500'} rounded-[2rem] opacity-20 group-hover:opacity-50 transition duration-1000 group-hover:duration-200`} />
-                    <div className="relative p-6 md:p-10 glass-dark rounded-[2rem] border border-white/10 h-full flex flex-col justify-center">
+                    <div className={`absolute -inset-1 bg-linear-to-r ${item.color === 'brand-blue' ? 'from-brand-blue to-purple-600' : 'from-brand-cyan to-blue-500'} rounded-4xl opacity-20 group-hover:opacity-50 transition duration-1000 group-hover:duration-200`} />
+                    <div className="relative p-6 md:p-10 glass-dark rounded-4xl border border-white/10 h-full flex flex-col justify-center">
                         <h3 className={`text-xl md:text-2xl font-bold mb-4 md:mb-6 ${item.color === 'brand-blue' ? 'text-brand-blue' : 'text-brand-cyan'}`}>{item.title}</h3>
                         <p className="text-white/50 text-sm md:text-base leading-relaxed font-light">
                             {item.desc}
@@ -1085,9 +1105,9 @@ export const MedicalAssistance = () => (
             <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                className="relative group p-[1px] rounded-[2rem] md:rounded-[3rem] overflow-hidden bg-white/5"
+                className="relative group p-px rounded-4xl md:rounded-[3rem] overflow-hidden bg-white/5"
             >
-                <div className="relative p-6 md:p-10 bg-[#0a0a0a] rounded-[calc(2rem-1px)] md:rounded-[calc(3rem-1px)] z-10 h-full transition-all duration-500 group-hover:bg-black/80">
+                <div className="relative p-6 md:p-10 bg-dark-surface rounded-[calc(2rem-1px)] md:rounded-[calc(3rem-1px)] z-10 h-full transition-all duration-500 group-hover:bg-black/80">
                     <h3 className="text-xl md:text-2xl font-bold mb-4 md:mb-6 text-brand-blue flex items-center gap-3 text-left">
                         <div className="w-1 md:w-1.5 h-6 bg-brand-blue rounded-full shrink-0" />
                         CLINICAL DECISION SUPPORT
@@ -1100,9 +1120,9 @@ export const MedicalAssistance = () => (
             <motion.div
                 initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                className="relative group p-[1px] rounded-[2rem] md:rounded-[3rem] overflow-hidden bg-white/5"
+                className="relative group p-px rounded-4xl md:rounded-[3rem] overflow-hidden bg-white/5"
             >
-                <div className="relative p-6 md:p-10 bg-[#0a0a0a] rounded-[calc(2rem-1px)] md:rounded-[calc(3rem-1px)] z-10 h-full transition-all duration-500 group-hover:bg-black/80">
+                <div className="relative p-6 md:p-10 bg-dark-surface rounded-[calc(2rem-1px)] md:rounded-[calc(3rem-1px)] z-10 h-full transition-all duration-500 group-hover:bg-black/80">
                     <h3 className="text-xl md:text-2xl font-bold mb-4 md:mb-6 text-brand-cyan flex items-center gap-3 text-left">
                         <div className="w-1 md:w-1.5 h-6 bg-brand-cyan rounded-full shrink-0" />
                         PRECISION MEDICINE
@@ -1132,99 +1152,99 @@ export const ClientsSlide = () => (
 );
 
 // 13. Pricing
-export const Pricing = () => {
-    const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+// export const Pricing = () => {
+//     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
-    const plans = [
-        {
-            tier: "Basic Plan / Patient",
-            price: "$25 - $30",
-            desc: "Essential remote monitoring for individual patients.",
-            features: ["Per Patient-Doctor Chat", "Adjustable Clinical Values", "High/Low Alert System", "Dual Notifications"]
-        },
-        {
-            tier: "Business Plan / Clinic",
-            price: "$500 - $700",
-            desc: "Comprehensive solutions for clinics to manage their practice.",
-            features: [
-                "Unlimited Patient-Doctor Chat",
-                "Adjustable Clinical Values",
-                "High/Low Alert System",
-                "Dual Notifications",
-                "Clinic Integration",
-                "Practice Dashboard",
-            ]
-        },
-        {
-            tier: "Premium Plan / Customized",
-            price: "$1k - $2k",
-            desc: "For hospitals and large scale organizations.",
-            features: [
-                "Unlimited Patient-Doctor Chat",
-                "Adjustable Clinical Values",
-                "High/Low Alert System",
-                "Dual Notifications",
-                "Clinic Integration",
-                "Practice Dashboard",
-                "AI Extensions",
-                "Custom Integration Options"
-            ]
-        }
-    ];
+//     const plans = [
+//         {
+//             tier: "Basic Plan / Patient",
+//             price: "$25 - $30",
+//             desc: "Essential remote monitoring for individual patients.",
+//             features: ["Per Patient-Doctor Chat", "Adjustable Clinical Values", "High/Low Alert System", "Dual Notifications"]
+//         },
+//         {
+//             tier: "Business Plan / Clinic",
+//             price: "$500 - $700",
+//             desc: "Comprehensive solutions for clinics to manage their practice.",
+//             features: [
+//                 "Unlimited Patient-Doctor Chat",
+//                 "Adjustable Clinical Values",
+//                 "High/Low Alert System",
+//                 "Dual Notifications",
+//                 "Clinic Integration",
+//                 "Practice Dashboard",
+//             ]
+//         },
+//         {
+//             tier: "Premium Plan / Customized",
+//             price: "$1k - $2k",
+//             desc: "For hospitals and large scale organizations.",
+//             features: [
+//                 "Unlimited Patient-Doctor Chat",
+//                 "Adjustable Clinical Values",
+//                 "High/Low Alert System",
+//                 "Dual Notifications",
+//                 "Clinic Integration",
+//                 "Practice Dashboard",
+//                 "AI Extensions",
+//                 "Custom Integration Options"
+//             ]
+//         }
+//     ];
 
-    return (
-        <Container className="text-center items-center pt-16 pb-8 md:pt-20 md:pb-10 !min-h-0 min-h-screen relative overflow-hidden">
-            <div className="w-full max-w-[1400px] mx-auto px-4 flex flex-col items-center">
-                <div className="mb-4 md:mb-6 text-center">
-                    <Heading gradient className="text-2xl md:text-3xl lg:text-5xl !mb-2">Subscription Models</Heading>
-                    <p className="max-w-2xl mx-auto text-xs md:text-sm lg:text-base text-white/50 font-light leading-relaxed px-4">
-                        Choose the perfect plan for your healthcare innovation journey, tailored to scale with your institution's needs.
-                    </p>
-                </div>
+//     return (
+//         <Container className="text-center items-center pt-16 pb-8 md:pt-20 md:pb-10 min-h-0! relative overflow-hidden">
+//             <div className="w-full max-w-350 mx-auto px-4 flex flex-col items-center">
+//                 <div className="mb-4 md:mb-6 text-center">
+//                     <Heading gradient className="text-2xl md:text-3xl lg:text-5xl mb-2!">Subscription Models</Heading>
+//                     <p className="max-w-2xl mx-auto text-xs md:text-sm lg:text-base text-white/50 font-light leading-relaxed px-4">
+//                         Choose the perfect plan for your healthcare innovation journey, tailored to scale with your institution's needs.
+//                     </p>
+//                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5 lg:gap-6 w-full items-stretch max-md:max-w-md max-md:mx-auto">
-                    {plans.map((plan, i) => {
-                        const isHighlighted = hoveredIndex === i;
-                        return (
-                            <motion.div
-                                key={i}
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ delay: i * 0.1 }}
-                                onMouseEnter={() => setHoveredIndex(i)}
-                                onMouseLeave={() => setHoveredIndex(null)}
-                                className={`relative p-[1px] rounded-[2rem] md:rounded-[2.5rem] overflow-hidden transition-all duration-500 flex flex-col ${isHighlighted ? 'bg-gradient-to-b from-brand-cyan/50 to-brand-blue/50 shadow-[0_0_40px_rgba(0,112,243,0.2)] scale-[1.01]' : 'bg-white/10 border border-white/5'}`}
-                            >
-                                <div className="bg-[#080808]/95 backdrop-blur-sm rounded-[calc(2rem-1px)] md:rounded-[calc(2.5rem-1px)] px-5 py-5 md:px-6 md:py-6 lg:px-8 lg:py-7 h-full flex flex-col items-center">
-                                    <h3 className={`text-sm md:text-base lg:text-lg font-bold tracking-tighter mb-1 transition-colors duration-300 ${isHighlighted ? 'text-brand-cyan' : 'text-white'} whitespace-nowrap`}>{plan.tier}</h3>
-                                    <div className="flex items-baseline gap-1 mb-2">
-                                        <span className="text-2xl md:text-3xl lg:text-5xl font-black text-white">{plan.price}</span>
-                                    </div>
-                                    <p className="text-white/40 text-[10px] md:text-xs lg:text-sm mb-4 leading-tight text-center h-8 md:h-10 flex items-center justify-center italic">{plan.desc}</p>
+//                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5 lg:gap-6 w-full items-stretch max-md:max-w-md max-md:mx-auto">
+//                     {plans.map((plan, i) => {
+//                         const isHighlighted = hoveredIndex === i;
+//                         return (
+//                             <motion.div
+//                                 key={i}
+//                                 initial={{ opacity: 0, y: 20 }}
+//                                 whileInView={{ opacity: 1, y: 0 }}
+//                                 transition={{ delay: i * 0.1 }}
+//                                 onMouseEnter={() => setHoveredIndex(i)}
+//                                 onMouseLeave={() => setHoveredIndex(null)}
+//                                 className={`relative p-px rounded-4xl md:rounded-[2.5rem] overflow-hidden transition-all duration-500 flex flex-col ${isHighlighted ? 'bg-gradient-to-b from-brand-cyan/50 to-brand-blue/50 shadow-[0_0_40px_rgba(0,112,243,0.2)] scale-[1.01]' : 'bg-white/10 border border-white/5'}`}
+//                             >
+//                                 <div className="bg-[#080808]/95 backdrop-blur-sm rounded-[calc(2rem-1px)] md:rounded-[calc(2.5rem-1px)] px-5 py-5 md:px-6 md:py-6 lg:px-8 lg:py-7 h-full flex flex-col items-center">
+//                                     <h3 className={`text-sm md:text-base lg:text-lg font-bold tracking-tighter mb-1 transition-colors duration-300 ${isHighlighted ? 'text-brand-cyan' : 'text-white'} whitespace-nowrap`}>{plan.tier}</h3>
+//                                     <div className="flex items-baseline gap-1 mb-2">
+//                                         <span className="text-2xl md:text-3xl lg:text-5xl font-black text-white">{plan.price}</span>
+//                                     </div>
+//                                     <p className="text-white/40 text-[10px] md:text-xs lg:text-sm mb-4 leading-tight text-center h-8 md:h-10 flex items-center justify-center italic">{plan.desc}</p>
 
-                                    <div className="w-full space-y-1 md:space-y-1.5 lg:space-y-2 mb-6 border-t border-white/5 pt-4">
-                                        {plan.features.map((feature, idx) => (
-                                            <div key={idx} className="flex items-start gap-2 md:gap-3 text-left">
-                                                <div className={`mt-1.5 w-1 h-1 rounded-full shrink-0 transition-colors duration-300 ${isHighlighted ? 'bg-brand-cyan' : 'bg-brand-cyan/40'}`} />
-                                                <span className="text-[10px] md:text-[11px] lg:text-sm text-white/70 leading-tight">{feature}</span>
-                                            </div>
-                                        ))}
-                                    </div>
+//                                     <div className="w-full space-y-1 md:space-y-1.5 lg:space-y-2 mb-6 border-t border-white/5 pt-4">
+//                                         {plan.features.map((feature, idx) => (
+//                                             <div key={idx} className="flex items-start gap-2 md:gap-3 text-left">
+//                                                 <div className={`mt-1.5 w-1 h-1 rounded-full shrink-0 transition-colors duration-300 ${isHighlighted ? 'bg-brand-cyan' : 'bg-brand-cyan/40'}`} />
+//                                                 <span className="text-[10px] md:text-[11px] lg:text-sm text-white/70 leading-tight">{feature}</span>
+//                                             </div>
+//                                         ))}
+//                                     </div>
 
-                                    {/* <button className={`mt-auto w-full py-2.5 md:py-3 rounded-xl font-bold tracking-widest uppercase text-[10px] md:text-xs transition-all duration-300 ${isHighlighted ? 'bg-brand-cyan text-black hover:bg-white hover:scale-[1.02] shadow-[0_0_15px_rgba(0,223,216,0.2)]' : 'bg-white/5 text-white/50 border border-white/10 hover:border-white/20'}`}>
-                                        Choose Plan
-                                    </button> */}
-                                </div>
-                            </motion.div>
-                        );
-                    })}
-                </div>
-            </div>
-            {/* Background Glow */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-brand-cyan/5 blur-[120px] -z-10 pointer-events-none opacity-50" />
-        </Container>
-    );
-};
+//                                     {/* <button className={`mt-auto w-full py-2.5 md:py-3 rounded-xl font-bold tracking-widest uppercase text-[10px] md:text-xs transition-all duration-300 ${isHighlighted ? 'bg-brand-cyan text-black hover:bg-white hover:scale-[1.02] shadow-[0_0_15px_rgba(0,223,216,0.2)]' : 'bg-white/5 text-white/50 border border-white/10 hover:border-white/20'}`}>
+//                                         Choose Plan
+//                                     </button> */}
+//                                 </div>
+//                             </motion.div>
+//                         );
+//                     })}
+//                 </div>
+//             </div>
+//             {/* Background Glow */}
+//             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-brand-cyan/5 blur-[120px] -z-10 pointer-events-none opacity-50" />
+//         </Container>
+//     );
+// };
 
 // Thank You Slide
 export const ThankYou = () => (
@@ -1232,9 +1252,9 @@ export const ThankYou = () => (
         <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            className="glass-dark p-6 md:p-10 lg:p-12 rounded-[2rem] md:rounded-[3rem] border border-white/10 max-w-2xl w-full relative overflow-hidden"
+            className="glass-dark p-6 md:p-10 lg:p-12 rounded-4xl md:rounded-[3rem] border border-white/10 max-w-2xl w-full relative overflow-hidden"
         >
-            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-brand-cyan to-transparent opacity-50" />
+            <div className="absolute top-0 left-0 w-full h-1 bg-linear-to-r from-transparent via-brand-cyan to-transparent opacity-50" />
 
             <Heading gradient>THANK YOU</Heading>
 

@@ -66,7 +66,7 @@ export default function Labs({ isActive }: { isActive?: boolean }) {
     >
       {/* Background */}
       <div className="absolute inset-0 bg-grid opacity-10" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-blue/8 blur-[150px] rounded-full pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-150 bg-brand-blue/8 blur-[150px] rounded-full pointer-events-none" />
 
       <div className="w-full h-full flex flex-col justify-center overflow-hidden px-6 md:px-16 pt-24">
         {/* Centered Header */}
@@ -81,7 +81,7 @@ export default function Labs({ isActive }: { isActive?: boolean }) {
               initial={{ width: 0 }}
               animate={{ width: 40 }}
               transition={{ delay: 0.3, duration: 0.4 }}
-              className="h-[1px] bg-brand-cyan"
+              className="h-px bg-brand-cyan"
             />
             <span className="text-brand-cyan font-bold tracking-[0.3em] uppercase text-[10px]">
               Our Products
@@ -90,12 +90,12 @@ export default function Labs({ isActive }: { isActive?: boolean }) {
               initial={{ width: 0 }}
               animate={{ width: 40 }}
               transition={{ delay: 0.3, duration: 0.4 }}
-              className="h-[1px] bg-brand-cyan"
+              className="h-px bg-brand-cyan"
             />
           </div>
           <h2 className="text-5xl md:text-7xl font-display font-bold tracking-tighter leading-none mb-4">
             Built for{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-blue to-brand-cyan">
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-brand-blue to-brand-cyan">
               Healthcare
             </span>
           </h2>
@@ -121,10 +121,10 @@ export default function Labs({ isActive }: { isActive?: boolean }) {
               }}
               className="relative group flex items-start gap-5 p-6 border-b border-white/5 last:border-b-0
                          md:even:border-l md:border-r-0 lg:border-r lg:last:border-r-0 
-                         hover:bg-white/[0.02] transition-colors duration-300 cursor-default"
+                         hover:bg-white/2 transition-colors duration-300 cursor-default"
             >
               {/* Left: Number + Colored vertical accent */}
-              <div className="flex flex-col items-center gap-2 pt-1 flex-shrink-0">
+              <div className="flex flex-col items-center gap-2 pt-1 shrink-0">
                 <motion.span
                   className="text-xs font-black font-mono tabular-nums"
                   style={{ color: p.color }}
@@ -135,7 +135,7 @@ export default function Labs({ isActive }: { isActive?: boolean }) {
                   {p.num}
                 </motion.span>
                 <motion.div
-                  className="w-[2px] rounded-full"
+                  className="w-0.5 rounded-full"
                   style={{ background: p.color }}
                   initial={{ height: 0 }}
                   animate={{ height: 40 }}
@@ -155,7 +155,7 @@ export default function Labs({ isActive }: { isActive?: boolean }) {
                       type: "spring",
                       stiffness: 100,
                     }}
-                    className={`w-9 h-9 rounded-xl bg-gradient-to-br ${p.gradient} flex items-center justify-center shadow-lg flex-shrink-0`}
+                    className={`w-9 h-9 rounded-xl bg-linear-to-br ${p.gradient} flex items-center justify-center shadow-lg shrink-0`}
                   >
                     <p.icon className="w-4 h-4 text-white" />
                   </motion.div>
@@ -178,7 +178,7 @@ export default function Labs({ isActive }: { isActive?: boolean }) {
 
               {/* Hover bottom glow */}
               <div
-                className="absolute bottom-0 left-0 right-0 h-[2px] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left rounded-full"
+                className="absolute bottom-0 left-0 right-0 h-0.5 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left rounded-full"
                 style={{
                   background: `linear-gradient(to right, ${p.color}, transparent)`,
                 }}

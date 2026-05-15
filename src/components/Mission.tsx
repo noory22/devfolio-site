@@ -55,7 +55,7 @@ export default function Mission({
             : { scale: 0, opacity: 0 }
         }
         transition={{ duration: 1.5, ease: "easeOut" }}
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full border-2 border-brand-blue/30 pointer-events-none"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-100 h-100 rounded-full border-2 border-brand-blue/30 pointer-events-none"
       />
 
       {/* Premium Background Ambient Lights */}
@@ -65,7 +65,7 @@ export default function Mission({
           scale: slideActive ? [1, 1.1, 1] : 0.8,
         }}
         transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-brand-blue/10 rounded-full pointer-events-none"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-200 h-200 bg-brand-blue/10 rounded-full pointer-events-none"
       />
 
       <div
@@ -91,8 +91,8 @@ export default function Mission({
             className="relative w-full rounded-[3rem] border border-white/10 glass-dark p-12 md:p-24 shadow-[0_50px_100px_rgba(0,0,0,0.8)] group flex flex-col items-center text-center overflow-visible"
           >
             {/* Glow sweep layer */}
-            <div className="absolute inset-0 rounded-[3rem] overflow-hidden -z-10 bg-white/[0.02]">
-              <div className="absolute inset-0 bg-gradient-to-tr from-brand-blue/10 via-brand-cyan/5 to-transparent opacity-50" />
+            <div className="absolute inset-0 rounded-[3rem] overflow-hidden -z-10 bg-white/2">
+              <div className="absolute inset-0 bg-linear-to-tr from-brand-blue/10 via-brand-cyan/5 to-transparent opacity-50" />
             </div>
 
             {/* Sub-heading tag floating above the surface */}
@@ -111,7 +111,7 @@ export default function Mission({
                 initial={{ width: 0 }}
                 animate={slideActive ? { width: 48 } : { width: 0 }}
                 transition={{ delay: 0.5, duration: 0.4 }}
-                className="h-[1px] bg-brand-cyan"
+                className="h-px bg-brand-cyan"
               />
               <span className="text-brand-cyan font-bold tracking-[0.3em] uppercase text-xs drop-shadow-md">
                 Our Mission
@@ -120,7 +120,7 @@ export default function Mission({
                 initial={{ width: 0 }}
                 animate={slideActive ? { width: 48 } : { width: 0 }}
                 transition={{ delay: 0.5, duration: 0.4 }}
-                className="h-[1px] bg-brand-cyan"
+                className="h-px bg-brand-cyan"
               />
             </motion.div>
 
@@ -137,7 +137,7 @@ export default function Mission({
               className="text-5xl md:text-7xl lg:text-8xl font-display font-black leading-[0.9] tracking-tighter mb-8 text-white drop-shadow-[0_20px_40px_rgba(0,112,243,0.3)]"
             >
               Empowering Clients <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-blue to-brand-cyan">
+              <span className="text-transparent bg-clip-text bg-linear-to-r from-brand-blue to-brand-cyan">
                 Digital Revolution
               </span>
             </motion.h2>
@@ -167,7 +167,7 @@ export default function Mission({
                   : { opacity: 0, scale: 0.8, y: 30 }
               }
               transition={{ delay: 0.8, duration: 0.7, type: "spring" }}
-              className="flex flex-col md:flex-row items-center justify-center gap-8 w-full max-w-2xl px-8 py-6 rounded-2xl bg-white/[0.03] border border-white/10 backdrop-blur-xl shadow-2xl"
+              className="flex flex-col md:flex-row items-center justify-center gap-8 w-full max-w-2xl px-8 py-6 rounded-2xl bg-white/3 border border-white/10 backdrop-blur-xl shadow-2xl"
             >
               <div className="flex items-center gap-4">
                 <motion.div
