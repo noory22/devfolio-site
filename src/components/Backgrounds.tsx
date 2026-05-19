@@ -203,3 +203,47 @@ export const CyberGridBG = () => (
         ))}
     </div>
 );
+
+export const LightTechBG = () => (
+    <div className="absolute inset-0 overflow-hidden pointer-events-none bg-slate-50">
+        {/* Soft light grid */}
+        <div className="absolute inset-0 opacity-5 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-size-[40px_40px]" />
+        
+        {/* Ambient warm and cool soft light blobs */}
+        <motion.div
+            animate={{
+                background: [
+                    "radial-gradient(circle at 20% 20%, rgba(0, 112, 243, 0.06) 0%, transparent 60%)",
+                    "radial-gradient(circle at 80% 80%, rgba(0, 223, 216, 0.06) 0%, transparent 60%)",
+                    "radial-gradient(circle at 20% 20%, rgba(0, 112, 243, 0.06) 0%, transparent 60%)",
+                ],
+            } as any}
+            transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
+            className="absolute inset-0"
+        />
+
+        {/* Soft moving tech lines */}
+        {[...Array(8)].map((_, i) => (
+            <motion.div
+                key={i}
+                className="absolute h-px bg-linear-to-r from-transparent via-brand-cyan/15 to-transparent w-64"
+                style={{
+                    top: `${Math.random() * 100}%`,
+                    left: `${Math.random() * 100}%`,
+                    rotate: `${Math.random() * 360}deg`,
+                }}
+                animate={{
+                    opacity: [0, 0.4, 0],
+                    scaleX: [0, 1, 0],
+                    x: [0, 100, 200],
+                }}
+                transition={{
+                    duration: 4 + Math.random() * 4,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay: Math.random() * 5,
+                }}
+            />
+        ))}
+    </div>
+);

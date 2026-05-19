@@ -8,7 +8,7 @@ import Labs from "./components/Labs";
 import Contact from "./components/Contact";
 import { motion, AnimatePresence } from "motion/react";
 
-const TOTAL_SLIDES = 17;
+const TOTAL_SLIDES = 16;
 
 // --- Unique transition variants per slide ---
 const slideTransitions = [
@@ -151,6 +151,7 @@ const slideComponents = [
   // Content.ProductsIntro,
   // Content.RPMDemo,
   // Content.Pricing,
+  Content.Accomplishments,
   Content.ThankYou
 ];
 
@@ -188,7 +189,8 @@ const BackgroundMapping = [
   Backgrounds.GridPulseBG,    // 13: Cat 4
   // Backgrounds.TechNetworkBG,  // 14: RPM Demo Showcase
   // Backgrounds.DNAHelixBG,     // 15: Pricing
-  Backgrounds.AuroraBG,       // 16: Thank You
+  Backgrounds.TechNetworkBG,  // 14: Accomplishments
+  Backgrounds.AuroraBG,       // 15: Thank You
 ];
 
 import { ChevronLeft, ChevronRight, ChevronUp, ChevronDown } from "lucide-react";
@@ -202,12 +204,11 @@ export default function App() {
   const lastScrollTime = useRef(0);
   const SCROLL_COOLDOWN = 1000;
 
-  const isServices = currentSlide >= 8 && currentSlide <= 15;
+  const isServices = currentSlide >= 8 && currentSlide <= 13;
 
   const getCategoryRange = (index: number) => {
     if (index < 7) return [0, 6];      // Intro (Slides 1-7)
-    if (index < 15) return [7, 14];     // Services (Slides 8-15)
-    return [15, 16];                   // Products (Slides 16-17)
+    return [7, 15];                    // Services, Accomplishments & Thank You (Slides 8-16)
   };
 
   const [min, max] = getCategoryRange(currentSlide);

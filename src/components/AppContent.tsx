@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Globe from "react-globe.gl";
 import { motion, useScroll, useSpring, AnimatePresence } from "motion/react";
-import { Brain, Code2, Zap, Server, ShieldCheck, ExternalLink } from "lucide-react";
+import { Brain, Code2, Zap, Server, ShieldCheck, ExternalLink, Smartphone, HeartHandshake, Trophy, Activity, Stethoscope } from "lucide-react";
 
 const Container = ({ children, className = "", isActive, ...props }: { children: React.ReactNode, className?: string, isActive?: boolean, [key: string]: any }) => {
     const { scrollYProgress } = useScroll();
@@ -700,62 +700,369 @@ export const ServicesIntro = () => (
 //     </Container>
 // );
 
+// export const ServicesCategories = ({ onSelect }: { onSelect: (index: number) => void }) => {
+//     const categories = [
+//         { title: "Artificial Intelligence", subtitle: "Advanced Analytics", icon: Brain, color: "cyan" as const },
+//         { title: "App Development", subtitle: "Platform Solutions", icon: Code2, color: "blue" as const },
+//         { title: "Automation", subtitle: "Operational Efficiency", icon: Zap, color: "cyan" as const },
+//         { title: "Software Compliance", subtitle: "Regulatory Standards", icon: ShieldCheck, color: "blue" as const },
+//         { title: "Infrastructure", subtitle: "Lifecycle Management", icon: Server, color: "cyan" as const }
+//     ];
+
+//     return (
+//         <Container className="justify-center py-4">
+//             <div className="text-center mb-6 md:mb-10">
+//                 <SubHeading className="text-[10px] md:text-xs">OUR EXPERTISE</SubHeading>
+//                 <Heading gradient className="text-3xl md:text-5xl">Medical Solutions</Heading>
+//             </div>
+//             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 md:gap-5 w-full max-w-7xl">
+//                 {categories.map((cat, i) => (
+//                     <motion.div
+//                         key={i}
+//                         initial={{ opacity: 0, y: 20 }}
+//                         whileInView={{ opacity: 1, y: 0 }}
+//                         viewport={{ once: true }}
+//                         transition={{ delay: i * 0.1 }}
+//                         whileHover={{ y: -10, scale: 1.02 }}
+//                         onClick={() => onSelect(9 + i)}
+//                         className="group relative cursor-pointer flex flex-col h-full"
+//                     >
+//                         {/* Continuous Border Animation */}
+//                         <div className="absolute inset-0 rounded-4xl p-0.5 overflow-hidden">
+//                             <motion.div
+//                                 animate={{ rotate: 360 }}
+//                                 transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+//                                 className={`absolute inset-[-150%] bg-[conic-gradient(from_0deg,transparent_20%,#0070f3_40%,#00dfd8_60%,transparent_80%)] opacity-30 group-hover:opacity-100 transition-opacity duration-500`}
+//                             />
+//                         </div>
+
+//                         <div className="relative h-full glass-dark border border-white/5 rounded-4xl p-8 md:p-10 flex flex-col items-center text-center group-hover:border-brand-cyan/40 group-hover:bg-black/90 transition-all duration-500 shadow-2xl overflow-hidden z-10">
+//                             {/* Animated Icon Container */}
+//                             <div className={`mb-6 w-16 h-16 flex items-center justify-center rounded-2xl bg-brand-${cat.color}/10 text-brand-${cat.color} border border-brand-${cat.color}/20 group-hover:bg-brand-${cat.color} group-hover:text-black transition-all duration-500 shadow-lg group-hover:shadow-brand-${cat.color}/40 relative overflow-hidden shrink-0`}>
+//                                 <cat.icon size={32} className="relative z-10 group-hover:scale-110 transition-transform duration-500" />
+//                                 <div className="absolute inset-0 bg-white/20 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out" />
+//                             </div>
+
+//                             <h3 className="text-xl md:text-2xl font-bold mb-2 group-hover:text-brand-cyan transition-colors duration-300">
+//                                 {cat.title}
+//                             </h3>
+//                             <p className="text-[10px] md:text-xs text-white/40 uppercase tracking-[0.2em] mb-8 group-hover:text-white/60 transition-colors">
+//                                 {cat.subtitle}
+//                             </p>
+
+//                             <div className="mt-auto px-6 py-2 rounded-full border border-white/10 text-[10px] font-bold uppercase tracking-[0.2em] group-hover:bg-brand-cyan group-hover:text-black transition-all duration-300">
+//                                 Explore Detail
+//                             </div>
+
+//                             {/* Decorative corner element */}
+//                             <div className="absolute top-0 right-0 p-6 text-6xl font-bold text-white/2 group-hover:text-brand-cyan/5 transition-colors pointer-events-none">0{i + 1}</div>
+//                         </div>
+//                     </motion.div>
+//                 ))}
+//             </div>
+//         </Container>
+//     );
+// };
+// export const ServicesCategories = ({ onSelect }: { onSelect: (index: number) => void }) => {
+//     const categories = [
+//         {
+//             title: "Artificial Intelligence",
+//             subtitle: "Advanced Analytics",
+//             icon: Brain,
+//             gradient: "from-cyan-600 to-teal-500",
+//             color: "#00dfd8",
+//         },
+//         {
+//             title: "App Development",
+//             subtitle: "Platform Solutions",
+//             icon: Code2,
+//             gradient: "from-blue-600 to-cyan-500",
+//             color: "#0070f3",
+//         },
+//         {
+//             title: "Automation",
+//             subtitle: "Operational Efficiency",
+//             icon: Zap,
+//             gradient: "from-cyan-500 to-blue-600",
+//             color: "#00dfd8",
+//         },
+//         {
+//             title: "Software Compliance",
+//             subtitle: "Regulatory Standards",
+//             icon: ShieldCheck,
+//             gradient: "from-blue-700 to-indigo-500",
+//             color: "#0070f3",
+//         },
+//         {
+//             title: "Infrastructure",
+//             subtitle: "Lifecycle Management",
+//             icon: Server,
+//             gradient: "from-teal-600 to-cyan-400",
+//             color: "#00dfd8",
+//         },
+//     ];
+ 
+//     return (
+//         <Container className="justify-center py-4">
+//             {/* Header — kept exactly as original */}
+//             <div className="text-center mb-6 md:mb-10">
+//                 <SubHeading className="text-[10px] md:text-xs">OUR EXPERTISE</SubHeading>
+//                 <Heading gradient className="text-3xl md:text-5xl">Medical Solutions</Heading>
+//             </div>
+ 
+//             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 md:gap-5 w-full max-w-7xl">
+//                 {categories.map((cat, i) => (
+//                     <motion.div
+//                         key={i}
+//                         initial={{ opacity: 0, scale: 1.6 }}
+//                         whileInView={{ opacity: 1, scale: 1 }}
+//                         viewport={{ once: true }}
+//                         transition={{
+//                             delay: i * 0.1,
+//                             duration: 0.7,
+//                             type: "spring",
+//                             stiffness: 60,
+//                             damping: 14,
+//                         }}
+//                         whileHover={{ y: -10, scale: 1.02 }}
+//                         onClick={() => onSelect(9 + i)}
+//                         className="group relative cursor-pointer flex flex-col h-full"
+//                         style={{ perspective: "1000px" }}
+//                     >
+//                         {/* Continuous Border Animation */}
+//                         <div className="absolute inset-0 rounded-4xl p-0.5 overflow-hidden">
+//                             <motion.div
+//                                 animate={{ rotate: 360 }}
+//                                 transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+//                                 className="absolute inset-[-150%] bg-[conic-gradient(from_0deg,transparent_20%,#0070f3_40%,#00dfd8_60%,transparent_80%)] opacity-30 group-hover:opacity-100 transition-opacity duration-500"
+//                             />
+//                         </div>
+ 
+//                         <div className="relative h-full glass-dark border border-white/10 rounded-4xl p-8 md:p-10 flex flex-col items-center text-center group-hover:border-white/20 group-hover:bg-black/90 transition-all duration-500 shadow-2xl overflow-hidden z-10">
+ 
+//                             {/* Radial glow — same technique as Regulatory back face */}
+//                             <div
+//                                 className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-32 rounded-full blur-3xl opacity-0 group-hover:opacity-20 transition-opacity duration-500 pointer-events-none"
+//                                 style={{ background: cat.color }}
+//                             />
+ 
+//                             {/* Gradient Icon Box — mirrors Regulatory.tsx flip card icon */}
+//                             <motion.div
+//                                 animate={{ rotate: [0, 5, -5, 0] }}
+//                                 transition={{
+//                                     duration: 5,
+//                                     repeat: Infinity,
+//                                     delay: i * 0.4,
+//                                 }}
+//                                 className={`mb-6 w-14 h-14 rounded-xl bg-linear-to-br ${cat.gradient} flex items-center justify-center shadow-lg shrink-0 relative overflow-hidden`}
+//                             >
+//                                 <cat.icon className="w-7 h-7 text-white relative z-10" />
+//                                 {/* Shimmer sweep on hover */}
+//                                 <div className="absolute inset-0 bg-white/20 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out" />
+//                             </motion.div>
+ 
+//                             <h3 className="text-xl md:text-2xl font-bold mb-2 group-hover:text-brand-cyan transition-colors duration-300">
+//                                 {cat.title}
+//                             </h3>
+//                             <p className="text-[10px] md:text-xs text-white/40 uppercase tracking-[0.2em] mb-8 group-hover:text-white/60 transition-colors">
+//                                 {cat.subtitle}
+//                             </p>
+ 
+//                             {/* Explore button — fills with accent color on hover */}
+//                             <div
+//                                 className="mt-auto px-6 py-2 rounded-full border border-white/10 text-[10px] font-bold uppercase tracking-[0.2em] transition-all duration-300 group-hover:text-black group-hover:border-transparent"
+//                                 style={{
+//                                     // @ts-ignore
+//                                     "--accent": cat.color,
+//                                 }}
+//                                 // Tailwind can't interpolate dynamic colors so we use inline style for the hover fill
+//                                 onMouseEnter={(e) =>
+//                                     ((e.currentTarget as HTMLDivElement).style.background = cat.color)
+//                                 }
+//                                 onMouseLeave={(e) =>
+//                                     ((e.currentTarget as HTMLDivElement).style.background = "transparent")
+//                                 }
+//                             >
+//                                 Explore Detail
+//                             </div>
+ 
+//                             {/* Decorative corner index — same as Regulatory */}
+//                             <div
+//                                 className="absolute top-0 right-0 p-6 text-6xl font-bold text-white/3 group-hover:text-white/6 transition-colors pointer-events-none"
+//                                 style={{ color: cat.color + "08" }}
+//                             >
+//                                 0{i + 1}
+//                             </div>
+ 
+//                             {/* Top-right color corner accent — same as Regulatory front face */}
+//                             <div
+//                                 className="absolute top-0 right-0 w-16 h-16 rounded-bl-3xl opacity-10 group-hover:opacity-20 transition-opacity duration-500"
+//                                 style={{ background: cat.color }}
+//                             />
+//                         </div>
+//                     </motion.div>
+//                 ))}
+//             </div>
+//         </Container>
+//     );
+// };
+
 export const ServicesCategories = ({ onSelect }: { onSelect: (index: number) => void }) => {
     const categories = [
-        { title: "Artificial Intelligence", subtitle: "Advanced Analytics", icon: Brain, color: "cyan" as const },
-        { title: "App Development", subtitle: "Platform Solutions", icon: Code2, color: "blue" as const },
-        { title: "Automation", subtitle: "Operational Efficiency", icon: Zap, color: "cyan" as const },
-        { title: "Software Compliance", subtitle: "Regulatory Standards", icon: ShieldCheck, color: "blue" as const },
-        { title: "Infrastructure", subtitle: "Lifecycle Management", icon: Server, color: "cyan" as const }
+        {
+            title: "Artificial Intelligence",
+            subtitle: "Advanced Analytics",
+            icon: Brain,
+            gradient: "from-cyan-600 to-teal-500",
+            color: "#00dfd8",
+            description: "Leverage cutting-edge AI models to extract insights, automate decisions, and transform clinical data into actionable intelligence.",
+        },
+        {
+            title: "App Development",
+            subtitle: "Platform Solutions",
+            icon: Code2,
+            gradient: "from-blue-600 to-cyan-500",
+            color: "#0070f3",
+            description: "End-to-end medical application engineering — from architecture to deployment — built for scalability and compliance.",
+        },
+        {
+            title: "Automation",
+            subtitle: "Operational Efficiency",
+            icon: Zap,
+            gradient: "from-cyan-500 to-blue-600",
+            color: "#00dfd8",
+            description: "Streamline clinical workflows and eliminate manual overhead with intelligent process automation tailored for healthcare.",
+        },
+        {
+            title: "Software Compliance",
+            subtitle: "Regulatory Standards",
+            icon: ShieldCheck,
+            gradient: "from-blue-700 to-indigo-500",
+            color: "#0070f3",
+            description: "Navigate FDA, HIPAA, and ISO frameworks with confidence. We embed compliance into every layer of your software stack.",
+        },
+        {
+            title: "Infrastructure",
+            subtitle: "Lifecycle Management",
+            icon: Server,
+            gradient: "from-teal-600 to-cyan-400",
+            color: "#00dfd8",
+            description: "Robust, HIPAA-ready cloud infrastructure designed for uptime, security, and seamless scaling across your entire platform.",
+        },
     ];
-
+ 
     return (
         <Container className="justify-center py-4">
-            <div className="text-center mb-6 md:mb-10">
+            {/* Header — unchanged */}
+            <div className="text-center mb-8 md:mb-14">
                 <SubHeading className="text-[10px] md:text-xs">OUR EXPERTISE</SubHeading>
                 <Heading gradient className="text-3xl md:text-5xl">Medical Solutions</Heading>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 md:gap-5 w-full max-w-7xl">
+ 
+            <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-5 gap-5 md:gap-6 w-full max-w-1400">
                 {categories.map((cat, i) => (
                     <motion.div
                         key={i}
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
+                        initial={{ opacity: 0, scale: 1.6 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
-                        transition={{ delay: i * 0.1 }}
-                        whileHover={{ y: -10, scale: 1.02 }}
+                        transition={{
+                            delay: i * 0.1,
+                            duration: 0.7,
+                            type: "spring",
+                            stiffness: 60,
+                            damping: 14,
+                        }}
+                        whileHover={{ y: -8, scale: 1.02 }}
                         onClick={() => onSelect(9 + i)}
-                        className="group relative cursor-pointer flex flex-col h-full"
+                        className="group relative cursor-pointer flex flex-col"
+                        style={{ perspective: "1000px" }}
                     >
-                        {/* Continuous Border Animation */}
-                        <div className="absolute inset-0 rounded-4xl p-0.5 overflow-hidden">
+                        {/* Animated conic border */}
+                        <div className="absolute inset-0 rounded-3xl p-[1.5px] overflow-hidden">
                             <motion.div
                                 animate={{ rotate: 360 }}
                                 transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
-                                className={`absolute inset-[-150%] bg-[conic-gradient(from_0deg,transparent_20%,#0070f3_40%,#00dfd8_60%,transparent_80%)] opacity-30 group-hover:opacity-100 transition-opacity duration-500`}
+                                className="absolute inset-[-150%] bg-[conic-gradient(from_0deg,transparent_20%,#0070f3_40%,#00dfd8_60%,transparent_80%)] opacity-20 group-hover:opacity-100 transition-opacity duration-500"
                             />
                         </div>
-
-                        <div className="relative h-full glass-dark border border-white/5 rounded-4xl p-8 md:p-10 flex flex-col items-center text-center group-hover:border-brand-cyan/40 group-hover:bg-black/90 transition-all duration-500 shadow-2xl overflow-hidden z-10">
-                            {/* Animated Icon Container */}
-                            <div className={`mb-6 w-16 h-16 flex items-center justify-center rounded-2xl bg-brand-${cat.color}/10 text-brand-${cat.color} border border-brand-${cat.color}/20 group-hover:bg-brand-${cat.color} group-hover:text-black transition-all duration-500 shadow-lg group-hover:shadow-brand-${cat.color}/40 relative overflow-hidden shrink-0`}>
-                                <cat.icon size={32} className="relative z-10 group-hover:scale-110 transition-transform duration-500" />
-                                <div className="absolute inset-0 bg-white/20 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out" />
+ 
+                        {/* Card body */}
+                        <div className="relative h-full glass-dark border border-white/8 rounded-3xl flex flex-col items-center text-center group-hover:border-white/20 group-hover:bg-black/90 transition-all duration-500 shadow-2xl overflow-hidden z-10 px-7 pt-10 pb-8 md:px-8 md:pt-12 md:pb-9">
+ 
+                            {/* Radial top glow */}
+                            <div
+                                className="absolute top-0 left-1/2 -translate-x-1/2 w-48 h-48 rounded-full blur-[80px] opacity-0 group-hover:opacity-20 transition-opacity duration-700 pointer-events-none"
+                                style={{ background: cat.color }}
+                            />
+ 
+                            {/* Corner index */}
+                            <div
+                                className="absolute top-4 right-5 text-5xl font-black pointer-events-none select-none leading-none transition-opacity duration-500 opacity-[0.04] group-hover:opacity-[0.09]"
+                                style={{ color: cat.color }}
+                            >
+                                0{i + 1}
                             </div>
-
-                            <h3 className="text-xl md:text-2xl font-bold mb-2 group-hover:text-brand-cyan transition-colors duration-300">
+ 
+                            {/* Top-right corner accent patch */}
+                            <div
+                                className="absolute top-0 right-0 w-20 h-20 rounded-bl-4xl opacity-[0.08] group-hover:opacity-[0.18] transition-opacity duration-500"
+                                style={{ background: cat.color }}
+                            />
+ 
+                            {/* Gradient icon box — Regulatory style */}
+                            <motion.div
+                                animate={{ rotate: [0, 5, -5, 0] }}
+                                transition={{ duration: 5, repeat: Infinity, delay: i * 0.4 }}
+                                className={`w-16 h-16 rounded-2xl bg-linear-to-br ${cat.gradient} flex items-center justify-center shadow-xl mb-6 shrink-0 relative overflow-hidden`}
+                            >
+                                <cat.icon className="w-8 h-8 text-white relative z-10" strokeWidth={1.6} />
+                                {/* Shimmer sweep */}
+                                <div className="absolute inset-0 bg-white/25 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out" />
+                            </motion.div>
+ 
+                            {/* Title */}
+                            <h3 className="text-xl md:text-[1.35rem] font-bold mb-1.5 leading-tight group-hover:text-brand-cyan transition-colors duration-300">
                                 {cat.title}
                             </h3>
-                            <p className="text-[10px] md:text-xs text-white/40 uppercase tracking-[0.2em] mb-8 group-hover:text-white/60 transition-colors">
+ 
+                            {/* Subtitle badge — Regulatory code-pill style */}
+                            <span
+                                className="text-[9px] font-black uppercase tracking-[0.22em] px-3 py-1 rounded-full border mb-5 transition-all duration-300"
+                                style={{
+                                    color: cat.color,
+                                    borderColor: cat.color + "40",
+                                    background: cat.color + "10",
+                                }}
+                            >
                                 {cat.subtitle}
+                            </span>
+ 
+                            {/* Description */}
+                            <p className="text-[11px] md:text-xs text-white/40 leading-relaxed font-light mb-7 group-hover:text-white/65 transition-colors duration-400 max-w-[220px]">
+                                {cat.description}
                             </p>
-
-                            <div className="mt-auto px-6 py-2 rounded-full border border-white/10 text-[10px] font-bold uppercase tracking-[0.2em] group-hover:bg-brand-cyan group-hover:text-black transition-all duration-300">
+ 
+                            {/* Animated divider line */}
+                            <div
+                                className="w-10 h-px mb-6 opacity-20 group-hover:opacity-60 group-hover:w-16 transition-all duration-500"
+                                style={{ background: cat.color }}
+                            />
+ 
+                            {/* Explore button */}
+                            <div
+                                className="mt-auto px-7 py-2.5 rounded-full border border-white/10 text-[9px] font-black uppercase tracking-[0.22em] transition-all duration-300 group-hover:text-black group-hover:border-transparent"
+                                onMouseEnter={(e) => {
+                                    (e.currentTarget as HTMLDivElement).style.background = cat.color;
+                                    (e.currentTarget as HTMLDivElement).style.boxShadow = `0 0 20px ${cat.color}60`;
+                                }}
+                                onMouseLeave={(e) => {
+                                    (e.currentTarget as HTMLDivElement).style.background = "transparent";
+                                    (e.currentTarget as HTMLDivElement).style.boxShadow = "none";
+                                }}
+                            >
                                 Explore Detail
                             </div>
-
-                            {/* Decorative corner element */}
-                            <div className="absolute top-0 right-0 p-6 text-6xl font-bold text-white/2 group-hover:text-brand-cyan/5 transition-colors pointer-events-none">0{i + 1}</div>
                         </div>
                     </motion.div>
                 ))}
@@ -870,6 +1177,69 @@ export const Cat5Details = () => (
     />
 );
 
+// export const Cat2Details = () => {
+//     const items = [
+//         { title: "Custom Medical Web Applications", desc: "Secure, scalable, and user-friendly web-based platforms for clinical, administrative, or patient use." },
+//         { title: "Medical Mobile Apps", desc: "Native and cross-platform mobile applications for patients, providers, and field researchers." },
+//         { title: "Remote Patient Monitoring (RPM)", desc: "Comprehensive platforms with patient-facing apps and provider dashboards for remote health tracking." },
+//         { title: "Electronic Health Records (EHR)", desc: "Comprehensive EHR systems enabling seamless health data management, interoperability, and regulatory compliance." },
+//         { title: "Medical Imaging & Analysis", desc: "Software for secure storage, viewing, annotation, and AI-powered analysis of medical images." },
+//         // { title: "Drug Discovery Platforms", desc: "Specialized software to manage research data, streamline clinical trials, and support the drug lifecycle." }
+//     ];
+
+//     return (
+//         <Container className="justify-center py-4">
+//             <div className="flex items-center gap-5 md:gap-8 mb-8 md:mb-10">
+//                 <motion.div
+//                     initial={{ opacity: 0, scale: 0.5 }}
+//                     whileInView={{ opacity: 0.3, scale: 1 }}
+//                     className="text-6xl md:text-8xl font-black text-brand-cyan leading-none shrink-0"
+//                 >
+//                     02
+//                 </motion.div>
+//                 <div>
+//                     <SubHeading className="text-[10px] md:text-xs mb-2">SERVICE CATEGORY</SubHeading>
+//                     <Heading gradient className="text-2xl md:text-4xl leading-tight mb-0!">Application & Platform Development</Heading>
+//                 </div>
+//             </div>
+//             <div className="grid grid-cols-2 md:grid-cols-6 gap-4 md:gap-5 w-full">
+//                 {items.map((item, i) => (
+//                     <motion.div
+//                         key={i}
+//                         initial={{ opacity: 0, y: 20 }}
+//                         whileInView={{ opacity: 1, y: 0 }}
+//                         viewport={{ once: true }}
+//                         transition={{ delay: i * 0.05 }}
+//                         whileHover={{ y: -6, scale: 1.02, transition: { duration: 0.2 } }}
+//                         className={`group relative flex flex-col h-full ${
+//                             items.length === 5 
+//                                 ? (i < 3 ? 'md:col-span-2' : 'md:col-span-3') 
+//                                 : 'md:col-span-2'
+//                         } ${
+//                             (i === items.length - 1 && items.length % 2 !== 0) ? 'col-span-2' : 'col-span-1'
+//                         }`}
+//                     >
+//                         <div className="absolute inset-0 rounded-2xl p-[1.5px] overflow-hidden">
+//                             <motion.div
+//                                 animate={{ rotate: 360 }}
+//                                 transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+//                                 className="absolute inset-[-150%] bg-[conic-gradient(from_0deg,transparent_20%,#0070f3_40%,#00dfd8_60%,transparent_80%)] opacity-20 group-hover:opacity-100 transition-opacity duration-500"
+//                             />
+//                         </div>
+//                         <div className="relative h-full flex flex-col bg-dark-surface/95 backdrop-blur-md rounded-2xl p-5 md:p-6 z-10 border border-white/5 transition-all duration-300 group-hover:border-brand-cyan/20 group-hover:shadow-[0_0_30px_rgba(0,223,216,0.15)]">
+//                             <div className="mb-3 w-9 h-9 flex items-center justify-center rounded-lg bg-brand-blue/10 text-brand-blue border border-brand-blue/20 group-hover:bg-brand-blue group-hover:text-white transition-all duration-500 shrink-0">
+//                                 <span className="text-xs font-bold">{i + 1}</span>
+//                             </div>
+//                             <h3 className="text-base md:text-lg font-bold mb-2 group-hover:text-brand-cyan transition-colors duration-300 leading-snug">{item.title}</h3>
+//                             <p className="text-white/40 text-xs leading-relaxed group-hover:text-white/70 transition-colors grow">{item.desc}</p>
+//                         </div>
+//                     </motion.div>
+//                 ))}
+//             </div>
+//         </Container>
+//     );
+// };
+
 export const Cat2Details = () => {
     const items = [
         { title: "Custom Medical Web Applications", desc: "Secure, scalable, and user-friendly web-based platforms for clinical, administrative, or patient use." },
@@ -877,6 +1247,7 @@ export const Cat2Details = () => {
         { title: "Remote Patient Monitoring (RPM)", desc: "Comprehensive platforms with patient-facing apps and provider dashboards for remote health tracking." },
         { title: "Electronic Health Records (EHR)", desc: "Comprehensive EHR systems enabling seamless health data management, interoperability, and regulatory compliance." },
         { title: "Medical Imaging & Analysis", desc: "Software for secure storage, viewing, annotation, and AI-powered analysis of medical images." },
+        { title: "PlayStore & App Store Deployment", desc: "End-to-end app store submission, optimization, and compliance management for Google Play and Apple Store with accelerated approval." },
         // { title: "Drug Discovery Platforms", desc: "Specialized software to manage research data, streamline clinical trials, and support the drug lifecycle." }
     ];
 
@@ -1245,6 +1616,151 @@ export const ClientsSlide = () => (
 //         </Container>
 //     );
 // };
+
+export const Accomplishments = () => {
+    const accomplishments = [
+        {
+            value: "2",
+            label: "Mobile Apps",
+            desc: "Published on PlayStore / App Store",
+            icon: Smartphone,
+            gradient: "from-cyan-600 to-teal-500",
+            color: "#00dfd8",
+            image: "/assets/accomplishments/mobile_apps_bg.jpg"
+        },
+        {
+            value: "3",
+            label: "IT Support Solutions",
+            desc: "Enterprise SLA & cloud maintenance",
+            icon: HeartHandshake,
+            gradient: "from-blue-600 to-cyan-500",
+            color: "#0070f3",
+            image: "/assets/accomplishments/it_support_bg.jpg"
+        },
+        {
+            value: "10+",
+            label: "Projects Successfully Executed",
+            desc: "Custom designs and systems delivered",
+            icon: Trophy,
+            gradient: "from-cyan-500 to-blue-600",
+            color: "#00dfd8",
+            image: "/assets/accomplishments/projects_bg.jpg"
+        },
+        {
+            value: "1",
+            label: "FDA Regulatory Compliance",
+            desc: "IEC 62304 standard alignment",
+            icon: Activity,
+            gradient: "from-blue-700 to-indigo-500",
+            color: "#0070f3",
+            image: "/assets/accomplishments/fda_regulatory_bg.jpg"
+        },
+        {
+            value: "1",
+            label: "ONC Certified EHR",
+            desc: "Electronic Health Records integration",
+            icon: Stethoscope,
+            gradient: "from-teal-600 to-cyan-400",
+            color: "#00dfd8",
+            image: "/assets/accomplishments/ehr_certified_bg.jpg"
+        }
+    ];
+
+    return (
+        <Container className="justify-center py-4">
+            <div className="text-center mb-8 md:mb-12">
+                <SubHeading className="text-[10px] md:text-xs">PROVEN TRACK RECORD</SubHeading>
+                <Heading gradient className="text-3xl md:text-5xl">Our Accomplishments</Heading>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-6 gap-5 md:gap-6 w-full max-w-5xl mx-auto items-stretch">
+                {accomplishments.map((item, i) => (
+                    <motion.div
+                        key={i}
+                        initial={{ opacity: 0, scale: 0.95, y: 20 }}
+                        whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{
+                            delay: i * 0.08,
+                            duration: 0.6,
+                            type: "spring",
+                            stiffness: 60,
+                            damping: 14,
+                        }}
+                        whileHover={{ y: -8, scale: 1.02 }}
+                        className={`group relative flex flex-col h-full ${
+                            i < 3 ? 'md:col-span-2' : 'md:col-span-3'
+                        }`}
+                        style={{ perspective: "1000px" }}
+                    >
+                        {/* Animated conic border */}
+                        <div className="absolute inset-0 rounded-3xl p-[1.5px] overflow-hidden">
+                            <motion.div
+                                animate={{ rotate: 360 }}
+                                transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+                                className="absolute inset-[-150%] bg-[conic-gradient(from_0deg,transparent_20%,#0070f3_40%,#00dfd8_60%,transparent_80%)] opacity-20 group-hover:opacity-100 transition-opacity duration-500"
+                            />
+                        </div>
+
+                        {/* Card body */}
+                        <div className="relative h-full bg-slate-950/70 backdrop-blur-md border border-white/10 rounded-3xl flex flex-col items-center text-center group-hover:border-white/25 group-hover:bg-slate-900/80 transition-all duration-500 shadow-2xl overflow-hidden z-10 px-6 py-8 md:px-8 md:py-10">
+                            {/* Realistic background image with scale-on-hover and high transparency */}
+                            <img
+                                src={item.image}
+                                alt={item.label}
+                                className="absolute inset-0 w-full h-full object-cover transition-all duration-700 group-hover:scale-105 opacity-75 group-hover:opacity-95 z-0 pointer-events-none"
+                            />
+                            
+                            {/* Gradient read-mask overlay to guarantee readability of stats/text (reference dark gradient) */}
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/45 to-black/20 z-0 pointer-events-none" />
+
+                            {/* Radial top glow */}
+                            <div
+                                className="absolute top-0 left-1/2 -translate-x-1/2 w-40 h-40 rounded-full blur-[70px] opacity-0 group-hover:opacity-20 transition-opacity duration-700 pointer-events-none z-0"
+                                style={{ background: item.color }}
+                            />
+
+                            {/* Decorative corner index */}
+                            <div
+                                className="absolute top-4 right-5 text-4xl font-black pointer-events-none select-none leading-none transition-opacity duration-500 opacity-10 group-hover:opacity-20 text-white z-10"
+                            >
+                                0{i + 1}
+                            </div>
+
+                            {/* Foreground content container to sit above background and overlay */}
+                            <div className="relative z-10 flex flex-col items-center h-full w-full">
+                                {/* Gradient icon box */}
+                                <motion.div
+                                    animate={{ rotate: [0, 3, -3, 0] }}
+                                    transition={{ duration: 6, repeat: Infinity, delay: i * 0.3 }}
+                                    className={`w-14 h-14 rounded-2xl bg-linear-to-br ${item.gradient} flex items-center justify-center shadow-lg mb-5 shrink-0 relative overflow-hidden`}
+                                >
+                                    <item.icon className="w-7 h-7 text-white relative z-10" strokeWidth={1.6} />
+                                    <div className="absolute inset-0 bg-white/20 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out" />
+                                </motion.div>
+
+                                {/* Stat Value */}
+                                <span className="text-4xl md:text-5xl font-black tracking-tight mb-2 text-white group-hover:text-brand-cyan transition-colors duration-300">
+                                    {item.value}
+                                </span>
+
+                                {/* Title / Label */}
+                                <h3 className="text-lg md:text-xl font-bold mb-1 leading-snug text-white">
+                                    {item.label}
+                                </h3>
+
+                                {/* Description */}
+                                <p className="text-white/70 text-xs md:text-sm font-medium leading-relaxed group-hover:text-white transition-colors duration-300">
+                                    {item.desc}
+                                </p>
+                            </div>
+                        </div>
+                    </motion.div>
+                ))}
+            </div>
+        </Container>
+    );
+};
 
 // Thank You Slide
 export const ThankYou = () => (
