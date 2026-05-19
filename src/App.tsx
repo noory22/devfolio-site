@@ -8,7 +8,7 @@ import Labs from "./components/Labs";
 import Contact from "./components/Contact";
 import { motion, AnimatePresence } from "motion/react";
 
-const TOTAL_SLIDES = 16;
+const TOTAL_SLIDES = 17;
 
 // --- Unique transition variants per slide ---
 const slideTransitions = [
@@ -120,7 +120,13 @@ const slideTransitions = [
   //   animate: { opacity: 1, x: 0, transition: { duration: 0.8, ease: [0.33, 1, 0.68, 1] as [number, number, number, number] } },
   //   exit: { opacity: 0, x: 100, transition: { duration: 0.5 } },
   // },
-  // 19: Thank You
+  // 15: Testimonials
+  {
+    initial: { opacity: 0, scale: 0.95, y: 50 },
+    animate: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
+    exit: { opacity: 0, scale: 0.95, y: -50, transition: { duration: 0.5 } },
+  },
+  // 16: Thank You
   {
     initial: { opacity: 0, clipPath: "inset(50% 0% 50% 0%)" },
     animate: { opacity: 1, clipPath: "inset(0% 0% 0% 0%)", transition: { duration: 1, ease: [0.77, 0, 0.175, 1] as [number, number, number, number] } },
@@ -152,6 +158,7 @@ const slideComponents = [
   // Content.RPMDemo,
   // Content.Pricing,
   Content.Accomplishments,
+  Content.Testimonials,
   Content.ThankYou
 ];
 
@@ -190,7 +197,8 @@ const BackgroundMapping = [
   // Backgrounds.TechNetworkBG,  // 14: RPM Demo Showcase
   // Backgrounds.DNAHelixBG,     // 15: Pricing
   Backgrounds.TechNetworkBG,  // 14: Accomplishments
-  Backgrounds.AuroraBG,       // 15: Thank You
+  Backgrounds.GridPulseBG,    // 15: Testimonials
+  Backgrounds.AuroraBG,       // 16: Thank You
 ];
 
 import { ChevronLeft, ChevronRight, ChevronUp, ChevronDown } from "lucide-react";
@@ -208,7 +216,7 @@ export default function App() {
 
   const getCategoryRange = (index: number) => {
     if (index < 7) return [0, 6];      // Intro (Slides 1-7)
-    return [7, 15];                    // Services, Accomplishments & Thank You (Slides 8-16)
+    return [7, 16];                    // Services, Accomplishments & Thank You (Slides 8-17)
   };
 
   const [min, max] = getCategoryRange(currentSlide);

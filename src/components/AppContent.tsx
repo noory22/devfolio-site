@@ -291,7 +291,7 @@ export const GlobalLocations = () => (
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-stretch">
             {/* Pakistan Facility */}
-            <motion.div 
+            <motion.div
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
@@ -327,7 +327,7 @@ export const GlobalLocations = () => (
             </motion.div>
 
             {/* US Headquarters */}
-            <motion.div 
+            <motion.div
                 initial={{ opacity: 0, x: 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
@@ -801,7 +801,7 @@ export const ServicesIntro = () => (
 //             color: "#00dfd8",
 //         },
 //     ];
- 
+
 //     return (
 //         <Container className="justify-center py-4">
 //             {/* Header — kept exactly as original */}
@@ -809,7 +809,7 @@ export const ServicesIntro = () => (
 //                 <SubHeading className="text-[10px] md:text-xs">OUR EXPERTISE</SubHeading>
 //                 <Heading gradient className="text-3xl md:text-5xl">Medical Solutions</Heading>
 //             </div>
- 
+
 //             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 md:gap-5 w-full max-w-7xl">
 //                 {categories.map((cat, i) => (
 //                     <motion.div
@@ -837,15 +837,15 @@ export const ServicesIntro = () => (
 //                                 className="absolute inset-[-150%] bg-[conic-gradient(from_0deg,transparent_20%,#0070f3_40%,#00dfd8_60%,transparent_80%)] opacity-30 group-hover:opacity-100 transition-opacity duration-500"
 //                             />
 //                         </div>
- 
+
 //                         <div className="relative h-full glass-dark border border-white/10 rounded-4xl p-8 md:p-10 flex flex-col items-center text-center group-hover:border-white/20 group-hover:bg-black/90 transition-all duration-500 shadow-2xl overflow-hidden z-10">
- 
+
 //                             {/* Radial glow — same technique as Regulatory back face */}
 //                             <div
 //                                 className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-32 rounded-full blur-3xl opacity-0 group-hover:opacity-20 transition-opacity duration-500 pointer-events-none"
 //                                 style={{ background: cat.color }}
 //                             />
- 
+
 //                             {/* Gradient Icon Box — mirrors Regulatory.tsx flip card icon */}
 //                             <motion.div
 //                                 animate={{ rotate: [0, 5, -5, 0] }}
@@ -860,14 +860,14 @@ export const ServicesIntro = () => (
 //                                 {/* Shimmer sweep on hover */}
 //                                 <div className="absolute inset-0 bg-white/20 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out" />
 //                             </motion.div>
- 
+
 //                             <h3 className="text-xl md:text-2xl font-bold mb-2 group-hover:text-brand-cyan transition-colors duration-300">
 //                                 {cat.title}
 //                             </h3>
 //                             <p className="text-[10px] md:text-xs text-white/40 uppercase tracking-[0.2em] mb-8 group-hover:text-white/60 transition-colors">
 //                                 {cat.subtitle}
 //                             </p>
- 
+
 //                             {/* Explore button — fills with accent color on hover */}
 //                             <div
 //                                 className="mt-auto px-6 py-2 rounded-full border border-white/10 text-[10px] font-bold uppercase tracking-[0.2em] transition-all duration-300 group-hover:text-black group-hover:border-transparent"
@@ -885,7 +885,7 @@ export const ServicesIntro = () => (
 //                             >
 //                                 Explore Detail
 //                             </div>
- 
+
 //                             {/* Decorative corner index — same as Regulatory */}
 //                             <div
 //                                 className="absolute top-0 right-0 p-6 text-6xl font-bold text-white/3 group-hover:text-white/6 transition-colors pointer-events-none"
@@ -893,7 +893,7 @@ export const ServicesIntro = () => (
 //                             >
 //                                 0{i + 1}
 //                             </div>
- 
+
 //                             {/* Top-right color corner accent — same as Regulatory front face */}
 //                             <div
 //                                 className="absolute top-0 right-0 w-16 h-16 rounded-bl-3xl opacity-10 group-hover:opacity-20 transition-opacity duration-500"
@@ -950,7 +950,7 @@ export const ServicesCategories = ({ onSelect }: { onSelect: (index: number) => 
             description: "Robust, HIPAA-ready cloud infrastructure designed for uptime, security, and seamless scaling across your entire platform.",
         },
     ];
- 
+
     return (
         <Container className="justify-center py-4">
             {/* Header — unchanged */}
@@ -958,7 +958,7 @@ export const ServicesCategories = ({ onSelect }: { onSelect: (index: number) => 
                 <SubHeading className="text-[10px] md:text-xs">OUR EXPERTISE</SubHeading>
                 <Heading gradient className="text-3xl md:text-5xl">Medical Solutions</Heading>
             </div>
- 
+
             <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-5 gap-5 md:gap-6 w-full max-w-1400">
                 {categories.map((cat, i) => (
                     <motion.div
@@ -986,16 +986,16 @@ export const ServicesCategories = ({ onSelect }: { onSelect: (index: number) => 
                                 className="absolute inset-[-150%] bg-[conic-gradient(from_0deg,transparent_20%,#0070f3_40%,#00dfd8_60%,transparent_80%)] opacity-20 group-hover:opacity-100 transition-opacity duration-500"
                             />
                         </div>
- 
+
                         {/* Card body */}
                         <div className="relative h-full glass-dark border border-white/8 rounded-3xl flex flex-col items-center text-center group-hover:border-white/20 group-hover:bg-black/90 transition-all duration-500 shadow-2xl overflow-hidden z-10 px-7 pt-10 pb-8 md:px-8 md:pt-12 md:pb-9">
- 
+
                             {/* Radial top glow */}
                             <div
                                 className="absolute top-0 left-1/2 -translate-x-1/2 w-48 h-48 rounded-full blur-[80px] opacity-0 group-hover:opacity-20 transition-opacity duration-700 pointer-events-none"
                                 style={{ background: cat.color }}
                             />
- 
+
                             {/* Corner index */}
                             <div
                                 className="absolute top-4 right-5 text-5xl font-black pointer-events-none select-none leading-none transition-opacity duration-500 opacity-[0.04] group-hover:opacity-[0.09]"
@@ -1003,13 +1003,13 @@ export const ServicesCategories = ({ onSelect }: { onSelect: (index: number) => 
                             >
                                 0{i + 1}
                             </div>
- 
+
                             {/* Top-right corner accent patch */}
                             <div
                                 className="absolute top-0 right-0 w-20 h-20 rounded-bl-4xl opacity-[0.08] group-hover:opacity-[0.18] transition-opacity duration-500"
                                 style={{ background: cat.color }}
                             />
- 
+
                             {/* Gradient icon box — Regulatory style */}
                             <motion.div
                                 animate={{ rotate: [0, 5, -5, 0] }}
@@ -1020,12 +1020,12 @@ export const ServicesCategories = ({ onSelect }: { onSelect: (index: number) => 
                                 {/* Shimmer sweep */}
                                 <div className="absolute inset-0 bg-white/25 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out" />
                             </motion.div>
- 
+
                             {/* Title */}
                             <h3 className="text-xl md:text-[1.35rem] font-bold mb-1.5 leading-tight group-hover:text-brand-cyan transition-colors duration-300">
                                 {cat.title}
                             </h3>
- 
+
                             {/* Subtitle badge — Regulatory code-pill style */}
                             <span
                                 className="text-[9px] font-black uppercase tracking-[0.22em] px-3 py-1 rounded-full border mb-5 transition-all duration-300"
@@ -1037,18 +1037,18 @@ export const ServicesCategories = ({ onSelect }: { onSelect: (index: number) => 
                             >
                                 {cat.subtitle}
                             </span>
- 
+
                             {/* Description */}
                             <p className="text-[11px] md:text-xs text-white/40 leading-relaxed font-light mb-7 group-hover:text-white/65 transition-colors duration-400 max-w-[220px]">
                                 {cat.description}
                             </p>
- 
+
                             {/* Animated divider line */}
                             <div
                                 className="w-10 h-px mb-6 opacity-20 group-hover:opacity-60 group-hover:w-16 transition-all duration-500"
                                 style={{ background: cat.color }}
                             />
- 
+
                             {/* Explore button */}
                             <div
                                 className="mt-auto px-7 py-2.5 rounded-full border border-white/10 text-[9px] font-black uppercase tracking-[0.22em] transition-all duration-300 group-hover:text-black group-hover:border-transparent"
@@ -1275,13 +1275,11 @@ export const Cat2Details = () => {
                         viewport={{ once: true }}
                         transition={{ delay: i * 0.05 }}
                         whileHover={{ y: -6, scale: 1.02, transition: { duration: 0.2 } }}
-                        className={`group relative flex flex-col h-full ${
-                            items.length === 5 
-                                ? (i < 3 ? 'md:col-span-2' : 'md:col-span-3') 
-                                : 'md:col-span-2'
-                        } ${
-                            (i === items.length - 1 && items.length % 2 !== 0) ? 'col-span-2' : 'col-span-1'
-                        }`}
+                        className={`group relative flex flex-col h-full ${items.length === 5
+                            ? (i < 3 ? 'md:col-span-2' : 'md:col-span-3')
+                            : 'md:col-span-2'
+                            } ${(i === items.length - 1 && items.length % 2 !== 0) ? 'col-span-2' : 'col-span-1'
+                            }`}
                     >
                         <div className="absolute inset-0 rounded-2xl p-[1.5px] overflow-hidden">
                             <motion.div
@@ -1635,7 +1633,7 @@ export const Accomplishments = () => {
             icon: HeartHandshake,
             gradient: "from-blue-600 to-cyan-500",
             color: "#0070f3",
-            image: "/assets/accomplishments/it_support_bg.jpg"
+            image: "/assets/cloud.png"
         },
         {
             value: "10+",
@@ -1653,7 +1651,7 @@ export const Accomplishments = () => {
             icon: Activity,
             gradient: "from-blue-700 to-indigo-500",
             color: "#0070f3",
-            image: "/assets/accomplishments/fda_regulatory_bg.jpg"
+            image: "/assets/image.png"
         },
         {
             value: "1",
@@ -1662,7 +1660,7 @@ export const Accomplishments = () => {
             icon: Stethoscope,
             gradient: "from-teal-600 to-cyan-400",
             color: "#00dfd8",
-            image: "/assets/accomplishments/ehr_certified_bg.jpg"
+            image: "/assets/ONC.png"
         }
     ];
 
@@ -1670,7 +1668,7 @@ export const Accomplishments = () => {
         <Container className="justify-center py-4">
             <div className="text-center mb-8 md:mb-12">
                 <SubHeading className="text-[10px] md:text-xs">PROVEN TRACK RECORD</SubHeading>
-                <Heading gradient className="text-3xl md:text-5xl">Our Accomplishments</Heading>
+                <Heading gradient className="text-3xl md:text-5xl">Our Achievements</Heading>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-6 gap-5 md:gap-6 w-full max-w-5xl mx-auto items-stretch">
@@ -1688,9 +1686,8 @@ export const Accomplishments = () => {
                             damping: 14,
                         }}
                         whileHover={{ y: -8, scale: 1.02 }}
-                        className={`group relative flex flex-col h-full ${
-                            i < 3 ? 'md:col-span-2' : 'md:col-span-3'
-                        }`}
+                        className={`group relative flex flex-col h-full ${i < 3 ? 'md:col-span-2' : 'md:col-span-3'
+                            }`}
                         style={{ perspective: "1000px" }}
                     >
                         {/* Animated conic border */}
@@ -1710,7 +1707,7 @@ export const Accomplishments = () => {
                                 alt={item.label}
                                 className="absolute inset-0 w-full h-full object-cover transition-all duration-700 group-hover:scale-105 opacity-75 group-hover:opacity-95 z-0 pointer-events-none"
                             />
-                            
+
                             {/* Gradient read-mask overlay to guarantee readability of stats/text (reference dark gradient) */}
                             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/45 to-black/20 z-0 pointer-events-none" />
 
@@ -1757,6 +1754,149 @@ export const Accomplishments = () => {
                         </div>
                     </motion.div>
                 ))}
+            </div>
+        </Container>
+    );
+};
+
+// Testimonials Slide
+export const Testimonials = () => {
+    const reviews = [
+        {
+            name: "Dr. Babar Rao",
+            company: "LegendEHR",
+            quote: "RMT delivered a highly compliance-certified EHR platform that has transformed our clinical workflows. Their understanding of health informatics is outstanding.",
+            role: "Chief Executive Officer"
+        },
+        {
+            name: "Ms. Rumana",
+            company: "e-Vitals",
+            quote: "The mobile app development and real-time remote monitoring dashboard exceeded our expectations. Robust, secure, and extremely user-friendly.",
+            role: "Chief Executive Officer"
+        },
+        {
+            name: "Sajol Ghoshal",
+            company: "Cardio",
+            quote: "Exceptional AI diagnostic integrations. RMT's team demonstrated absolute mastery in regulatory QA compliance and software reliability.",
+            role: "Chief Executive Officer"
+        },
+        {
+            name: "Dr. Amir Jamal",
+            company: "Infuzamed",
+            quote: "From design to FDA alignment, RMT proved to be a reliable partner. Their engineering support and system integration are world-class.",
+            role: "Chief Executive Officer"
+        }
+    ];
+
+    const [currentIdx, setCurrentIdx] = useState(0);
+
+    React.useEffect(() => {
+        const timer = setInterval(() => {
+            setCurrentIdx((prev) => (prev + 1) % reviews.length);
+        }, 5000);
+        return () => clearInterval(timer);
+    }, [reviews.length]);
+
+    const activeReview = reviews[currentIdx];
+
+    const marqueeLogos = [
+        { name: "LegendEHR", logoSrc: "/assets/legendEHR.jpg" },
+        { name: "22-RPM", logoSrc: "/assets/22RPM.png" },
+        { name: "Cardio", logoSrc: "/assets/cardio.png" },
+        { name: "e-Vitals", logoSrc: "/assets/E-vitals.png" },
+        { name: "Infuzamed", logoSrc: "/assets/infuzamed.png" },
+    ];
+    const doubleLogos = [...marqueeLogos, ...marqueeLogos, ...marqueeLogos];
+
+    return (
+        <Container className="justify-center py-4">
+            <div className="text-center mb-8 md:mb-12">
+                <SubHeading className="text-[10px] md:text-xs justify-center">VALUED PARTNERS & CLIENTS</SubHeading>
+                <Heading gradient className="text-3xl md:text-5xl">Testimonials</Heading>
+            </div>
+
+            {/* Testimonials Card */}
+            <div className="relative w-full max-w-3xl mx-auto mb-16 md:mb-20">
+                {/* Decorative background glow behind the card */}
+                <div className="absolute inset-0 bg-brand-cyan/5 blur-3xl rounded-full pointer-events-none" />
+
+                <div className="glass-dark p-8 md:p-12 rounded-4xl border border-white/10 relative overflow-hidden shadow-2xl min-h-[250px] md:min-h-[220px] flex flex-col justify-between">
+                    {/* Quotation icon */}
+                    <div className="absolute -top-4 -left-4 text-white/5 font-serif text-9xl select-none pointer-events-none">
+                        “
+                    </div>
+
+                    <AnimatePresence mode="wait">
+                        <motion.div
+                            key={currentIdx}
+                            initial={{ opacity: 0, y: 15 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -15 }}
+                            transition={{ duration: 0.5 }}
+                            className="relative z-10 flex flex-col justify-between h-full"
+                        >
+                            <p className="text-white/80 italic text-base md:text-lg lg:text-xl font-light leading-relaxed mb-6">
+                                "{activeReview.quote}"
+                            </p>
+                            <div>
+                                <h4 className="text-white font-bold text-base md:text-lg">
+                                    {activeReview.name}
+                                </h4>
+                                <p className="text-brand-cyan text-xs md:text-sm font-medium">
+                                    {activeReview.role} • {activeReview.company}
+                                </p>
+                            </div>
+                        </motion.div>
+                    </AnimatePresence>
+
+                    {/* Pagination indicators inside the card */}
+                    <div className="flex gap-2 justify-end mt-4 relative z-20">
+                        {reviews.map((_, i) => (
+                            <button
+                                key={i}
+                                onClick={() => setCurrentIdx(i)}
+                                className={`h-1.5 rounded-full transition-all duration-300 ${i === currentIdx ? "w-6 bg-brand-cyan" : "w-1.5 bg-white/20 hover:bg-white/40"
+                                    }`}
+                                aria-label={`Go to testimonial ${i + 1}`}
+                            />
+                        ))}
+                    </div>
+                </div>
+            </div>
+
+            {/* Continuous marquee slider for logos */}
+            <div className="w-full max-w-4xl mx-auto flex flex-col items-center">
+                <p className="text-white/30 uppercase tracking-[0.2em] text-[10px] md:text-xs font-semibold mb-6">
+                    TRUSTED BY HEALTHCARE INDUSTRY
+                </p>
+                <div className="relative w-full overflow-hidden py-4 border-y border-white/5">
+                    {/* Fade gradients on edges */}
+                    <div className="absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-dark-bg to-transparent z-10 pointer-events-none" />
+                    <div className="absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-dark-bg to-transparent z-10 pointer-events-none" />
+
+                    <motion.div
+                        className="flex gap-8 whitespace-nowrap animate-marquee"
+                        animate={{ x: ["0%", "-33.333%"] }}
+                        transition={{
+                            ease: "linear",
+                            duration: 20,
+                            repeat: Infinity,
+                        }}
+                    >
+                        {doubleLogos.map((logo, i) => (
+                            <div
+                                key={i}
+                                className="inline-flex items-center justify-center w-48 h-20 sm:w-60 sm:h-24 shrink-0 p-4 rounded-xl bg-white shadow-md transition-all hover:scale-105 group"
+                            >
+                                <img
+                                    src={logo.logoSrc}
+                                    alt={logo.name}
+                                    className="max-h-full max-w-full object-contain transition-opacity duration-300"
+                                />
+                            </div>
+                        ))}
+                    </motion.div>
+                </div>
             </div>
         </Container>
     );
