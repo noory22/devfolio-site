@@ -46,115 +46,163 @@ const slideTransitions = [
     animate: { opacity: 1, y: 0, transition: { duration: 0.8 } },
     exit: { opacity: 0, y: -100, transition: { duration: 0.5 } },
   },
-  // 7: Animated Map
+  // 6: Animated Map
   {
     initial: { opacity: 0, rotateX: 90 },
     animate: { opacity: 1, rotateX: 0, transition: { duration: 1 } },
     exit: { opacity: 0, rotateX: -90, transition: { duration: 0.6 } },
   },
-  // 8: Services Intro
+  // 7: Services Intro
   {
     initial: { opacity: 0, y: 100 },
     animate: { opacity: 1, y: 0, transition: { duration: 0.8 } },
     exit: { opacity: 0, y: -100, transition: { duration: 0.5 } },
   },
-  // 9: Services Categories (Selection)
+  // 8: Services Categories (Selection)
   {
     initial: { opacity: 0, y: 100 },
     animate: { opacity: 1, y: 0, transition: { duration: 0.8 } },
     exit: { opacity: 0, y: -100, transition: { duration: 0.5 } },
   },
-  // 10: Cat 1 Detail
+  // 9: Cat 1 Detail
   {
     initial: { opacity: 0, y: 100 },
     animate: { opacity: 1, y: 0, transition: { duration: 0.8 } },
     exit: { opacity: 0, y: -100, transition: { duration: 0.5 } },
   },
-  // 11: Cat 2 Detail
+  // 10: Cat 2 Detail
   {
     initial: { opacity: 0, y: 100 },
     animate: { opacity: 1, y: 0, transition: { duration: 0.8 } },
     exit: { opacity: 0, y: -100, transition: { duration: 0.5 } },
   },
-  // 12: Cat 3 Detail
+  // 11: Custom Medical Applications Detail
   {
     initial: { opacity: 0, y: 100 },
     animate: { opacity: 1, y: 0, transition: { duration: 0.8 } },
     exit: { opacity: 0, y: -100, transition: { duration: 0.5 } },
   },
-  // 13: Custom Medical Applications Detail
+  // 12: Medical Mobile Apps Detail
   {
     initial: { opacity: 0, y: 100 },
     animate: { opacity: 1, y: 0, transition: { duration: 0.8 } },
     exit: { opacity: 0, y: -100, transition: { duration: 0.5 } },
   },
-  // 14: Medical Mobile Apps Detail
+  // 13: Store Deployment Detail
   {
     initial: { opacity: 0, y: 100 },
     animate: { opacity: 1, y: 0, transition: { duration: 0.8 } },
     exit: { opacity: 0, y: -100, transition: { duration: 0.5 } },
   },
-  // 15: Store Deployment Detail
+  // 14: RPM Detail
   {
     initial: { opacity: 0, y: 100 },
     animate: { opacity: 1, y: 0, transition: { duration: 0.8 } },
     exit: { opacity: 0, y: -100, transition: { duration: 0.5 } },
   },
-  // 16: Cat 5 Detail
+  // 15: EHR Detail
   {
     initial: { opacity: 0, y: 100 },
     animate: { opacity: 1, y: 0, transition: { duration: 0.8 } },
     exit: { opacity: 0, y: -100, transition: { duration: 0.5 } },
   },
-  // 17: RPM Detail
+  // 16: Imaging & Analysis Detail
   {
     initial: { opacity: 0, y: 100 },
     animate: { opacity: 1, y: 0, transition: { duration: 0.8 } },
     exit: { opacity: 0, y: -100, transition: { duration: 0.5 } },
   },
-  // 18: EHR Detail
+  // 17: Cat 3 Detail
   {
     initial: { opacity: 0, y: 100 },
     animate: { opacity: 1, y: 0, transition: { duration: 0.8 } },
     exit: { opacity: 0, y: -100, transition: { duration: 0.5 } },
   },
-  // 19: Cat 4 Detail
+  // 18: Scheduler Detail
   {
     initial: { opacity: 0, y: 100 },
     animate: { opacity: 1, y: 0, transition: { duration: 0.8 } },
     exit: { opacity: 0, y: -100, transition: { duration: 0.5 } },
   },
-  // 15: Regulatory (Vault of Trust)
+  // 19: Cat 5 Details (Software Compliance)
+  {
+    initial: { opacity: 0, y: 100 },
+    animate: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+    exit: { opacity: 0, y: -100, transition: { duration: 0.5 } },
+  },
+  // 20: QA Medical Software Detail
+  {
+    initial: { opacity: 0, y: 100 },
+    animate: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+    exit: { opacity: 0, y: -100, transition: { duration: 0.5 } },
+  },
+  // 21: IEC 62304 Compliance Detail
+  {
+    initial: { opacity: 0, y: 100 },
+    animate: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+    exit: { opacity: 0, y: -100, transition: { duration: 0.5 } },
+  },
+  // 22: HIPAA Compliance Detail
+  {
+    initial: { opacity: 0, y: 100 },
+    animate: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+    exit: { opacity: 0, y: -100, transition: { duration: 0.5 } },
+  },
+  // 23: ONC Health IT Detail
+  {
+    initial: { opacity: 0, y: 100 },
+    animate: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+    exit: { opacity: 0, y: -100, transition: { duration: 0.5 } },
+  },
+  // 24: FHIR Integration Detail
+  {
+    initial: { opacity: 0, y: 100 },
+    animate: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+    exit: { opacity: 0, y: -100, transition: { duration: 0.5 } },
+  },
+  // 25: Cat 4 Details (Infrastructure)
+  {
+    initial: { opacity: 0, y: 100 },
+    animate: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+    exit: { opacity: 0, y: -100, transition: { duration: 0.5 } },
+  },
+  // 26: DevOps Detail
+  {
+    initial: { opacity: 0, y: 100 },
+    animate: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+    exit: { opacity: 0, y: -100, transition: { duration: 0.5 } },
+  },
+  // 27: SaaS Detail
+  {
+    initial: { opacity: 0, y: 100 },
+    animate: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+    exit: { opacity: 0, y: -100, transition: { duration: 0.5 } },
+  },
+  // 28: QA Validation Detail
+  {
+    initial: { opacity: 0, y: 100 },
+    animate: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+    exit: { opacity: 0, y: -100, transition: { duration: 0.5 } },
+  },
+  // 29: Maintenance Detail
+  {
+    initial: { opacity: 0, y: 100 },
+    animate: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+    exit: { opacity: 0, y: -100, transition: { duration: 0.5 } },
+  },
+  // 30: Accomplishments
   {
     initial: { opacity: 0, scale: 1.2, rotateX: 45 },
     animate: { opacity: 1, scale: 1, rotateX: 0, transition: { duration: 1, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] } },
     exit: { opacity: 0, scale: 0.8, transition: { duration: 0.6 } },
   },
-  // 16: Products Intro
-  // {
-  //   initial: { opacity: 0, y: "100vh" },
-  //   animate: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.77, 0, 0.175, 1] as [number, number, number, number] } },
-  //   exit: { opacity: 0, y: "-100vh", transition: { duration: 0.6 } },
-  // },
-  // 17: RPM Demo Showcase
-  // {
-  //   initial: { opacity: 0, scale: 0.95 },
-  //   animate: { opacity: 1, scale: 1, transition: { duration: 0.5 } },
-  //   exit: { opacity: 0, transition: { duration: 0.3 } },
-  // },
-  // 18: Pricing
-  // {
-  //   initial: { opacity: 0, x: -100 },
-  //   animate: { opacity: 1, x: 0, transition: { duration: 0.8, ease: [0.33, 1, 0.68, 1] as [number, number, number, number] } },
-  //   exit: { opacity: 0, x: 100, transition: { duration: 0.5 } },
-  // },
-  // 17: Testimonials
+  // 31: Testimonials
   {
     initial: { opacity: 0, scale: 0.95, y: 50 },
     animate: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
     exit: { opacity: 0, scale: 0.95, y: -50, transition: { duration: 0.5 } },
   },
-  // 18: Thank You
+  // 32: Thank You
   {
     initial: { opacity: 0, clipPath: "inset(50% 0% 50% 0%)" },
     animate: { opacity: 1, clipPath: "inset(0% 0% 0% 0%)", transition: { duration: 1, ease: [0.77, 0, 0.175, 1] as [number, number, number, number] } },
@@ -187,11 +235,17 @@ const slideComponents = [
   Content.Cat3Details,
   Content.SchedulerDetail,
   Content.Cat5Details,
+  Content.QaMedicalSoftwareDetail,
+  Content.Iec62304ComplianceDetail,
+  Content.HipaaComplianceDetail,
+  Content.OncCertificationDetail,
+  Content.FhirIntegrationDetail,
   Content.Cat4Details,
+  Content.DevOpsCloudInfrastructureDetail,
+  Content.SaaSEnablementDetail,
+  Content.QaValidationDetail,
+  Content.OngoingMaintenanceDetail,
   // Regulatory,
-  // Content.ProductsIntro,
-  // Content.RPMDemo,
-  // Content.Pricing,
   Content.Accomplishments,
   Content.Testimonials,
   Content.ThankYou
@@ -237,12 +291,21 @@ const BackgroundMapping = [
   Backgrounds.AuroraBG,       // 17: Cat 3
   Backgrounds.TechNetworkBG,  // 18: Scheduler Detail
   Backgrounds.DNAHelixBG,     // 19: Cat 5
-  Backgrounds.GridPulseBG,    // 20: Cat 4
+  Backgrounds.TechNetworkBG,  // 20: QA Medical Software Detail
+  Backgrounds.GridPulseBG,    // 21: IEC 62304 Compliance Detail
+  Backgrounds.DNAHelixBG,     // 22: HIPAA Compliance Detail
+  Backgrounds.GridPulseBG,    // 23: ONC Health IT Detail
+  Backgrounds.TechNetworkBG,  // 24: FHIR Integration Detail
+  Backgrounds.GridPulseBG,    // 25: Cat 4
+  Backgrounds.TechNetworkBG,  // 26: DevOps & Cloud Infrastructure Detail
+  Backgrounds.DNAHelixBG,     // 27: SaaS Enablement Detail
+  Backgrounds.GridPulseBG,    // 28: QA Validation Detail
+  Backgrounds.FloatingCubesBG,// 29: Ongoing Maintenance Detail
   // Backgrounds.TechNetworkBG,  // 14: RPM Demo Showcase
   // Backgrounds.DNAHelixBG,     // 15: Pricing
-  Backgrounds.TechNetworkBG,  // 21: Accomplishments
-  Backgrounds.GridPulseBG,    // 22: Testimonials
-  Backgrounds.AuroraBG,       // 23: Thank You
+  Backgrounds.TechNetworkBG,  // 30: Accomplishments
+  Backgrounds.GridPulseBG,    // 31: Testimonials
+  Backgrounds.AuroraBG,       // 32: Thank You
 ];
 
 import { ChevronLeft, ChevronRight, ChevronUp, ChevronDown } from "lucide-react";
@@ -258,6 +321,15 @@ export default function App() {
   const [showEhrDetail, setShowEhrDetail] = useState(false);
   const [showImagingDetail, setShowImagingDetail] = useState(false);
   const [showSchedulerDetail, setShowSchedulerDetail] = useState(false);
+  const [showQaMedicalDetail, setShowQaMedicalDetail] = useState(false);
+  const [showIec62304Detail, setShowIec62304Detail] = useState(false);
+  const [showHipaaDetail, setShowHipaaDetail] = useState(false);
+  const [showOncDetail, setShowOncDetail] = useState(false);
+  const [showFhirDetail, setShowFhirDetail] = useState(false);
+  const [showDevOpsDetail, setShowDevOpsDetail] = useState(false);
+  const [showSaaSDetail, setShowSaaSDetail] = useState(false);
+  const [showQaValidationDetail, setShowQaValidationDetail] = useState(false);
+  const [showMaintenanceDetail, setShowMaintenanceDetail] = useState(false);
 
   const CUSTOM_MEDICAL_DETAIL_SLIDE = 11;
   const MEDICAL_MOBILE_DETAIL_SLIDE = 12;
@@ -266,12 +338,21 @@ export default function App() {
   const EHR_DETAIL_SLIDE = 15;
   const IMAGING_DETAIL_SLIDE = 16;
   const SCHEDULER_DETAIL_SLIDE = 18;
+  const QA_MEDICAL_DETAIL_SLIDE = 20;
+  const IEC_62304_DETAIL_SLIDE = 21;
+  const HIPAA_DETAIL_SLIDE = 22;
+  const ONC_DETAIL_SLIDE = 23;
+  const FHIR_DETAIL_SLIDE = 24;
+  const DEVOPS_DETAIL_SLIDE = 26;
+  const SAAS_DETAIL_SLIDE = 27;
+  const QA_VALIDATION_DETAIL_SLIDE = 28;
+  const MAINTENANCE_DETAIL_SLIDE = 29;
 
   // Cooldown for scroll/wheel navigation
   const lastScrollTime = useRef(0);
   const SCROLL_COOLDOWN = 1000;
 
-  const isServices = currentSlide >= 8 && currentSlide <= 20;
+  const isServices = currentSlide >= 8 && currentSlide <= 29;
 
   const isHiddenSlide = useCallback((index: number) => (
     (index === CUSTOM_MEDICAL_DETAIL_SLIDE && !showCustomMedicalDetail) ||
@@ -280,8 +361,24 @@ export default function App() {
     (index === RPM_DETAIL_SLIDE && !showRpmDetail) ||
     (index === EHR_DETAIL_SLIDE && !showEhrDetail) ||
     (index === IMAGING_DETAIL_SLIDE && !showImagingDetail) ||
-    (index === SCHEDULER_DETAIL_SLIDE && !showSchedulerDetail)
-  ), [CUSTOM_MEDICAL_DETAIL_SLIDE, MEDICAL_MOBILE_DETAIL_SLIDE, STORE_DEPLOYMENT_DETAIL_SLIDE, RPM_DETAIL_SLIDE, EHR_DETAIL_SLIDE, IMAGING_DETAIL_SLIDE, SCHEDULER_DETAIL_SLIDE, showCustomMedicalDetail, showMedicalMobileDetail, showStoreDeploymentDetail, showRpmDetail, showEhrDetail, showImagingDetail, showSchedulerDetail]);
+    (index === SCHEDULER_DETAIL_SLIDE && !showSchedulerDetail) ||
+    (index === QA_MEDICAL_DETAIL_SLIDE && !showQaMedicalDetail) ||
+    (index === IEC_62304_DETAIL_SLIDE && !showIec62304Detail) ||
+    (index === HIPAA_DETAIL_SLIDE && !showHipaaDetail) ||
+    (index === ONC_DETAIL_SLIDE && !showOncDetail) ||
+    (index === FHIR_DETAIL_SLIDE && !showFhirDetail) ||
+    (index === DEVOPS_DETAIL_SLIDE && !showDevOpsDetail) ||
+    (index === SAAS_DETAIL_SLIDE && !showSaaSDetail) ||
+    (index === QA_VALIDATION_DETAIL_SLIDE && !showQaValidationDetail) ||
+    (index === MAINTENANCE_DETAIL_SLIDE && !showMaintenanceDetail)
+  ), [
+    CUSTOM_MEDICAL_DETAIL_SLIDE, MEDICAL_MOBILE_DETAIL_SLIDE, STORE_DEPLOYMENT_DETAIL_SLIDE, RPM_DETAIL_SLIDE, EHR_DETAIL_SLIDE, IMAGING_DETAIL_SLIDE, SCHEDULER_DETAIL_SLIDE,
+    QA_MEDICAL_DETAIL_SLIDE, IEC_62304_DETAIL_SLIDE, HIPAA_DETAIL_SLIDE, ONC_DETAIL_SLIDE, FHIR_DETAIL_SLIDE,
+    DEVOPS_DETAIL_SLIDE, SAAS_DETAIL_SLIDE, QA_VALIDATION_DETAIL_SLIDE, MAINTENANCE_DETAIL_SLIDE,
+    showCustomMedicalDetail, showMedicalMobileDetail, showStoreDeploymentDetail, showRpmDetail, showEhrDetail, showImagingDetail, showSchedulerDetail,
+    showQaMedicalDetail, showIec62304Detail, showHipaaDetail, showOncDetail, showFhirDetail,
+    showDevOpsDetail, showSaaSDetail, showQaValidationDetail, showMaintenanceDetail
+  ]);
 
   const getCategoryRange = (index: number) => {
     if (index < 7) return [0, 6];      // Intro (Slides 1-7)
@@ -323,6 +420,33 @@ export default function App() {
       }
       if (currentSlide === SCHEDULER_DETAIL_SLIDE && clamped !== SCHEDULER_DETAIL_SLIDE) {
         setShowSchedulerDetail(false);
+      }
+      if (currentSlide === QA_MEDICAL_DETAIL_SLIDE && clamped !== QA_MEDICAL_DETAIL_SLIDE) {
+        setShowQaMedicalDetail(false);
+      }
+      if (currentSlide === IEC_62304_DETAIL_SLIDE && clamped !== IEC_62304_DETAIL_SLIDE) {
+        setShowIec62304Detail(false);
+      }
+      if (currentSlide === HIPAA_DETAIL_SLIDE && clamped !== HIPAA_DETAIL_SLIDE) {
+        setShowHipaaDetail(false);
+      }
+      if (currentSlide === ONC_DETAIL_SLIDE && clamped !== ONC_DETAIL_SLIDE) {
+        setShowOncDetail(false);
+      }
+      if (currentSlide === FHIR_DETAIL_SLIDE && clamped !== FHIR_DETAIL_SLIDE) {
+        setShowFhirDetail(false);
+      }
+      if (currentSlide === DEVOPS_DETAIL_SLIDE && clamped !== DEVOPS_DETAIL_SLIDE) {
+        setShowDevOpsDetail(false);
+      }
+      if (currentSlide === SAAS_DETAIL_SLIDE && clamped !== SAAS_DETAIL_SLIDE) {
+        setShowSaaSDetail(false);
+      }
+      if (currentSlide === QA_VALIDATION_DETAIL_SLIDE && clamped !== QA_VALIDATION_DETAIL_SLIDE) {
+        setShowQaValidationDetail(false);
+      }
+      if (currentSlide === MAINTENANCE_DETAIL_SLIDE && clamped !== MAINTENANCE_DETAIL_SLIDE) {
+        setShowMaintenanceDetail(false);
       }
     },
     [currentSlide, isTransitioning, isHiddenSlide]
@@ -407,6 +531,78 @@ export default function App() {
     setIsTransitioning(true);
     setCurrentSlide(SCHEDULER_DETAIL_SLIDE);
   }, [SCHEDULER_DETAIL_SLIDE, currentSlide, isTransitioning]);
+
+  const openQaMedicalDetail = useCallback(() => {
+    if (isTransitioning) return;
+    setShowQaMedicalDetail(true);
+    setDirection(QA_MEDICAL_DETAIL_SLIDE > currentSlide ? 1 : -1);
+    setIsTransitioning(true);
+    setCurrentSlide(QA_MEDICAL_DETAIL_SLIDE);
+  }, [QA_MEDICAL_DETAIL_SLIDE, currentSlide, isTransitioning]);
+
+  const openIec62304Detail = useCallback(() => {
+    if (isTransitioning) return;
+    setShowIec62304Detail(true);
+    setDirection(IEC_62304_DETAIL_SLIDE > currentSlide ? 1 : -1);
+    setIsTransitioning(true);
+    setCurrentSlide(IEC_62304_DETAIL_SLIDE);
+  }, [IEC_62304_DETAIL_SLIDE, currentSlide, isTransitioning]);
+
+  const openHipaaDetail = useCallback(() => {
+    if (isTransitioning) return;
+    setShowHipaaDetail(true);
+    setDirection(HIPAA_DETAIL_SLIDE > currentSlide ? 1 : -1);
+    setIsTransitioning(true);
+    setCurrentSlide(HIPAA_DETAIL_SLIDE);
+  }, [HIPAA_DETAIL_SLIDE, currentSlide, isTransitioning]);
+
+  const openOncDetail = useCallback(() => {
+    if (isTransitioning) return;
+    setShowOncDetail(true);
+    setDirection(ONC_DETAIL_SLIDE > currentSlide ? 1 : -1);
+    setIsTransitioning(true);
+    setCurrentSlide(ONC_DETAIL_SLIDE);
+  }, [ONC_DETAIL_SLIDE, currentSlide, isTransitioning]);
+
+  const openFhirDetail = useCallback(() => {
+    if (isTransitioning) return;
+    setShowFhirDetail(true);
+    setDirection(FHIR_DETAIL_SLIDE > currentSlide ? 1 : -1);
+    setIsTransitioning(true);
+    setCurrentSlide(FHIR_DETAIL_SLIDE);
+  }, [FHIR_DETAIL_SLIDE, currentSlide, isTransitioning]);
+
+  const openDevOpsDetail = useCallback(() => {
+    if (isTransitioning) return;
+    setShowDevOpsDetail(true);
+    setDirection(DEVOPS_DETAIL_SLIDE > currentSlide ? 1 : -1);
+    setIsTransitioning(true);
+    setCurrentSlide(DEVOPS_DETAIL_SLIDE);
+  }, [DEVOPS_DETAIL_SLIDE, currentSlide, isTransitioning]);
+
+  const openSaaSDetail = useCallback(() => {
+    if (isTransitioning) return;
+    setShowSaaSDetail(true);
+    setDirection(SAAS_DETAIL_SLIDE > currentSlide ? 1 : -1);
+    setIsTransitioning(true);
+    setCurrentSlide(SAAS_DETAIL_SLIDE);
+  }, [SAAS_DETAIL_SLIDE, currentSlide, isTransitioning]);
+
+  const openQaValidationDetail = useCallback(() => {
+    if (isTransitioning) return;
+    setShowQaValidationDetail(true);
+    setDirection(QA_VALIDATION_DETAIL_SLIDE > currentSlide ? 1 : -1);
+    setIsTransitioning(true);
+    setCurrentSlide(QA_VALIDATION_DETAIL_SLIDE);
+  }, [QA_VALIDATION_DETAIL_SLIDE, currentSlide, isTransitioning]);
+
+  const openMaintenanceDetail = useCallback(() => {
+    if (isTransitioning) return;
+    setShowMaintenanceDetail(true);
+    setDirection(MAINTENANCE_DETAIL_SLIDE > currentSlide ? 1 : -1);
+    setIsTransitioning(true);
+    setCurrentSlide(MAINTENANCE_DETAIL_SLIDE);
+  }, [MAINTENANCE_DETAIL_SLIDE, currentSlide, isTransitioning]);
 
   // Keyboard Navigation
   useEffect(() => {
@@ -515,6 +711,15 @@ export default function App() {
               onOpenEhrDetail={openEhrDetail}
               onOpenImagingDetail={openImagingDetail}
               onOpenSchedulerDetail={openSchedulerDetail}
+              onOpenQaMedicalDetail={openQaMedicalDetail}
+              onOpenIec62304Detail={openIec62304Detail}
+              onOpenHipaaDetail={openHipaaDetail}
+              onOpenOncDetail={openOncDetail}
+              onOpenFhirDetail={openFhirDetail}
+              onOpenDevOps={openDevOpsDetail}
+              onOpenSaaS={openSaaSDetail}
+              onOpenQaValidation={openQaValidationDetail}
+              onOpenMaintenance={openMaintenanceDetail}
             />
           </motion.section>
         </AnimatePresence>

@@ -42,8 +42,7 @@ export default function Navbar({ currentSlide = 0, setCurrentSlide }: { currentS
             whileHover={{ y: -2, scale: 1.05 }}
             className={`text-sm font-bold tracking-widest uppercase transition-colors relative group focus:outline-none ${
               (item.name === "Intro" && currentSlide < 8) ||
-              (item.name === "Services" && currentSlide >= 8 && currentSlide < 16) ||
-              (item.name === "Product" && currentSlide >= 16)
+              (item.name === "Services" && currentSlide >= 8 && currentSlide <= 29)
                 ? "text-brand-cyan drop-shadow-[0_0_8px_rgba(0,223,216,0.6)]" 
                 : "text-white/50 hover:text-white"
             }`}
@@ -51,8 +50,7 @@ export default function Navbar({ currentSlide = 0, setCurrentSlide }: { currentS
             {item.name}
             <span className={`absolute -bottom-1 left-0 h-0.5 bg-brand-cyan transition-all ${
               ((item.name === "Intro" && currentSlide < 8) ||
-              (item.name === "Services" && currentSlide >= 8 && currentSlide < 16) ||
-              (item.name === "Product" && currentSlide >= 16)) ? "w-full shadow-[0_0_10px_rgba(0,223,216,1)]" : "w-0 group-hover:w-full"
+              (item.name === "Services" && currentSlide >= 8 && currentSlide <= 29)) ? "w-full shadow-[0_0_10px_rgba(0,223,216,1)]" : "w-0 group-hover:w-full"
             }`} />
           </motion.button>
         ))}

@@ -1071,7 +1071,7 @@ export const ServicesCategories = ({ onSelect }: { onSelect: (index: number) => 
     );
 };
 
-export const CategoryDetail = ({ title, items, categoryNum, description }: { title: string, items: { title: string, desc: string }[], categoryNum: string, description?: string }) => (
+export const CategoryDetail = ({ title, items, categoryNum, description, onItemClick, clickableIndices = [] }: { title: string, items: { title: string, desc: string }[], categoryNum: string, description?: string, onItemClick?: (index: number) => void, clickableIndices?: number[] }) => (
     <Container className="justify-center py-4">
         <div className="flex items-center gap-5 md:gap-8 mb-8 md:mb-10">
             <motion.div
@@ -1096,20 +1096,23 @@ export const CategoryDetail = ({ title, items, categoryNum, description }: { tit
             </motion.p>
         )}
         <div className={`grid gap-4 md:gap-5 items-stretch ${items.length <= 3 ? 'grid-cols-1 md:grid-cols-3' : items.length <= 4 ? 'grid-cols-1 md:grid-cols-2 lg:grid-cols-4' : 'grid-cols-1 md:grid-cols-3 lg:grid-cols-5'}`}>
-            {items.map((item, i) => (
-                <motion.div
-                    key={i}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: i * 0.05 }}
-                    whileHover={{
-                        y: -8,
-                        scale: 1.02,
-                        transition: { duration: 0.2 }
-                    }}
-                    className="group relative flex flex-col h-full"
-                >
+            {items.map((item, i) => {
+                const isClickable = clickableIndices.includes(i) && !!onItemClick;
+
+                return (
+                    <motion.div
+                        key={i}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: i * 0.05 }}
+                        whileHover={{
+                            y: -8,
+                            scale: 1.02,
+                            transition: { duration: 0.2 }
+                        }}
+                        className="group relative flex flex-col h-full"
+                    >
                     {/* Continuous Border Animation for detail cards */}
                     <div className="absolute inset-0 rounded-3xl p-[1.5px] overflow-hidden">
                         <motion.div
@@ -1119,7 +1122,13 @@ export const CategoryDetail = ({ title, items, categoryNum, description }: { tit
                         />
                     </div>
 
-                    <div className="relative h-full flex flex-col bg-dark-surface/95 backdrop-blur-md rounded-3xl p-6 md:p-8 z-10 border border-white/5 transition-all duration-300 group-hover:border-brand-cyan/20 group-hover:shadow-[0_0_30px_rgba(0,223,216,0.15)]">
+                        <button
+                            type="button"
+                            onClick={isClickable ? () => onItemClick?.(i) : undefined}
+                            disabled={!isClickable}
+                            className="relative h-full flex w-full flex-col bg-dark-surface/95 backdrop-blur-md rounded-3xl p-6 md:p-8 z-10 border border-white/5 transition-all duration-300 group-hover:border-brand-cyan/20 group-hover:shadow-[0_0_30px_rgba(0,223,216,0.15)] text-left cursor-default focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-cyan/70"
+                            aria-label={isClickable ? `Open ${item.title} details` : item.title}
+                        >
                         {/* Compact Decorative Number */}
                         <div className="absolute top-0 right-0 p-6 text-5xl font-bold text-white/1 group-hover:text-brand-cyan/3 transition-colors pointer-events-none">0{i + 1}</div>
 
@@ -1140,9 +1149,10 @@ export const CategoryDetail = ({ title, items, categoryNum, description }: { tit
                             <span className="text-[9px] uppercase tracking-widest font-bold text-brand-cyan/60">Module 0{i + 1}</span>
                             <div className="w-1.5 h-1.5 rounded-full bg-brand-cyan/40" />
                         </div>
-                    </div>
-                </motion.div>
-            ))}
+                        </button>
+                    </motion.div>
+                );
+            })}
         </div>
     </Container>
 );
@@ -1162,19 +1172,372 @@ export const Cat1Details = () => (
     />
 );
 
-export const Cat5Details = () => (
-    <CategoryDetail
-        categoryNum="04"
-        title="Software Compliance"
-        // description="This critical group demonstrates your commitment to security, quality, and ongoing reliability."
-        items={[
-            { title: "Quality Assurance (QA) for Medical Software", desc: "Ensuring software reliability and performance through comprehensive SQA and SDLC management." },
-            { title: "IEC 62304 Compliance & Consultation (Medical Device Software)", desc: "Expert guidance on Medical Device Software lifecycle processes to meet international safety standards." },
-            { title: "HIPAA Compliance & Security Implementation", desc: "Implementing enterprise-grade encryption and access controls for Protected Health Information (PHI)." },
-            { title: "ONC Health IT Certification Support", desc: "Strategic assistance in navigating the certification process for health information technology." },
-            { title: "FHIR Integration", desc: "Seamless integration of FHIR APIs with EHR systems using FHIR standards for structured health data exchange, secure real-time synchronization, interoperability, and scalable patient record management." }
-        ]}
-    />
+export const Cat5Details = ({
+    onOpenQaMedicalDetail,
+    onOpenIec62304Detail,
+    onOpenHipaaDetail,
+    onOpenOncDetail,
+    onOpenFhirDetail
+}: {
+    onOpenQaMedicalDetail?: () => void,
+    onOpenIec62304Detail?: () => void,
+    onOpenHipaaDetail?: () => void,
+    onOpenOncDetail?: () => void,
+    onOpenFhirDetail?: () => void
+}) => {
+    const handleItemClick = (index: number) => {
+        if (index === 0) onOpenQaMedicalDetail?.();
+        else if (index === 1) onOpenIec62304Detail?.();
+        else if (index === 2) onOpenHipaaDetail?.();
+        else if (index === 3) onOpenOncDetail?.();
+        else if (index === 4) onOpenFhirDetail?.();
+    };
+
+    return (
+        <CategoryDetail
+            categoryNum="04"
+            title="Software Compliance"
+            items={[
+                { title: "Quality Assurance (QA) for Medical Software", desc: "Ensuring software reliability and performance through comprehensive SQA and SDLC management." },
+                { title: "IEC 62304 Compliance & Consultation (Medical Device Software)", desc: "Expert guidance on Medical Device Software lifecycle processes to meet international safety standards." },
+                { title: "HIPAA Compliance & Security Implementation", desc: "Implementing enterprise-grade encryption and access controls for Protected Health Information (PHI)." },
+                { title: "ONC Health IT Certification Support", desc: "Strategic assistance in navigating the certification process for health information technology." },
+                { title: "FHIR Integration", desc: "Seamless integration of FHIR APIs with EHR systems using FHIR standards for structured health data exchange, secure real-time synchronization, interoperability, and scalable patient record management." }
+            ]}
+            clickableIndices={[0, 1, 2, 3, 4]}
+            onItemClick={handleItemClick}
+        />
+    );
+};
+
+export const QaMedicalSoftwareDetail = () => (
+    <Container className="justify-center py-4">
+        <SubHeading className="text-[10px] md:text-xs mb-2">QUALITY ASSURANCE FOR MEDICAL SOFTWARE</SubHeading>
+        <Heading gradient className="text-2xl md:text-4xl leading-tight mb-2">Quality Assurance (QA) for Medical Software</Heading>
+        <p className="text-brand-blue font-semibold mb-6 md:mb-7">Ensuring reliability, safety & performance through systematic SQA</p>
+
+        <div className="relative overflow-hidden rounded-2xl border border-brand-blue/20 bg-dark-surface/90 p-6 md:p-7">
+            <div
+                className="absolute inset-0 bg-cover bg-center opacity-45 scale-110"
+                style={{ backgroundImage: "url('/assets/custom-medical/tech-landscape-bg.jpg')" }}
+                aria-hidden
+            />
+            <div
+                className="absolute inset-0 mix-blend-soft-light opacity-70"
+                style={{ backgroundImage: "radial-gradient(60% 60% at 20% 15%, rgba(0, 112, 243, 0.35), transparent 65%), radial-gradient(60% 60% at 85% 80%, rgba(0, 223, 216, 0.25), transparent 65%)" }}
+                aria-hidden
+            />
+            <div className="absolute inset-0 bg-linear-to-br from-[#02060d]/72 via-[#02060d]/58 to-[#00142a]/48" aria-hidden />
+
+            <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-blue/30 transition-all duration-300">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-blue mb-2">Comprehensive SQA Strategy</h4>
+                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
+                        Develop and execute test plans covering functional, integration, performance, security, and usability testing tailored to medical use cases (e.g., dose calculation, patient alerts).
+                    </p>
+                </div>
+
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-blue/30 transition-all duration-300">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-blue mb-2">SDLC Management</h4>
+                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
+                        Implement traceability from requirements to test cases to defects; support Agile, Waterfall, or hybrid models with CI/CD integration for regulated environments.
+                    </p>
+                </div>
+
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-blue/30 transition-all duration-300">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-blue mb-2">Risk‑Based Testing</h4>
+                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
+                        Prioritize high‑risk functions (e.g., diagnostic algorithms, data persistence) using ISO 14971 principles to allocate QA resources efficiently.
+                    </p>
+                </div>
+
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-blue/30 transition-all duration-300">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-blue mb-2">Automation & Regression</h4>
+                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
+                        Build automated test scripts for critical paths (login, data entry, report generation) to enable rapid regression testing after each build.
+                    </p>
+                </div>
+
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-blue/30 transition-all duration-300">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-blue mb-2">Documentation for Audits</h4>
+                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
+                        Produce validated test protocols, summary reports, and trace matrices that satisfy FDA (21 CFR 820) and EU MDR requirements.
+                    </p>
+                </div>
+
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-blue/30 transition-all duration-300">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-blue mb-2">Real‑Device Testing</h4>
+                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
+                        Emulate clinical settings (low bandwidth, interruptions, multiple device models) to uncover production‑only failures.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </Container>
+);
+
+export const Iec62304ComplianceDetail = () => (
+    <Container className="justify-center py-4">
+        <SubHeading className="text-[10px] md:text-xs mb-2">IEC 62304 COMPLIANCE & CONSULTATION</SubHeading>
+        <Heading gradient className="text-2xl md:text-4xl leading-tight mb-2">IEC 62304 Compliance & Consultation</Heading>
+        <p className="text-brand-cyan font-semibold mb-6 md:mb-7">Expert guidance for medical device software lifecycle safety</p>
+
+        <div className="relative overflow-hidden rounded-2xl border border-brand-cyan/20 bg-dark-surface/90 p-6 md:p-7">
+            <div
+                className="absolute inset-0 bg-cover bg-center opacity-45 scale-110"
+                style={{ backgroundImage: "url('/assets/custom-medical/tech-landscape-bg.jpg')" }}
+                aria-hidden
+            />
+            <div
+                className="absolute inset-0 mix-blend-soft-light opacity-70"
+                style={{ backgroundImage: "radial-gradient(60% 60% at 20% 15%, rgba(0, 223, 216, 0.35), transparent 65%), radial-gradient(60% 60% at 85% 80%, rgba(0, 112, 243, 0.25), transparent 65%)" }}
+                aria-hidden
+            />
+            <div className="absolute inset-0 bg-linear-to-br from-[#02060d]/72 via-[#02060d]/58 to-[#001b26]/48" aria-hidden />
+
+            <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-cyan/30 transition-all duration-300">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Full Lifecycle Coverage</h4>
+                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
+                        Align software development processes from planning, requirements, design, implementation, verification, validation, to maintenance with IEC 62304:2006 + A1:2015.
+                    </p>
+                </div>
+
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-cyan/30 transition-all duration-300">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Safety Class Determination</h4>
+                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
+                        Assist in classifying your software as Class A, B, or C based on potential harm, and tailor processes (documentation, testing, risk management) accordingly.
+                    </p>
+                </div>
+
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-cyan/30 transition-all duration-300">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Risk Management</h4>
+                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
+                        Seamlessly link ISO 14971 hazard analysis to software requirements and test cases; provide traceability from risk controls to verification evidence.
+                    </p>
+                </div>
+
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-cyan/30 transition-all duration-300">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Legacy Software Assessment</h4>
+                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
+                        Evaluate existing non‑compliant software, create remediation plans, and conduct gap analyses to achieve compliance without full rewrite.
+                    </p>
+                </div>
+
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-cyan/30 transition-all duration-300">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Audit-Ready Docs</h4>
+                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
+                        Deliver templates for SDP (Software Development Plan), SRS, SDD, test reports, release notes, and maintenance records – all structured for reviews.
+                    </p>
+                </div>
+
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-cyan/30 transition-all duration-300">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Training & Setup</h4>
+                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
+                        Train your engineering team on 62304 workflows, configuration management, and change control to sustain compliance independently.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </Container>
+);
+
+export const HipaaComplianceDetail = () => (
+    <Container className="justify-center py-4">
+        <SubHeading className="text-[10px] md:text-xs mb-2">HIPAA COMPLIANCE & SECURITY IMPLEMENTATION</SubHeading>
+        <Heading gradient className="text-2xl md:text-4xl leading-tight mb-2">HIPAA Compliance & Security Implementation</Heading>
+        <p className="text-brand-blue font-semibold mb-6 md:mb-7">Enterprise‑grade protection for Protected Health Information (PHI)</p>
+
+        <div className="relative overflow-hidden rounded-2xl border border-brand-blue/20 bg-dark-surface/90 p-6 md:p-7">
+            <div
+                className="absolute inset-0 bg-cover bg-center opacity-45 scale-110"
+                style={{ backgroundImage: "url('/assets/custom-medical/tech-landscape-bg.jpg')" }}
+                aria-hidden
+            />
+            <div
+                className="absolute inset-0 mix-blend-soft-light opacity-70"
+                style={{ backgroundImage: "radial-gradient(60% 60% at 20% 15%, rgba(0, 112, 243, 0.35), transparent 65%), radial-gradient(60% 60% at 85% 80%, rgba(0, 223, 216, 0.25), transparent 65%)" }}
+                aria-hidden
+            />
+            <div className="absolute inset-0 bg-linear-to-br from-[#02060d]/72 via-[#02060d]/58 to-[#00142a]/48" aria-hidden />
+
+            <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-blue/30 transition-all duration-300">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-blue mb-2">Encryption at Rest & Transit</h4>
+                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
+                        Deploy AES‑256 for stored PHI (databases, backups, logs) and TLS 1.3 for all network communications, including mobile‑to‑cloud and API endpoints.
+                    </p>
+                </div>
+
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-blue/30 transition-all duration-300">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-blue mb-2">Access Controls</h4>
+                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
+                        Implement role-based access control (RBAC), least privilege, automatic logoff, and multi-factor authentication (MFA) for administrative or clinical user access.
+                    </p>
+                </div>
+
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-blue/30 transition-all duration-300">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-blue mb-2">Audit Logging & Monitoring</h4>
+                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
+                        Generate immutable, time‑stamped logs of every PHI access, modification, or transmission; integrate with SIEM for real‑anomaly alerts (e.g., bulk exports).
+                    </p>
+                </div>
+
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-blue/30 transition-all duration-300">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-blue mb-2">BAAs & Subcontractors</h4>
+                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
+                        Draft and manage BAAs with all subcontractors (cloud hosts, analytics providers, support teams); ensure all third parties are HIPAA‑compliant.
+                    </p>
+                </div>
+
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-blue/30 transition-all duration-300">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-blue mb-2">Breach Response & SRA</h4>
+                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
+                        Conduct regular HIPAA Security Risk Assessments (SRAs) and provide actionable remediation plans; prepare incident response playbooks specific to ePHI.
+                    </p>
+                </div>
+
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-blue/30 transition-all duration-300">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-blue mb-2">Physical & Device Security</h4>
+                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
+                        For on-prem or hybrid deployments, enforce workstation policies, device encryption, and secure disposal of media – plus MDM for clinical staff.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </Container>
+);
+
+export const OncCertificationDetail = () => (
+    <Container className="justify-center py-4">
+        <SubHeading className="text-[10px] md:text-xs mb-2">ONC HEALTH IT CERTIFICATION SUPPORT</SubHeading>
+        <Heading gradient className="text-2xl md:text-4xl leading-tight mb-2">ONC Health IT Certification Support</Heading>
+        <p className="text-brand-cyan font-semibold mb-6 md:mb-7">Strategic navigation of certification for interoperability & usability</p>
+
+        <div className="relative overflow-hidden rounded-2xl border border-brand-cyan/20 bg-dark-surface/90 p-6 md:p-7">
+            <div
+                className="absolute inset-0 bg-cover bg-center opacity-45 scale-110"
+                style={{ backgroundImage: "url('/assets/custom-medical/tech-landscape-bg.jpg')" }}
+                aria-hidden
+            />
+            <div
+                className="absolute inset-0 mix-blend-soft-light opacity-70"
+                style={{ backgroundImage: "radial-gradient(60% 60% at 20% 15%, rgba(0, 223, 216, 0.35), transparent 65%), radial-gradient(60% 60% at 85% 80%, rgba(0, 112, 243, 0.25), transparent 65%)" }}
+                aria-hidden
+            />
+            <div className="absolute inset-0 bg-linear-to-br from-[#02060d]/72 via-[#02060d]/58 to-[#001b26]/48" aria-hidden />
+
+            <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-cyan/30 transition-all duration-300">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Certification Roadmap</h4>
+                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
+                        Map your Health IT Module’s capabilities to the applicable 2015 Edition Cures Update criteria (e.g., API, patient access, clinical decision support, e-prescription).
+                    </p>
+                </div>
+
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-cyan/30 transition-all duration-300">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Test Suite Preparation</h4>
+                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
+                        Use official ONC-approved test tools (e.g., Inferno for FHIR API, Surescripts for e-prescribing) to self-validate; troubleshoot failures proactively.
+                    </p>
+                </div>
+
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-cyan/30 transition-all duration-300">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Real-World Testing Design</h4>
+                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
+                        Develop test plans that simulate actual clinical workflows (e.g., medication reconciliation, transitions of care) to satisfy § 170.315(g)(4) requirements.
+                    </p>
+                </div>
+
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-cyan/30 transition-all duration-300">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Documentation for ONC-ACBs</h4>
+                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
+                        Generate all required artifacts – technical explanations, user manuals, test reports, and attestations – in the format accepted by certification bodies.
+                    </p>
+                </div>
+
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-cyan/30 transition-all duration-300">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Gap Analysis & Remediation</h4>
+                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
+                        Review existing EHR/health IT software against the latest criteria; provide a prioritized backlog to close gaps with minimal development overhead.
+                    </p>
+                </div>
+
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-cyan/30 transition-all duration-300">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Post-Cert Surveillance</h4>
+                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
+                        Establish processes for ongoing compliance (e.g., change management, real-world testing log, bug fixes) to maintain certification during updates.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </Container>
+);
+
+export const FhirIntegrationDetail = () => (
+    <Container className="justify-center py-4">
+        <SubHeading className="text-[10px] md:text-xs mb-2">FHIR INTEGRATION</SubHeading>
+        <Heading gradient className="text-2xl md:text-4xl leading-tight mb-2">FHIR Integration</Heading>
+        <p className="text-brand-blue font-semibold mb-6 md:mb-7">Seamless, standards‑based health data exchange & interoperability</p>
+
+        <div className="relative overflow-hidden rounded-2xl border border-brand-blue/20 bg-dark-surface/90 p-6 md:p-7">
+            <div
+                className="absolute inset-0 bg-cover bg-center opacity-45 scale-110"
+                style={{ backgroundImage: "url('/assets/custom-medical/tech-landscape-bg.jpg')" }}
+                aria-hidden
+            />
+            <div
+                className="absolute inset-0 mix-blend-soft-light opacity-70"
+                style={{ backgroundImage: "radial-gradient(60% 60% at 20% 15%, rgba(0, 112, 243, 0.35), transparent 65%), radial-gradient(60% 60% at 85% 80%, rgba(0, 223, 216, 0.25), transparent 65%)" }}
+                aria-hidden
+            />
+            <div className="absolute inset-0 bg-linear-to-br from-[#02060d]/72 via-[#02060d]/58 to-[#00142a]/48" aria-hidden />
+
+            <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-blue/30 transition-all duration-300">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-blue mb-2">FHIR API Implementation</h4>
+                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
+                        Build or extend RESTful FHIR R4/R5 endpoints for resources such as Patient, Observation, Condition, MedicationRequest, and DiagnosticReport, supporting JSON and XML.
+                    </p>
+                </div>
+
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-blue/30 transition-all duration-300">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-blue mb-2">EHR Integration</h4>
+                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
+                        Bidirectional sync with major EHRs (Epic, Cerner, Allscripts, athenahealth) using their FHIR sandboxes and SMART on FHIR launch contexts for secure, authorized access.
+                    </p>
+                </div>
+
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-blue/30 transition-all duration-300">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-blue mb-2">Real‑Time Sync</h4>
+                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
+                        Use subscription notifications (FHIR Subscriptions) to push clinical updates (new lab results, medication changes) to your app with millisecond latency.
+                    </p>
+                </div>
+
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-blue/30 transition-all duration-300">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-blue mb-2">Structured Data Exchange</h4>
+                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
+                        Transform legacy HL7 v2 or CDA documents into FHIR bundles for modern APIs; maintain data fidelity and referential integrity across systems.
+                    </p>
+                </div>
+
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-blue/30 transition-all duration-300">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-blue mb-2">Security & Consent</h4>
+                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
+                        Implement OAuth 2.0 / OpenID Connect for patient/provider authorization; respect granular consent directives (e.g., FHIR Consent resource).
+                    </p>
+                </div>
+
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-blue/30 transition-all duration-300">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-blue mb-2">Scalable Architecture</h4>
+                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
+                        Design FHIR facade layers that normalize backend sources (relational DB, NoSQL, legacy HIS) behind a single, high‑throughput FHIR endpoint.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </Container>
 );
 
 // export const Cat2Details = () => {
@@ -1767,7 +2130,7 @@ export const ImagingAnalysisDetail = () => (
     </Container>
 );
 
-export const Cat3Details = () => (
+export const Cat3Details = ({ onOpenSchedulerDetail }: { onOpenSchedulerDetail?: () => void }) => (
     <CategoryDetail
         categoryNum="03"
         title="Operational Efficiency & Automation"
@@ -1776,57 +2139,397 @@ export const Cat3Details = () => (
             { title: "Automated Clinical Workflow Orchestration", desc: "Creates software that automates routine administrative and clinical tasks (e.g., referral processing, lab order tracking) to improve efficiency." },
             { title: "Medical Research & Recommendation Engines", desc: "Builds platforms that help researchers and clinicians quickly find relevant studies, guidelines, and clinical trial information." }
         ]}
+        clickableIndices={[0]}
+        onItemClick={() => onOpenSchedulerDetail?.()}
     />
 );
 
-export const Cat4Details = () => {
-    const items = [
-        { title: "DevOps & Cloud Infrastructure", desc: "Automate deployments, manage cloud infrastructure (AWS, Azure, GCP), and ensure high availability and scalability." },
-        { title: "SaaS Enablement & Modernization", desc: "Transform traditional medical software into modern, scalable Software-as-a-Service (SaaS) models." },
-        { title: "Quality Assurance & Validation", desc: "Comprehensive testing including functionality, security, performance, and compliance validation (IQ/OQ/PQ)." },
-        { title: "Ongoing Maintenance & Support", desc: "Reliable IT support, bug fixes, security patches, and continuous performance monitoring." }
-    ];
+export const SchedulerDetail = () => (
+    <Container className="justify-center py-4">
+        <SubHeading className="text-[10px] md:text-xs mb-2">INTELLIGENT APPOINTMENT and RESOURCE SCHEDULER</SubHeading>
+        <Heading gradient className="text-2xl md:text-4xl leading-tight mb-2">Intelligent Appointment & Resource Scheduler</Heading>
+        <p className="text-brand-cyan/80 text-sm md:text-base font-semibold mb-6 md:mb-7">Smart scheduling systems for optimized care delivery</p>
 
-    return (
-        <Container className="justify-center py-4">
-            <div className="flex items-center gap-5 md:gap-8 mb-8 md:mb-10">
-                <motion.div
-                    initial={{ opacity: 0, scale: 0.5 }}
-                    whileInView={{ opacity: 0.3, scale: 1 }}
-                    className="text-6xl md:text-8xl font-black text-brand-cyan leading-none shrink-0"
-                >
-                    05
-                </motion.div>
-                <div>
-                    <SubHeading className="text-[10px] md:text-xs mb-2">SERVICE CATEGORY</SubHeading>
-                    <Heading gradient className="text-2xl md:text-4xl leading-tight mb-0!">Infrastructure & Lifecycle Management</Heading>
+        <div className="relative overflow-hidden rounded-2xl border border-brand-cyan/20 bg-dark-surface/90 p-6 md:p-7">
+            <div
+                className="absolute inset-0 bg-cover bg-center opacity-45 scale-110"
+                style={{ backgroundImage: "url('/assets/custom-medical/tech-landscape-bg.jpg')" }}
+                aria-hidden
+            />
+            <div
+                className="absolute inset-0 mix-blend-soft-light opacity-70"
+                style={{ backgroundImage: "radial-gradient(60% 60% at 20% 15%, rgba(0, 223, 216, 0.35), transparent 65%), radial-gradient(60% 60% at 85% 80%, rgba(0, 112, 243, 0.28), transparent 65%)" }}
+                aria-hidden
+            />
+            <div className="absolute inset-0 bg-linear-to-br from-[#02060d]/72 via-[#02060d]/58 to-[#00192d]/48" aria-hidden />
+
+            <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Provider Time Optimization</h4>
+                    <p className="text-white/75 text-sm leading-relaxed">
+                        Algorithms that balance appointment types (routine, urgent, follow-up), block time for admin tasks, and minimize idle slots.
+                    </p>
+                </div>
+
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Patient Preference Handling</h4>
+                    <p className="text-white/75 text-sm leading-relaxed">
+                        Capture preferred dates, times, provider, and visit modality (in-person, virtual) to increase satisfaction and reduce no-shows.
+                    </p>
+                </div>
+
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Resource Allocation</h4>
+                    <p className="text-white/75 text-sm leading-relaxed">
+                        Automatically assign exam rooms, medical equipment, and nursing staff based on appointment requirements and real-time availability.
+                    </p>
+                </div>
+
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Auto-Scheduling Features</h4>
+                    <p className="text-white/75 text-sm leading-relaxed">
+                        Offer one-click appointment booking from reminders, waitlist auto-fill, and recurring appointment generation for chronic care.
+                    </p>
                 </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto">
-                {items.map((item, i) => (
-                    <motion.div
-                        key={i}
-                        initial={{ opacity: 0, x: i % 2 === 0 ? -30 : 30 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: i * 0.1, duration: 0.6 }}
-                        className="group flex gap-5 items-start"
-                    >
-                        <div className="shrink-0 w-12 h-12 flex items-center justify-center rounded-xl bg-brand-cyan/10 text-brand-cyan border border-brand-cyan/20 group-hover:bg-brand-cyan group-hover:text-black transition-all duration-500 shadow-lg">
-                            <span className="text-sm font-bold">0{i + 1}</span>
-                        </div>
-                        <div className="flex-1">
-                            <h3 className="text-lg md:text-xl font-bold mb-2 group-hover:text-brand-cyan transition-colors duration-300">{item.title}</h3>
-                            <p className="text-white/50 text-sm leading-relaxed group-hover:text-white/80 transition-colors">{item.desc}</p>
-                            <div className="mt-3 h-px w-full bg-linear-to-r from-brand-cyan/20 via-brand-blue/10 to-transparent" />
-                        </div>
-                    </motion.div>
-                ))}
+            <div className="relative z-10 mt-5 rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
+                <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Integration Ready</h4>
+                <p className="text-white/75 text-sm leading-relaxed">
+                    APIs to sync with EHR, patient portals, and billing systems for end-to-end workflow continuity.
+                </p>
             </div>
-        </Container>
+        </div>
+    </Container>
+);
+
+export const Cat4Details = ({
+    onOpenDevOps,
+    onOpenSaaS,
+    onOpenQaValidation,
+    onOpenMaintenance
+}: {
+    onOpenDevOps?: () => void,
+    onOpenSaaS?: () => void,
+    onOpenQaValidation?: () => void,
+    onOpenMaintenance?: () => void
+}) => {
+    const handleItemClick = (index: number) => {
+        if (index === 0) onOpenDevOps?.();
+        else if (index === 1) onOpenSaaS?.();
+        else if (index === 2) onOpenQaValidation?.();
+        else if (index === 3) onOpenMaintenance?.();
+    };
+
+    return (
+        <CategoryDetail
+            categoryNum="05"
+            title="Infrastructure & Lifecycle Management"
+            items={[
+                { title: "DevOps & Cloud Infrastructure", desc: "Automate deployments, manage cloud infrastructure (AWS, Azure, GCP), and ensure high availability and scalability." },
+                { title: "SaaS Enablement & Modernization", desc: "Transform traditional medical software into modern, scalable Software-as-a-Service (SaaS) models." },
+                { title: "Quality Assurance & Validation", desc: "Comprehensive testing including functionality, security, performance, and compliance validation (IQ/OQ/PQ)." },
+                { title: "Ongoing Maintenance & Support", desc: "Reliable IT support, bug fixes, security patches, and continuous performance monitoring." }
+            ]}
+            clickableIndices={[0, 1, 2, 3]}
+            onItemClick={handleItemClick}
+        />
     );
 };
+
+export const DevOpsCloudInfrastructureDetail = () => (
+    <Container className="justify-center py-4">
+        <SubHeading className="text-[10px] md:text-xs mb-2">DEVOPS & CLOUD INFRASTRUCTURE</SubHeading>
+        <Heading gradient className="text-2xl md:text-4xl leading-tight mb-2">DevOps & Cloud Infrastructure</Heading>
+        <p className="text-brand-cyan/80 text-sm md:text-base font-semibold mb-6 md:mb-7">Automated, scalable, and highly available medical software environments</p>
+
+        <div className="relative overflow-hidden rounded-2xl border border-brand-cyan/20 bg-dark-surface/90 p-6 md:p-7">
+            <div
+                className="absolute inset-0 bg-cover bg-center opacity-45 scale-110"
+                style={{ backgroundImage: "url('/assets/custom-medical/tech-landscape-bg.jpg')" }}
+                aria-hidden
+            />
+            <div
+                className="absolute inset-0 mix-blend-soft-light opacity-70"
+                style={{ backgroundImage: "radial-gradient(60% 60% at 20% 15%, rgba(0, 223, 216, 0.35), transparent 65%), radial-gradient(60% 60% at 85% 80%, rgba(0, 112, 243, 0.28), transparent 65%)" }}
+                aria-hidden
+            />
+            <div className="absolute inset-0 bg-linear-to-br from-[#02060d]/72 via-[#02060d]/58 to-[#00192d]/48" aria-hidden />
+
+            <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 md:gap-6">
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-cyan/30 transition-all duration-300">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Multi‑Cloud Expertise</h4>
+                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
+                        Architect and manage infrastructure on AWS (HealthLake, Comprehend Medical), Azure (Healthcare APIs, FHIR), and GCP (Healthcare API) – or hybrid/on‑prem where required.
+                    </p>
+                </div>
+
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-cyan/30 transition-all duration-300">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Infrastructure as Code (IaC)</h4>
+                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
+                        Use Terraform, CloudFormation, or ARM templates to provision repeatable, auditable environments (dev, test, prod) with version control.
+                    </p>
+                </div>
+
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-cyan/30 transition-all duration-300">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">CI/CD Pipelines</h4>
+                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
+                        Automate build, test, and deployment with GitHub Actions, GitLab CI, or Azure DevOps; include security scanning (SAST/DAST) and compliance checks (HIPAA, GDPR) as pipeline gates.
+                    </p>
+                </div>
+
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-cyan/30 transition-all duration-300">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">High Availability & DR</h4>
+                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
+                        Design multi‑AZ / multi‑region deployments with auto‑scaling, load balancing, and RPO/RTO strategies (e.g., warm standby, pilot light) for 99.99% uptime SLAs.
+                    </p>
+                </div>
+
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-cyan/30 transition-all duration-300">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Monitoring & Observability</h4>
+                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
+                        Implement Prometheus/Grafana, Datadog, or Azure Monitor for real‑time metrics (latency, error rates, resource utilization); set up intelligent alerting to prevent downtime.
+                    </p>
+                </div>
+
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-cyan/30 transition-all duration-300">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Security Automation</h4>
+                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
+                        Enforce least‑privilege IAM policies, automate vulnerability scanning (e.g., Trivy, Snyk), and maintain continuous compliance evidence (e.g., AWS Config rules for HIPAA).
+                    </p>
+                </div>
+
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-cyan/30 transition-all duration-300 xl:col-span-2">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Cost Optimization</h4>
+                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
+                        Right‑size instances, use spot/preemptible VMs for non‑production, implement auto‑scaling, and provide monthly cloud spend analytics with actionable recommendations.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </Container>
+);
+
+export const SaaSEnablementDetail = () => (
+    <Container className="justify-center py-4">
+        <SubHeading className="text-[10px] md:text-xs mb-2">SAAS ENABLEMENT & MODERNIZATION</SubHeading>
+        <Heading gradient className="text-2xl md:text-4xl leading-tight mb-2">SaaS Enablement & Modernization</Heading>
+        <p className="text-brand-cyan/80 text-sm md:text-base font-semibold mb-6 md:mb-7">Transform legacy medical software into modern, scalable SaaS</p>
+
+        <div className="relative overflow-hidden rounded-2xl border border-brand-cyan/20 bg-dark-surface/90 p-6 md:p-7">
+            <div
+                className="absolute inset-0 bg-cover bg-center opacity-45 scale-110"
+                style={{ backgroundImage: "url('/assets/custom-medical/tech-landscape-bg.jpg')" }}
+                aria-hidden
+            />
+            <div
+                className="absolute inset-0 mix-blend-soft-light opacity-70"
+                style={{ backgroundImage: "radial-gradient(60% 60% at 20% 15%, rgba(0, 223, 216, 0.35), transparent 65%), radial-gradient(60% 60% at 85% 80%, rgba(0, 112, 243, 0.28), transparent 65%)" }}
+                aria-hidden
+            />
+            <div className="absolute inset-0 bg-linear-to-br from-[#02060d]/72 via-[#02060d]/58 to-[#00192d]/48" aria-hidden />
+
+            <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 md:gap-6">
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-cyan/30 transition-all duration-300">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Legacy Assessment & Roadmap</h4>
+                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
+                        Analyze existing monolithic or client‑server applications (e.g., on‑prem EHR, PACS) to identify refactoring candidates, dependencies, and migration complexity.
+                    </p>
+                </div>
+
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-cyan/30 transition-all duration-300">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Microservices Decomposition</h4>
+                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
+                        Break down monolithic functions (authentication, patient management, billing) into containerized microservices (Docker, Kubernetes) with well‑defined APIs.
+                    </p>
+                </div>
+
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-cyan/30 transition-all duration-300">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Multi‑Tenancy Architecture</h4>
+                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
+                        Design isolation models (database‑per‑tenant, schema‑per‑tenant, or row‑level) to securely serve multiple healthcare organizations from a single codebase.
+                    </p>
+                </div>
+
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-cyan/30 transition-all duration-300">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">API‑First Design</h4>
+                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
+                        Expose RESTful/GraphQL APIs for frontend apps and third‑party integrations; include developer portals (Swagger/OpenAPI) and usage analytics.
+                    </p>
+                </div>
+
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-cyan/30 transition-all duration-300">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Subscription & Metering</h4>
+                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
+                        Integrate usage‑based billing (e.g., per active patient, per API call) with tools like Stripe or Chargebee; support tiered plans (basic, professional, enterprise).
+                    </p>
+                </div>
+
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-cyan/30 transition-all duration-300">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Zero‑Downtime Migration</h4>
+                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
+                        Execute phased cutovers using strategies like strangler pattern, data synchronization between old and new systems, and rollback plans to ensure clinical continuity.
+                    </p>
+                </div>
+
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-cyan/30 transition-all duration-300 xl:col-span-2">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Compliance in SaaS</h4>
+                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
+                        Embed logging, audit trails, and data residency controls (GDPR, HIPAA) into the SaaS platform; obtain SOC 2 Type II and HITRUST certifications as needed.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </Container>
+);
+
+export const QaValidationDetail = () => (
+    <Container className="justify-center py-4">
+        <SubHeading className="text-[10px] md:text-xs mb-2">QUALITY ASSURANCE & VALIDATION</SubHeading>
+        <Heading gradient className="text-2xl md:text-4xl leading-tight mb-2">Quality Assurance & Validation</Heading>
+        <p className="text-brand-cyan/80 text-sm md:text-base font-semibold mb-6 md:mb-7">Comprehensive testing & compliance validation (IQ/OQ/PQ)</p>
+
+        <div className="relative overflow-hidden rounded-2xl border border-brand-cyan/20 bg-dark-surface/90 p-6 md:p-7">
+            <div
+                className="absolute inset-0 bg-cover bg-center opacity-45 scale-110"
+                style={{ backgroundImage: "url('/assets/custom-medical/tech-landscape-bg.jpg')" }}
+                aria-hidden
+            />
+            <div
+                className="absolute inset-0 mix-blend-soft-light opacity-70"
+                style={{ backgroundImage: "radial-gradient(60% 60% at 20% 15%, rgba(0, 223, 216, 0.35), transparent 65%), radial-gradient(60% 60% at 85% 80%, rgba(0, 112, 243, 0.28), transparent 65%)" }}
+                aria-hidden
+            />
+            <div className="absolute inset-0 bg-linear-to-br from-[#02060d]/72 via-[#02060d]/58 to-[#00192d]/48" aria-hidden />
+
+            <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 md:gap-6">
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-cyan/30 transition-all duration-300">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Full Test Spectrum</h4>
+                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
+                        Execute functional, integration, system, performance, security, and usability testing – tailored to medical software risk levels (IEC 62304 Class A/B/C).
+                    </p>
+                </div>
+
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-cyan/30 transition-all duration-300">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Automated Regression</h4>
+                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
+                        Build Selenium/Cypress for UI, Postman/Newman for API, and JMeter for load testing; run on every CI commit to catch regressions early.
+                    </p>
+                </div>
+
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-cyan/30 transition-all duration-300">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Performance & Scalability</h4>
+                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
+                        Simulate realistic clinical workloads (e.g., 10,000 concurrent users, bulk FHIR queries, image uploads) to validate response times, throughput, and resource limits.
+                    </p>
+                </div>
+
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-cyan/30 transition-all duration-300">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Security Testing</h4>
+                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
+                        Conduct static (SAST), dynamic (DAST), penetration testing, and dependency scanning; produce reports for HIPAA, FDA, and customer security reviews.
+                    </p>
+                </div>
+
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-cyan/30 transition-all duration-300 xl:col-span-2">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Compliance Validation (IQ/OQ/PQ)</h4>
+                    <div className="text-white/75 text-xs md:text-sm leading-relaxed space-y-1">
+                        <p><strong className="text-brand-cyan font-medium">IQ (Installation):</strong> Verify correct installation in target environments (OS, network, dependencies).</p>
+                        <p><strong className="text-brand-cyan font-medium">OQ (Operational):</strong> Test all functional and boundary conditions under simulated clinical use.</p>
+                        <p><strong className="text-brand-cyan font-medium">PQ (Performance):</strong> Demonstrate consistent performance in real-world clinical workflows.</p>
+                    </div>
+                </div>
+
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-cyan/30 transition-all duration-300">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Traceability & Docs</h4>
+                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
+                        Maintain trace matrix linking requirements → test cases → defects → validation results; generate audit‑ready summary reports for regulatory submissions.
+                    </p>
+                </div>
+
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-cyan/30 transition-all duration-300">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Test Env Management</h4>
+                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
+                        Provision isolated, production‑like environments (including FHIR sandboxes, simulated medical devices) with data anonymization tools for realistic yet compliant testing.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </Container>
+);
+
+export const OngoingMaintenanceDetail = () => (
+    <Container className="justify-center py-4">
+        <SubHeading className="text-[10px] md:text-xs mb-2">ONGOING MAINTENANCE & SUPPORT</SubHeading>
+        <Heading gradient className="text-2xl md:text-4xl leading-tight mb-2">Ongoing Maintenance & Support</Heading>
+        <p className="text-brand-cyan/80 text-sm md:text-base font-semibold mb-6 md:mb-7">Reliable IT support, patches, monitoring, and continuous improvement</p>
+
+        <div className="relative overflow-hidden rounded-2xl border border-brand-cyan/20 bg-dark-surface/90 p-6 md:p-7">
+            <div
+                className="absolute inset-0 bg-cover bg-center opacity-45 scale-110"
+                style={{ backgroundImage: "url('/assets/custom-medical/tech-landscape-bg.jpg')" }}
+                aria-hidden
+            />
+            <div
+                className="absolute inset-0 mix-blend-soft-light opacity-70"
+                style={{ backgroundImage: "radial-gradient(60% 60% at 20% 15%, rgba(0, 223, 216, 0.35), transparent 65%), radial-gradient(60% 60% at 85% 80%, rgba(0, 112, 243, 0.28), transparent 65%)" }}
+                aria-hidden
+            />
+            <div className="absolute inset-0 bg-linear-to-br from-[#02060d]/72 via-[#02060d]/58 to-[#00192d]/48" aria-hidden />
+
+            <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 md:gap-6">
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-cyan/30 transition-all duration-300">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Tiered Support Model</h4>
+                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
+                        Provide L1 (helpdesk), L2 (application troubleshooting), and L3 (engineering escalation) with SLAs for response and resolution (e.g., critical: 15 min, high: 4 hrs).
+                    </p>
+                </div>
+
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-cyan/30 transition-all duration-300">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Bug Fixes & Patches</h4>
+                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
+                        Triage and prioritize defects by severity (critical, major, minor); release hotfixes for security vulnerabilities within 24‑48 hours, scheduled patches monthly.
+                    </p>
+                </div>
+
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-cyan/30 transition-all duration-300">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Security Patch Automation</h4>
+                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
+                        Use tools like Dependabot, Renovate, or AWS Systems Manager Patch Manager to automatically apply OS and library patches in non‑prod, then validated promotion to production.
+                    </p>
+                </div>
+
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-cyan/30 transition-all duration-300">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Continuous Performance</h4>
+                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
+                        24/7 synthetic and real‑user monitoring (RUM) for API latency, error rates, database query performance, and storage I/O; proactive threshold alerts.
+                    </p>
+                </div>
+
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-cyan/30 transition-all duration-300">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Incident Management</h4>
+                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
+                        Follow ITIL‑aligned process (detection → diagnosis → resolution → post‑mortem) with on‑call rotations and status pages for customer transparency.
+                    </p>
+                </div>
+
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-cyan/30 transition-all duration-300">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Release Management</h4>
+                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
+                        Schedule regular maintenance windows (e.g., off‑peak hours), communicate changes, and use blue‑green or canary deployments to minimize user impact.
+                    </p>
+                </div>
+
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-cyan/30 transition-all duration-300 xl:col-span-2">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Continuous Improvement</h4>
+                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
+                        Collect feedback from support tickets, logs, and user surveys; prioritize feature enhancements, technical debt reduction, and usability improvements for each sprint.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </Container>
+);
 
 // 12. Products Intro
 // export const CareManagement = () => (
