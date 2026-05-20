@@ -70,13 +70,43 @@ const slideTransitions = [
     animate: { opacity: 1, y: 0, transition: { duration: 0.8 } },
     exit: { opacity: 0, y: -100, transition: { duration: 0.5 } },
   },
-  // 10: Cat 2 Detail
+  // 10: Generative AI Detail
   {
     initial: { opacity: 0, y: 100 },
     animate: { opacity: 1, y: 0, transition: { duration: 0.8 } },
     exit: { opacity: 0, y: -100, transition: { duration: 0.5 } },
   },
-  // 11: Custom Medical Applications Detail
+  // 11: Clinical Decision Support Detail
+  {
+    initial: { opacity: 0, y: 100 },
+    animate: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+    exit: { opacity: 0, y: -100, transition: { duration: 0.5 } },
+  },
+  // 12: Predictive Health Analytics Detail
+  {
+    initial: { opacity: 0, y: 100 },
+    animate: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+    exit: { opacity: 0, y: -100, transition: { duration: 0.5 } },
+  },
+  // 13: Custom AI Detail
+  {
+    initial: { opacity: 0, y: 100 },
+    animate: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+    exit: { opacity: 0, y: -100, transition: { duration: 0.5 } },
+  },
+  // 14: Billing Efficiency Detail
+  {
+    initial: { opacity: 0, y: 100 },
+    animate: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+    exit: { opacity: 0, y: -100, transition: { duration: 0.5 } },
+  },
+  // 15: Cat 2 Detail
+  {
+    initial: { opacity: 0, y: 100 },
+    animate: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+    exit: { opacity: 0, y: -100, transition: { duration: 0.5 } },
+  },
+  // 13: Custom Medical Applications Detail
   {
     initial: { opacity: 0, y: 100 },
     animate: { opacity: 1, y: 0, transition: { duration: 0.8 } },
@@ -237,6 +267,11 @@ const slideComponents = [
   Content.ServicesIntro,
   Content.ServicesCategories,
   Content.Cat1Details,
+  Content.GenerativeAiDetail,
+  Content.ClinicalDecisionSupportDetail,
+  Content.PredictiveHealthAnalyticsDetail,
+  Content.CustomAiDetail,
+  Content.BillingEfficiencyDetail,
   Content.Cat2Details,
   Content.CustomMedicalApplicationsDetail,
   Content.MedicalMobileAppsDetail,
@@ -295,33 +330,38 @@ const BackgroundMapping = [
   Backgrounds.AuroraBG,       // 7: Services Intro
   () => null,                 // 8: Categories
   Backgrounds.TechNetworkBG,  // 9: Cat 1
-  Backgrounds.FloatingCubesBG,// 10: Cat 2
-  Backgrounds.AuroraBG,       // 11: Custom Medical Applications
-  Backgrounds.FloatingCubesBG,// 12: Medical Mobile Apps
-  Backgrounds.TechNetworkBG,  // 13: Store Deployment
-  Backgrounds.DNAHelixBG,     // 14: RPM
-  Backgrounds.TechNetworkBG,  // 15: EHR
-  Backgrounds.GridPulseBG,    // 16: Imaging & Analysis
-  Backgrounds.AuroraBG,       // 17: Cat 3
-  Backgrounds.TechNetworkBG,  // 18: Scheduler Detail
-  Backgrounds.GridPulseBG,    // 19: Workflow Orchestration Detail
-  Backgrounds.DNAHelixBG,     // 20: Recommendation Engines Detail
-  Backgrounds.DNAHelixBG,     // 21: Cat 5
-  Backgrounds.TechNetworkBG,  // 22: QA Medical Software Detail
-  Backgrounds.GridPulseBG,    // 23: IEC 62304 Compliance Detail
-  Backgrounds.DNAHelixBG,     // 24: HIPAA Compliance Detail
-  Backgrounds.GridPulseBG,    // 25: ONC Health IT Detail
-  Backgrounds.TechNetworkBG,  // 26: FHIR Integration Detail
-  Backgrounds.GridPulseBG,    // 27: Cat 4
-  Backgrounds.TechNetworkBG,  // 28: DevOps & Cloud Infrastructure Detail
-  Backgrounds.DNAHelixBG,     // 29: SaaS Enablement Detail
-  Backgrounds.GridPulseBG,    // 30: QA Validation Detail
-  Backgrounds.FloatingCubesBG,// 31: Ongoing Maintenance Detail
+  Backgrounds.TechNetworkBG,  // 10: Generative AI Detail
+  Backgrounds.TechNetworkBG,  // 11: Clinical Decision Support Detail
+  Backgrounds.TechNetworkBG,  // 12: Predictive Health Analytics Detail
+  Backgrounds.TechNetworkBG,  // 13: Custom AI Detail
+  Backgrounds.TechNetworkBG,  // 14: Billing Efficiency Detail
+  Backgrounds.FloatingCubesBG,// 15: Cat 2
+  Backgrounds.AuroraBG,       // 12: Custom Medical Applications
+  Backgrounds.FloatingCubesBG,// 13: Medical Mobile Apps
+  Backgrounds.TechNetworkBG,  // 14: Store Deployment
+  Backgrounds.DNAHelixBG,     // 15: RPM
+  Backgrounds.TechNetworkBG,  // 16: EHR
+  Backgrounds.GridPulseBG,    // 17: Imaging & Analysis
+  Backgrounds.AuroraBG,       // 18: Cat 3
+  Backgrounds.TechNetworkBG,  // 19: Scheduler Detail
+  Backgrounds.GridPulseBG,    // 20: Workflow Orchestration Detail
+  Backgrounds.DNAHelixBG,     // 21: Recommendation Engines Detail
+  Backgrounds.DNAHelixBG,     // 22: Cat 5
+  Backgrounds.TechNetworkBG,  // 23: QA Medical Software Detail
+  Backgrounds.GridPulseBG,    // 24: IEC 62304 Compliance Detail
+  Backgrounds.DNAHelixBG,     // 25: HIPAA Compliance Detail
+  Backgrounds.GridPulseBG,    // 26: ONC Health IT Detail
+  Backgrounds.TechNetworkBG,  // 27: FHIR Integration Detail
+  Backgrounds.GridPulseBG,    // 28: Cat 4
+  Backgrounds.TechNetworkBG,  // 29: DevOps & Cloud Infrastructure Detail
+  Backgrounds.DNAHelixBG,     // 30: SaaS Enablement Detail
+  Backgrounds.GridPulseBG,    // 31: QA Validation Detail
+  Backgrounds.FloatingCubesBG,// 32: Ongoing Maintenance Detail
   // Backgrounds.TechNetworkBG,  // 14: RPM Demo Showcase
   // Backgrounds.DNAHelixBG,     // 15: Pricing
-  Backgrounds.TechNetworkBG,  // 32: Accomplishments
-  Backgrounds.GridPulseBG,    // 33: Testimonials
-  Backgrounds.AuroraBG,       // 34: Thank You
+  Backgrounds.TechNetworkBG,  // 33: Accomplishments
+  Backgrounds.GridPulseBG,    // 34: Testimonials
+  Backgrounds.AuroraBG,       // 35: Thank You
 ];
 
 import { ChevronLeft, ChevronRight, ChevronUp, ChevronDown } from "lucide-react";
@@ -330,6 +370,11 @@ export default function App() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [direction, setDirection] = useState(1); // 1 = forward, -1 = backward
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [showGenerativeAiDetail, setShowGenerativeAiDetail] = useState(false);
+  const [showClinicalDecisionSupportDetail, setShowClinicalDecisionSupportDetail] = useState(false);
+  const [showPredictiveHealthDetail, setShowPredictiveHealthDetail] = useState(false);
+  const [showCustomAiDetail, setShowCustomAiDetail] = useState(false);
+  const [showBillingEfficiencyDetail, setShowBillingEfficiencyDetail] = useState(false);
   const [showCustomMedicalDetail, setShowCustomMedicalDetail] = useState(false);
   const [showMedicalMobileDetail, setShowMedicalMobileDetail] = useState(false);
   const [showStoreDeploymentDetail, setShowStoreDeploymentDetail] = useState(false);
@@ -349,32 +394,42 @@ export default function App() {
   const [showQaValidationDetail, setShowQaValidationDetail] = useState(false);
   const [showMaintenanceDetail, setShowMaintenanceDetail] = useState(false);
 
-  const CUSTOM_MEDICAL_DETAIL_SLIDE = 11;
-  const MEDICAL_MOBILE_DETAIL_SLIDE = 12;
-  const STORE_DEPLOYMENT_DETAIL_SLIDE = 13;
-  const RPM_DETAIL_SLIDE = 14;
-  const EHR_DETAIL_SLIDE = 15;
-  const IMAGING_DETAIL_SLIDE = 16;
-  const SCHEDULER_DETAIL_SLIDE = 18;
-  const WORKFLOW_ORCHESTRATION_DETAIL_SLIDE = 19;
-  const RECOMMENDATION_DETAIL_SLIDE = 20;
-  const QA_MEDICAL_DETAIL_SLIDE = 22;
-  const IEC_62304_DETAIL_SLIDE = 23;
-  const HIPAA_DETAIL_SLIDE = 24;
-  const ONC_DETAIL_SLIDE = 25;
-  const FHIR_DETAIL_SLIDE = 26;
-  const DEVOPS_DETAIL_SLIDE = 28;
-  const SAAS_DETAIL_SLIDE = 29;
-  const QA_VALIDATION_DETAIL_SLIDE = 30;
-  const MAINTENANCE_DETAIL_SLIDE = 31;
+  const GENERATIVE_AI_DETAIL_SLIDE = 10;
+  const CLINICAL_DECISION_SUPPORT_DETAIL_SLIDE = 11;
+  const PREDICTIVE_HEALTH_DETAIL_SLIDE = 12;
+  const CUSTOM_AI_DETAIL_SLIDE = 13;
+  const BILLING_EFFICIENCY_DETAIL_SLIDE = 14;
+  const CUSTOM_MEDICAL_DETAIL_SLIDE = 16;
+  const MEDICAL_MOBILE_DETAIL_SLIDE = 17;
+  const STORE_DEPLOYMENT_DETAIL_SLIDE = 18;
+  const RPM_DETAIL_SLIDE = 19;
+  const EHR_DETAIL_SLIDE = 20;
+  const IMAGING_DETAIL_SLIDE = 21;
+  const SCHEDULER_DETAIL_SLIDE = 23;
+  const WORKFLOW_ORCHESTRATION_DETAIL_SLIDE = 24;
+  const RECOMMENDATION_DETAIL_SLIDE = 25;
+  const QA_MEDICAL_DETAIL_SLIDE = 27;
+  const IEC_62304_DETAIL_SLIDE = 28;
+  const HIPAA_DETAIL_SLIDE = 29;
+  const ONC_DETAIL_SLIDE = 30;
+  const FHIR_DETAIL_SLIDE = 31;
+  const DEVOPS_DETAIL_SLIDE = 33;
+  const SAAS_DETAIL_SLIDE = 34;
+  const QA_VALIDATION_DETAIL_SLIDE = 35;
+  const MAINTENANCE_DETAIL_SLIDE = 36;
 
   // Cooldown for scroll/wheel navigation
   const lastScrollTime = useRef(0);
   const SCROLL_COOLDOWN = 1000;
 
-  const isServices = currentSlide >= 8 && currentSlide <= 31;
+  const isServices = currentSlide >= 8 && currentSlide <= 36;
 
   const isHiddenSlide = useCallback((index: number) => (
+    (index === GENERATIVE_AI_DETAIL_SLIDE && !showGenerativeAiDetail) ||
+    (index === CLINICAL_DECISION_SUPPORT_DETAIL_SLIDE && !showClinicalDecisionSupportDetail) ||
+    (index === PREDICTIVE_HEALTH_DETAIL_SLIDE && !showPredictiveHealthDetail) ||
+    (index === CUSTOM_AI_DETAIL_SLIDE && !showCustomAiDetail) ||
+    (index === BILLING_EFFICIENCY_DETAIL_SLIDE && !showBillingEfficiencyDetail) ||
     (index === CUSTOM_MEDICAL_DETAIL_SLIDE && !showCustomMedicalDetail) ||
     (index === MEDICAL_MOBILE_DETAIL_SLIDE && !showMedicalMobileDetail) ||
     (index === STORE_DEPLOYMENT_DETAIL_SLIDE && !showStoreDeploymentDetail) ||
@@ -394,9 +449,13 @@ export default function App() {
     (index === QA_VALIDATION_DETAIL_SLIDE && !showQaValidationDetail) ||
     (index === MAINTENANCE_DETAIL_SLIDE && !showMaintenanceDetail)
   ), [
+    GENERATIVE_AI_DETAIL_SLIDE, CLINICAL_DECISION_SUPPORT_DETAIL_SLIDE, PREDICTIVE_HEALTH_DETAIL_SLIDE,
+    CUSTOM_AI_DETAIL_SLIDE, BILLING_EFFICIENCY_DETAIL_SLIDE,
     CUSTOM_MEDICAL_DETAIL_SLIDE, MEDICAL_MOBILE_DETAIL_SLIDE, STORE_DEPLOYMENT_DETAIL_SLIDE, RPM_DETAIL_SLIDE, EHR_DETAIL_SLIDE, IMAGING_DETAIL_SLIDE, SCHEDULER_DETAIL_SLIDE, WORKFLOW_ORCHESTRATION_DETAIL_SLIDE, RECOMMENDATION_DETAIL_SLIDE,
     QA_MEDICAL_DETAIL_SLIDE, IEC_62304_DETAIL_SLIDE, HIPAA_DETAIL_SLIDE, ONC_DETAIL_SLIDE, FHIR_DETAIL_SLIDE,
     DEVOPS_DETAIL_SLIDE, SAAS_DETAIL_SLIDE, QA_VALIDATION_DETAIL_SLIDE, MAINTENANCE_DETAIL_SLIDE,
+    showGenerativeAiDetail, showClinicalDecisionSupportDetail, showPredictiveHealthDetail,
+    showCustomAiDetail, showBillingEfficiencyDetail,
     showCustomMedicalDetail, showMedicalMobileDetail, showStoreDeploymentDetail, showRpmDetail, showEhrDetail, showImagingDetail, showSchedulerDetail, showWorkflowDetail, showRecommendationDetail,
     showQaMedicalDetail, showIec62304Detail, showHipaaDetail, showOncDetail, showFhirDetail,
     showDevOpsDetail, showSaaSDetail, showQaValidationDetail, showMaintenanceDetail
@@ -422,6 +481,21 @@ export default function App() {
       setDirection(clamped > currentSlide ? 1 : -1);
       setIsTransitioning(true);
       setCurrentSlide(clamped);
+      if (currentSlide === GENERATIVE_AI_DETAIL_SLIDE && clamped !== GENERATIVE_AI_DETAIL_SLIDE) {
+        setShowGenerativeAiDetail(false);
+      }
+      if (currentSlide === CLINICAL_DECISION_SUPPORT_DETAIL_SLIDE && clamped !== CLINICAL_DECISION_SUPPORT_DETAIL_SLIDE) {
+        setShowClinicalDecisionSupportDetail(false);
+      }
+      if (currentSlide === PREDICTIVE_HEALTH_DETAIL_SLIDE && clamped !== PREDICTIVE_HEALTH_DETAIL_SLIDE) {
+        setShowPredictiveHealthDetail(false);
+      }
+      if (currentSlide === CUSTOM_AI_DETAIL_SLIDE && clamped !== CUSTOM_AI_DETAIL_SLIDE) {
+        setShowCustomAiDetail(false);
+      }
+      if (currentSlide === BILLING_EFFICIENCY_DETAIL_SLIDE && clamped !== BILLING_EFFICIENCY_DETAIL_SLIDE) {
+        setShowBillingEfficiencyDetail(false);
+      }
       if (currentSlide === CUSTOM_MEDICAL_DETAIL_SLIDE && clamped !== CUSTOM_MEDICAL_DETAIL_SLIDE) {
         setShowCustomMedicalDetail(false);
       }
@@ -503,6 +577,46 @@ export default function App() {
     const prevSlide = getPrevVisibleSlide(currentSlide);
     if (prevSlide !== null) navigateTo(prevSlide);
   }, [currentSlide, getPrevVisibleSlide, navigateTo]);
+
+  const openGenerativeAiDetail = useCallback(() => {
+    if (isTransitioning) return;
+    setShowGenerativeAiDetail(true);
+    setDirection(GENERATIVE_AI_DETAIL_SLIDE > currentSlide ? 1 : -1);
+    setIsTransitioning(true);
+    setCurrentSlide(GENERATIVE_AI_DETAIL_SLIDE);
+  }, [GENERATIVE_AI_DETAIL_SLIDE, currentSlide, isTransitioning]);
+
+  const openClinicalDecisionSupportDetail = useCallback(() => {
+    if (isTransitioning) return;
+    setShowClinicalDecisionSupportDetail(true);
+    setDirection(CLINICAL_DECISION_SUPPORT_DETAIL_SLIDE > currentSlide ? 1 : -1);
+    setIsTransitioning(true);
+    setCurrentSlide(CLINICAL_DECISION_SUPPORT_DETAIL_SLIDE);
+  }, [CLINICAL_DECISION_SUPPORT_DETAIL_SLIDE, currentSlide, isTransitioning]);
+
+  const openPredictiveHealthDetail = useCallback(() => {
+    if (isTransitioning) return;
+    setShowPredictiveHealthDetail(true);
+    setDirection(PREDICTIVE_HEALTH_DETAIL_SLIDE > currentSlide ? 1 : -1);
+    setIsTransitioning(true);
+    setCurrentSlide(PREDICTIVE_HEALTH_DETAIL_SLIDE);
+  }, [PREDICTIVE_HEALTH_DETAIL_SLIDE, currentSlide, isTransitioning]);
+
+  const openCustomAiDetail = useCallback(() => {
+    if (isTransitioning) return;
+    setShowCustomAiDetail(true);
+    setDirection(CUSTOM_AI_DETAIL_SLIDE > currentSlide ? 1 : -1);
+    setIsTransitioning(true);
+    setCurrentSlide(CUSTOM_AI_DETAIL_SLIDE);
+  }, [CUSTOM_AI_DETAIL_SLIDE, currentSlide, isTransitioning]);
+
+  const openBillingEfficiencyDetail = useCallback(() => {
+    if (isTransitioning) return;
+    setShowBillingEfficiencyDetail(true);
+    setDirection(BILLING_EFFICIENCY_DETAIL_SLIDE > currentSlide ? 1 : -1);
+    setIsTransitioning(true);
+    setCurrentSlide(BILLING_EFFICIENCY_DETAIL_SLIDE);
+  }, [BILLING_EFFICIENCY_DETAIL_SLIDE, currentSlide, isTransitioning]);
 
   const openCustomMedicalDetail = useCallback(() => {
     if (isTransitioning) return;
@@ -748,6 +862,11 @@ export default function App() {
                   navigateTo(idx);
                 }
               }}
+              onOpenGenerativeAiDetail={openGenerativeAiDetail}
+              onOpenClinicalDecisionSupportDetail={openClinicalDecisionSupportDetail}
+              onOpenPredictiveHealthDetail={openPredictiveHealthDetail}
+              onOpenCustomAiDetail={openCustomAiDetail}
+              onOpenBillingEfficiencyDetail={openBillingEfficiencyDetail}
               onOpenCustomMedicalDetail={openCustomMedicalDetail}
               onOpenMedicalMobileDetail={openMedicalMobileDetail}
               onOpenStoreDeploymentDetail={openStoreDeploymentDetail}

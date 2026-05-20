@@ -975,7 +975,7 @@ export const ServicesCategories = ({ onSelect }: { onSelect: (index: number) => 
                         }}
                         whileHover={{ y: -8, scale: 1.02 }}
                         onClick={() => {
-                            const slideIndices = [9, 10, 17, 21, 27];
+                            const slideIndices = [9, 15, 22, 26, 32];
                             onSelect(slideIndices[i]);
                         }}
                         className="group relative cursor-pointer flex flex-col"
@@ -1161,18 +1161,365 @@ export const CategoryDetail = ({ title, items, categoryNum, description, onItemC
 );
 
 // Detail Slides using the reusable component
-export const Cat1Details = () => (
-    <CategoryDetail
-        categoryNum="01"
-        title="Artificial Intelligence & Advanced Analytics"
-        items={[
-            { title: "Generative AI for Healthcare", desc: "Revolutionizing patient care with custom AI models that produce synthetic data, automate clinical notes, and create engaging patient education materials." },
-            { title: "AI-Powered Clinical Decision Support", desc: "Harnessing real-time patient data to empower clinicians with intelligent, evidence-based diagnostic and treatment recommendations." },
-            { title: "Predictive Health Analytics", desc: "Sophisticated algorithms identifying at-risk individuals early, transforming healthcare from reactive to proactive intervention." },
-            { title: "Custom AI Solutions", desc: "Purpose-built AI systems that learn from your data, adapt to your processes, and evolve with your business needs for maximum impact." },
-            { title: "AI-Enabled Billing Efficiency", desc: "Strategic automation of medical coding and billing, slashing denials and accelerating reimbursement cycles." }
-        ]}
-    />
+export const Cat1Details = ({
+    onOpenGenerativeAiDetail,
+    onOpenClinicalDecisionSupportDetail,
+    onOpenPredictiveHealthDetail,
+    onOpenCustomAiDetail,
+    onOpenBillingEfficiencyDetail
+}: {
+    onOpenGenerativeAiDetail?: () => void,
+    onOpenClinicalDecisionSupportDetail?: () => void,
+    onOpenPredictiveHealthDetail?: () => void,
+    onOpenCustomAiDetail?: () => void,
+    onOpenBillingEfficiencyDetail?: () => void
+}) => {
+    const handleItemClick = (index: number) => {
+        if (index === 0) onOpenGenerativeAiDetail?.();
+        else if (index === 1) onOpenClinicalDecisionSupportDetail?.();
+        else if (index === 2) onOpenPredictiveHealthDetail?.();
+        else if (index === 3) onOpenCustomAiDetail?.();
+        else if (index === 4) onOpenBillingEfficiencyDetail?.();
+    };
+
+    return (
+        <CategoryDetail
+            categoryNum="01"
+            title="Artificial Intelligence & Advanced Analytics"
+            items={[
+                { title: "Generative AI for Healthcare", desc: "Revolutionizing patient care with custom AI models that produce synthetic data, automate clinical notes, and create engaging patient education materials." },
+                { title: "AI-Powered Clinical Decision Support", desc: "Harnessing real-time patient data to empower clinicians with intelligent, evidence-based diagnostic and treatment recommendations." },
+                { title: "Predictive Health Analytics", desc: "Sophisticated algorithms identifying at-risk individuals early, transforming healthcare from reactive to proactive intervention." },
+                { title: "Custom AI Solutions", desc: "Purpose-built AI systems that learn from your data, adapt to your processes, and evolve with your business needs for maximum impact." },
+                { title: "AI-Enabled Billing Efficiency", desc: "Strategic automation of medical coding and billing, slashing denials and accelerating reimbursement cycles." }
+            ]}
+            clickableIndices={[0, 1, 2, 3, 4]}
+            onItemClick={handleItemClick}
+        />
+    );
+};
+
+export const GenerativeAiDetail = () => (
+    <Container className="justify-center py-4">
+        <SubHeading className="text-[10px] md:text-xs mb-2">GENERATIVE AI FOR HEALTHCARE</SubHeading>
+        <Heading gradient className="text-2xl md:text-4xl leading-tight mb-2">Generative AI for Healthcare</Heading>
+        <p className="text-brand-cyan/80 text-sm md:text-base font-semibold mb-6 md:mb-7">Revolutionizing care with synthetic data, automated notes & patient education</p>
+
+        <div className="relative overflow-hidden rounded-2xl border border-brand-cyan/20 bg-dark-surface/90 p-6 md:p-7">
+            <div
+                className="absolute inset-0 bg-cover bg-center opacity-45 scale-110"
+                style={{ backgroundImage: "url('/assets/custom-medical/tech-landscape-bg.jpg')" }}
+                aria-hidden
+            />
+            <div
+                className="absolute inset-0 mix-blend-soft-light opacity-70"
+                style={{ backgroundImage: "radial-gradient(60% 60% at 20% 15%, rgba(0, 223, 216, 0.35), transparent 65%), radial-gradient(60% 60% at 85% 80%, rgba(0, 112, 243, 0.28), transparent 65%)" }}
+                aria-hidden
+            />
+            <div className="absolute inset-0 bg-linear-to-br from-[#02060d]/72 via-[#02060d]/58 to-[#00192d]/48" aria-hidden />
+
+            <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Automated Clinical Notes</h4>
+                    <p className="text-white/75 text-sm leading-relaxed">
+                        Generate structured SOAP notes, discharge summaries, and referral letters from clinician‑patient conversation transcripts (live or recorded) using fine‑tuned LLMs, reducing documentation time by up to 70%.
+                    </p>
+                </div>
+
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Synthetic Patient Data</h4>
+                    <p className="text-white/75 text-sm leading-relaxed">
+                        Create realistic, de‑identified patient records (demographics, vitals, lab values, diagnoses) for training, testing, and research – fully compliant with HIPAA/GDPR and statistically representative of real populations.
+                    </p>
+                </div>
+
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Personalized Patient Education</h4>
+                    <p className="text-white/75 text-sm leading-relaxed">
+                        Convert complex medical jargon into plain‑language explanations, visual summaries, and multilingual materials tailored to a patient’s literacy level, language, and condition.
+                    </p>
+                </div>
+
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Chatbots & Virtual Assistants</h4>
+                    <p className="text-white/75 text-sm leading-relaxed">
+                        Deploy generative AI‑powered intake assistants that converse naturally with patients to triage symptoms, answer pre‑visit questions, and schedule appointments.
+                    </p>
+                </div>
+            </div>
+
+            <div className="relative z-10 mt-5 rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
+                <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Regulatory Guardrails</h4>
+                <p className="text-white/75 text-sm leading-relaxed">
+                    Implement prompt filtering, output validation, and audit logging to ensure generated content is clinically safe, factually grounded (RAG with trusted sources), and ready for clinician review.
+                </p>
+            </div>
+        </div>
+    </Container>
+);
+
+export const ClinicalDecisionSupportDetail = () => (
+    <Container className="justify-center py-4">
+        <SubHeading className="text-[10px] md:text-xs mb-2">AI-POWERED CLINICAL DECISION SUPPORT</SubHeading>
+        <Heading gradient className="text-2xl md:text-4xl leading-tight mb-2">AI-Powered Clinical Decision Support</Heading>
+        <p className="text-brand-cyan/80 text-sm md:text-base font-semibold mb-6 md:mb-7">Real‑time, evidence‑based diagnostic & treatment recommendations for clinicians</p>
+
+        <div className="relative overflow-hidden rounded-2xl border border-brand-cyan/20 bg-dark-surface/90 p-6 md:p-7">
+            <div
+                className="absolute inset-0 bg-cover bg-center opacity-45 scale-110"
+                style={{ backgroundImage: "url('/assets/custom-medical/tech-landscape-bg.jpg')" }}
+                aria-hidden
+            />
+            <div
+                className="absolute inset-0 mix-blend-soft-light opacity-70"
+                style={{ backgroundImage: "radial-gradient(60% 60% at 20% 15%, rgba(0, 223, 216, 0.35), transparent 65%), radial-gradient(60% 60% at 85% 80%, rgba(0, 112, 243, 0.28), transparent 65%)" }}
+                aria-hidden
+            />
+            <div className="absolute inset-0 bg-linear-to-br from-[#02060d]/72 via-[#02060d]/58 to-[#00192d]/48" aria-hidden />
+
+            <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Real‑time Patient Data Fusion</h4>
+                    <p className="text-white/75 text-sm leading-relaxed">
+                        Integrate live EHR data (vitals, labs, medications, imaging reports) with wearable and RPM data to present a holistic patient snapshot at the point of care.
+                    </p>
+                </div>
+
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Intelligent Diagnostic Suggestions</h4>
+                    <p className="text-white/75 text-sm leading-relaxed">
+                        Use machine learning models (e.g., gradient boosting, deep learning) to highlight likely diagnoses based on symptoms, history, and test results – ranked by probability and urgency.
+                    </p>
+                </div>
+
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Evidence‑based Treatment Pathways</h4>
+                    <p className="text-white/75 text-sm leading-relaxed">
+                        Recommend step‑by‑step treatment options aligned with latest clinical guidelines (e.g., UpToDate, DynaMed) and institutional protocols; flag off‑guideline orders.
+                    </p>
+                </div>
+
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Drug‑drug & Allergy Alerts</h4>
+                    <p className="text-white/75 text-sm leading-relaxed">
+                        Enhance basic interaction checks with AI that predicts nuanced risks (e.g., renal function‑adjusted dosing, rare adverse reactions) and prioritizes alerts to reduce alert fatigue.
+                    </p>
+                </div>
+
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Explainable AI (XAI)</h4>
+                    <p className="text-white/75 text-sm leading-relaxed">
+                        Provide clinicians with SHAP values, feature importance, or natural language explanations for each recommendation, building trust and enabling informed overrides.
+                    </p>
+                </div>
+
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Outcome Feedback Loop</h4>
+                    <p className="text-white/75 text-sm leading-relaxed">
+                        Continuously retrain models using de‑identified outcomes (e.g., readmission rates, medication adherence) to improve accuracy without manual re‑annotation.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </Container>
+);
+
+export const PredictiveHealthAnalyticsDetail = () => (
+    <Container className="justify-center py-4">
+        <SubHeading className="text-[10px] md:text-xs mb-2">PREDICTIVE HEALTH ANALYTICS</SubHeading>
+        <Heading gradient className="text-2xl md:text-4xl leading-tight mb-2">Predictive Health Analytics</Heading>
+        <p className="text-brand-cyan/80 text-sm md:text-base font-semibold mb-6 md:mb-7">From reactive to proactive intervention – identify at‑risk individuals early</p>
+
+        <div className="relative overflow-hidden rounded-2xl border border-brand-cyan/20 bg-dark-surface/90 p-6 md:p-7">
+            <div
+                className="absolute inset-0 bg-cover bg-center opacity-45 scale-110"
+                style={{ backgroundImage: "url('/assets/custom-medical/tech-landscape-bg.jpg')" }}
+                aria-hidden
+            />
+            <div
+                className="absolute inset-0 mix-blend-soft-light opacity-70"
+                style={{ backgroundImage: "radial-gradient(60% 60% at 20% 15%, rgba(0, 223, 216, 0.35), transparent 65%), radial-gradient(60% 60% at 85% 80%, rgba(0, 112, 243, 0.28), transparent 65%)" }}
+                aria-hidden
+            />
+            <div className="absolute inset-0 bg-linear-to-br from-[#02060d]/72 via-[#02060d]/58 to-[#00192d]/48" aria-hidden />
+
+            <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Risk stratification algorithms</h4>
+                    <p className="text-white/75 text-sm leading-relaxed">
+                        Develop models that assign risk scores for readmission, sepsis, deterioration, falls, and chronic disease exacerbations (e.g., COPD, CHF, diabetes) using longitudinal EHR data.
+                    </p>
+                </div>
+
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Early warning systems</h4>
+                    <p className="text-white/75 text-sm leading-relaxed">
+                        Monitor streaming vital signs, lab trends, and nursing assessments to trigger alerts hours before clinical deterioration (e.g., sepsis, cardiac arrest) in inpatient or remote settings.
+                    </p>
+                </div>
+
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Population health insights</h4>
+                    <p className="text-white/75 text-sm leading-relaxed">
+                        Segment patient populations by predicted risk, cost, and utilization; enable targeted outreach (e.g., care management, preventive screenings, medication reviews) to reduce avoidable admissions.
+                    </p>
+                </div>
+
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Social determinants of health (SDOH)</h4>
+                    <p className="text-white/75 text-sm leading-relaxed">
+                        Incorporate ZIP‑code‑level or individual SDOH data (housing, food security, transportation) to improve prediction accuracy and identify non‑clinical barriers to health.
+                    </p>
+                </div>
+
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">What‑if scenario analysis</h4>
+                    <p className="text-white/75 text-sm leading-relaxed">
+                        Allow administrators to simulate the impact of interventions (e.g., adding nurse navigators, mobile clinics) on predicted outcomes and costs before implementation.
+                    </p>
+                </div>
+
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Operational forecasting</h4>
+                    <p className="text-white/75 text-sm leading-relaxed">
+                        Predict bed occupancy, ED wait times, no‑show rates, and staffing needs to optimize resource allocation and reduce bottlenecks.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </Container>
+);
+
+export const CustomAiDetail = () => (
+    <Container className="justify-center py-4">
+        <SubHeading className="text-[10px] md:text-xs mb-2">CUSTOM AI SOLUTIONS</SubHeading>
+        <Heading gradient className="text-2xl md:text-4xl leading-tight mb-2">Custom AI Solutions</Heading>
+        <p className="text-brand-cyan/80 text-sm md:text-base font-semibold mb-6 md:mb-7">Purpose‑built AI that learns from your data, adapts to your processes, and evolves with your business</p>
+
+        <div className="relative overflow-hidden rounded-2xl border border-brand-cyan/20 bg-dark-surface/90 p-6 md:p-7">
+            <div
+                className="absolute inset-0 bg-cover bg-center opacity-45 scale-110"
+                style={{ backgroundImage: "url('/assets/custom-medical/tech-landscape-bg.jpg')" }}
+                aria-hidden
+            />
+            <div
+                className="absolute inset-0 mix-blend-soft-light opacity-70"
+                style={{ backgroundImage: "radial-gradient(60% 60% at 20% 15%, rgba(0, 223, 216, 0.35), transparent 65%), radial-gradient(60% 60% at 85% 80%, rgba(0, 112, 243, 0.28), transparent 65%)" }}
+                aria-hidden
+            />
+            <div className="absolute inset-0 bg-linear-to-br from-[#02060d]/72 via-[#02060d]/58 to-[#00192d]/48" aria-hidden />
+
+            <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Bespoke model development</h4>
+                    <p className="text-white/75 text-sm leading-relaxed">
+                        Engineer deep learning, computer vision, NLP, or classical ML models tailored to your specific clinical or operational challenge (e.g., detecting rare pathologies, optimizing OR schedules, automating prior auth).
+                    </p>
+                </div>
+
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Data‑centric approach</h4>
+                    <p className="text-white/75 text-sm leading-relaxed">
+                        Assist with data curation, labeling (using active learning or expert‑in‑the‑loop), and augmentation to build high‑quality, representative datasets that drive model performance.
+                    </p>
+                </div>
+
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Process integration</h4>
+                    <p className="text-white/75 text-sm leading-relaxed">
+                        Embed AI outputs directly into your existing clinical workflows – via EHR plugins, mobile apps, API calls, or real‑time dashboards – without disrupting user experience.
+                    </p>
+                </div>
+
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Adaptive & continuous learning</h4>
+                    <p className="text-white/75 text-sm leading-relaxed">
+                        Implement MLOps pipelines that automatically retrain models on new data, monitor drift (data drift, concept drift), and trigger human review when confidence drops.
+                    </p>
+                </div>
+
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Evolution roadmap</h4>
+                    <p className="text-white/75 text-sm leading-relaxed">
+                        Collaborate on a phased AI maturity plan: start with a pilot (e.g., radiology triage), then expand to new departments, data sources, or use cases as value is demonstrated.
+                    </p>
+                </div>
+
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Full governance & explainability</h4>
+                    <p className="text-white/75 text-sm leading-relaxed">
+                        Provide model cards, fairness audits, and regulatory documentation (e.g., FDA pre‑submission for AI‑as‑a‑medical‑device) to ensure safe, ethical, and compliant deployment.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </Container>
+);
+
+export const BillingEfficiencyDetail = () => (
+    <Container className="justify-center py-4">
+        <SubHeading className="text-[10px] md:text-xs mb-2">AI-ENABLED BILLING EFFICIENCY</SubHeading>
+        <Heading gradient className="text-2xl md:text-4xl leading-tight mb-2">AI-Enabled Billing Efficiency</Heading>
+        <p className="text-brand-cyan/80 text-sm md:text-base font-semibold mb-6 md:mb-7">Strategic automation of medical coding & billing – slash denials, accelerate reimbursements</p>
+
+        <div className="relative overflow-hidden rounded-2xl border border-brand-cyan/20 bg-dark-surface/90 p-6 md:p-7">
+            <div
+                className="absolute inset-0 bg-cover bg-center opacity-45 scale-110"
+                style={{ backgroundImage: "url('/assets/custom-medical/tech-landscape-bg.jpg')" }}
+                aria-hidden
+            />
+            <div
+                className="absolute inset-0 mix-blend-soft-light opacity-70"
+                style={{ backgroundImage: "radial-gradient(60% 60% at 20% 15%, rgba(0, 223, 216, 0.35), transparent 65%), radial-gradient(60% 60% at 85% 80%, rgba(0, 112, 243, 0.28), transparent 65%)" }}
+                aria-hidden
+            />
+            <div className="absolute inset-0 bg-linear-to-br from-[#02060d]/72 via-[#02060d]/58 to-[#00192d]/48" aria-hidden />
+
+            <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Automated medical coding</h4>
+                    <p className="text-white/75 text-sm leading-relaxed">
+                        Use NLP to read clinical notes, operative reports, and discharge summaries, then suggest or auto‑assign accurate ICD‑10, CPT, HCPCS, and modifiers with 95%+ initial accuracy.
+                    </p>
+                </div>
+
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Claim denial prediction</h4>
+                    <p className="text-white/75 text-sm leading-relaxed">
+                        Flag claims with high predicted denial risk before submission – highlight missing documentation, coding mismatches, or authorization issues for proactive correction.
+                    </p>
+                </div>
+
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Dynamic charge capture</h4>
+                    <p className="text-white/75 text-sm leading-relaxed">
+                        Integrate with EHR to auto‑capture billable procedures (e.g., critical care time, suture removals) and supplies; reduce missed charges and under‑coding.
+                    </p>
+                </div>
+
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Appeals letter generation</h4>
+                    <p className="text-white/75 text-sm leading-relaxed">
+                        For denied claims, generate evidence‑based appeal letters using patient chart data, payer policies, and regulatory guidelines – cutting hours of manual work per denial.
+                    </p>
+                </div>
+
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Reimbursement cycle analytics</h4>
+                    <p className="text-white/75 text-sm leading-relaxed">
+                        Monitor days in AR, first‑pass acceptance rate, and denial reasons; identify payer‑specific patterns and systemic root causes (e.g., missing prior auth) for process redesign.
+                    </p>
+                </div>
+
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Compliance & audit readiness</h4>
+                    <p className="text-white/75 text-sm leading-relaxed">
+                        Build traceability from clinical documentation to final codes; provide audit logs and justifications for AI‑suggested changes, simplifying RAC and internal audits.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </Container>
 );
 
 export const Cat5Details = ({
