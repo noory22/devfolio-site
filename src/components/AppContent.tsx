@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Globe from "react-globe.gl";
 import { motion, useScroll, useSpring, AnimatePresence } from "motion/react";
-import { Brain, Code2, Zap, Server, ShieldCheck, ExternalLink, Smartphone, HeartHandshake, Trophy, Activity, Stethoscope } from "lucide-react";
+import { Brain, Code2, Zap, Server, ShieldCheck, ExternalLink, Smartphone, Cloud, Trophy, ClipboardList, ShieldCheckIcon} from "lucide-react";
 
 const Container = ({ children, className = "", isActive, ...props }: { children: React.ReactNode, className?: string, isActive?: boolean, [key: string]: any }) => {
     const { scrollYProgress } = useScroll();
@@ -1005,10 +1005,10 @@ export const ServicesCategories = ({ onSelect }: { onSelect: (index: number) => 
                             </div>
 
                             {/* Top-right corner accent patch */}
-                            <div
+                            {/* <div
                                 className="absolute top-0 right-0 w-20 h-20 rounded-bl-4xl opacity-[0.08] group-hover:opacity-[0.18] transition-opacity duration-500"
                                 style={{ background: cat.color }}
-                            />
+                            /> */}
 
                             {/* Gradient icon box — Regulatory style */}
                             <motion.div
@@ -1624,13 +1624,13 @@ export const Accomplishments = () => {
             icon: Smartphone,
             gradient: "from-cyan-600 to-teal-500",
             color: "#00dfd8",
-            image: "/assets/accomplishments/mobile_apps_bg.jpg"
+            image: "/assets/accomplishments/mobile_apps_bg.png"
         },
         {
             value: "3",
             label: "IT Support Solutions",
             desc: "Enterprise SLA & cloud maintenance",
-            icon: HeartHandshake,
+            icon: Cloud,
             gradient: "from-blue-600 to-cyan-500",
             color: "#0070f3",
             image: "/assets/cloud.png"
@@ -1648,7 +1648,7 @@ export const Accomplishments = () => {
             value: "1",
             label: "FDA Regulatory Compliance",
             desc: "IEC 62304 standard alignment",
-            icon: Activity,
+            icon: ClipboardList,
             gradient: "from-blue-700 to-indigo-500",
             color: "#0070f3",
             image: "/assets/image.png"
@@ -1657,7 +1657,7 @@ export const Accomplishments = () => {
             value: "1",
             label: "ONC Certified EHR",
             desc: "Electronic Health Records integration",
-            icon: Stethoscope,
+            icon: ShieldCheckIcon,
             gradient: "from-teal-600 to-cyan-400",
             color: "#00dfd8",
             image: "/assets/ONC.png"
@@ -1709,7 +1709,7 @@ export const Accomplishments = () => {
                             />
 
                             {/* Gradient read-mask overlay to guarantee readability of stats/text (reference dark gradient) */}
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/45 to-black/20 z-0 pointer-events-none" />
+                            <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/45 to-black/20 z-0 pointer-events-none" />
 
                             {/* Radial top glow */}
                             <div
@@ -1765,8 +1765,8 @@ export const Testimonials = () => {
         {
             name: "Dr. Babar Rao",
             company: "LegendEHR",
-            quote: "RMT delivered a highly compliance-certified EHR platform that has transformed our clinical workflows. Their understanding of health informatics is outstanding.",
-            role: "Chief Executive Officer"
+            quote: "Satisfactory IT support and fully ONC‑certified – exactly what you need for a reliable, audit‑ready EHR system.",
+            role: "Dermatologist"
         },
         {
             name: "Ms. Rumana",
@@ -1777,13 +1777,19 @@ export const Testimonials = () => {
         {
             name: "Sajol Ghoshal",
             company: "Cardio",
-            quote: "Exceptional AI diagnostic integrations. RMT's team demonstrated absolute mastery in regulatory QA compliance and software reliability.",
+            quote: "RMT's team demonstrated absolute mastery in regulatory QA and Regulatory Compliance.",
             role: "Chief Executive Officer"
         },
         {
             name: "Dr. Amir Jamal",
             company: "Infuzamed",
-            quote: "From design to FDA alignment, RMT proved to be a reliable partner. Their engineering support and system integration are world-class.",
+            quote: "RMT tackled the complexity of our remote patient monitoring platform with precision — turning a challenging system into a reliable, production-ready solution.",
+            role: "Chief Executive Officer"
+        },
+        {
+            name: "Ricky Torres",
+            company: "22-RPM",
+            quote: "From design to deployment, RMT proved to be a reliable partner. Their expertise in healthcare IT and commitment to quality made them an invaluable asset in our product development journey.",
             role: "Chief Executive Officer"
         }
     ];
@@ -1820,7 +1826,7 @@ export const Testimonials = () => {
                 {/* Decorative background glow behind the card */}
                 <div className="absolute inset-0 bg-brand-cyan/5 blur-3xl rounded-full pointer-events-none" />
 
-                <div className="glass-dark p-8 md:p-12 rounded-4xl border border-white/10 relative overflow-hidden shadow-2xl min-h-[250px] md:min-h-[220px] flex flex-col justify-between">
+                <div className="glass-dark p-8 md:p-12 rounded-4xl border border-white/10 relative overflow-hidden shadow-2xl min-h-62.5 md:min-h-55 flex flex-col justify-between">
                     {/* Quotation icon */}
                     <div className="absolute -top-4 -left-4 text-white/5 font-serif text-9xl select-none pointer-events-none">
                         “
@@ -1843,7 +1849,8 @@ export const Testimonials = () => {
                                     {activeReview.name}
                                 </h4>
                                 <p className="text-brand-cyan text-xs md:text-sm font-medium">
-                                    {activeReview.role} • {activeReview.company}
+                                    {/* {activeReview.role}  */}
+                                     {activeReview.company}
                                 </p>
                             </div>
                         </motion.div>
@@ -1871,8 +1878,8 @@ export const Testimonials = () => {
                 </p>
                 <div className="relative w-full overflow-hidden py-4 border-y border-white/5">
                     {/* Fade gradients on edges */}
-                    <div className="absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-dark-bg to-transparent z-10 pointer-events-none" />
-                    <div className="absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-dark-bg to-transparent z-10 pointer-events-none" />
+                    <div className="absolute inset-y-0 left-0 w-16 bg-linear-to-r from-dark-bg to-transparent z-10 pointer-events-none" />
+                    <div className="absolute inset-y-0 right-0 w-16 bg-linear-to-l from-dark-bg to-transparent z-10 pointer-events-none" />
 
                     <motion.div
                         className="flex gap-8 whitespace-nowrap animate-marquee"
