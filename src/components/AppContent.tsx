@@ -974,7 +974,10 @@ export const ServicesCategories = ({ onSelect }: { onSelect: (index: number) => 
                             damping: 14,
                         }}
                         whileHover={{ y: -8, scale: 1.02 }}
-                        onClick={() => onSelect(9 + i)}
+                        onClick={() => {
+                            const slideIndices = [9, 10, 17, 21, 27];
+                            onSelect(slideIndices[i]);
+                        }}
                         className="group relative cursor-pointer flex flex-col"
                         style={{ perspective: "1000px" }}
                     >
@@ -2130,19 +2133,35 @@ export const ImagingAnalysisDetail = () => (
     </Container>
 );
 
-export const Cat3Details = ({ onOpenSchedulerDetail }: { onOpenSchedulerDetail?: () => void }) => (
-    <CategoryDetail
-        categoryNum="03"
-        title="Operational Efficiency & Automation"
-        items={[
-            { title: "Intelligent Appointment & Resource Scheduler", desc: "Develops smart scheduling systems that optimize provider time, patient preferences, and resource allocation, including auto-scheduling features." },
-            { title: "Automated Clinical Workflow Orchestration", desc: "Creates software that automates routine administrative and clinical tasks (e.g., referral processing, lab order tracking) to improve efficiency." },
-            { title: "Medical Research & Recommendation Engines", desc: "Builds platforms that help researchers and clinicians quickly find relevant studies, guidelines, and clinical trial information." }
-        ]}
-        clickableIndices={[0]}
-        onItemClick={() => onOpenSchedulerDetail?.()}
-    />
-);
+export const Cat3Details = ({
+    onOpenSchedulerDetail,
+    onOpenWorkflowDetail,
+    onOpenRecommendationDetail
+}: {
+    onOpenSchedulerDetail?: () => void,
+    onOpenWorkflowDetail?: () => void,
+    onOpenRecommendationDetail?: () => void
+}) => {
+    const handleItemClick = (index: number) => {
+        if (index === 0) onOpenSchedulerDetail?.();
+        else if (index === 1) onOpenWorkflowDetail?.();
+        else if (index === 2) onOpenRecommendationDetail?.();
+    };
+
+    return (
+        <CategoryDetail
+            categoryNum="03"
+            title="Operational Efficiency & Automation"
+            items={[
+                { title: "Intelligent Appointment & Resource Scheduler", desc: "Develops smart scheduling systems that optimize provider time, patient preferences, and resource allocation, including auto-scheduling features." },
+                { title: "Automated Clinical Workflow Orchestration", desc: "Creates software that automates routine administrative and clinical tasks (e.g., referral processing, lab order tracking) to improve efficiency." },
+                { title: "Medical Research & Recommendation Engines", desc: "Builds platforms that help researchers and clinicians quickly find relevant studies, guidelines, and clinical trial information." }
+            ]}
+            clickableIndices={[0, 1, 2]}
+            onItemClick={handleItemClick}
+        />
+    );
+};
 
 export const SchedulerDetail = () => (
     <Container className="justify-center py-4">
@@ -2197,6 +2216,124 @@ export const SchedulerDetail = () => (
                 <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Integration Ready</h4>
                 <p className="text-white/75 text-sm leading-relaxed">
                     APIs to sync with EHR, patient portals, and billing systems for end-to-end workflow continuity.
+                </p>
+            </div>
+        </div>
+    </Container>
+);
+
+export const WorkflowOrchestrationDetail = () => (
+    <Container className="justify-center py-4">
+        <SubHeading className="text-[10px] md:text-xs mb-2">AUTOMATED CLINICAL WORKFLOW ORCHESTRATION</SubHeading>
+        <Heading gradient className="text-2xl md:text-4xl leading-tight mb-2">Automated Clinical Workflow Orchestration</Heading>
+        <p className="text-brand-cyan/80 text-sm md:text-base font-semibold mb-6 md:mb-7">Eliminate routine tasks, accelerate care delivery</p>
+
+        <div className="relative overflow-hidden rounded-2xl border border-brand-cyan/20 bg-dark-surface/90 p-6 md:p-7">
+            <div
+                className="absolute inset-0 bg-cover bg-center opacity-45 scale-110"
+                style={{ backgroundImage: "url('/assets/custom-medical/tech-landscape-bg.jpg')" }}
+                aria-hidden
+            />
+            <div
+                className="absolute inset-0 mix-blend-soft-light opacity-70"
+                style={{ backgroundImage: "radial-gradient(60% 60% at 20% 15%, rgba(0, 223, 216, 0.35), transparent 65%), radial-gradient(60% 60% at 85% 80%, rgba(0, 112, 243, 0.28), transparent 65%)" }}
+                aria-hidden
+            />
+            <div className="absolute inset-0 bg-linear-to-br from-[#02060d]/72 via-[#02060d]/58 to-[#00192d]/48" aria-hidden />
+
+            <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Referral Processing</h4>
+                    <p className="text-white/75 text-sm leading-relaxed">
+                        Auto‑route incoming referrals to the right specialist, validate insurance, and schedule initial consultation without manual triage.
+                    </p>
+                </div>
+
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Lab Order Tracking</h4>
+                    <p className="text-white/75 text-sm leading-relaxed">
+                        Automatically generate lab requisitions, send orders to affiliated labs, and push results back to the ordering provider’s dashboard.
+                    </p>
+                </div>
+
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Task Automation</h4>
+                    <p className="text-white/75 text-sm leading-relaxed">
+                        Handle prescription renewals, prior authorization requests, discharge summaries, and patient follow‑up reminders via rules‑based workflows.
+                    </p>
+                </div>
+
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Inter‑system Orchestration</h4>
+                    <p className="text-white/75 text-sm leading-relaxed">
+                        Coordinate actions across EHR, lab information systems, pharmacy systems, and communication platforms (e.g., secure chat).
+                    </p>
+                </div>
+            </div>
+
+            <div className="relative z-10 mt-5 rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
+                <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Real‑time Analytics</h4>
+                <p className="text-white/75 text-sm leading-relaxed">
+                    Dashboards showing throughput, bottlenecks, and staff workload to enable continuous process improvement.
+                </p>
+            </div>
+        </div>
+    </Container>
+);
+
+export const RecommendationEnginesDetail = () => (
+    <Container className="justify-center py-4">
+        <SubHeading className="text-[10px] md:text-xs mb-2">MEDICAL RESEARCH & RECOMMENDATION ENGINES</SubHeading>
+        <Heading gradient className="text-2xl md:text-4xl leading-tight mb-2">Medical Research & Recommendation Engines</Heading>
+        <p className="text-brand-cyan/80 text-sm md:text-base font-semibold mb-6 md:mb-7">Accelerate evidence‑based decisions & discovery</p>
+
+        <div className="relative overflow-hidden rounded-2xl border border-brand-cyan/20 bg-dark-surface/90 p-6 md:p-7">
+            <div
+                className="absolute inset-0 bg-cover bg-center opacity-45 scale-110"
+                style={{ backgroundImage: "url('/assets/custom-medical/tech-landscape-bg.jpg')" }}
+                aria-hidden
+            />
+            <div
+                className="absolute inset-0 mix-blend-soft-light opacity-70"
+                style={{ backgroundImage: "radial-gradient(60% 60% at 20% 15%, rgba(0, 223, 216, 0.35), transparent 65%), radial-gradient(60% 60% at 85% 80%, rgba(0, 112, 243, 0.28), transparent 65%)" }}
+                aria-hidden
+            />
+            <div className="absolute inset-0 bg-linear-to-br from-[#02060d]/72 via-[#02060d]/58 to-[#00192d]/48" aria-hidden />
+
+            <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Smart Literature Discovery</h4>
+                    <p className="text-white/75 text-sm leading-relaxed">
+                        AI‑powered search over PubMed, clinical trial registries, guidelines, and proprietary repositories – ranks results by relevance and recency.
+                    </p>
+                </div>
+
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Personalized Recommendations</h4>
+                    <p className="text-white/75 text-sm leading-relaxed">
+                        For researchers: suggest relevant studies based on past queries, publication history, and current projects. For clinicians: surface guidelines matching patient presentation.
+                    </p>
+                </div>
+
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Clinical Trial Matching</h4>
+                    <p className="text-white/75 text-sm leading-relaxed">
+                        Automatically compare patient eligibility criteria against active trial databases and notify providers or researchers of potential matches.
+                    </p>
+                </div>
+
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Trend & Gap Analysis</h4>
+                    <p className="text-white/75 text-sm leading-relaxed">
+                        Visualise research hotspots, emerging therapies, and understudied conditions using natural language processing on abstracts and full texts.
+                    </p>
+                </div>
+            </div>
+
+            <div className="relative z-10 mt-5 rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
+                <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Integration with EHR/Workflow</h4>
+                <p className="text-white/75 text-sm leading-relaxed">
+                    Embed recommendation widgets into clinical dashboards so clinicians can review evidence without leaving the patient record.
                 </p>
             </div>
         </div>

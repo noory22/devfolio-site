@@ -124,7 +124,19 @@ const slideTransitions = [
     animate: { opacity: 1, y: 0, transition: { duration: 0.8 } },
     exit: { opacity: 0, y: -100, transition: { duration: 0.5 } },
   },
-  // 19: Cat 5 Details (Software Compliance)
+  // 19: Workflow Orchestration Detail
+  {
+    initial: { opacity: 0, y: 100 },
+    animate: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+    exit: { opacity: 0, y: -100, transition: { duration: 0.5 } },
+  },
+  // 20: Recommendation Engines Detail
+  {
+    initial: { opacity: 0, y: 100 },
+    animate: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+    exit: { opacity: 0, y: -100, transition: { duration: 0.5 } },
+  },
+  // 21: Cat 5 Details (Software Compliance)
   {
     initial: { opacity: 0, y: 100 },
     animate: { opacity: 1, y: 0, transition: { duration: 0.8 } },
@@ -234,6 +246,8 @@ const slideComponents = [
   Content.ImagingAnalysisDetail,
   Content.Cat3Details,
   Content.SchedulerDetail,
+  Content.WorkflowOrchestrationDetail,
+  Content.RecommendationEnginesDetail,
   Content.Cat5Details,
   Content.QaMedicalSoftwareDetail,
   Content.Iec62304ComplianceDetail,
@@ -290,22 +304,24 @@ const BackgroundMapping = [
   Backgrounds.GridPulseBG,    // 16: Imaging & Analysis
   Backgrounds.AuroraBG,       // 17: Cat 3
   Backgrounds.TechNetworkBG,  // 18: Scheduler Detail
-  Backgrounds.DNAHelixBG,     // 19: Cat 5
-  Backgrounds.TechNetworkBG,  // 20: QA Medical Software Detail
-  Backgrounds.GridPulseBG,    // 21: IEC 62304 Compliance Detail
-  Backgrounds.DNAHelixBG,     // 22: HIPAA Compliance Detail
-  Backgrounds.GridPulseBG,    // 23: ONC Health IT Detail
-  Backgrounds.TechNetworkBG,  // 24: FHIR Integration Detail
-  Backgrounds.GridPulseBG,    // 25: Cat 4
-  Backgrounds.TechNetworkBG,  // 26: DevOps & Cloud Infrastructure Detail
-  Backgrounds.DNAHelixBG,     // 27: SaaS Enablement Detail
-  Backgrounds.GridPulseBG,    // 28: QA Validation Detail
-  Backgrounds.FloatingCubesBG,// 29: Ongoing Maintenance Detail
+  Backgrounds.GridPulseBG,    // 19: Workflow Orchestration Detail
+  Backgrounds.DNAHelixBG,     // 20: Recommendation Engines Detail
+  Backgrounds.DNAHelixBG,     // 21: Cat 5
+  Backgrounds.TechNetworkBG,  // 22: QA Medical Software Detail
+  Backgrounds.GridPulseBG,    // 23: IEC 62304 Compliance Detail
+  Backgrounds.DNAHelixBG,     // 24: HIPAA Compliance Detail
+  Backgrounds.GridPulseBG,    // 25: ONC Health IT Detail
+  Backgrounds.TechNetworkBG,  // 26: FHIR Integration Detail
+  Backgrounds.GridPulseBG,    // 27: Cat 4
+  Backgrounds.TechNetworkBG,  // 28: DevOps & Cloud Infrastructure Detail
+  Backgrounds.DNAHelixBG,     // 29: SaaS Enablement Detail
+  Backgrounds.GridPulseBG,    // 30: QA Validation Detail
+  Backgrounds.FloatingCubesBG,// 31: Ongoing Maintenance Detail
   // Backgrounds.TechNetworkBG,  // 14: RPM Demo Showcase
   // Backgrounds.DNAHelixBG,     // 15: Pricing
-  Backgrounds.TechNetworkBG,  // 30: Accomplishments
-  Backgrounds.GridPulseBG,    // 31: Testimonials
-  Backgrounds.AuroraBG,       // 32: Thank You
+  Backgrounds.TechNetworkBG,  // 32: Accomplishments
+  Backgrounds.GridPulseBG,    // 33: Testimonials
+  Backgrounds.AuroraBG,       // 34: Thank You
 ];
 
 import { ChevronLeft, ChevronRight, ChevronUp, ChevronDown } from "lucide-react";
@@ -321,6 +337,8 @@ export default function App() {
   const [showEhrDetail, setShowEhrDetail] = useState(false);
   const [showImagingDetail, setShowImagingDetail] = useState(false);
   const [showSchedulerDetail, setShowSchedulerDetail] = useState(false);
+  const [showWorkflowDetail, setShowWorkflowDetail] = useState(false);
+  const [showRecommendationDetail, setShowRecommendationDetail] = useState(false);
   const [showQaMedicalDetail, setShowQaMedicalDetail] = useState(false);
   const [showIec62304Detail, setShowIec62304Detail] = useState(false);
   const [showHipaaDetail, setShowHipaaDetail] = useState(false);
@@ -338,21 +356,23 @@ export default function App() {
   const EHR_DETAIL_SLIDE = 15;
   const IMAGING_DETAIL_SLIDE = 16;
   const SCHEDULER_DETAIL_SLIDE = 18;
-  const QA_MEDICAL_DETAIL_SLIDE = 20;
-  const IEC_62304_DETAIL_SLIDE = 21;
-  const HIPAA_DETAIL_SLIDE = 22;
-  const ONC_DETAIL_SLIDE = 23;
-  const FHIR_DETAIL_SLIDE = 24;
-  const DEVOPS_DETAIL_SLIDE = 26;
-  const SAAS_DETAIL_SLIDE = 27;
-  const QA_VALIDATION_DETAIL_SLIDE = 28;
-  const MAINTENANCE_DETAIL_SLIDE = 29;
+  const WORKFLOW_ORCHESTRATION_DETAIL_SLIDE = 19;
+  const RECOMMENDATION_DETAIL_SLIDE = 20;
+  const QA_MEDICAL_DETAIL_SLIDE = 22;
+  const IEC_62304_DETAIL_SLIDE = 23;
+  const HIPAA_DETAIL_SLIDE = 24;
+  const ONC_DETAIL_SLIDE = 25;
+  const FHIR_DETAIL_SLIDE = 26;
+  const DEVOPS_DETAIL_SLIDE = 28;
+  const SAAS_DETAIL_SLIDE = 29;
+  const QA_VALIDATION_DETAIL_SLIDE = 30;
+  const MAINTENANCE_DETAIL_SLIDE = 31;
 
   // Cooldown for scroll/wheel navigation
   const lastScrollTime = useRef(0);
   const SCROLL_COOLDOWN = 1000;
 
-  const isServices = currentSlide >= 8 && currentSlide <= 29;
+  const isServices = currentSlide >= 8 && currentSlide <= 31;
 
   const isHiddenSlide = useCallback((index: number) => (
     (index === CUSTOM_MEDICAL_DETAIL_SLIDE && !showCustomMedicalDetail) ||
@@ -362,6 +382,8 @@ export default function App() {
     (index === EHR_DETAIL_SLIDE && !showEhrDetail) ||
     (index === IMAGING_DETAIL_SLIDE && !showImagingDetail) ||
     (index === SCHEDULER_DETAIL_SLIDE && !showSchedulerDetail) ||
+    (index === WORKFLOW_ORCHESTRATION_DETAIL_SLIDE && !showWorkflowDetail) ||
+    (index === RECOMMENDATION_DETAIL_SLIDE && !showRecommendationDetail) ||
     (index === QA_MEDICAL_DETAIL_SLIDE && !showQaMedicalDetail) ||
     (index === IEC_62304_DETAIL_SLIDE && !showIec62304Detail) ||
     (index === HIPAA_DETAIL_SLIDE && !showHipaaDetail) ||
@@ -372,10 +394,10 @@ export default function App() {
     (index === QA_VALIDATION_DETAIL_SLIDE && !showQaValidationDetail) ||
     (index === MAINTENANCE_DETAIL_SLIDE && !showMaintenanceDetail)
   ), [
-    CUSTOM_MEDICAL_DETAIL_SLIDE, MEDICAL_MOBILE_DETAIL_SLIDE, STORE_DEPLOYMENT_DETAIL_SLIDE, RPM_DETAIL_SLIDE, EHR_DETAIL_SLIDE, IMAGING_DETAIL_SLIDE, SCHEDULER_DETAIL_SLIDE,
+    CUSTOM_MEDICAL_DETAIL_SLIDE, MEDICAL_MOBILE_DETAIL_SLIDE, STORE_DEPLOYMENT_DETAIL_SLIDE, RPM_DETAIL_SLIDE, EHR_DETAIL_SLIDE, IMAGING_DETAIL_SLIDE, SCHEDULER_DETAIL_SLIDE, WORKFLOW_ORCHESTRATION_DETAIL_SLIDE, RECOMMENDATION_DETAIL_SLIDE,
     QA_MEDICAL_DETAIL_SLIDE, IEC_62304_DETAIL_SLIDE, HIPAA_DETAIL_SLIDE, ONC_DETAIL_SLIDE, FHIR_DETAIL_SLIDE,
     DEVOPS_DETAIL_SLIDE, SAAS_DETAIL_SLIDE, QA_VALIDATION_DETAIL_SLIDE, MAINTENANCE_DETAIL_SLIDE,
-    showCustomMedicalDetail, showMedicalMobileDetail, showStoreDeploymentDetail, showRpmDetail, showEhrDetail, showImagingDetail, showSchedulerDetail,
+    showCustomMedicalDetail, showMedicalMobileDetail, showStoreDeploymentDetail, showRpmDetail, showEhrDetail, showImagingDetail, showSchedulerDetail, showWorkflowDetail, showRecommendationDetail,
     showQaMedicalDetail, showIec62304Detail, showHipaaDetail, showOncDetail, showFhirDetail,
     showDevOpsDetail, showSaaSDetail, showQaValidationDetail, showMaintenanceDetail
   ]);
@@ -420,6 +442,12 @@ export default function App() {
       }
       if (currentSlide === SCHEDULER_DETAIL_SLIDE && clamped !== SCHEDULER_DETAIL_SLIDE) {
         setShowSchedulerDetail(false);
+      }
+      if (currentSlide === WORKFLOW_ORCHESTRATION_DETAIL_SLIDE && clamped !== WORKFLOW_ORCHESTRATION_DETAIL_SLIDE) {
+        setShowWorkflowDetail(false);
+      }
+      if (currentSlide === RECOMMENDATION_DETAIL_SLIDE && clamped !== RECOMMENDATION_DETAIL_SLIDE) {
+        setShowRecommendationDetail(false);
       }
       if (currentSlide === QA_MEDICAL_DETAIL_SLIDE && clamped !== QA_MEDICAL_DETAIL_SLIDE) {
         setShowQaMedicalDetail(false);
@@ -531,6 +559,22 @@ export default function App() {
     setIsTransitioning(true);
     setCurrentSlide(SCHEDULER_DETAIL_SLIDE);
   }, [SCHEDULER_DETAIL_SLIDE, currentSlide, isTransitioning]);
+
+  const openWorkflowDetail = useCallback(() => {
+    if (isTransitioning) return;
+    setShowWorkflowDetail(true);
+    setDirection(WORKFLOW_ORCHESTRATION_DETAIL_SLIDE > currentSlide ? 1 : -1);
+    setIsTransitioning(true);
+    setCurrentSlide(WORKFLOW_ORCHESTRATION_DETAIL_SLIDE);
+  }, [WORKFLOW_ORCHESTRATION_DETAIL_SLIDE, currentSlide, isTransitioning]);
+
+  const openRecommendationDetail = useCallback(() => {
+    if (isTransitioning) return;
+    setShowRecommendationDetail(true);
+    setDirection(RECOMMENDATION_DETAIL_SLIDE > currentSlide ? 1 : -1);
+    setIsTransitioning(true);
+    setCurrentSlide(RECOMMENDATION_DETAIL_SLIDE);
+  }, [RECOMMENDATION_DETAIL_SLIDE, currentSlide, isTransitioning]);
 
   const openQaMedicalDetail = useCallback(() => {
     if (isTransitioning) return;
@@ -711,6 +755,8 @@ export default function App() {
               onOpenEhrDetail={openEhrDetail}
               onOpenImagingDetail={openImagingDetail}
               onOpenSchedulerDetail={openSchedulerDetail}
+              onOpenWorkflowDetail={openWorkflowDetail}
+              onOpenRecommendationDetail={openRecommendationDetail}
               onOpenQaMedicalDetail={openQaMedicalDetail}
               onOpenIec62304Detail={openIec62304Detail}
               onOpenHipaaDetail={openHipaaDetail}
