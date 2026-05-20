@@ -8,8 +8,6 @@ import Labs from "./components/Labs";
 import Contact from "./components/Contact";
 import { motion, AnimatePresence } from "motion/react";
 
-const TOTAL_SLIDES = 17;
-
 // --- Unique transition variants per slide ---
 const slideTransitions = [
   // 0: Hero
@@ -84,13 +82,43 @@ const slideTransitions = [
     animate: { opacity: 1, y: 0, transition: { duration: 0.8 } },
     exit: { opacity: 0, y: -100, transition: { duration: 0.5 } },
   },
-  // 13: Cat 5 Detail
+  // 13: Custom Medical Applications Detail
   {
     initial: { opacity: 0, y: 100 },
     animate: { opacity: 1, y: 0, transition: { duration: 0.8 } },
     exit: { opacity: 0, y: -100, transition: { duration: 0.5 } },
   },
-  // 14: Cat 4 Detail
+  // 14: Medical Mobile Apps Detail
+  {
+    initial: { opacity: 0, y: 100 },
+    animate: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+    exit: { opacity: 0, y: -100, transition: { duration: 0.5 } },
+  },
+  // 15: Store Deployment Detail
+  {
+    initial: { opacity: 0, y: 100 },
+    animate: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+    exit: { opacity: 0, y: -100, transition: { duration: 0.5 } },
+  },
+  // 16: Cat 5 Detail
+  {
+    initial: { opacity: 0, y: 100 },
+    animate: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+    exit: { opacity: 0, y: -100, transition: { duration: 0.5 } },
+  },
+  // 17: RPM Detail
+  {
+    initial: { opacity: 0, y: 100 },
+    animate: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+    exit: { opacity: 0, y: -100, transition: { duration: 0.5 } },
+  },
+  // 18: EHR Detail
+  {
+    initial: { opacity: 0, y: 100 },
+    animate: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+    exit: { opacity: 0, y: -100, transition: { duration: 0.5 } },
+  },
+  // 19: Cat 4 Detail
   {
     initial: { opacity: 0, y: 100 },
     animate: { opacity: 1, y: 0, transition: { duration: 0.8 } },
@@ -120,13 +148,13 @@ const slideTransitions = [
   //   animate: { opacity: 1, x: 0, transition: { duration: 0.8, ease: [0.33, 1, 0.68, 1] as [number, number, number, number] } },
   //   exit: { opacity: 0, x: 100, transition: { duration: 0.5 } },
   // },
-  // 15: Testimonials
+  // 17: Testimonials
   {
     initial: { opacity: 0, scale: 0.95, y: 50 },
     animate: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
     exit: { opacity: 0, scale: 0.95, y: -50, transition: { duration: 0.5 } },
   },
-  // 16: Thank You
+  // 18: Thank You
   {
     initial: { opacity: 0, clipPath: "inset(50% 0% 50% 0%)" },
     animate: { opacity: 1, clipPath: "inset(0% 0% 0% 0%)", transition: { duration: 1, ease: [0.77, 0, 0.175, 1] as [number, number, number, number] } },
@@ -150,7 +178,14 @@ const slideComponents = [
   Content.ServicesCategories,
   Content.Cat1Details,
   Content.Cat2Details,
+  Content.CustomMedicalApplicationsDetail,
+  Content.MedicalMobileAppsDetail,
+  Content.StoreDeploymentDetail,
+  Content.RpmDetail,
+  Content.EhrDetail,
+  Content.ImagingAnalysisDetail,
   Content.Cat3Details,
+  Content.SchedulerDetail,
   Content.Cat5Details,
   Content.Cat4Details,
   // Regulatory,
@@ -161,6 +196,8 @@ const slideComponents = [
   Content.Testimonials,
   Content.ThankYou
 ];
+
+const TOTAL_SLIDES = slideComponents.length;
 
 // Direction-aware variants: swap initial/exit when going backward
 function getDirectionVariants(slideIndex: number, direction: number) {
@@ -191,14 +228,21 @@ const BackgroundMapping = [
   () => null,                 // 8: Categories
   Backgrounds.TechNetworkBG,  // 9: Cat 1
   Backgrounds.FloatingCubesBG,// 10: Cat 2
-  Backgrounds.AuroraBG,       // 11: Cat 3
-  Backgrounds.DNAHelixBG,     // 12: Cat 5
-  Backgrounds.GridPulseBG,    // 13: Cat 4
+  Backgrounds.AuroraBG,       // 11: Custom Medical Applications
+  Backgrounds.FloatingCubesBG,// 12: Medical Mobile Apps
+  Backgrounds.TechNetworkBG,  // 13: Store Deployment
+  Backgrounds.DNAHelixBG,     // 14: RPM
+  Backgrounds.TechNetworkBG,  // 15: EHR
+  Backgrounds.GridPulseBG,    // 16: Imaging & Analysis
+  Backgrounds.AuroraBG,       // 17: Cat 3
+  Backgrounds.TechNetworkBG,  // 18: Scheduler Detail
+  Backgrounds.DNAHelixBG,     // 19: Cat 5
+  Backgrounds.GridPulseBG,    // 20: Cat 4
   // Backgrounds.TechNetworkBG,  // 14: RPM Demo Showcase
   // Backgrounds.DNAHelixBG,     // 15: Pricing
-  Backgrounds.TechNetworkBG,  // 14: Accomplishments
-  Backgrounds.GridPulseBG,    // 15: Testimonials
-  Backgrounds.AuroraBG,       // 16: Thank You
+  Backgrounds.TechNetworkBG,  // 21: Accomplishments
+  Backgrounds.GridPulseBG,    // 22: Testimonials
+  Backgrounds.AuroraBG,       // 23: Thank You
 ];
 
 import { ChevronLeft, ChevronRight, ChevronUp, ChevronDown } from "lucide-react";
@@ -207,16 +251,41 @@ export default function App() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [direction, setDirection] = useState(1); // 1 = forward, -1 = backward
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [showCustomMedicalDetail, setShowCustomMedicalDetail] = useState(false);
+  const [showMedicalMobileDetail, setShowMedicalMobileDetail] = useState(false);
+  const [showStoreDeploymentDetail, setShowStoreDeploymentDetail] = useState(false);
+  const [showRpmDetail, setShowRpmDetail] = useState(false);
+  const [showEhrDetail, setShowEhrDetail] = useState(false);
+  const [showImagingDetail, setShowImagingDetail] = useState(false);
+  const [showSchedulerDetail, setShowSchedulerDetail] = useState(false);
+
+  const CUSTOM_MEDICAL_DETAIL_SLIDE = 11;
+  const MEDICAL_MOBILE_DETAIL_SLIDE = 12;
+  const STORE_DEPLOYMENT_DETAIL_SLIDE = 13;
+  const RPM_DETAIL_SLIDE = 14;
+  const EHR_DETAIL_SLIDE = 15;
+  const IMAGING_DETAIL_SLIDE = 16;
+  const SCHEDULER_DETAIL_SLIDE = 18;
 
   // Cooldown for scroll/wheel navigation
   const lastScrollTime = useRef(0);
   const SCROLL_COOLDOWN = 1000;
 
-  const isServices = currentSlide >= 8 && currentSlide <= 13;
+  const isServices = currentSlide >= 8 && currentSlide <= 20;
+
+  const isHiddenSlide = useCallback((index: number) => (
+    (index === CUSTOM_MEDICAL_DETAIL_SLIDE && !showCustomMedicalDetail) ||
+    (index === MEDICAL_MOBILE_DETAIL_SLIDE && !showMedicalMobileDetail) ||
+    (index === STORE_DEPLOYMENT_DETAIL_SLIDE && !showStoreDeploymentDetail) ||
+    (index === RPM_DETAIL_SLIDE && !showRpmDetail) ||
+    (index === EHR_DETAIL_SLIDE && !showEhrDetail) ||
+    (index === IMAGING_DETAIL_SLIDE && !showImagingDetail) ||
+    (index === SCHEDULER_DETAIL_SLIDE && !showSchedulerDetail)
+  ), [CUSTOM_MEDICAL_DETAIL_SLIDE, MEDICAL_MOBILE_DETAIL_SLIDE, STORE_DEPLOYMENT_DETAIL_SLIDE, RPM_DETAIL_SLIDE, EHR_DETAIL_SLIDE, IMAGING_DETAIL_SLIDE, SCHEDULER_DETAIL_SLIDE, showCustomMedicalDetail, showMedicalMobileDetail, showStoreDeploymentDetail, showRpmDetail, showEhrDetail, showImagingDetail, showSchedulerDetail]);
 
   const getCategoryRange = (index: number) => {
     if (index < 7) return [0, 6];      // Intro (Slides 1-7)
-    return [7, 16];                    // Services, Accomplishments & Thank You (Slides 8-17)
+    return [7, TOTAL_SLIDES - 1];      // Services, Accomplishments & Thank You
   };
 
   const [min, max] = getCategoryRange(currentSlide);
@@ -226,6 +295,7 @@ export default function App() {
     (target: number) => {
       if (target === currentSlide || isTransitioning) return;
       const clamped = Math.max(0, Math.min(target, TOTAL_SLIDES - 1));
+      if (isHiddenSlide(clamped) && clamped !== currentSlide) return;
       if (clamped === currentSlide) return;
 
       // Explicitly allow cross-section navigation only if it's a jump (e.g. from Navbar)
@@ -233,23 +303,110 @@ export default function App() {
       setDirection(clamped > currentSlide ? 1 : -1);
       setIsTransitioning(true);
       setCurrentSlide(clamped);
+      if (currentSlide === CUSTOM_MEDICAL_DETAIL_SLIDE && clamped !== CUSTOM_MEDICAL_DETAIL_SLIDE) {
+        setShowCustomMedicalDetail(false);
+      }
+      if (currentSlide === MEDICAL_MOBILE_DETAIL_SLIDE && clamped !== MEDICAL_MOBILE_DETAIL_SLIDE) {
+        setShowMedicalMobileDetail(false);
+      }
+      if (currentSlide === STORE_DEPLOYMENT_DETAIL_SLIDE && clamped !== STORE_DEPLOYMENT_DETAIL_SLIDE) {
+        setShowStoreDeploymentDetail(false);
+      }
+      if (currentSlide === RPM_DETAIL_SLIDE && clamped !== RPM_DETAIL_SLIDE) {
+        setShowRpmDetail(false);
+      }
+      if (currentSlide === EHR_DETAIL_SLIDE && clamped !== EHR_DETAIL_SLIDE) {
+        setShowEhrDetail(false);
+      }
+      if (currentSlide === IMAGING_DETAIL_SLIDE && clamped !== IMAGING_DETAIL_SLIDE) {
+        setShowImagingDetail(false);
+      }
+      if (currentSlide === SCHEDULER_DETAIL_SLIDE && clamped !== SCHEDULER_DETAIL_SLIDE) {
+        setShowSchedulerDetail(false);
+      }
     },
-    [currentSlide, isTransitioning]
+    [currentSlide, isTransitioning, isHiddenSlide]
   );
 
+  const getNextVisibleSlide = useCallback((from: number) => {
+    const [, max] = getCategoryRange(from);
+    let next = from + 1;
+    while (next <= max && isHiddenSlide(next)) next += 1;
+    return next <= max ? next : null;
+  }, [isHiddenSlide]);
+
+  const getPrevVisibleSlide = useCallback((from: number) => {
+    const [min,] = getCategoryRange(from);
+    let prev = from - 1;
+    while (prev >= min && isHiddenSlide(prev)) prev -= 1;
+    return prev >= min ? prev : null;
+  }, [isHiddenSlide]);
+
   const goToNext = useCallback(() => {
-    const [, max] = getCategoryRange(currentSlide);
-    if (currentSlide < max) {
-      navigateTo(currentSlide + 1);
-    }
-  }, [currentSlide, navigateTo]);
+    const nextSlide = getNextVisibleSlide(currentSlide);
+    if (nextSlide !== null) navigateTo(nextSlide);
+  }, [currentSlide, getNextVisibleSlide, navigateTo]);
 
   const goToPrev = useCallback(() => {
-    const [min,] = getCategoryRange(currentSlide);
-    if (currentSlide > min) {
-      navigateTo(currentSlide - 1);
-    }
-  }, [currentSlide, navigateTo]);
+    const prevSlide = getPrevVisibleSlide(currentSlide);
+    if (prevSlide !== null) navigateTo(prevSlide);
+  }, [currentSlide, getPrevVisibleSlide, navigateTo]);
+
+  const openCustomMedicalDetail = useCallback(() => {
+    if (isTransitioning) return;
+    setShowCustomMedicalDetail(true);
+    setDirection(CUSTOM_MEDICAL_DETAIL_SLIDE > currentSlide ? 1 : -1);
+    setIsTransitioning(true);
+    setCurrentSlide(CUSTOM_MEDICAL_DETAIL_SLIDE);
+  }, [CUSTOM_MEDICAL_DETAIL_SLIDE, currentSlide, isTransitioning]);
+
+  const openMedicalMobileDetail = useCallback(() => {
+    if (isTransitioning) return;
+    setShowMedicalMobileDetail(true);
+    setDirection(MEDICAL_MOBILE_DETAIL_SLIDE > currentSlide ? 1 : -1);
+    setIsTransitioning(true);
+    setCurrentSlide(MEDICAL_MOBILE_DETAIL_SLIDE);
+  }, [MEDICAL_MOBILE_DETAIL_SLIDE, currentSlide, isTransitioning]);
+
+  const openStoreDeploymentDetail = useCallback(() => {
+    if (isTransitioning) return;
+    setShowStoreDeploymentDetail(true);
+    setDirection(STORE_DEPLOYMENT_DETAIL_SLIDE > currentSlide ? 1 : -1);
+    setIsTransitioning(true);
+    setCurrentSlide(STORE_DEPLOYMENT_DETAIL_SLIDE);
+  }, [STORE_DEPLOYMENT_DETAIL_SLIDE, currentSlide, isTransitioning]);
+
+  const openRpmDetail = useCallback(() => {
+    if (isTransitioning) return;
+    setShowRpmDetail(true);
+    setDirection(RPM_DETAIL_SLIDE > currentSlide ? 1 : -1);
+    setIsTransitioning(true);
+    setCurrentSlide(RPM_DETAIL_SLIDE);
+  }, [RPM_DETAIL_SLIDE, currentSlide, isTransitioning]);
+
+  const openEhrDetail = useCallback(() => {
+    if (isTransitioning) return;
+    setShowEhrDetail(true);
+    setDirection(EHR_DETAIL_SLIDE > currentSlide ? 1 : -1);
+    setIsTransitioning(true);
+    setCurrentSlide(EHR_DETAIL_SLIDE);
+  }, [EHR_DETAIL_SLIDE, currentSlide, isTransitioning]);
+
+  const openImagingDetail = useCallback(() => {
+    if (isTransitioning) return;
+    setShowImagingDetail(true);
+    setDirection(IMAGING_DETAIL_SLIDE > currentSlide ? 1 : -1);
+    setIsTransitioning(true);
+    setCurrentSlide(IMAGING_DETAIL_SLIDE);
+  }, [IMAGING_DETAIL_SLIDE, currentSlide, isTransitioning]);
+
+  const openSchedulerDetail = useCallback(() => {
+    if (isTransitioning) return;
+    setShowSchedulerDetail(true);
+    setDirection(SCHEDULER_DETAIL_SLIDE > currentSlide ? 1 : -1);
+    setIsTransitioning(true);
+    setCurrentSlide(SCHEDULER_DETAIL_SLIDE);
+  }, [SCHEDULER_DETAIL_SLIDE, currentSlide, isTransitioning]);
 
   // Keyboard Navigation
   useEffect(() => {
@@ -307,7 +464,8 @@ export default function App() {
   // Get current slide component
   const CurrentSlideComponent = slideComponents[currentSlide];
 
-  const categorySlides = Array.from({ length: sectionSlidesTotal }, (_, i) => min + i);
+  const categorySlides = Array.from({ length: sectionSlidesTotal }, (_, i) => min + i)
+    .filter((index) => !isHiddenSlide(index) || index === currentSlide);
 
   return (
     <div className="bg-dark-bg selection:bg-brand-blue/30 selection:text-white relative h-screen w-screen overflow-hidden perspective-1000">
@@ -350,6 +508,13 @@ export default function App() {
                   navigateTo(idx);
                 }
               }}
+              onOpenCustomMedicalDetail={openCustomMedicalDetail}
+              onOpenMedicalMobileDetail={openMedicalMobileDetail}
+              onOpenStoreDeploymentDetail={openStoreDeploymentDetail}
+              onOpenRpmDetail={openRpmDetail}
+              onOpenEhrDetail={openEhrDetail}
+              onOpenImagingDetail={openImagingDetail}
+              onOpenSchedulerDetail={openSchedulerDetail}
             />
           </motion.section>
         </AnimatePresence>
@@ -357,7 +522,7 @@ export default function App() {
 
       {/* On-screen Navigation Arrows */}
       <AnimatePresence>
-        {currentSlide > min && (
+        {getPrevVisibleSlide(currentSlide) !== null && (
           <motion.button
             key="btn-prev"
             initial={isServices ? { opacity: 0, y: -20, x: "-50%" } : { opacity: 0, x: -20, y: "-50%" }}
@@ -375,7 +540,7 @@ export default function App() {
       </AnimatePresence>
 
       <AnimatePresence>
-        {currentSlide < max && (
+        {getNextVisibleSlide(currentSlide) !== null && (
           <motion.button
             key="btn-next"
             initial={isServices ? { opacity: 0, y: 20, x: "-50%" } : { opacity: 0, x: 20, y: "-50%" }}

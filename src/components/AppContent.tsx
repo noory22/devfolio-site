@@ -1240,14 +1240,15 @@ export const Cat5Details = () => (
 //     );
 // };
 
-export const Cat2Details = () => {
+export const Cat2Details = ({ onOpenCustomMedicalDetail, onOpenMedicalMobileDetail, onOpenStoreDeploymentDetail, onOpenRpmDetail, onOpenEhrDetail, onOpenImagingDetail }: { onOpenCustomMedicalDetail?: () => void, onOpenMedicalMobileDetail?: () => void, onOpenStoreDeploymentDetail?: () => void, onOpenRpmDetail?: () => void, onOpenEhrDetail?: () => void, onOpenImagingDetail?: () => void }) => {
     const items = [
-        { title: "Custom Medical Web Applications", desc: "Secure, scalable, and user-friendly web-based platforms for clinical, administrative, or patient use." },
+        { title: "Custom Medical Applications", desc: "Secure, scalable, and user-friendly web-based platforms for clinical, administrative, or patient use." },
         { title: "Medical Mobile Apps", desc: "Native and cross-platform mobile applications for patients, providers, and field researchers." },
+        { title: "PlayStore & App Store Deployment", desc: "End-to-end app store submission, optimization, and compliance management for Google Play and Apple Store with accelerated approval." },
         { title: "Remote Patient Monitoring (RPM)", desc: "Comprehensive platforms with patient-facing apps and provider dashboards for remote health tracking." },
         { title: "Electronic Health Records (EHR)", desc: "Comprehensive EHR systems enabling seamless health data management, interoperability, and regulatory compliance." },
         { title: "Medical Imaging & Analysis", desc: "Software for secure storage, viewing, annotation, and AI-powered analysis of medical images." },
-        { title: "PlayStore & App Store Deployment", desc: "End-to-end app store submission, optimization, and compliance management for Google Play and Apple Store with accelerated approval." },
+        // { title: "PlayStore & App Store Deployment", desc: "End-to-end app store submission, optimization, and compliance management for Google Play and Apple Store with accelerated approval." },
         // { title: "Drug Discovery Platforms", desc: "Specialized software to manage research data, streamline clinical trials, and support the drug lifecycle." }
     ];
 
@@ -1267,40 +1268,504 @@ export const Cat2Details = () => {
                 </div>
             </div>
             <div className="grid grid-cols-2 md:grid-cols-6 gap-4 md:gap-5 w-full">
-                {items.map((item, i) => (
-                    <motion.div
-                        key={i}
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: i * 0.05 }}
-                        whileHover={{ y: -6, scale: 1.02, transition: { duration: 0.2 } }}
-                        className={`group relative flex flex-col h-full ${items.length === 5
-                            ? (i < 3 ? 'md:col-span-2' : 'md:col-span-3')
-                            : 'md:col-span-2'
-                            } ${(i === items.length - 1 && items.length % 2 !== 0) ? 'col-span-2' : 'col-span-1'
-                            }`}
-                    >
-                        <div className="absolute inset-0 rounded-2xl p-[1.5px] overflow-hidden">
-                            <motion.div
-                                animate={{ rotate: 360 }}
-                                transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
-                                className="absolute inset-[-150%] bg-[conic-gradient(from_0deg,transparent_20%,#0070f3_40%,#00dfd8_60%,transparent_80%)] opacity-20 group-hover:opacity-100 transition-opacity duration-500"
-                            />
-                        </div>
-                        <div className="relative h-full flex flex-col bg-dark-surface/95 backdrop-blur-md rounded-2xl p-5 md:p-6 z-10 border border-white/5 transition-all duration-300 group-hover:border-brand-cyan/20 group-hover:shadow-[0_0_30px_rgba(0,223,216,0.15)]">
-                            <div className="mb-3 w-9 h-9 flex items-center justify-center rounded-lg bg-brand-blue/10 text-brand-blue border border-brand-blue/20 group-hover:bg-brand-blue group-hover:text-white transition-all duration-500 shrink-0">
-                                <span className="text-xs font-bold">{i + 1}</span>
+                {items.map((item, i) => {
+                    const isCustomMedicalCard = i === 0;
+                    const isMedicalMobileCard = i === 1;
+                    const isStoreDeploymentCard = i === 2;
+                    const isRpmCard = i === 3;
+                    const isEhrCard = i === 4;
+                    const isImagingCard = i === 5;
+                    const cardContainerClass = `group relative flex flex-col h-full ${items.length === 5
+                        ? (i < 3 ? 'md:col-span-2' : 'md:col-span-3')
+                        : 'md:col-span-2'
+                        } ${(i === items.length - 1 && items.length % 2 !== 0) ? 'col-span-2' : 'col-span-1'
+                        }`;
+
+                    return (
+                        <motion.div
+                            key={i}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: i * 0.05 }}
+                            whileHover={{ y: -6, scale: 1.02, transition: { duration: 0.2 } }}
+                            className={cardContainerClass}
+                        >
+                            <div className="absolute inset-0 rounded-2xl p-[1.5px] overflow-hidden">
+                                <motion.div
+                                    animate={{ rotate: 360 }}
+                                    transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+                                    className="absolute inset-[-150%] bg-[conic-gradient(from_0deg,transparent_20%,#0070f3_40%,#00dfd8_60%,transparent_80%)] opacity-20 group-hover:opacity-100 transition-opacity duration-500"
+                                />
                             </div>
-                            <h3 className="text-base md:text-lg font-bold mb-2 group-hover:text-brand-cyan transition-colors duration-300 leading-snug">{item.title}</h3>
-                            <p className="text-white/40 text-xs leading-relaxed group-hover:text-white/70 transition-colors grow">{item.desc}</p>
-                        </div>
-                    </motion.div>
-                ))}
+                            <button
+                                type="button"
+                                onClick={
+                                    isCustomMedicalCard
+                                        ? onOpenCustomMedicalDetail
+                                        : isMedicalMobileCard
+                                            ? onOpenMedicalMobileDetail
+                                            : isStoreDeploymentCard
+                                                ? onOpenStoreDeploymentDetail
+                                                : isRpmCard
+                                                    ? onOpenRpmDetail
+                                                    : isEhrCard
+                                                        ? onOpenEhrDetail
+                                                        : isImagingCard
+                                                            ? onOpenImagingDetail
+                                            : undefined
+                                }
+                                disabled={!isCustomMedicalCard && !isMedicalMobileCard && !isStoreDeploymentCard && !isRpmCard && !isEhrCard && !isImagingCard}
+                                className="relative h-full flex w-full flex-col bg-dark-surface/95 backdrop-blur-md rounded-2xl p-5 md:p-6 z-10 border border-white/5 transition-all duration-300 group-hover:border-brand-cyan/20 group-hover:shadow-[0_0_30px_rgba(0,223,216,0.15)] text-left cursor-default focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-cyan/70"
+                                aria-label={
+                                    isCustomMedicalCard
+                                        ? "Open custom medical applications details"
+                                        : isMedicalMobileCard
+                                            ? "Open medical mobile apps details"
+                                            : isStoreDeploymentCard
+                                                ? "Open PlayStore and App Store deployment details"
+                                                : isRpmCard
+                                                    ? "Open remote patient monitoring details"
+                                                    : isEhrCard
+                                                        ? "Open electronic health records details"
+                                                        : isImagingCard
+                                                            ? "Open medical imaging and analysis details"
+                                            : item.title
+                                }
+                            >
+                                <div className="mb-3 w-9 h-9 flex items-center justify-center rounded-lg bg-brand-blue/10 text-brand-blue border border-brand-blue/20 group-hover:bg-brand-blue group-hover:text-white transition-all duration-500 shrink-0">
+                                    <span className="text-xs font-bold">{i + 1}</span>
+                                </div>
+                                <h3 className="text-base md:text-lg font-bold mb-2 group-hover:text-brand-cyan transition-colors duration-300 leading-snug">{item.title}</h3>
+                                <p className="text-white/40 text-xs leading-relaxed group-hover:text-white/70 transition-colors grow">{item.desc}</p>
+                            </button>
+                        </motion.div>
+                    );
+                })}
             </div>
         </Container>
     );
 };
+
+export const CustomMedicalApplicationsDetail = () => (
+    <Container className="justify-center py-4">
+        <SubHeading className="text-[10px] md:text-xs mb-2">CUSTOM MEDICAL APPLICATIONS</SubHeading>
+        <Heading gradient className="text-2xl md:text-4xl leading-tight mb-5 md:mb-6">Web and Desktop Solutions We Deliver</Heading>
+        <p className="text-white/65 text-sm md:text-base leading-relaxed max-w-5xl mb-7 md:mb-9">
+            We design and build healthcare-grade applications that are secure, scalable, intuitive, and ready for real clinical workflows.
+            From patient-facing portals to provider operations tools, each solution is engineered for performance, compliance, and measurable outcomes.
+        </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6 w-full mb-6">
+            <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="relative overflow-hidden rounded-2xl border border-brand-cyan/20 bg-dark-surface/90 p-6 md:p-7"
+            >
+                <div
+                    className="absolute inset-0 bg-cover bg-center opacity-45 scale-110"
+                    style={{ backgroundImage: "url('/assets/custom-medical/web-apps-bg.png')" }}
+                    aria-hidden
+                />
+                <div
+                    className="absolute inset-0 mix-blend-soft-light opacity-70"
+                    style={{ backgroundImage: "radial-gradient(60% 60% at 30% 20%, rgba(0, 223, 216, 0.35), transparent 65%), radial-gradient(50% 55% at 80% 70%, rgba(0, 112, 243, 0.25), transparent 70%)" }}
+                    aria-hidden
+                />
+                <div className="absolute inset-0 bg-linear-to-br from-[#02060d]/70 via-[#02060d]/55 to-[#001a22]/45" aria-hidden />
+                <div className="relative z-10">
+                    <h3 className="text-xl md:text-2xl font-bold text-brand-cyan mb-4">Web Apps</h3>
+                    <ul className="space-y-2 text-white/70 text-sm leading-relaxed">
+                    <li><span className="text-white/90 font-semibold">Tech Stack Strategy:</span> Right-fit architecture for EMR/EHR modules, provider portals, admin panels, and patient dashboards.</li>
+                    <li><span className="text-white/90 font-semibold">Core Technologies:</span> React, Next.js, TypeScript, Node.js, REST/GraphQL APIs, PostgreSQL, and cloud-native deployments.</li>
+                    <li><span className="text-white/90 font-semibold">Intuitive UX:</span> Clean workflows for doctors, nurses, administrators, and patients with role-based experiences.</li>
+                    <li><span className="text-white/90 font-semibold">Security by Design:</span> Audit trails, encrypted data flows, and secure authentication patterns for healthcare platforms.</li>
+                    <li><span className="text-white/90 font-semibold">Interoperability Ready:</span> API-first approach for integration with existing hospital systems and external services.</li>
+                    </ul>
+                </div>
+            </motion.div>
+            <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.08 }}
+                className="relative overflow-hidden rounded-2xl border border-brand-blue/20 bg-dark-surface/90 p-6 md:p-7"
+            >
+                <div
+                    className="absolute inset-0 bg-cover bg-center opacity-45 scale-110"
+                    style={{ backgroundImage: "url('/assets/custom-medical/desktop-apps-bg.png')" }}
+                    aria-hidden
+                />
+                <div
+                    className="absolute inset-0 mix-blend-soft-light opacity-70"
+                    style={{ backgroundImage: "radial-gradient(60% 60% at 30% 20%, rgba(0, 112, 243, 0.35), transparent 65%), radial-gradient(50% 55% at 78% 75%, rgba(0, 223, 216, 0.18), transparent 70%)" }}
+                    aria-hidden
+                />
+                <div className="absolute inset-0 bg-linear-to-br from-[#02060d]/70 via-[#02060d]/55 to-[#00142a]/45" aria-hidden />
+                <div className="relative z-10">
+                    <h3 className="text-xl md:text-2xl font-bold text-brand-blue mb-4">Desktop Apps</h3>
+                    <ul className="space-y-2 text-white/70 text-sm leading-relaxed">
+                    <li><span className="text-white/90 font-semibold">Electron.js Engineering:</span> Cross-platform desktop apps for Windows, macOS, and Linux with a unified codebase.</li>
+                    <li><span className="text-white/90 font-semibold">Offline-First Operations:</span> Local capture and sync for clinics and labs with unstable internet connectivity.</li>
+                    <li><span className="text-white/90 font-semibold">Advanced Workflows:</span> Barcode-enabled processes, imaging handoff points, and multi-step clinical task management.</li>
+                    <li><span className="text-white/90 font-semibold">Enterprise Deployment:</span> Installer packaging, auto-updates, device policies, and environment-based release channels.</li>
+                    <li><span className="text-white/90 font-semibold">Data Protection:</span> Secure local caching, encrypted storage, and controlled access for sensitive records.</li>
+                    </ul>
+                </div>
+            </motion.div>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full">
+            {[
+                {
+                    title: "Typical Deliverables",
+                    points: [
+                        "Patient portals and self-service onboarding",
+                        "Provider dashboards and task queues",
+                        "Clinical documentation and reporting modules",
+                    ],
+                },
+                {
+                    title: "Technology Landscape",
+                    points: [
+                        "Frontend: React, Next.js, Tailwind",
+                        "Backend: Node.js, APIs, microservices",
+                        "Desktop: Electron.js with secure sync layers",
+                    ],
+                },
+                {
+                    title: "Business Outcomes",
+                    points: [
+                        "Reduced manual operational effort",
+                        "Improved clinician productivity and visibility",
+                        "Faster patient processing and service quality",
+                    ],
+                },
+            ].map((block, i) => (
+                <motion.div
+                    key={block.title}
+                    initial={{ opacity: 0, y: 18 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.06 }}
+                    className="relative overflow-hidden rounded-xl border border-white/10 bg-white/3 p-4 md:p-5"
+                >
+                    {block.title === "Technology Landscape" && (
+                        <>
+                            <div
+                                className="absolute inset-0 bg-cover bg-center opacity-[0.35] scale-110"
+                                style={{ backgroundImage: "url('/assets/custom-medical/tech-landscape-bg.jpg')" }}
+                                aria-hidden
+                            />
+                            <div
+                                className="absolute inset-0 mix-blend-soft-light opacity-60"
+                                style={{ backgroundImage: "radial-gradient(70% 70% at 20% 10%, rgba(0, 223, 216, 0.25), transparent 60%), radial-gradient(70% 70% at 90% 80%, rgba(0, 112, 243, 0.22), transparent 65%)" }}
+                                aria-hidden
+                            />
+                            <div className="absolute inset-0 bg-linear-to-br from-[#02060d]/75 via-[#02060d]/60 to-[#07203a]/50" aria-hidden />
+                        </>
+                    )}
+                    <div className="relative z-10">
+                        <h4 className="text-sm md:text-base font-semibold text-white mb-3">{block.title}</h4>
+                        <ul className="space-y-1.5 text-xs md:text-sm text-white/70 leading-relaxed">
+                            {block.points.map((point) => <li key={point}>{point}</li>)}
+                        </ul>
+                    </div>
+                </motion.div>
+            ))}
+        </div>
+    </Container>
+);
+
+export const MedicalMobileAppsDetail = () => (
+    <Container className="justify-center py-4">
+        <SubHeading className="text-[10px] md:text-xs mb-2">MEDICAL MOBILE APPS</SubHeading>
+        <Heading gradient className="text-2xl md:text-4xl leading-tight mb-2">Medical Mobile Apps</Heading>
+        <p className="text-brand-cyan/80 text-sm md:text-base font-semibold mb-6 md:mb-7">Tailored solutions for modern healthcare</p>
+
+        <div className="relative overflow-hidden rounded-2xl border border-brand-cyan/20 bg-dark-surface/90 p-6 md:p-7">
+            <div
+                className="absolute inset-0 bg-cover bg-center opacity-45 scale-110"
+                style={{ backgroundImage: "url('/assets/custom-medical/desktop-apps-bg.jpg')" }}
+                aria-hidden
+            />
+            <div
+                className="absolute inset-0 mix-blend-soft-light opacity-70"
+                style={{ backgroundImage: "radial-gradient(60% 60% at 20% 15%, rgba(0, 223, 216, 0.35), transparent 65%), radial-gradient(60% 60% at 85% 80%, rgba(0, 112, 243, 0.30), transparent 65%)" }}
+                aria-hidden
+            />
+            <div className="absolute inset-0 bg-linear-to-br from-[#02060d]/72 via-[#02060d]/58 to-[#001c2b]/48" aria-hidden />
+
+            <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Native and Cross-Platform Development</h4>
+                    <p className="text-white/75 text-sm leading-relaxed">
+                        Apps built with iOS (Swift/Kotlin) or cross-platform frameworks (Flutter, React Native) for seamless performance across devices.
+                    </p>
+                </div>
+
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Three User Personas</h4>
+                    <ul className="space-y-2 text-white/75 text-sm leading-relaxed">
+                        <li><span className="text-white/90 font-semibold">Patients:</span> appointment booking, telemedicine, medication reminders.</li>
+                        <li><span className="text-white/90 font-semibold">Providers:</span> EHR access, clinical workflows, remote monitoring.</li>
+                        <li><span className="text-white/90 font-semibold">Field researchers:</span> data collection, trial protocols, offline sync.</li>
+                    </ul>
+                </div>
+
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Compliance-First Design</h4>
+                    <p className="text-white/75 text-sm leading-relaxed">
+                        HIPAA, GDPR, and FDA/CE-mandated security features including encryption, audit logs, and role-based access controls.
+                    </p>
+                </div>
+
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Offline + Device Integration</h4>
+                    <ul className="space-y-2 text-white/75 text-sm leading-relaxed">
+                        <li><span className="text-white/90 font-semibold">Offline capability and real-time sync:</span> essential for remote fieldwork and low-connectivity environments.</li>
+                        <li><span className="text-white/90 font-semibold">Integrated device support:</span> Bluetooth for wearables, glucose monitors, and other medical peripherals.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </Container>
+);
+
+export const StoreDeploymentDetail = () => (
+    <Container className="justify-center py-4">
+        <SubHeading className="text-[10px] md:text-xs mb-2">PLAYSTORE and APP STORE DEPLOYMENT</SubHeading>
+        <Heading gradient className="text-2xl md:text-4xl leading-tight mb-2">PlayStore & App Store Deployment</Heading>
+        <p className="text-brand-cyan/80 text-sm md:text-base font-semibold mb-6 md:mb-7">End-to-end launch and compliance management</p>
+
+        <div className="relative overflow-hidden rounded-2xl border border-brand-blue/20 bg-dark-surface/90 p-6 md:p-7">
+            <div
+                className="absolute inset-0 bg-cover bg-center opacity-45 scale-110"
+                style={{ backgroundImage: "url('/assets/custom-medical/tech-landscape-bg.jpg')" }}
+                aria-hidden
+            />
+            <div
+                className="absolute inset-0 mix-blend-soft-light opacity-70"
+                style={{ backgroundImage: "radial-gradient(60% 60% at 20% 15%, rgba(0, 112, 243, 0.35), transparent 65%), radial-gradient(60% 60% at 85% 80%, rgba(0, 223, 216, 0.30), transparent 65%)" }}
+                aria-hidden
+            />
+            <div className="absolute inset-0 bg-linear-to-br from-[#02060d]/72 via-[#02060d]/58 to-[#00142a]/48" aria-hidden />
+
+            <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-blue mb-2">Full Submission Lifecycle</h4>
+                    <p className="text-white/75 text-sm leading-relaxed">
+                        Handling of store accounts, metadata creation (descriptions, screenshots, keywords), and binary uploads for both Google Play and Apple App Store.
+                    </p>
+                </div>
+
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-blue mb-2">Optimization (ASO)</h4>
+                    <p className="text-white/75 text-sm leading-relaxed">
+                        Keyword research, conversion rate optimization, and A/B testing for product pages to boost organic visibility.
+                    </p>
+                </div>
+
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-blue mb-2">Compliance Management</h4>
+                    <p className="text-white/75 text-sm leading-relaxed">
+                        Pre-submission checks for policy adherence including privacy labels, data safety section, age ratings, and GDPR/CCPA disclosures.
+                    </p>
+                </div>
+
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-blue mb-2">Accelerated Approval</h4>
+                    <p className="text-white/75 text-sm leading-relaxed">
+                        Proven strategies to reduce rejection risks and fast-track reviews, including expedited review requests for critical fixes.
+                    </p>
+                </div>
+            </div>
+
+            <div className="relative z-10 mt-5 rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
+                <h4 className="text-base md:text-lg font-semibold text-brand-blue mb-2">Ongoing Maintenance</h4>
+                <p className="text-white/75 text-sm leading-relaxed">
+                    Manage version updates, phased rollouts, and store responses to user reviews.
+                </p>
+            </div>
+        </div>
+    </Container>
+);
+
+export const RpmDetail = () => (
+    <Container className="justify-center py-4">
+        <SubHeading className="text-[10px] md:text-xs mb-2">REMOTE PATIENT MONITORING (RPM)</SubHeading>
+        <Heading gradient className="text-2xl md:text-4xl leading-tight mb-2">Remote Patient Monitoring (RPM)</Heading>
+        <p className="text-brand-cyan/80 text-sm md:text-base font-semibold mb-6 md:mb-7">Comprehensive platforms for continuous care</p>
+
+        <div className="relative overflow-hidden rounded-2xl border border-brand-cyan/20 bg-dark-surface/90 p-6 md:p-7">
+            <div
+                className="absolute inset-0 bg-cover bg-center opacity-45 scale-110"
+                style={{ backgroundImage: "url('/assets/custom-medical/web-apps-bg.png')" }}
+                aria-hidden
+            />
+            <div
+                className="absolute inset-0 mix-blend-soft-light opacity-70"
+                style={{ backgroundImage: "radial-gradient(60% 60% at 20% 15%, rgba(0, 223, 216, 0.35), transparent 65%), radial-gradient(60% 60% at 85% 80%, rgba(0, 112, 243, 0.30), transparent 65%)" }}
+                aria-hidden
+            />
+            <div className="absolute inset-0 bg-linear-to-br from-[#02060d]/72 via-[#02060d]/58 to-[#001b26]/48" aria-hidden />
+
+            <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Patient-Facing Apps</h4>
+                    <p className="text-white/75 text-sm leading-relaxed">
+                        Easy-to-use mobile apps for symptom logging, medication adherence, vitals capture (BP, glucose, SpO2, weight), and secure messaging.
+                    </p>
+                </div>
+
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Provider Dashboards</h4>
+                    <p className="text-white/75 text-sm leading-relaxed">
+                        Real-time alerts, trend visualization, patient risk scoring, and telemedicine integration for timely interventions.
+                    </p>
+                </div>
+
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Device Agnostic</h4>
+                    <p className="text-white/75 text-sm leading-relaxed">
+                        Connect with FDA-cleared wearables, Bluetooth-enabled monitors, and proprietary medical sensors via APIs or SDKs.
+                    </p>
+                </div>
+
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Offline and Async Data Sync</h4>
+                    <p className="text-white/75 text-sm leading-relaxed">
+                        Store readings locally when offline; auto-sync when connectivity restores, ideal for rural or home-based care.
+                    </p>
+                </div>
+            </div>
+
+            <div className="relative z-10 mt-5 rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
+                <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Regulatory Ready</h4>
+                <p className="text-white/75 text-sm leading-relaxed">
+                    HIPAA, GDPR, and MDR compliance with audit trails, role-based access, and end-to-end encryption.
+                </p>
+            </div>
+        </div>
+    </Container>
+);
+
+export const EhrDetail = () => (
+    <Container className="justify-center py-4">
+        <SubHeading className="text-[10px] md:text-xs mb-2">ELECTRONIC HEALTH RECORDS (EHR)</SubHeading>
+        <Heading gradient className="text-2xl md:text-4xl leading-tight mb-2">Electronic Health Records (EHR)</Heading>
+        <p className="text-brand-cyan/80 text-sm md:text-base font-semibold mb-6 md:mb-7">Seamless health data management and interoperability</p>
+
+        <div className="relative overflow-hidden rounded-2xl border border-brand-blue/20 bg-dark-surface/90 p-6 md:p-7">
+            <div
+                className="absolute inset-0 bg-cover bg-center opacity-45 scale-110"
+                style={{ backgroundImage: "url('/assets/custom-medical/tech-landscape-bg.jpg')" }}
+                aria-hidden
+            />
+            <div
+                className="absolute inset-0 mix-blend-soft-light opacity-70"
+                style={{ backgroundImage: "radial-gradient(60% 60% at 20% 15%, rgba(0, 112, 243, 0.35), transparent 65%), radial-gradient(60% 60% at 85% 80%, rgba(0, 223, 216, 0.26), transparent 65%)" }}
+                aria-hidden
+            />
+            <div className="absolute inset-0 bg-linear-to-br from-[#02060d]/72 via-[#02060d]/58 to-[#00142a]/48" aria-hidden />
+
+            <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-blue mb-2">Comprehensive Data Management</h4>
+                    <p className="text-white/75 text-sm leading-relaxed">
+                        Centralized patient records including demographics, medical history, medications, lab results, immunization records, and progress notes.
+                    </p>
+                </div>
+
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-blue mb-2">Interoperability</h4>
+                    <p className="text-white/75 text-sm leading-relaxed">
+                        HL7/FHIR standards support for exchanging data with hospital systems, labs, pharmacies, and public health registries.
+                    </p>
+                </div>
+
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-blue mb-2">Regulatory Compliance</h4>
+                    <p className="text-white/75 text-sm leading-relaxed">
+                        HIPAA, GDPR, 21 CFR Part 11 (if applicable), and regional e-prescribing mandates built into the platform.
+                    </p>
+                </div>
+
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-blue mb-2">Clinical Workflows</h4>
+                    <p className="text-white/75 text-sm leading-relaxed">
+                        E-prescribing, order entry, clinical decision support, and customizable templates for various specialties.
+                    </p>
+                </div>
+            </div>
+
+            <div className="relative z-10 mt-5 rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
+                <h4 className="text-base md:text-lg font-semibold text-brand-blue mb-2">Patient Portal Integration</h4>
+                <p className="text-white/75 text-sm leading-relaxed">
+                    Secure access for patients to view records, request refills, and communicate with providers.
+                </p>
+            </div>
+        </div>
+    </Container>
+);
+
+export const ImagingAnalysisDetail = () => (
+    <Container className="justify-center py-4">
+        <SubHeading className="text-[10px] md:text-xs mb-2">MEDICAL IMAGING and ANALYSIS</SubHeading>
+        <Heading gradient className="text-2xl md:text-4xl leading-tight mb-2">Medical Imaging & Analysis</Heading>
+        <p className="text-brand-cyan/80 text-sm md:text-base font-semibold mb-6 md:mb-7">Secure storage, viewing, annotation and AI-powered insights</p>
+
+        <div className="relative overflow-hidden rounded-2xl border border-brand-cyan/20 bg-dark-surface/90 p-6 md:p-7">
+            <div
+                className="absolute inset-0 bg-cover bg-center opacity-45 scale-110"
+                style={{ backgroundImage: "url('/assets/custom-medical/tech-landscape-bg.jpg')" }}
+                aria-hidden
+            />
+            <div
+                className="absolute inset-0 mix-blend-soft-light opacity-70"
+                style={{ backgroundImage: "radial-gradient(60% 60% at 20% 15%, rgba(0, 223, 216, 0.35), transparent 65%), radial-gradient(60% 60% at 85% 80%, rgba(0, 112, 243, 0.30), transparent 65%)" }}
+                aria-hidden
+            />
+            <div className="absolute inset-0 bg-linear-to-br from-[#02060d]/72 via-[#02060d]/58 to-[#00192d]/48" aria-hidden />
+
+            <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Secure Image Storage</h4>
+                    <p className="text-white/75 text-sm leading-relaxed">
+                        DICOM-compliant repository with role-based access, encryption at rest and in transit, and automated backup.
+                    </p>
+                </div>
+
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Advanced Viewing</h4>
+                    <p className="text-white/75 text-sm leading-relaxed">
+                        Zero-footprint web viewer for PACS, zoom/pan/windowing, 3D reconstruction, and multi-planar reformatting.
+                    </p>
+                </div>
+
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Annotation Tools</h4>
+                    <p className="text-white/75 text-sm leading-relaxed">
+                        Freehand drawing, measurement (length/angle/area), landmark placement, and structured reporting for radiologists.
+                    </p>
+                </div>
+
+                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
+                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">AI-Powered Analysis</h4>
+                    <p className="text-white/75 text-sm leading-relaxed">
+                        Integration with computer-vision models for detection (nodules, fractures, hemorrhages), segmentation, and prioritization of critical cases.
+                    </p>
+                </div>
+            </div>
+
+            <div className="relative z-10 mt-5 rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
+                <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Interoperability</h4>
+                <p className="text-white/75 text-sm leading-relaxed">
+                    DICOMweb, FHIR Imaging Study, and HL7 integration with existing EHR/RIS systems.
+                </p>
+            </div>
+        </div>
+    </Container>
+);
 
 export const Cat3Details = () => (
     <CategoryDetail
