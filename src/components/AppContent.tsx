@@ -1085,7 +1085,7 @@ export const CategoryDetail = ({ title, items, categoryNum, description, onItemC
                 {categoryNum}
             </motion.div>
             <div>
-                <SubHeading className="text-[10px] md:text-xs mb-2">SERVICE CATEGORY</SubHeading>
+                {/* <SubHeading className="text-[10px] md:text-xs mb-2">SERVICE CATEGORY</SubHeading> */}
                 <Heading gradient className="text-2xl md:text-4xl leading-tight mb-0!">{title}</Heading>
             </div>
         </div>
@@ -1201,192 +1201,251 @@ export const Cat1Details = ({
 
 export const GenerativeAiDetail = () => (
     <Container className="justify-center py-4">
-        <SubHeading className="text-[10px] md:text-xs mb-2">GENERATIVE AI FOR HEALTHCARE</SubHeading>
-        <Heading gradient className="text-2xl md:text-4xl leading-tight mb-2">Generative AI for Healthcare</Heading>
-        <p className="text-brand-cyan/80 text-sm md:text-base font-semibold mb-6 md:mb-7">Revolutionizing care with synthetic data, automated notes & patient education</p>
 
-        <div className="relative overflow-hidden rounded-2xl border border-brand-cyan/20 bg-dark-surface/90 p-6 md:p-7">
-            <div
-                className="absolute inset-0 bg-cover bg-center opacity-45 scale-110"
-                style={{ backgroundImage: "url('/assets/custom-medical/tech-landscape-bg.jpg')" }}
-                aria-hidden
-            />
-            <div
-                className="absolute inset-0 mix-blend-soft-light opacity-70"
-                style={{ backgroundImage: "radial-gradient(60% 60% at 20% 15%, rgba(0, 223, 216, 0.35), transparent 65%), radial-gradient(60% 60% at 85% 80%, rgba(0, 112, 243, 0.28), transparent 65%)" }}
-                aria-hidden
-            />
-            <div className="absolute inset-0 bg-linear-to-br from-[#02060d]/72 via-[#02060d]/58 to-[#00192d]/48" aria-hidden />
+        {/* Header */}
+        {/* <SubHeading className="text-[10px] md:text-xs mb-2 text-center">GENERATIVE AI FOR HEALTHCARE</SubHeading> */}
+        <Heading gradient className="text-xl md:text-2xl leading-tight mb-2 text-center">Generative AI for Healthcare</Heading>
+        <p className="text-white/50 text-xs leading-relaxed max-w-xl mx-auto mb-6 text-center">
+            Revolutionizing care with synthetic data, automated notes & patient education.
+        </p>
 
-            <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Automated Clinical Notes</h4>
-                    <p className="text-white/75 text-sm leading-relaxed">
-                        Generate structured SOAP notes, discharge summaries, and referral letters from clinician‑patient conversation transcripts (live or recorded) using fine‑tuned LLMs, reducing documentation time by up to 70%.
-                    </p>
+        {/* Main Row — Two Stacked Images Left | All Content Right */}
+        <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="flex flex-col md:flex-row gap-6 md:gap-10 w-full"
+        >
+            {/* Left — Two Stacked Images */}
+            <div className="md:w-1/2 flex flex-col gap-4">
+                <div className="relative rounded-xl overflow-hidden w-full flex-1" style={{ minHeight: "160px" }}>
+                    <div
+                        className="absolute inset-0 bg-cover bg-center scale-105"
+                        style={{ backgroundImage: "url('/assets/generative-ai/genai-notes-bg.png')" }}
+                        aria-hidden
+                    />
+                    <div
+                        className="absolute inset-0"
+                        style={{ backgroundImage: "radial-gradient(60% 60% at 30% 30%, rgba(0,223,216,0.18), transparent 70%)" }}
+                        aria-hidden
+                    />
+                    <div className="absolute inset-0 border border-brand-cyan/20 rounded-xl" aria-hidden />
                 </div>
 
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Synthetic Patient Data</h4>
-                    <p className="text-white/75 text-sm leading-relaxed">
-                        Create realistic, de‑identified patient records (demographics, vitals, lab values, diagnoses) for training, testing, and research – fully compliant with HIPAA/GDPR and statistically representative of real populations.
-                    </p>
-                </div>
-
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Personalized Patient Education</h4>
-                    <p className="text-white/75 text-sm leading-relaxed">
-                        Convert complex medical jargon into plain‑language explanations, visual summaries, and multilingual materials tailored to a patient’s literacy level, language, and condition.
-                    </p>
-                </div>
-
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Chatbots & Virtual Assistants</h4>
-                    <p className="text-white/75 text-sm leading-relaxed">
-                        Deploy generative AI‑powered intake assistants that converse naturally with patients to triage symptoms, answer pre‑visit questions, and schedule appointments.
-                    </p>
+                <div className="relative rounded-xl overflow-hidden w-full flex-1" style={{ minHeight: "160px" }}>
+                    <div
+                        className="absolute inset-0 bg-cover bg-center scale-105"
+                        style={{ backgroundImage: "url('/assets/generative-ai/image.png')" }}
+                        aria-hidden
+                    />
+                    <div
+                        className="absolute inset-0"
+                        style={{ backgroundImage: "radial-gradient(60% 60% at 70% 60%, rgba(0,112,243,0.15), transparent 70%)" }}
+                        aria-hidden
+                    />
+                    <div className="absolute inset-0 border border-brand-blue/20 rounded-xl" aria-hidden />
                 </div>
             </div>
 
-            <div className="relative z-10 mt-5 rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
-                <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Regulatory Guardrails</h4>
-                <p className="text-white/75 text-sm leading-relaxed">
-                    Implement prompt filtering, output validation, and audit logging to ensure generated content is clinically safe, factually grounded (RAG with trusted sources), and ready for clinician review.
-                </p>
+            {/* Right — All Content */}
+            <div className="md:w-1/2 flex flex-col gap-4">
+
+                <div className="flex flex-col gap-1.5">
+                    <h3 className="text-base md:text-lg font-bold text-brand-cyan">Automated Clinical Notes</h3>
+                    <ul className="space-y-1 text-white/65 text-xs leading-snug">
+                        <li><span className="text-white/85 font-semibold">SOAP & Discharge — </span>Structured notes and discharge summaries generated from live or recorded clinician-patient transcripts.</li>
+                        <li><span className="text-white/85 font-semibold">Fine-Tuned LLMs — </span>Domain-specific models trained on clinical language for accuracy and specialty context.</li>
+                        <li><span className="text-white/85 font-semibold">70% Time Reduction — </span>Dramatically cut documentation burden so providers can focus on patient care.</li>
+                    </ul>
+                </div>
+
+                <div className="w-full h-px bg-white/8" />
+
+                <div className="flex flex-col gap-1.5">
+                    <h3 className="text-base md:text-lg font-bold text-brand-cyan">Synthetic Data & Patient Education</h3>
+                    <ul className="space-y-1 text-white/65 text-xs leading-snug">
+                        <li><span className="text-white/85 font-semibold">Synthetic Records — </span>Realistic de-identified patient data for training, testing, and research — HIPAA/GDPR compliant.</li>
+                        <li><span className="text-white/85 font-semibold">Plain-Language Education — </span>Convert complex medical jargon into multilingual materials tailored to literacy level and condition.</li>
+                        <li><span className="text-white/85 font-semibold">Visual Summaries — </span>Condition-specific visual explainers generated per patient for improved understanding and adherence.</li>
+                    </ul>
+                </div>
+
+                <div className="w-full h-px bg-white/8" />
+
+                <div className="flex flex-col gap-1.5">
+                    <h3 className="text-base md:text-lg font-bold text-brand-cyan">Chatbots & Regulatory Guardrails</h3>
+                    <ul className="space-y-1 text-white/65 text-xs leading-snug">
+                        <li><span className="text-white/85 font-semibold">Virtual Intake Assistants — </span>AI-powered chatbots that triage symptoms, answer pre-visit questions, and schedule appointments.</li>
+                        <li><span className="text-white/85 font-semibold">Prompt Filtering — </span>Output validation and audit logging to ensure clinically safe, factually grounded responses.</li>
+                        <li><span className="text-white/85 font-semibold">RAG Architecture — </span>Retrieval-augmented generation grounded in trusted medical sources for every AI response.</li>
+                    </ul>
+                </div>
+
             </div>
-        </div>
+        </motion.div>
+
     </Container>
 );
 
 export const ClinicalDecisionSupportDetail = () => (
     <Container className="justify-center py-4">
-        <SubHeading className="text-[10px] md:text-xs mb-2">AI-POWERED CLINICAL DECISION SUPPORT</SubHeading>
-        <Heading gradient className="text-2xl md:text-4xl leading-tight mb-2">AI-Powered Clinical Decision Support</Heading>
-        <p className="text-brand-cyan/80 text-sm md:text-base font-semibold mb-6 md:mb-7">Real‑time, evidence‑based diagnostic & treatment recommendations for clinicians</p>
 
-        <div className="relative overflow-hidden rounded-2xl border border-brand-cyan/20 bg-dark-surface/90 p-6 md:p-7">
-            <div
-                className="absolute inset-0 bg-cover bg-center opacity-45 scale-110"
-                style={{ backgroundImage: "url('/assets/custom-medical/tech-landscape-bg.jpg')" }}
-                aria-hidden
-            />
-            <div
-                className="absolute inset-0 mix-blend-soft-light opacity-70"
-                style={{ backgroundImage: "radial-gradient(60% 60% at 20% 15%, rgba(0, 223, 216, 0.35), transparent 65%), radial-gradient(60% 60% at 85% 80%, rgba(0, 112, 243, 0.28), transparent 65%)" }}
-                aria-hidden
-            />
-            <div className="absolute inset-0 bg-linear-to-br from-[#02060d]/72 via-[#02060d]/58 to-[#00192d]/48" aria-hidden />
+        {/* Header */}
+        {/* <SubHeading className="text-[10px] md:text-xs mb-2 text-center">AI-POWERED CLINICAL DECISION SUPPORT</SubHeading> */}
+        <Heading gradient className="text-xl md:text-2xl leading-tight mb-2 text-center">AI-Powered Clinical Decision Support</Heading>
+        {/* <p className="text-white/50 text-xs leading-relaxed max-w-xl mx-auto mb-6 text-center">
+            Real-time, evidence-based diagnostic & treatment recommendations for clinicians.
+        </p> */}
 
-            <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Real‑time Patient Data Fusion</h4>
-                    <p className="text-white/75 text-sm leading-relaxed">
-                        Integrate live EHR data (vitals, labs, medications, imaging reports) with wearable and RPM data to present a holistic patient snapshot at the point of care.
-                    </p>
+        {/* Main Row — Two Stacked Images Left | All Content Right */}
+        <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="flex flex-col md:flex-row gap-6 md:gap-10 w-full"
+        >
+            {/* Left — Two Stacked Images */}
+            <div className="md:w-1/2 flex flex-col gap-4">
+                <div className="relative rounded-xl overflow-hidden w-full flex-1" style={{ minHeight: "160px" }}>
+                    <div
+                        className="absolute inset-0 bg-cover bg-center scale-105"
+                        style={{ backgroundImage: "url('/assets/custom-medical/cds.png')" }}
+                        aria-hidden
+                    />
+                    <div
+                        className="absolute inset-0"
+                        style={{ backgroundImage: "radial-gradient(60% 60% at 30% 30%, rgba(0,223,216,0.18), transparent 70%)" }}
+                        aria-hidden
+                    />
+                    <div className="absolute inset-0 border border-brand-cyan/20 rounded-xl" aria-hidden />
                 </div>
 
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Intelligent Diagnostic Suggestions</h4>
-                    <p className="text-white/75 text-sm leading-relaxed">
-                        Use machine learning models (e.g., gradient boosting, deep learning) to highlight likely diagnoses based on symptoms, history, and test results – ranked by probability and urgency.
-                    </p>
-                </div>
-
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Evidence‑based Treatment Pathways</h4>
-                    <p className="text-white/75 text-sm leading-relaxed">
-                        Recommend step‑by‑step treatment options aligned with latest clinical guidelines (e.g., UpToDate, DynaMed) and institutional protocols; flag off‑guideline orders.
-                    </p>
-                </div>
-
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Drug‑drug & Allergy Alerts</h4>
-                    <p className="text-white/75 text-sm leading-relaxed">
-                        Enhance basic interaction checks with AI that predicts nuanced risks (e.g., renal function‑adjusted dosing, rare adverse reactions) and prioritizes alerts to reduce alert fatigue.
-                    </p>
-                </div>
-
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Explainable AI (XAI)</h4>
-                    <p className="text-white/75 text-sm leading-relaxed">
-                        Provide clinicians with SHAP values, feature importance, or natural language explanations for each recommendation, building trust and enabling informed overrides.
-                    </p>
-                </div>
-
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Outcome Feedback Loop</h4>
-                    <p className="text-white/75 text-sm leading-relaxed">
-                        Continuously retrain models using de‑identified outcomes (e.g., readmission rates, medication adherence) to improve accuracy without manual re‑annotation.
-                    </p>
+                <div className="relative rounded-xl overflow-hidden w-full flex-1" style={{ minHeight: "160px" }}>
+                    <div
+                        className="absolute inset-0 bg-cover bg-center scale-105"
+                        style={{ backgroundImage: "url('/assets/custom-medical/cds-diagnostics.png')" }}
+                        aria-hidden
+                    />
+                    <div
+                        className="absolute inset-0"
+                        style={{ backgroundImage: "radial-gradient(60% 60% at 70% 60%, rgba(0,112,243,0.15), transparent 70%)" }}
+                        aria-hidden
+                    />
+                    <div className="absolute inset-0 border border-brand-blue/20 rounded-xl" aria-hidden />
                 </div>
             </div>
-        </div>
+
+            {/* Right — All Content */}
+            <div className="md:w-1/2 flex flex-col gap-4">
+
+                <div className="flex flex-col gap-1.5">
+                    <h3 className="text-base md:text-lg font-bold text-brand-cyan">Real-time Data Fusion & Diagnostics</h3>
+                    <ul className="space-y-1 text-white/65 text-xs leading-snug">
+                        <li><span className="text-white/85 font-semibold">Patient Data Fusion — </span>Live EHR vitals, labs, medications, imaging, and RPM data unified into a single point-of-care snapshot.</li>
+                        <li><span className="text-white/85 font-semibold">Diagnostic Suggestions — </span>ML models (gradient boosting, deep learning) rank likely diagnoses by probability and urgency.</li>
+                        <li><span className="text-white/85 font-semibold">Treatment Pathways — </span>Step-by-step options aligned with UpToDate and DynaMed guidelines; flags off-protocol orders.</li>
+                    </ul>
+                </div>
+
+                <div className="w-full h-px bg-white/8" />
+
+                <div className="flex flex-col gap-1.5">
+                    <h3 className="text-base md:text-lg font-bold text-brand-cyan">Drug Alerts & Explainability</h3>
+                    <ul className="space-y-1 text-white/65 text-xs leading-snug">
+                        <li><span className="text-white/85 font-semibold">Drug-drug & Allergy Alerts — </span>AI predicts nuanced risks like renal-adjusted dosing and rare reactions, reducing alert fatigue.</li>
+                        <li><span className="text-white/85 font-semibold">Explainable AI (XAI) — </span>SHAP values and natural language explanations for every recommendation, enabling informed overrides.</li>
+                        <li><span className="text-white/85 font-semibold">Clinician Trust — </span>Feature importance scores help providers understand and validate AI reasoning at the point of care.</li>
+                    </ul>
+                </div>
+
+                <div className="w-full h-px bg-white/8" />
+
+                <div className="flex flex-col gap-1.5">
+                    <h3 className="text-base md:text-lg font-bold text-brand-cyan">Outcome Feedback Loop</h3>
+                    <ul className="space-y-1 text-white/65 text-xs leading-snug">
+                        <li><span className="text-white/85 font-semibold">Continuous Retraining — </span>Models improve using de-identified outcomes like readmission rates and medication adherence.</li>
+                        <li><span className="text-white/85 font-semibold">No Manual Re-annotation — </span>Automated feedback pipelines keep models current without labelling overhead.</li>
+                        <li><span className="text-white/85 font-semibold">Performance Monitoring — </span>Drift detection and accuracy dashboards ensure model reliability across patient populations.</li>
+                    </ul>
+                </div>
+
+            </div>
+        </motion.div>
+
     </Container>
 );
 
 export const PredictiveHealthAnalyticsDetail = () => (
     <Container className="justify-center py-4">
-        <SubHeading className="text-[10px] md:text-xs mb-2">PREDICTIVE HEALTH ANALYTICS</SubHeading>
-        <Heading gradient className="text-2xl md:text-4xl leading-tight mb-2">Predictive Health Analytics</Heading>
-        <p className="text-brand-cyan/80 text-sm md:text-base font-semibold mb-6 md:mb-7">From reactive to proactive intervention – identify at‑risk individuals early</p>
 
-        <div className="relative overflow-hidden rounded-2xl border border-brand-cyan/20 bg-dark-surface/90 p-6 md:p-7">
-            <div
-                className="absolute inset-0 bg-cover bg-center opacity-45 scale-110"
-                style={{ backgroundImage: "url('/assets/custom-medical/tech-landscape-bg.jpg')" }}
-                aria-hidden
-            />
-            <div
-                className="absolute inset-0 mix-blend-soft-light opacity-70"
-                style={{ backgroundImage: "radial-gradient(60% 60% at 20% 15%, rgba(0, 223, 216, 0.35), transparent 65%), radial-gradient(60% 60% at 85% 80%, rgba(0, 112, 243, 0.28), transparent 65%)" }}
-                aria-hidden
-            />
-            <div className="absolute inset-0 bg-linear-to-br from-[#02060d]/72 via-[#02060d]/58 to-[#00192d]/48" aria-hidden />
+        {/* Header */}
+        <SubHeading className="text-[10px] md:text-xs mb-2 text-center">PREDICTIVE HEALTH ANALYTICS</SubHeading>
+        <Heading gradient className="text-xl md:text-2xl leading-tight mb-2 text-center">Predictive Health Analytics</Heading>
+        <p className="text-white/50 text-xs leading-relaxed max-w-xl mx-auto mb-6 text-center">
+            From reactive to proactive intervention — identify at-risk individuals early.
+        </p>
 
-            <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Risk stratification algorithms</h4>
-                    <p className="text-white/75 text-sm leading-relaxed">
-                        Develop models that assign risk scores for readmission, sepsis, deterioration, falls, and chronic disease exacerbations (e.g., COPD, CHF, diabetes) using longitudinal EHR data.
-                    </p>
-                </div>
-
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Early warning systems</h4>
-                    <p className="text-white/75 text-sm leading-relaxed">
-                        Monitor streaming vital signs, lab trends, and nursing assessments to trigger alerts hours before clinical deterioration (e.g., sepsis, cardiac arrest) in inpatient or remote settings.
-                    </p>
-                </div>
-
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Population health insights</h4>
-                    <p className="text-white/75 text-sm leading-relaxed">
-                        Segment patient populations by predicted risk, cost, and utilization; enable targeted outreach (e.g., care management, preventive screenings, medication reviews) to reduce avoidable admissions.
-                    </p>
-                </div>
-
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Social determinants of health (SDOH)</h4>
-                    <p className="text-white/75 text-sm leading-relaxed">
-                        Incorporate ZIP‑code‑level or individual SDOH data (housing, food security, transportation) to improve prediction accuracy and identify non‑clinical barriers to health.
-                    </p>
-                </div>
-
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">What‑if scenario analysis</h4>
-                    <p className="text-white/75 text-sm leading-relaxed">
-                        Allow administrators to simulate the impact of interventions (e.g., adding nurse navigators, mobile clinics) on predicted outcomes and costs before implementation.
-                    </p>
-                </div>
-
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Operational forecasting</h4>
-                    <p className="text-white/75 text-sm leading-relaxed">
-                        Predict bed occupancy, ED wait times, no‑show rates, and staffing needs to optimize resource allocation and reduce bottlenecks.
-                    </p>
+        {/* Main Row — One Image Left | All Content Right */}
+        <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="flex flex-col md:flex-row gap-6 md:gap-10 w-full"
+        >
+            {/* Left — Single Image */}
+            <div className="md:w-1/2 flex flex-col">
+                <div className="relative rounded-xl overflow-hidden w-full h-full" style={{ minHeight: "340px" }}>
+                    <div
+                        className="absolute inset-0 bg-cover bg-center scale-105"
+                        style={{ backgroundImage: "url('/assets/custom-medical/predictive-analytics-bg.png')" }}
+                        aria-hidden
+                    />
+                    <div
+                        className="absolute inset-0"
+                        style={{ backgroundImage: "radial-gradient(60% 60% at 30% 30%, rgba(0,223,216,0.18), transparent 70%), radial-gradient(50% 50% at 75% 70%, rgba(0,112,243,0.15), transparent 70%)" }}
+                        aria-hidden
+                    />
+                    <div className="absolute inset-0 border border-brand-cyan/20 rounded-xl" aria-hidden />
                 </div>
             </div>
-        </div>
+
+            {/* Right — All Content */}
+            <div className="md:w-1/2 flex flex-col gap-4">
+
+                <div className="flex flex-col gap-1.5">
+                    <h3 className="text-base md:text-lg font-bold text-brand-cyan">Risk Stratification & Early Warning</h3>
+                    <ul className="space-y-1 text-white/65 text-xs leading-snug">
+                        <li><span className="text-white/85 font-semibold">Risk Scoring — </span>Models assign readmission, sepsis, deterioration, and chronic disease exacerbation scores from longitudinal EHR data.</li>
+                        <li><span className="text-white/85 font-semibold">Early Warning Systems — </span>Streaming vitals, lab trends, and nursing assessments trigger alerts hours before clinical deterioration.</li>
+                        <li><span className="text-white/85 font-semibold">Inpatient & Remote — </span>Works across hospital floors and RPM-connected home care settings simultaneously.</li>
+                    </ul>
+                </div>
+
+                <div className="w-full h-px bg-white/8" />
+
+                <div className="flex flex-col gap-1.5">
+                    <h3 className="text-base md:text-lg font-bold text-brand-cyan">Population Health & SDOH</h3>
+                    <ul className="space-y-1 text-white/65 text-xs leading-snug">
+                        <li><span className="text-white/85 font-semibold">Population Segmentation — </span>Segment by predicted risk, cost, and utilization to target care management and preventive outreach.</li>
+                        <li><span className="text-white/85 font-semibold">SDOH Integration — </span>ZIP-code and individual social determinants (housing, food, transport) improve prediction accuracy.</li>
+                        <li><span className="text-white/85 font-semibold">Non-clinical Barriers — </span>Identify and flag social risk factors that drive avoidable admissions and care gaps.</li>
+                    </ul>
+                </div>
+
+                <div className="w-full h-px bg-white/8" />
+
+                <div className="flex flex-col gap-1.5">
+                    <h3 className="text-base md:text-lg font-bold text-brand-cyan">Scenario Analysis & Operational Forecasting</h3>
+                    <ul className="space-y-1 text-white/65 text-xs leading-snug">
+                        <li><span className="text-white/85 font-semibold">What-if Simulation — </span>Model the impact of interventions like nurse navigators or mobile clinics before committing resources.</li>
+                        <li><span className="text-white/85 font-semibold">Operational Forecasting — </span>Predict bed occupancy, ED wait times, no-show rates, and staffing needs in real time.</li>
+                        <li><span className="text-white/85 font-semibold">Bottleneck Reduction — </span>Data-driven resource allocation recommendations to optimize throughput across departments.</li>
+                    </ul>
+                </div>
+
+            </div>
+        </motion.div>
+
     </Container>
 );
 
@@ -1394,63 +1453,75 @@ export const CustomAiDetail = () => (
     <Container className="justify-center py-4">
         <SubHeading className="text-[10px] md:text-xs mb-2">CUSTOM AI SOLUTIONS</SubHeading>
         <Heading gradient className="text-2xl md:text-4xl leading-tight mb-2">Custom AI Solutions</Heading>
-        <p className="text-brand-cyan/80 text-sm md:text-base font-semibold mb-6 md:mb-7">Purpose‑built AI that learns from your data, adapts to your processes, and evolves with your business</p>
+        <p className="text-brand-cyan/80 text-sm md:text-base font-semibold mb-6 md:mb-7 text-center">Purpose‑built AI that learns from your data, adapts to your processes, and evolves with your business</p>
 
-        <div className="relative overflow-hidden rounded-2xl border border-brand-cyan/20 bg-dark-surface/90 p-6 md:p-7">
-            <div
-                className="absolute inset-0 bg-cover bg-center opacity-45 scale-110"
-                style={{ backgroundImage: "url('/assets/custom-medical/tech-landscape-bg.jpg')" }}
-                aria-hidden
-            />
-            <div
-                className="absolute inset-0 mix-blend-soft-light opacity-70"
-                style={{ backgroundImage: "radial-gradient(60% 60% at 20% 15%, rgba(0, 223, 216, 0.35), transparent 65%), radial-gradient(60% 60% at 85% 80%, rgba(0, 112, 243, 0.28), transparent 65%)" }}
-                aria-hidden
-            />
-            <div className="absolute inset-0 bg-linear-to-br from-[#02060d]/72 via-[#02060d]/58 to-[#00192d]/48" aria-hidden />
+        <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-stretch">
+            {/* Left: Single tall image */}
+            <div className="relative w-full md:w-[42%] shrink-0 rounded-2xl overflow-hidden min-h-[280px] md:min-h-0">
+                <img
+                    src="/assets/custom-medical/tech-landscape-bg.png"
+                    alt="Custom AI Solutions"
+                    className="absolute inset-0 w-full h-full object-cover"
+                />
+                <div
+                    className="absolute inset-0 mix-blend-soft-light opacity-70"
+                    style={{ backgroundImage: "radial-gradient(60% 60% at 20% 15%, rgba(0, 223, 216, 0.35), transparent 65%), radial-gradient(60% 60% at 85% 80%, rgba(0, 112, 243, 0.28), transparent 65%)" }}
+                    aria-hidden
+                />
+                <div className="absolute inset-0 bg-linear-to-br from-[#02060d]/40 via-transparent to-[#00192d]/40" aria-hidden />
+            </div>
 
-            <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Bespoke model development</h4>
-                    <p className="text-white/75 text-sm leading-relaxed">
-                        Engineer deep learning, computer vision, NLP, or classical ML models tailored to your specific clinical or operational challenge (e.g., detecting rare pathologies, optimizing OR schedules, automating prior auth).
-                    </p>
+            {/* Right: Stacked content sections */}
+            <div className="flex-1 flex flex-col gap-6 md:gap-8 justify-center">
+
+                {/* Section 1 */}
+                <div className="border-b border-brand-cyan/15 pb-6 md:pb-8">
+                    <h4 className="text-base md:text-lg font-bold text-brand-cyan mb-3">Bespoke Model Development</h4>
+                    <div className="flex flex-col gap-2">
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            <span className="font-semibold text-white">Deep Learning & Computer Vision —</span> Engineer models tailored to your specific clinical challenge, from detecting rare pathologies to automating prior auth.
+                        </p>
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            <span className="font-semibold text-white">NLP & Classical ML —</span> Extract meaning from unstructured clinical notes, lab reports, and patient records at scale.
+                        </p>
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            <span className="font-semibold text-white">OR Schedule Optimization —</span> Apply operational ML to reduce idle time, no-shows, and resource bottlenecks across departments.
+                        </p>
+                    </div>
                 </div>
 
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Data‑centric approach</h4>
-                    <p className="text-white/75 text-sm leading-relaxed">
-                        Assist with data curation, labeling (using active learning or expert‑in‑the‑loop), and augmentation to build high‑quality, representative datasets that drive model performance.
-                    </p>
+                {/* Section 2 */}
+                <div className="border-b border-brand-cyan/15 pb-6 md:pb-8">
+                    <h4 className="text-base md:text-lg font-bold text-brand-cyan mb-3">Data‑Centric Approach & Process Integration</h4>
+                    <div className="flex flex-col gap-2">
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            <span className="font-semibold text-white">Data Curation & Labeling —</span> Use active learning and expert‑in‑the‑loop pipelines to build high‑quality, representative datasets.
+                        </p>
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            <span className="font-semibold text-white">EHR & Workflow Integration —</span> Embed AI outputs via EHR plugins, mobile apps, API calls, or real‑time dashboards without disrupting user experience.
+                        </p>
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            <span className="font-semibold text-white">Augmentation —</span> Expand limited datasets through synthetic data generation and domain‑specific augmentation strategies.
+                        </p>
+                    </div>
                 </div>
 
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Process integration</h4>
-                    <p className="text-white/75 text-sm leading-relaxed">
-                        Embed AI outputs directly into your existing clinical workflows – via EHR plugins, mobile apps, API calls, or real‑time dashboards – without disrupting user experience.
-                    </p>
+                {/* Section 3 */}
+                <div>
+                    <h4 className="text-base md:text-lg font-bold text-brand-cyan mb-3">Adaptive Learning & Governance</h4>
+                    <div className="flex flex-col gap-2">
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            <span className="font-semibold text-white">MLOps & Continuous Retraining —</span> Automatically retrain on new data, monitor drift, and trigger human review when model confidence drops.
+                        </p>
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            <span className="font-semibold text-white">Evolution Roadmap —</span> Phased AI maturity plan: pilot in one department, then expand to new use cases as value is proven.
+                        </p>
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            <span className="font-semibold text-white">Full Governance —</span> Model cards, fairness audits, and FDA pre‑submission documentation for AI‑as‑a‑medical‑device compliance.
+                        </p>
+                    </div>
                 </div>
 
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Adaptive & continuous learning</h4>
-                    <p className="text-white/75 text-sm leading-relaxed">
-                        Implement MLOps pipelines that automatically retrain models on new data, monitor drift (data drift, concept drift), and trigger human review when confidence drops.
-                    </p>
-                </div>
-
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Evolution roadmap</h4>
-                    <p className="text-white/75 text-sm leading-relaxed">
-                        Collaborate on a phased AI maturity plan: start with a pilot (e.g., radiology triage), then expand to new departments, data sources, or use cases as value is demonstrated.
-                    </p>
-                </div>
-
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Full governance & explainability</h4>
-                    <p className="text-white/75 text-sm leading-relaxed">
-                        Provide model cards, fairness audits, and regulatory documentation (e.g., FDA pre‑submission for AI‑as‑a‑medical‑device) to ensure safe, ethical, and compliant deployment.
-                    </p>
-                </div>
             </div>
         </div>
     </Container>
@@ -1458,65 +1529,77 @@ export const CustomAiDetail = () => (
 
 export const BillingEfficiencyDetail = () => (
     <Container className="justify-center py-4">
-        <SubHeading className="text-[10px] md:text-xs mb-2">AI-ENABLED BILLING EFFICIENCY</SubHeading>
+        {/* <SubHeading className="text-[10px] md:text-xs mb-2">AI-ENABLED BILLING EFFICIENCY</SubHeading> */}
         <Heading gradient className="text-2xl md:text-4xl leading-tight mb-2">AI-Enabled Billing Efficiency</Heading>
-        <p className="text-brand-cyan/80 text-sm md:text-base font-semibold mb-6 md:mb-7">Strategic automation of medical coding & billing – slash denials, accelerate reimbursements</p>
+        {/* <p className="text-brand-cyan/80 text-sm md:text-base font-semibold mb-6 md:mb-7">Strategic automation of medical coding & billing – slash denials, accelerate reimbursements</p> */}
 
-        <div className="relative overflow-hidden rounded-2xl border border-brand-cyan/20 bg-dark-surface/90 p-6 md:p-7">
-            <div
-                className="absolute inset-0 bg-cover bg-center opacity-45 scale-110"
-                style={{ backgroundImage: "url('/assets/custom-medical/tech-landscape-bg.jpg')" }}
-                aria-hidden
-            />
-            <div
-                className="absolute inset-0 mix-blend-soft-light opacity-70"
-                style={{ backgroundImage: "radial-gradient(60% 60% at 20% 15%, rgba(0, 223, 216, 0.35), transparent 65%), radial-gradient(60% 60% at 85% 80%, rgba(0, 112, 243, 0.28), transparent 65%)" }}
-                aria-hidden
-            />
-            <div className="absolute inset-0 bg-linear-to-br from-[#02060d]/72 via-[#02060d]/58 to-[#00192d]/48" aria-hidden />
+        <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-stretch">
+            {/* Left: Single tall image */}
+            <div className="relative w-full md:w-[42%] shrink-0 rounded-2xl overflow-hidden min-h-[280px] md:min-h-0">
+                <img
+                    src="/assets/custom-medical/medicalbilling.png"
+                    alt="AI-Enabled Billing Efficiency"
+                    className="absolute inset-0 w-full h-full object-cover"
+                />
+                <div
+                    className="absolute inset-0 mix-blend-soft-light opacity-70"
+                    style={{ backgroundImage: "radial-gradient(60% 60% at 20% 15%, rgba(0, 223, 216, 0.35), transparent 65%), radial-gradient(60% 60% at 85% 80%, rgba(0, 112, 243, 0.28), transparent 65%)" }}
+                    aria-hidden
+                />
+                <div className="absolute inset-0 bg-linear-to-br from-[#02060d]/40 via-transparent to-[#00192d]/40" aria-hidden />
+            </div>
 
-            <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Automated medical coding</h4>
-                    <p className="text-white/75 text-sm leading-relaxed">
-                        Use NLP to read clinical notes, operative reports, and discharge summaries, then suggest or auto‑assign accurate ICD‑10, CPT, HCPCS, and modifiers with 95%+ initial accuracy.
-                    </p>
+            {/* Right: Stacked content sections */}
+            <div className="flex-1 flex flex-col gap-6 md:gap-8 justify-center">
+
+                {/* Section 1 */}
+                <div className="border-b border-brand-cyan/15 pb-6 md:pb-8">
+                    <h4 className="text-base md:text-lg font-bold text-brand-cyan mb-3">Automated Medical Coding & Claim Denial Prediction</h4>
+                    <div className="flex flex-col gap-2">
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            <span className="font-semibold text-white">NLP-Powered Coding —</span> Read clinical notes, operative reports, and discharge summaries to suggest or auto‑assign accurate ICD‑10, CPT, HCPCS, and modifiers with 95%+ initial accuracy.
+                        </p>
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            <span className="font-semibold text-white">Pre-Submission Denial Flagging —</span> Identify claims with high predicted denial risk before submission, highlighting missing documentation, coding mismatches, or authorization issues.
+                        </p>
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            <span className="font-semibold text-white">Dynamic Charge Capture —</span> Integrate with EHR to auto‑capture billable procedures and supplies; reduce missed charges and under‑coding.
+                        </p>
+                    </div>
                 </div>
 
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Claim denial prediction</h4>
-                    <p className="text-white/75 text-sm leading-relaxed">
-                        Flag claims with high predicted denial risk before submission – highlight missing documentation, coding mismatches, or authorization issues for proactive correction.
-                    </p>
+                {/* Section 2 */}
+                <div className="border-b border-brand-cyan/15 pb-6 md:pb-8">
+                    <h4 className="text-base md:text-lg font-bold text-brand-cyan mb-3">Appeals Letter Generation</h4>
+                    <div className="flex flex-col gap-2">
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            <span className="font-semibold text-white">Evidence-Based Appeals —</span> For denied claims, generate appeal letters using patient chart data, payer policies, and regulatory guidelines – cutting hours of manual work per denial.
+                        </p>
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            <span className="font-semibold text-white">Payer Policy Matching —</span> Automatically cross-reference denial reason codes against payer-specific coverage rules to identify the strongest appeal pathway.
+                        </p>
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            <span className="font-semibold text-white">Turnaround Acceleration —</span> Reduce appeal preparation time from days to minutes with templated, audit-ready letter generation at scale.
+                        </p>
+                    </div>
                 </div>
 
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Dynamic charge capture</h4>
-                    <p className="text-white/75 text-sm leading-relaxed">
-                        Integrate with EHR to auto‑capture billable procedures (e.g., critical care time, suture removals) and supplies; reduce missed charges and under‑coding.
-                    </p>
+                {/* Section 3 */}
+                <div>
+                    <h4 className="text-base md:text-lg font-bold text-brand-cyan mb-3">Reimbursement Cycle Analytics & Compliance</h4>
+                    <div className="flex flex-col gap-2">
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            <span className="font-semibold text-white">Cycle Performance Monitoring —</span> Track days in AR, first‑pass acceptance rate, and denial reasons; surface payer‑specific patterns and systemic root causes for process redesign.
+                        </p>
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            <span className="font-semibold text-white">Audit Readiness —</span> Build full traceability from clinical documentation to final codes, with audit logs and justifications for every AI‑suggested change.
+                        </p>
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            <span className="font-semibold text-white">RAC & Internal Audit Support —</span> Simplify Recovery Audit Contractor reviews with structured documentation trails and compliance reporting built into every workflow.
+                        </p>
+                    </div>
                 </div>
 
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Appeals letter generation</h4>
-                    <p className="text-white/75 text-sm leading-relaxed">
-                        For denied claims, generate evidence‑based appeal letters using patient chart data, payer policies, and regulatory guidelines – cutting hours of manual work per denial.
-                    </p>
-                </div>
-
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Reimbursement cycle analytics</h4>
-                    <p className="text-white/75 text-sm leading-relaxed">
-                        Monitor days in AR, first‑pass acceptance rate, and denial reasons; identify payer‑specific patterns and systemic root causes (e.g., missing prior auth) for process redesign.
-                    </p>
-                </div>
-
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Compliance & audit readiness</h4>
-                    <p className="text-white/75 text-sm leading-relaxed">
-                        Build traceability from clinical documentation to final codes; provide audit logs and justifications for AI‑suggested changes, simplifying RAC and internal audits.
-                    </p>
-                </div>
             </div>
         </div>
     </Container>
@@ -1562,197 +1645,269 @@ export const Cat5Details = ({
 
 export const QaMedicalSoftwareDetail = () => (
     <Container className="justify-center py-4">
-        <SubHeading className="text-[10px] md:text-xs mb-2">QUALITY ASSURANCE FOR MEDICAL SOFTWARE</SubHeading>
-        <Heading gradient className="text-2xl md:text-4xl leading-tight mb-2">Quality Assurance (QA) for Medical Software</Heading>
-        <p className="text-brand-blue font-semibold mb-6 md:mb-7">Ensuring reliability, safety & performance through systematic SQA</p>
+        {/* <SubHeading className="text-[10px] md:text-xs mb-2">QUALITY ASSURANCE FOR MEDICAL SOFTWARE</SubHeading> */}
+        <Heading gradient className="text-xl md:text-2xl leading-tight mb-2">Quality Assurance (QA) for Medical Software</Heading>
+        {/* <p className="text-brand-blue font-semibold mb-6 md:mb-7">Ensuring reliability, safety & performance through systematic SQA</p> */}
 
-        <div className="relative overflow-hidden rounded-2xl border border-brand-blue/20 bg-dark-surface/90 p-6 md:p-7">
-            <div
-                className="absolute inset-0 bg-cover bg-center opacity-45 scale-110"
-                style={{ backgroundImage: "url('/assets/custom-medical/tech-landscape-bg.jpg')" }}
-                aria-hidden
-            />
-            <div
-                className="absolute inset-0 mix-blend-soft-light opacity-70"
-                style={{ backgroundImage: "radial-gradient(60% 60% at 20% 15%, rgba(0, 112, 243, 0.35), transparent 65%), radial-gradient(60% 60% at 85% 80%, rgba(0, 223, 216, 0.25), transparent 65%)" }}
-                aria-hidden
-            />
-            <div className="absolute inset-0 bg-linear-to-br from-[#02060d]/72 via-[#02060d]/58 to-[#00142a]/48" aria-hidden />
+        <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-stretch">
 
-            <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-blue/30 transition-all duration-300">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-blue mb-2">Comprehensive SQA Strategy</h4>
-                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
-                        Develop and execute test plans covering functional, integration, performance, security, and usability testing tailored to medical use cases (e.g., dose calculation, patient alerts).
-                    </p>
+            {/* Left: Stacked content sections */}
+            <div className="flex-1 flex flex-col gap-6 md:gap-8 justify-center">
+
+                {/* Section 1 */}
+                <div className="border-b border-brand-blue/15 pb-6 md:pb-8">
+                    <h4 className="text-base md:text-lg font-bold text-brand-blue mb-3">Comprehensive SQA Strategy & SDLC Management</h4>
+                    <div className="flex flex-col gap-2">
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            <span className="font-semibold text-white">Full-Spectrum Test Planning —</span> Develop and execute test plans covering functional, integration, performance, security, and usability testing tailored to medical use cases (e.g., dose calculation, patient alerts).
+                        </p>
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            <span className="font-semibold text-white">Traceability & CI/CD —</span> Implement traceability from requirements to test cases to defects; support Agile, Waterfall, or hybrid models with CI/CD integration for regulated environments.
+                        </p>
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            <span className="font-semibold text-white">Risk‑Based Testing —</span> Prioritize high‑risk functions (e.g., diagnostic algorithms, data persistence) using ISO 14971 principles to allocate QA resources efficiently.
+                        </p>
+                    </div>
                 </div>
 
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-blue/30 transition-all duration-300">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-blue mb-2">SDLC Management</h4>
-                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
-                        Implement traceability from requirements to test cases to defects; support Agile, Waterfall, or hybrid models with CI/CD integration for regulated environments.
-                    </p>
+                {/* Section 2 */}
+                <div className="border-b border-brand-blue/15 pb-6 md:pb-8">
+                    <h4 className="text-base md:text-lg font-bold text-brand-blue mb-3">Automation & Regression Testing</h4>
+                    <div className="flex flex-col gap-2">
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            <span className="font-semibold text-white">Automated Test Scripts —</span> Build automated scripts for critical paths (login, data entry, report generation) to enable rapid regression testing after each build.
+                        </p>
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            <span className="font-semibold text-white">Continuous Regression Coverage —</span> Maintain a growing suite of automated regression tests that run on every commit, catching regressions before they reach production.
+                        </p>
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            <span className="font-semibold text-white">Real‑Device Testing —</span> Emulate clinical settings (low bandwidth, interruptions, multiple device models) to uncover production‑only failures.
+                        </p>
+                    </div>
                 </div>
 
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-blue/30 transition-all duration-300">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-blue mb-2">Risk‑Based Testing</h4>
-                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
-                        Prioritize high‑risk functions (e.g., diagnostic algorithms, data persistence) using ISO 14971 principles to allocate QA resources efficiently.
-                    </p>
+                {/* Section 3 */}
+                <div>
+                    <h4 className="text-base md:text-lg font-bold text-brand-blue mb-3">Documentation, Audits & Compliance</h4>
+                    <div className="flex flex-col gap-2">
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            <span className="font-semibold text-white">Validated Test Protocols —</span> Produce summary reports and trace matrices that satisfy FDA (21 CFR 820) and EU MDR requirements.
+                        </p>
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            <span className="font-semibold text-white">Audit-Ready Documentation —</span> Maintain structured defect logs, test evidence, and sign-off records that streamline internal and regulatory audits.
+                        </p>
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            <span className="font-semibold text-white">Regulatory Alignment —</span> Align QA deliverables with IEC 62304, ISO 13485, and HIPAA security testing requirements for end-to-end compliance coverage.
+                        </p>
+                    </div>
                 </div>
 
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-blue/30 transition-all duration-300">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-blue mb-2">Automation & Regression</h4>
-                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
-                        Build automated test scripts for critical paths (login, data entry, report generation) to enable rapid regression testing after each build.
-                    </p>
+            </div>
+
+            {/* Right: Two stacked images */}
+            <div className="flex flex-col gap-4 w-full md:w-[38%] shrink-0">
+                <div className="relative rounded-2xl overflow-hidden flex-1 min-h-[180px]">
+                    <img
+                        src="/assets/custom-medical/qa22.png"
+                        alt="QA Medical Software"
+                        className="absolute inset-0 w-full h-full object-cover"
+                    />
+                    <div
+                        className="absolute inset-0 mix-blend-soft-light opacity-70"
+                        style={{ backgroundImage: "radial-gradient(60% 60% at 20% 15%, rgba(0, 112, 243, 0.35), transparent 65%), radial-gradient(60% 60% at 85% 80%, rgba(0, 223, 216, 0.25), transparent 65%)" }}
+                        aria-hidden
+                    />
+                    <div className="absolute inset-0 bg-linear-to-br from-[#02060d]/40 via-transparent to-[#00142a]/40" aria-hidden />
                 </div>
 
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-blue/30 transition-all duration-300">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-blue mb-2">Documentation for Audits</h4>
-                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
-                        Produce validated test protocols, summary reports, and trace matrices that satisfy FDA (21 CFR 820) and EU MDR requirements.
-                    </p>
-                </div>
-
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-blue/30 transition-all duration-300">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-blue mb-2">Real‑Device Testing</h4>
-                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
-                        Emulate clinical settings (low bandwidth, interruptions, multiple device models) to uncover production‑only failures.
-                    </p>
+                <div className="relative rounded-2xl overflow-hidden flex-1 min-h-[180px]">
+                    <img
+                        src="/assets/custom-medical/qa33.png"
+                        alt="QA Medical Software"
+                        className="absolute inset-0 w-full h-full object-cover object-bottom"
+                    />
+                    <div
+                        className="absolute inset-0 mix-blend-soft-light opacity-70"
+                        style={{ backgroundImage: "radial-gradient(60% 60% at 80% 85%, rgba(0, 112, 243, 0.35), transparent 65%), radial-gradient(60% 60% at 15% 20%, rgba(0, 223, 216, 0.25), transparent 65%)" }}
+                        aria-hidden
+                    />
+                    <div className="absolute inset-0 bg-linear-to-tl from-[#02060d]/40 via-transparent to-[#00142a]/40" aria-hidden />
                 </div>
             </div>
+
         </div>
     </Container>
 );
-
 export const Iec62304ComplianceDetail = () => (
     <Container className="justify-center py-4">
-        <SubHeading className="text-[10px] md:text-xs mb-2">IEC 62304 COMPLIANCE & CONSULTATION</SubHeading>
-        <Heading gradient className="text-2xl md:text-4xl leading-tight mb-2">IEC 62304 Compliance & Consultation</Heading>
-        <p className="text-brand-cyan font-semibold mb-6 md:mb-7">Expert guidance for medical device software lifecycle safety</p>
+        {/* <SubHeading className="text-[10px] md:text-xs mb-2">IEC 62304 COMPLIANCE & CONSULTATION</SubHeading> */}
+        <Heading gradient className="text-xl md:text-2xl leading-tight mb-2">IEC 62304 Compliance & Consultation</Heading>
+        {/* <p className="text-brand-cyan font-semibold mb-6 md:mb-7">Expert guidance for medical device software lifecycle safety</p> */}
 
-        <div className="relative overflow-hidden rounded-2xl border border-brand-cyan/20 bg-dark-surface/90 p-6 md:p-7">
-            <div
-                className="absolute inset-0 bg-cover bg-center opacity-45 scale-110"
-                style={{ backgroundImage: "url('/assets/custom-medical/tech-landscape-bg.jpg')" }}
-                aria-hidden
-            />
-            <div
-                className="absolute inset-0 mix-blend-soft-light opacity-70"
-                style={{ backgroundImage: "radial-gradient(60% 60% at 20% 15%, rgba(0, 223, 216, 0.35), transparent 65%), radial-gradient(60% 60% at 85% 80%, rgba(0, 112, 243, 0.25), transparent 65%)" }}
-                aria-hidden
-            />
-            <div className="absolute inset-0 bg-linear-to-br from-[#02060d]/72 via-[#02060d]/58 to-[#001b26]/48" aria-hidden />
+        <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-stretch">
 
-            <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-cyan/30 transition-all duration-300">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Full Lifecycle Coverage</h4>
-                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
-                        Align software development processes from planning, requirements, design, implementation, verification, validation, to maintenance with IEC 62304:2006 + A1:2015.
-                    </p>
+            {/* Left: Stacked content sections */}
+            <div className="flex-1 flex flex-col gap-6 md:gap-8 justify-center">
+
+                {/* Section 1 */}
+                <div className="border-b border-brand-cyan/15 pb-6 md:pb-8">
+                    <h4 className="text-base md:text-lg font-bold text-brand-cyan mb-3">Lifecycle Coverage & Safety Classification</h4>
+                    <div className="flex flex-col gap-2">
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            <span className="font-semibold text-white">Full Lifecycle Alignment —</span> Map your SDLC from planning through maintenance to IEC 62304:2006 + A1:2015 requirements.
+                        </p>
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            <span className="font-semibold text-white">Safety Class Determination —</span> Classify software as Class A, B, or C and tailor documentation, testing, and risk controls accordingly.
+                        </p>
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            <span className="font-semibold text-white">Risk Management —</span> Link ISO 14971 hazard analysis to requirements and test cases with full traceability to verification evidence.
+                        </p>
+                    </div>
                 </div>
 
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-cyan/30 transition-all duration-300">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Safety Class Determination</h4>
-                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
-                        Assist in classifying your software as Class A, B, or C based on potential harm, and tailor processes (documentation, testing, risk management) accordingly.
-                    </p>
+                {/* Section 2 */}
+                <div className="border-b border-brand-cyan/15 pb-6 md:pb-8">
+                    <h4 className="text-base md:text-lg font-bold text-brand-cyan mb-3">Legacy Assessment & Gap Analysis</h4>
+                    <div className="flex flex-col gap-2">
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            <span className="font-semibold text-white">Compliance Gap Analysis —</span> Evaluate existing software against 62304 requirements and identify remediation priorities.
+                        </p>
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            <span className="font-semibold text-white">Remediation Planning —</span> Build a structured path to compliance without a full rewrite, preserving existing architecture where possible.
+                        </p>
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            <span className="font-semibold text-white">Change Control —</span> Establish configuration management and change control processes that sustain compliance post-certification.
+                        </p>
+                    </div>
                 </div>
 
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-cyan/30 transition-all duration-300">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Risk Management</h4>
-                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
-                        Seamlessly link ISO 14971 hazard analysis to software requirements and test cases; provide traceability from risk controls to verification evidence.
-                    </p>
+                {/* Section 3 */}
+                <div>
+                    <h4 className="text-base md:text-lg font-bold text-brand-cyan mb-3">Audit-Ready Docs & Team Training</h4>
+                    <div className="flex flex-col gap-2">
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            <span className="font-semibold text-white">Document Templates —</span> Deliver SDP, SRS, SDD, test reports, and release notes structured for notified body and FDA reviews.
+                        </p>
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            <span className="font-semibold text-white">Traceability Matrix —</span> Maintain end-to-end linkage from requirements to risk controls to verification evidence in a single artifact.
+                        </p>
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            <span className="font-semibold text-white">Team Enablement —</span> Train engineers on 62304 workflows so your team sustains compliance independently long-term.
+                        </p>
+                    </div>
                 </div>
 
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-cyan/30 transition-all duration-300">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Legacy Software Assessment</h4>
-                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
-                        Evaluate existing non‑compliant software, create remediation plans, and conduct gap analyses to achieve compliance without full rewrite.
-                    </p>
+            </div>
+
+            {/* Right: Two stacked images */}
+            <div className="flex flex-col gap-4 w-full md:w-[38%] shrink-0">
+                <div className="relative rounded-2xl overflow-hidden flex-1 min-h-[180px]">
+                    <img
+                        src="/assets/custom-medical/qa123.png"
+                        alt="IEC 62304 Compliance"
+                        className="absolute inset-0 w-full h-full object-cover"
+                    />
+                    <div
+                        className="absolute inset-0 mix-blend-soft-light opacity-70"
+                        style={{ backgroundImage: "radial-gradient(60% 60% at 20% 15%, rgba(0, 223, 216, 0.35), transparent 65%), radial-gradient(60% 60% at 85% 80%, rgba(0, 112, 243, 0.25), transparent 65%)" }}
+                        aria-hidden
+                    />
+                    <div className="absolute inset-0 bg-linear-to-br from-[#02060d]/40 via-transparent to-[#001b26]/40" aria-hidden />
                 </div>
 
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-cyan/30 transition-all duration-300">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Audit-Ready Docs</h4>
-                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
-                        Deliver templates for SDP (Software Development Plan), SRS, SDD, test reports, release notes, and maintenance records – all structured for reviews.
-                    </p>
-                </div>
-
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-cyan/30 transition-all duration-300">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Training & Setup</h4>
-                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
-                        Train your engineering team on 62304 workflows, configuration management, and change control to sustain compliance independently.
-                    </p>
+                <div className="relative rounded-2xl overflow-hidden flex-1 min-h-[180px]">
+                    <img
+                        src="/assets/custom-medical/qa12.png"
+                        alt="IEC 62304 Compliance"
+                        className="absolute inset-0 w-full h-full object-cover object-bottom"
+                    />
+                    <div
+                        className="absolute inset-0 mix-blend-soft-light opacity-70"
+                        style={{ backgroundImage: "radial-gradient(60% 60% at 80% 85%, rgba(0, 112, 243, 0.35), transparent 65%), radial-gradient(60% 60% at 15% 20%, rgba(0, 223, 216, 0.25), transparent 65%)" }}
+                        aria-hidden
+                    />
+                    <div className="absolute inset-0 bg-linear-to-tl from-[#02060d]/40 via-transparent to-[#001b26]/40" aria-hidden />
                 </div>
             </div>
+
         </div>
     </Container>
 );
 
 export const HipaaComplianceDetail = () => (
     <Container className="justify-center py-4">
-        <SubHeading className="text-[10px] md:text-xs mb-2">HIPAA COMPLIANCE & SECURITY IMPLEMENTATION</SubHeading>
-        <Heading gradient className="text-2xl md:text-4xl leading-tight mb-2">HIPAA Compliance & Security Implementation</Heading>
-        <p className="text-brand-blue font-semibold mb-6 md:mb-7">Enterprise‑grade protection for Protected Health Information (PHI)</p>
+        {/* <SubHeading className="text-[10px] md:text-xs mb-2">HIPAA COMPLIANCE & SECURITY IMPLEMENTATION</SubHeading> */}
+        <Heading gradient className="text-xl md:text-2xl leading-tight mb-2">HIPAA Compliance & Security Implementation</Heading>
+        {/* <p className="text-brand-blue font-semibold mb-6 md:mb-7">Enterprise‑grade protection for Protected Health Information (PHI)</p> */}
 
-        <div className="relative overflow-hidden rounded-2xl border border-brand-blue/20 bg-dark-surface/90 p-6 md:p-7">
-            <div
-                className="absolute inset-0 bg-cover bg-center opacity-45 scale-110"
-                style={{ backgroundImage: "url('/assets/custom-medical/tech-landscape-bg.jpg')" }}
-                aria-hidden
-            />
-            <div
-                className="absolute inset-0 mix-blend-soft-light opacity-70"
-                style={{ backgroundImage: "radial-gradient(60% 60% at 20% 15%, rgba(0, 112, 243, 0.35), transparent 65%), radial-gradient(60% 60% at 85% 80%, rgba(0, 223, 216, 0.25), transparent 65%)" }}
-                aria-hidden
-            />
-            <div className="absolute inset-0 bg-linear-to-br from-[#02060d]/72 via-[#02060d]/58 to-[#00142a]/48" aria-hidden />
+        <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-stretch">
 
-            <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-blue/30 transition-all duration-300">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-blue mb-2">Encryption at Rest & Transit</h4>
-                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
-                        Deploy AES‑256 for stored PHI (databases, backups, logs) and TLS 1.3 for all network communications, including mobile‑to‑cloud and API endpoints.
-                    </p>
+            {/* Left: Single tall image */}
+            <div className="relative w-full md:w-[42%] shrink-0 rounded-2xl overflow-hidden min-h-[280px] md:min-h-0">
+                <img
+                    src="/assets/custom-medical/hipaaa.png"
+                    alt="HIPAA Compliance & Security"
+                    className="absolute inset-0 w-full h-full object-cover"
+                />
+                <div
+                    className="absolute inset-0 mix-blend-soft-light opacity-70"
+                    style={{ backgroundImage: "radial-gradient(60% 60% at 20% 15%, rgba(0, 112, 243, 0.35), transparent 65%), radial-gradient(60% 60% at 85% 80%, rgba(0, 223, 216, 0.25), transparent 65%)" }}
+                    aria-hidden
+                />
+                <div className="absolute inset-0 bg-linear-to-br from-[#02060d]/40 via-transparent to-[#00142a]/40" aria-hidden />
+            </div>
+
+            {/* Right: Stacked content sections */}
+            <div className="flex-1 flex flex-col gap-6 md:gap-8 justify-center">
+
+                {/* Section 1 */}
+                <div className="border-b border-brand-blue/15 pb-6 md:pb-8">
+                    <h4 className="text-base md:text-lg font-bold text-brand-blue mb-3">Encryption & Access Controls</h4>
+                    <div className="flex flex-col gap-2">
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            <span className="font-semibold text-white">Encryption at Rest & Transit —</span> AES‑256 for stored PHI and TLS 1.3 for all network communications, including mobile‑to‑cloud and API endpoints.
+                        </p>
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            <span className="font-semibold text-white">Role-Based Access —</span> Enforce RBAC, least privilege, automatic logoff, and MFA for all administrative and clinical user access.
+                        </p>
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            <span className="font-semibold text-white">Audit Logging —</span> Immutable, time‑stamped logs of every PHI access or modification; SIEM integration for real‑time anomaly alerts.
+                        </p>
+                    </div>
                 </div>
 
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-blue/30 transition-all duration-300">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-blue mb-2">Access Controls</h4>
-                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
-                        Implement role-based access control (RBAC), least privilege, automatic logoff, and multi-factor authentication (MFA) for administrative or clinical user access.
-                    </p>
+                {/* Section 2 */}
+                <div className="border-b border-brand-blue/15 pb-6 md:pb-8">
+                    <h4 className="text-base md:text-lg font-bold text-brand-blue mb-3">BAAs, Breach Response & SRA</h4>
+                    <div className="flex flex-col gap-2">
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            <span className="font-semibold text-white">BAA Management —</span> Draft and manage Business Associate Agreements with cloud hosts, analytics providers, and all third-party subcontractors.
+                        </p>
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            <span className="font-semibold text-white">Security Risk Assessments —</span> Conduct regular HIPAA SRAs with prioritized remediation plans to address gaps before they become liabilities.
+                        </p>
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            <span className="font-semibold text-white">Incident Response —</span> Prepare ePHI-specific breach response playbooks covering containment, notification, and regulatory reporting.
+                        </p>
+                    </div>
                 </div>
 
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-blue/30 transition-all duration-300">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-blue mb-2">Audit Logging & Monitoring</h4>
-                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
-                        Generate immutable, time‑stamped logs of every PHI access, modification, or transmission; integrate with SIEM for real‑anomaly alerts (e.g., bulk exports).
-                    </p>
+                {/* Section 3 */}
+                <div>
+                    <h4 className="text-base md:text-lg font-bold text-brand-blue mb-3">Physical & Device Security</h4>
+                    <div className="flex flex-col gap-2">
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            <span className="font-semibold text-white">Workstation Policies —</span> Enforce screen lock, session timeout, and physical access controls for all clinical workstations handling PHI.
+                        </p>
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            <span className="font-semibold text-white">Device Encryption & MDM —</span> Deploy mobile device management for clinical staff with remote wipe capability and full-disk encryption.
+                        </p>
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            <span className="font-semibold text-white">Secure Media Disposal —</span> Enforce NIST 800-88 compliant sanitization and destruction procedures for all decommissioned storage media.
+                        </p>
+                    </div>
                 </div>
 
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-blue/30 transition-all duration-300">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-blue mb-2">BAAs & Subcontractors</h4>
-                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
-                        Draft and manage BAAs with all subcontractors (cloud hosts, analytics providers, support teams); ensure all third parties are HIPAA‑compliant.
-                    </p>
-                </div>
-
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-blue/30 transition-all duration-300">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-blue mb-2">Breach Response & SRA</h4>
-                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
-                        Conduct regular HIPAA Security Risk Assessments (SRAs) and provide actionable remediation plans; prepare incident response playbooks specific to ePHI.
-                    </p>
-                </div>
-
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-blue/30 transition-all duration-300">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-blue mb-2">Physical & Device Security</h4>
-                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
-                        For on-prem or hybrid deployments, enforce workstation policies, device encryption, and secure disposal of media – plus MDM for clinical staff.
-                    </p>
-                </div>
             </div>
         </div>
     </Container>
@@ -1760,65 +1915,78 @@ export const HipaaComplianceDetail = () => (
 
 export const OncCertificationDetail = () => (
     <Container className="justify-center py-4">
-        <SubHeading className="text-[10px] md:text-xs mb-2">ONC HEALTH IT CERTIFICATION SUPPORT</SubHeading>
-        <Heading gradient className="text-2xl md:text-4xl leading-tight mb-2">ONC Health IT Certification Support</Heading>
-        <p className="text-brand-cyan font-semibold mb-6 md:mb-7">Strategic navigation of certification for interoperability & usability</p>
+        {/* <SubHeading className="text-[10px] md:text-xs mb-2">ONC HEALTH IT CERTIFICATION SUPPORT</SubHeading> */}
+        <Heading gradient className="text-xl md:text-2xl leading-tight mb-2">ONC Health IT Certification Support</Heading>
+        {/* <p className="text-brand-cyan font-semibold mb-6 md:mb-7">Strategic navigation of certification for interoperability & usability</p> */}
 
-        <div className="relative overflow-hidden rounded-2xl border border-brand-cyan/20 bg-dark-surface/90 p-6 md:p-7">
-            <div
-                className="absolute inset-0 bg-cover bg-center opacity-45 scale-110"
-                style={{ backgroundImage: "url('/assets/custom-medical/tech-landscape-bg.jpg')" }}
-                aria-hidden
-            />
-            <div
-                className="absolute inset-0 mix-blend-soft-light opacity-70"
-                style={{ backgroundImage: "radial-gradient(60% 60% at 20% 15%, rgba(0, 223, 216, 0.35), transparent 65%), radial-gradient(60% 60% at 85% 80%, rgba(0, 112, 243, 0.25), transparent 65%)" }}
-                aria-hidden
-            />
-            <div className="absolute inset-0 bg-linear-to-br from-[#02060d]/72 via-[#02060d]/58 to-[#001b26]/48" aria-hidden />
+        <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-stretch">
 
-            <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-cyan/30 transition-all duration-300">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Certification Roadmap</h4>
-                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
-                        Map your Health IT Module’s capabilities to the applicable 2015 Edition Cures Update criteria (e.g., API, patient access, clinical decision support, e-prescription).
-                    </p>
+            {/* Left: Single tall image */}
+            <div className="relative w-full md:w-[42%] shrink-0 rounded-2xl overflow-hidden min-h-[280px] md:min-h-0">
+                <img
+                    src="/assets/custom-medical/onc.png"
+                    alt="ONC Health IT Certification"
+                    className="absolute inset-0 w-full h-full object-cover"
+                />
+                <div
+                    className="absolute inset-0 mix-blend-soft-light opacity-70"
+                    style={{ backgroundImage: "radial-gradient(60% 60% at 20% 15%, rgba(0, 223, 216, 0.35), transparent 65%), radial-gradient(60% 60% at 85% 80%, rgba(0, 112, 243, 0.25), transparent 65%)" }}
+                    aria-hidden
+                />
+                <div className="absolute inset-0 bg-linear-to-br from-[#02060d]/40 via-transparent to-[#001b26]/40" aria-hidden />
+            </div>
+
+            {/* Right: Stacked content sections */}
+            <div className="flex-1 flex flex-col gap-6 md:gap-8 justify-center">
+
+                {/* Section 1 */}
+                <div className="border-b border-brand-cyan/15 pb-6 md:pb-8">
+                    <h4 className="text-base md:text-lg font-bold text-brand-cyan mb-3">Certification Roadmap & Test Suite</h4>
+                    <div className="flex flex-col gap-2">
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            <span className="font-semibold text-white">Criteria Mapping —</span> Align your Health IT Module to applicable 2015 Edition Cures Update criteria — API, patient access, CDS, and e-prescribing.
+                        </p>
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            <span className="font-semibold text-white">Test Suite Preparation —</span> Self-validate using ONC-approved tools (Inferno for FHIR API, Surescripts for e-prescribing) and resolve failures proactively.
+                        </p>
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            <span className="font-semibold text-white">Real-World Testing —</span> Design test plans simulating clinical workflows (medication reconciliation, transitions of care) to satisfy § 170.315(g)(4).
+                        </p>
+                    </div>
                 </div>
 
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-cyan/30 transition-all duration-300">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Test Suite Preparation</h4>
-                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
-                        Use official ONC-approved test tools (e.g., Inferno for FHIR API, Surescripts for e-prescribing) to self-validate; troubleshoot failures proactively.
-                    </p>
+                {/* Section 2 */}
+                <div className="border-b border-brand-cyan/15 pb-6 md:pb-8">
+                    <h4 className="text-base md:text-lg font-bold text-brand-cyan mb-3">Documentation & ONC-ACB Submission</h4>
+                    <div className="flex flex-col gap-2">
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            <span className="font-semibold text-white">Artifact Generation —</span> Produce technical explanations, user manuals, test reports, and attestations in the format required by certification bodies.
+                        </p>
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            <span className="font-semibold text-white">Submission Support —</span> Guide your team through ONC-ACB submission workflows, reducing back-and-forth and accelerating approval timelines.
+                        </p>
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            <span className="font-semibold text-white">Gap Analysis —</span> Review existing software against the latest criteria and deliver a prioritized backlog to close gaps with minimal dev overhead.
+                        </p>
+                    </div>
                 </div>
 
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-cyan/30 transition-all duration-300">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Real-World Testing Design</h4>
-                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
-                        Develop test plans that simulate actual clinical workflows (e.g., medication reconciliation, transitions of care) to satisfy § 170.315(g)(4) requirements.
-                    </p>
+                {/* Section 3 */}
+                <div>
+                    <h4 className="text-base md:text-lg font-bold text-brand-cyan mb-3">Post-Certification Surveillance</h4>
+                    <div className="flex flex-col gap-2">
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            <span className="font-semibold text-white">Change Management —</span> Establish processes to assess every software update for certification impact before release.
+                        </p>
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            <span className="font-semibold text-white">Real-World Testing Logs —</span> Maintain required RWT logs and user feedback records to satisfy ongoing ONC surveillance obligations.
+                        </p>
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            <span className="font-semibold text-white">Continuous Compliance —</span> Monitor ONC rule updates and proactively adapt your certified module to maintain standing through regulatory changes.
+                        </p>
+                    </div>
                 </div>
 
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-cyan/30 transition-all duration-300">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Documentation for ONC-ACBs</h4>
-                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
-                        Generate all required artifacts – technical explanations, user manuals, test reports, and attestations – in the format accepted by certification bodies.
-                    </p>
-                </div>
-
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-cyan/30 transition-all duration-300">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Gap Analysis & Remediation</h4>
-                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
-                        Review existing EHR/health IT software against the latest criteria; provide a prioritized backlog to close gaps with minimal development overhead.
-                    </p>
-                </div>
-
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-cyan/30 transition-all duration-300">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Post-Cert Surveillance</h4>
-                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
-                        Establish processes for ongoing compliance (e.g., change management, real-world testing log, bug fixes) to maintain certification during updates.
-                    </p>
-                </div>
             </div>
         </div>
     </Container>
@@ -1826,70 +1994,98 @@ export const OncCertificationDetail = () => (
 
 export const FhirIntegrationDetail = () => (
     <Container className="justify-center py-4">
-        <SubHeading className="text-[10px] md:text-xs mb-2">FHIR INTEGRATION</SubHeading>
-        <Heading gradient className="text-2xl md:text-4xl leading-tight mb-2">FHIR Integration</Heading>
-        <p className="text-brand-blue font-semibold mb-6 md:mb-7">Seamless, standards‑based health data exchange & interoperability</p>
+        {/* <SubHeading className="text-[10px] md:text-xs mb-2">FHIR INTEGRATION</SubHeading> */}
+        <Heading gradient className="text-xl md:text-2xl leading-tight mb-2">FHIR Integration</Heading>
+        {/* <p className="text-brand-blue font-semibold mb-6 md:mb-7">Seamless, standards‑based health data exchange & interoperability</p> */}
 
-        <div className="relative overflow-hidden rounded-2xl border border-brand-blue/20 bg-dark-surface/90 p-6 md:p-7">
-            <div
-                className="absolute inset-0 bg-cover bg-center opacity-45 scale-110"
-                style={{ backgroundImage: "url('/assets/custom-medical/tech-landscape-bg.jpg')" }}
-                aria-hidden
-            />
-            <div
-                className="absolute inset-0 mix-blend-soft-light opacity-70"
-                style={{ backgroundImage: "radial-gradient(60% 60% at 20% 15%, rgba(0, 112, 243, 0.35), transparent 65%), radial-gradient(60% 60% at 85% 80%, rgba(0, 223, 216, 0.25), transparent 65%)" }}
-                aria-hidden
-            />
-            <div className="absolute inset-0 bg-linear-to-br from-[#02060d]/72 via-[#02060d]/58 to-[#00142a]/48" aria-hidden />
+        <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-stretch">
 
-            <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-blue/30 transition-all duration-300">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-blue mb-2">FHIR API Implementation</h4>
-                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
-                        Build or extend RESTful FHIR R4/R5 endpoints for resources such as Patient, Observation, Condition, MedicationRequest, and DiagnosticReport, supporting JSON and XML.
-                    </p>
+            {/* Left: Two stacked images */}
+            <div className="flex flex-col gap-4 w-full md:w-[38%] shrink-0">
+                <div className="relative rounded-2xl overflow-hidden flex-1 min-h-[180px]">
+                    <img
+                        src="/assets/custom-medical/fhir.png"
+                        alt="FHIR Integration"
+                        className="absolute inset-0 w-full h-full object-cover"
+                    />
+                    <div
+                        className="absolute inset-0 mix-blend-soft-light opacity-70"
+                        style={{ backgroundImage: "radial-gradient(60% 60% at 20% 15%, rgba(0, 112, 243, 0.35), transparent 65%), radial-gradient(60% 60% at 85% 80%, rgba(0, 223, 216, 0.25), transparent 65%)" }}
+                        aria-hidden
+                    />
+                    <div className="absolute inset-0 bg-linear-to-br from-[#02060d]/40 via-transparent to-[#00142a]/40" aria-hidden />
                 </div>
 
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-blue/30 transition-all duration-300">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-blue mb-2">EHR Integration</h4>
-                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
-                        Bidirectional sync with major EHRs (Epic, Cerner, Allscripts, athenahealth) using their FHIR sandboxes and SMART on FHIR launch contexts for secure, authorized access.
-                    </p>
+                <div className="relative rounded-2xl overflow-hidden flex-1 min-h-[180px]">
+                    <img
+                        src="/assets/custom-medical/image.png"
+                        alt="FHIR Integration"
+                        className="absolute inset-0 w-full h-full object-cover object-bottom"
+                    />
+                    <div
+                        className="absolute inset-0 mix-blend-soft-light opacity-70"
+                        style={{ backgroundImage: "radial-gradient(60% 60% at 80% 85%, rgba(0, 223, 216, 0.25), transparent 65%), radial-gradient(60% 60% at 15% 20%, rgba(0, 112, 243, 0.35), transparent 65%)" }}
+                        aria-hidden
+                    />
+                    <div className="absolute inset-0 bg-linear-to-tl from-[#02060d]/40 via-transparent to-[#00142a]/40" aria-hidden />
+                </div>
+            </div>
+
+            {/* Right: Stacked content sections */}
+            <div className="flex-1 flex flex-col gap-6 md:gap-8 justify-center">
+
+                {/* Section 1 */}
+                <div className="border-b border-brand-blue/15 pb-6 md:pb-8">
+                    <h4 className="text-base md:text-lg font-bold text-brand-blue mb-3">FHIR API & EHR Integration</h4>
+                    <div className="flex flex-col gap-2">
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            <span className="font-semibold text-white">FHIR R4/R5 Endpoints —</span> Build RESTful APIs for Patient, Observation, Condition, MedicationRequest, and DiagnosticReport resources in JSON and XML.
+                        </p>
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            <span className="font-semibold text-white">EHR Bidirectional Sync —</span> Integrate with Epic, Cerner, Allscripts, and athenahealth via FHIR sandboxes and SMART on FHIR launch contexts.
+                        </p>
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            <span className="font-semibold text-white">Real‑Time Subscriptions —</span> Push clinical updates (new labs, medication changes) to your app with millisecond latency via FHIR Subscriptions.
+                        </p>
+                    </div>
                 </div>
 
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-blue/30 transition-all duration-300">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-blue mb-2">Real‑Time Sync</h4>
-                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
-                        Use subscription notifications (FHIR Subscriptions) to push clinical updates (new lab results, medication changes) to your app with millisecond latency.
-                    </p>
+                {/* Section 2 */}
+                <div className="border-b border-brand-blue/15 pb-6 md:pb-8">
+                    <h4 className="text-base md:text-lg font-bold text-brand-blue mb-3">Structured Data Exchange</h4>
+                    <div className="flex flex-col gap-2">
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            <span className="font-semibold text-white">Legacy Transformation —</span> Convert HL7 v2 messages and CDA documents into FHIR R4 bundles while preserving data fidelity and referential integrity.
+                        </p>
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            <span className="font-semibold text-white">Terminology Mapping —</span> Align clinical codes (SNOMED, LOINC, RxNorm) across source systems to produce consistent, interoperable FHIR resources.
+                        </p>
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            <span className="font-semibold text-white">Bulk Data Export —</span> Implement FHIR Bulk Data Access (§ 170.315(g)(10)) for population-level data extracts and analytics pipelines.
+                        </p>
+                    </div>
                 </div>
 
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-blue/30 transition-all duration-300">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-blue mb-2">Structured Data Exchange</h4>
-                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
-                        Transform legacy HL7 v2 or CDA documents into FHIR bundles for modern APIs; maintain data fidelity and referential integrity across systems.
-                    </p>
+                {/* Section 3 */}
+                <div>
+                    <h4 className="text-base md:text-lg font-bold text-brand-blue mb-3">Security, Consent & Scalable Architecture</h4>
+                    <div className="flex flex-col gap-2">
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            <span className="font-semibold text-white">OAuth 2.0 & Consent —</span> Implement OpenID Connect authorization and granular FHIR Consent resources for patient and provider access control.
+                        </p>
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            <span className="font-semibold text-white">FHIR Facade Layer —</span> Normalize relational DBs, NoSQL stores, and legacy HIS systems behind a single high‑throughput FHIR endpoint.
+                        </p>
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            <span className="font-semibold text-white">Scalable Infrastructure —</span> Design stateless, horizontally scalable FHIR server deployments with caching and load balancing for high concurrency.
+                        </p>
+                    </div>
                 </div>
 
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-blue/30 transition-all duration-300">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-blue mb-2">Security & Consent</h4>
-                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
-                        Implement OAuth 2.0 / OpenID Connect for patient/provider authorization; respect granular consent directives (e.g., FHIR Consent resource).
-                    </p>
-                </div>
-
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-blue/30 transition-all duration-300">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-blue mb-2">Scalable Architecture</h4>
-                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
-                        Design FHIR facade layers that normalize backend sources (relational DB, NoSQL, legacy HIS) behind a single, high‑throughput FHIR endpoint.
-                    </p>
-                </div>
             </div>
         </div>
     </Container>
 );
-
 // export const Cat2Details = () => {
 //     const items = [
 //         { title: "Custom Medical Web Applications", desc: "Secure, scalable, and user-friendly web-based platforms for clinical, administrative, or patient use." },
@@ -1976,7 +2172,7 @@ export const Cat2Details = ({ onOpenCustomMedicalDetail, onOpenMedicalMobileDeta
                     02
                 </motion.div>
                 <div>
-                    <SubHeading className="text-[10px] md:text-xs mb-2">SERVICE CATEGORY</SubHeading>
+                    {/* <SubHeading className="text-[10px] md:text-xs mb-2">SERVICE CATEGORY</SubHeading> */}
                     <Heading gradient className="text-2xl md:text-4xl leading-tight mb-0!">Application & Platform Development</Heading>
                 </div>
             </div>
@@ -2067,9 +2263,9 @@ export const CustomMedicalApplicationsDetail = () => (
         {/* Header */}
         {/* <SubHeading className="text-[10px] md:text-xs mb-2 text-center">CUSTOM MEDICAL APPLICATIONS</SubHeading> */}
         <Heading gradient className="text-xl md:text-2xl leading-tight mb-2 text-center">Custom Medical Applications</Heading>
-        <p className="text-white/50 text-xs leading-relaxed max-w-xl mx-auto mb-6 text-center">
+        {/* <p className="text-white/50 text-xs leading-relaxed max-w-xl mx-auto mb-6 text-center">
             Healthcare-grade applications — secure, scalable, and ready for real clinical workflows.
-        </p>
+        </p> */}
 
         {/* Row 1 — Web Apps: Text Left | Image Right */}
         <motion.div
@@ -2118,7 +2314,7 @@ export const CustomMedicalApplicationsDetail = () => (
             <div className="md:w-1/2 relative rounded-xl overflow-hidden w-full" style={{ aspectRatio: "16/9" }}>
                 <div
                     className="absolute inset-0 bg-cover bg-center scale-105"
-                    style={{ backgroundImage: "url('/assets/custom-medical/desktop-apps-bg.png')" }}
+                    style={{ backgroundImage: "url('/assets/custom-medical/desktop.png')" }}
                     aria-hidden
                 />
                 <div
@@ -2183,69 +2379,15 @@ export const CustomMedicalApplicationsDetail = () => (
     </Container>
 );
 
-// export const MedicalMobileAppsDetail = () => (
-//     <Container className="justify-center py-4">
-//         <SubHeading className="text-[10px] md:text-xs mb-2">MEDICAL MOBILE APPS</SubHeading>
-//         <Heading gradient className="text-2xl md:text-4xl leading-tight mb-2">Medical Mobile Apps</Heading>
-//         <p className="text-brand-cyan/80 text-sm md:text-base font-semibold mb-6 md:mb-7">Tailored solutions for modern healthcare</p>
-
-//         <div className="relative overflow-hidden rounded-2xl border border-brand-cyan/20 bg-dark-surface/90 p-6 md:p-7">
-//             <div
-//                 className="absolute inset-0 bg-cover bg-center opacity-45 scale-110"
-//                 style={{ backgroundImage: "url('/assets/custom-medical/desktop-apps-bg.jpg')" }}
-//                 aria-hidden
-//             />
-//             <div
-//                 className="absolute inset-0 mix-blend-soft-light opacity-70"
-//                 style={{ backgroundImage: "radial-gradient(60% 60% at 20% 15%, rgba(0, 223, 216, 0.35), transparent 65%), radial-gradient(60% 60% at 85% 80%, rgba(0, 112, 243, 0.30), transparent 65%)" }}
-//                 aria-hidden
-//             />
-//             <div className="absolute inset-0 bg-linear-to-br from-[#02060d]/72 via-[#02060d]/58 to-[#001c2b]/48" aria-hidden />
-
-//             <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
-//                 <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
-//                     <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Native and Cross-Platform Development</h4>
-//                     <p className="text-white/75 text-sm leading-relaxed">
-//                         Apps built with iOS (Swift/Kotlin) or cross-platform frameworks (Flutter, React Native) for seamless performance across devices.
-//                     </p>
-//                 </div>
-
-//                 <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
-//                     <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Three User Personas</h4>
-//                     <ul className="space-y-2 text-white/75 text-sm leading-relaxed">
-//                         <li><span className="text-white/90 font-semibold">Patients:</span> appointment booking, telemedicine, medication reminders.</li>
-//                         <li><span className="text-white/90 font-semibold">Providers:</span> EHR access, clinical workflows, remote monitoring.</li>
-//                         <li><span className="text-white/90 font-semibold">Field researchers:</span> data collection, trial protocols, offline sync.</li>
-//                     </ul>
-//                 </div>
-
-//                 <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
-//                     <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Compliance-First Design</h4>
-//                     <p className="text-white/75 text-sm leading-relaxed">
-//                         HIPAA, GDPR, and FDA/CE-mandated security features including encryption, audit logs, and role-based access controls.
-//                     </p>
-//                 </div>
-
-//                 <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
-//                     <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Offline + Device Integration</h4>
-//                     <ul className="space-y-2 text-white/75 text-sm leading-relaxed">
-//                         <li><span className="text-white/90 font-semibold">Offline capability and real-time sync:</span> essential for remote fieldwork and low-connectivity environments.</li>
-//                         <li><span className="text-white/90 font-semibold">Integrated device support:</span> Bluetooth for wearables, glucose monitors, and other medical peripherals.</li>
-//                     </ul>
-//                 </div>
-//             </div>
-//         </div>
-//     </Container>
-// );
 export const MedicalMobileAppsDetail = () => (
     <Container className="justify-center py-4">
 
         {/* Header */}
-        <SubHeading className="text-[10px] md:text-xs mb-2 text-center">MEDICAL MOBILE APPS</SubHeading>
+        {/* <SubHeading className="text-[10px] md:text-xs mb-2 text-center">MEDICAL MOBILE APPS</SubHeading> */}
         <Heading gradient className="text-xl md:text-2xl leading-tight mb-2 text-center">Medical Mobile Apps</Heading>
-        <p className="text-white/50 text-xs leading-relaxed max-w-xl mx-auto mb-6 text-center">
+        {/* <p className="text-white/50 text-xs leading-relaxed max-w-xl mx-auto mb-6 text-center">
             Tailored solutions for modern healthcare — built for patients, providers, and field teams.
-        </p>
+        </p> */}
 
         {/* Row 1 — Three User Personas: Text Left | Image Right */}
         <motion.div
@@ -2257,7 +2399,7 @@ export const MedicalMobileAppsDetail = () => (
             {/* Text */}
             <div className="md:w-1/2 flex flex-col gap-2">
                 <h3 className="text-base md:text-lg font-bold text-brand-cyan mb-1">Three User Personas</h3>
-                <ul className="space-y-1.5 text-white/65 text-sm leading-snug">
+                <ul className="space-y-1.5 text-white/65 text-xs leading-snug">
                     <li><span className="text-white/85 font-semibold">Patients — </span>Appointment booking, telemedicine consultations, and medication reminders on the go.</li>
                     <li><span className="text-white/85 font-semibold">Providers — </span>EHR access, clinical workflow management, and real-time remote patient monitoring.</li>
                     <li><span className="text-white/85 font-semibold">Field Researchers — </span>Offline-capable data collection, trial protocol tracking, and automatic sync on reconnect.</li>
@@ -2308,7 +2450,7 @@ export const MedicalMobileAppsDetail = () => (
             {/* Text */}
             <div className="md:w-1/2 flex flex-col gap-2">
                 <h3 className="text-base md:text-lg font-bold text-brand-blue mb-1">Device Integration</h3>
-                <ul className="space-y-1.5 text-white/65 text-sm leading-snug">
+                <ul className="space-y-1.5 text-white/65 text-xs leading-snug">
                     <li><span className="text-white/85 font-semibold">Bluetooth Peripherals — </span>Native support for wearables, glucose monitors, pulse oximeters, and other medical devices.</li>
                     <li><span className="text-white/85 font-semibold">Real-Time Sync — </span>Continuous data streaming from connected devices into patient records and provider dashboards.</li>
                     <li><span className="text-white/85 font-semibold">Offline Resilience — </span>Local data capture persists through connectivity loss and syncs automatically on reconnect.</li>
@@ -2357,239 +2499,563 @@ export const MedicalMobileAppsDetail = () => (
 
     </Container>
 );
+
+
+// export const StoreDeploymentDetail = () => (
+//     <Container className="justify-center py-4">
+//         <SubHeading className="text-[10px] md:text-xs mb-2">PLAYSTORE and APP STORE DEPLOYMENT</SubHeading>
+//         <Heading gradient className="text-2xl md:text-4xl leading-tight mb-2">PlayStore & App Store Deployment</Heading>
+//         <p className="text-brand-cyan/80 text-sm md:text-base font-semibold mb-6 md:mb-7">End-to-end launch and compliance management</p>
+
+//         <div className="relative overflow-hidden rounded-2xl border border-brand-blue/20 bg-dark-surface/90 p-6 md:p-7">
+//             <div
+//                 className="absolute inset-0 bg-cover bg-center opacity-45 scale-110"
+//                 style={{ backgroundImage: "url('/assets/custom-medical/tech-landscape-bg.jpg')" }}
+//                 aria-hidden
+//             />
+//             <div
+//                 className="absolute inset-0 mix-blend-soft-light opacity-70"
+//                 style={{ backgroundImage: "radial-gradient(60% 60% at 20% 15%, rgba(0, 112, 243, 0.35), transparent 65%), radial-gradient(60% 60% at 85% 80%, rgba(0, 223, 216, 0.30), transparent 65%)" }}
+//                 aria-hidden
+//             />
+//             <div className="absolute inset-0 bg-linear-to-br from-[#02060d]/72 via-[#02060d]/58 to-[#00142a]/48" aria-hidden />
+
+//             <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
+//                 <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
+//                     <h4 className="text-base md:text-lg font-semibold text-brand-blue mb-2">Full Submission Lifecycle</h4>
+//                     <p className="text-white/75 text-sm leading-relaxed">
+//                         Handling of store accounts, metadata creation (descriptions, screenshots, keywords), and binary uploads for both Google Play and Apple App Store.
+//                     </p>
+//                 </div>
+
+//                 <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
+//                     <h4 className="text-base md:text-lg font-semibold text-brand-blue mb-2">Optimization (ASO)</h4>
+//                     <p className="text-white/75 text-sm leading-relaxed">
+//                         Keyword research, conversion rate optimization, and A/B testing for product pages to boost organic visibility.
+//                     </p>
+//                 </div>
+
+//                 <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
+//                     <h4 className="text-base md:text-lg font-semibold text-brand-blue mb-2">Compliance Management</h4>
+//                     <p className="text-white/75 text-sm leading-relaxed">
+//                         Pre-submission checks for policy adherence including privacy labels, data safety section, age ratings, and GDPR/CCPA disclosures.
+//                     </p>
+//                 </div>
+
+//                 <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
+//                     <h4 className="text-base md:text-lg font-semibold text-brand-blue mb-2">Accelerated Approval</h4>
+//                     <p className="text-white/75 text-sm leading-relaxed">
+//                         Proven strategies to reduce rejection risks and fast-track reviews, including expedited review requests for critical fixes.
+//                     </p>
+//                 </div>
+//             </div>
+
+//             <div className="relative z-10 mt-5 rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
+//                 <h4 className="text-base md:text-lg font-semibold text-brand-blue mb-2">Ongoing Maintenance</h4>
+//                 <p className="text-white/75 text-sm leading-relaxed">
+//                     Manage version updates, phased rollouts, and store responses to user reviews.
+//                 </p>
+//             </div>
+//         </div>
+//     </Container>
+// );
+
 export const StoreDeploymentDetail = () => (
     <Container className="justify-center py-4">
-        <SubHeading className="text-[10px] md:text-xs mb-2">PLAYSTORE and APP STORE DEPLOYMENT</SubHeading>
-        <Heading gradient className="text-2xl md:text-4xl leading-tight mb-2">PlayStore & App Store Deployment</Heading>
-        <p className="text-brand-cyan/80 text-sm md:text-base font-semibold mb-6 md:mb-7">End-to-end launch and compliance management</p>
 
-        <div className="relative overflow-hidden rounded-2xl border border-brand-blue/20 bg-dark-surface/90 p-6 md:p-7">
-            <div
-                className="absolute inset-0 bg-cover bg-center opacity-45 scale-110"
-                style={{ backgroundImage: "url('/assets/custom-medical/tech-landscape-bg.jpg')" }}
-                aria-hidden
-            />
-            <div
-                className="absolute inset-0 mix-blend-soft-light opacity-70"
-                style={{ backgroundImage: "radial-gradient(60% 60% at 20% 15%, rgba(0, 112, 243, 0.35), transparent 65%), radial-gradient(60% 60% at 85% 80%, rgba(0, 223, 216, 0.30), transparent 65%)" }}
-                aria-hidden
-            />
-            <div className="absolute inset-0 bg-linear-to-br from-[#02060d]/72 via-[#02060d]/58 to-[#00142a]/48" aria-hidden />
+        {/* Header */}
+        {/* <SubHeading className="text-[10px] md:text-xs mb-2 text-center">PLAYSTORE AND APP STORE DEPLOYMENT</SubHeading> */}
+        <Heading gradient className="text-xl md:text-2xl leading-tight mb-2 text-center">PlayStore & App Store Deployment</Heading>
+        {/* <p className="text-white/50 text-xs leading-relaxed max-w-xl mx-auto mb-6 text-center">
+            End-to-end launch and compliance management for Google Play and Apple App Store.
+        </p> */}
 
-            <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-blue mb-2">Full Submission Lifecycle</h4>
-                    <p className="text-white/75 text-sm leading-relaxed">
-                        Handling of store accounts, metadata creation (descriptions, screenshots, keywords), and binary uploads for both Google Play and Apple App Store.
-                    </p>
-                </div>
-
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-blue mb-2">Optimization (ASO)</h4>
-                    <p className="text-white/75 text-sm leading-relaxed">
-                        Keyword research, conversion rate optimization, and A/B testing for product pages to boost organic visibility.
-                    </p>
-                </div>
-
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-blue mb-2">Compliance Management</h4>
-                    <p className="text-white/75 text-sm leading-relaxed">
-                        Pre-submission checks for policy adherence including privacy labels, data safety section, age ratings, and GDPR/CCPA disclosures.
-                    </p>
-                </div>
-
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-blue mb-2">Accelerated Approval</h4>
-                    <p className="text-white/75 text-sm leading-relaxed">
-                        Proven strategies to reduce rejection risks and fast-track reviews, including expedited review requests for critical fixes.
-                    </p>
-                </div>
+        {/* Row 1 — Full Submission Lifecycle: Text Left | Image Right */}
+        <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="flex flex-col md:flex-row items-center gap-5 md:gap-8 w-full mb-5"
+        >
+            {/* Text */}
+            <div className="md:w-1/2 flex flex-col gap-2">
+                <h3 className="text-base md:text-lg font-bold text-brand-blue mb-1">Full Submission Lifecycle</h3>
+                <ul className="space-y-1.5 text-white/65 text-xs leading-snug">
+                    <li><span className="text-white/85 font-semibold">Store Account Setup — </span>Developer account creation, team access configuration, and billing setup for both platforms.</li>
+                    <li><span className="text-white/85 font-semibold">Metadata Creation — </span>Descriptions, screenshots, preview videos, and keyword-optimized titles for Google Play and App Store.</li>
+                    <li><span className="text-white/85 font-semibold">Binary Uploads — </span>AAB/IPA packaging, signing, versioning, and upload via Play Console and App Store Connect.</li>
+                    <li><span className="text-white/85 font-semibold">Release Tracks — </span>Staged rollouts using internal, alpha, beta, and production tracks for controlled launches.</li>
+                    <li><span className="text-white/85 font-semibold">Review Coordination — </span>Submission timing, reviewer notes, and demo credentials to streamline first-pass approvals.</li>
+                </ul>
             </div>
 
-            <div className="relative z-10 mt-5 rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
-                <h4 className="text-base md:text-lg font-semibold text-brand-blue mb-2">Ongoing Maintenance</h4>
-                <p className="text-white/75 text-sm leading-relaxed">
-                    Manage version updates, phased rollouts, and store responses to user reviews.
-                </p>
+            {/* Image */}
+            <div className="md:w-1/2 relative rounded-xl overflow-hidden w-full" style={{ aspectRatio: "16/9" }}>
+                <div
+                    className="absolute inset-0 bg-cover bg-center scale-105"
+                    style={{ backgroundImage: "url('/assets/custom-medical/submission.png')" }}
+                    aria-hidden
+                />
+                <div
+                    className="absolute inset-0"
+                    style={{ backgroundImage: "radial-gradient(60% 60% at 30% 30%, rgba(0,112,243,0.18), transparent 70%)" }}
+                    aria-hidden
+                />
+                <div className="absolute inset-0 border border-brand-blue/20 rounded-xl" aria-hidden />
             </div>
-        </div>
+        </motion.div>
+
+        {/* Row 2 — Compliance & ASO: Image Left | Text Right */}
+        <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.08 }}
+            className="flex flex-col-reverse md:flex-row items-center gap-5 md:gap-8 w-full mb-6"
+        >
+            {/* Image */}
+            <div className="md:w-1/2 relative rounded-xl overflow-hidden w-full" style={{ aspectRatio: "16/9" }}>
+                <div
+                    className="absolute inset-0 bg-cover bg-center scale-105"
+                    style={{ backgroundImage: "url('/assets/custom-medical/compliance.png')" }}
+                    aria-hidden
+                />
+                <div
+                    className="absolute inset-0"
+                    style={{ backgroundImage: "radial-gradient(60% 60% at 70% 30%, rgba(0,223,216,0.15), transparent 70%)" }}
+                    aria-hidden
+                />
+                <div className="absolute inset-0 border border-brand-cyan/20 rounded-xl" aria-hidden />
+            </div>
+
+            {/* Text */}
+            <div className="md:w-1/2 flex flex-col gap-2">
+                <h3 className="text-base md:text-lg font-bold text-brand-cyan mb-1">Compliance, ASO & Approval</h3>
+                <ul className="space-y-1.5 text-white/65 text-xs leading-snug">
+                    <li><span className="text-white/85 font-semibold">Privacy & Policy Checks — </span>Privacy labels, data safety section, age ratings, and GDPR/CCPA disclosures before submission.</li>
+                    <li><span className="text-white/85 font-semibold">ASO Keyword Strategy — </span>Keyword research and title/subtitle optimization to maximize organic search visibility.</li>
+                    <li><span className="text-white/85 font-semibold">Conversion Optimization — </span>A/B testing for icons, screenshots, and descriptions to improve store page conversion rates.</li>
+                    <li><span className="text-white/85 font-semibold">Accelerated Approval — </span>Proven strategies to reduce rejection risks and fast-track reviews for critical fixes.</li>
+                    <li><span className="text-white/85 font-semibold">Ongoing Maintenance — </span>Version updates, phased rollouts, and managed responses to user reviews post-launch.</li>
+                </ul>
+            </div>
+        </motion.div>
+
+        {/* Tech Stack Logos */}
+        {/* <div className="w-full border-t border-white/8 pt-5">
+            <p className="text-white/35 text-[10px] uppercase tracking-[0.2em] text-center mb-5">Technology Stack</p>
+            <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="flex flex-wrap items-center justify-center gap-x-8 gap-y-5 md:gap-x-12"
+            >
+                {[
+                    { name: "React Native", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+                    { name: "Figma", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" },
+                    { name: "TypeScript", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" },
+                    { name: "Node.js", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
+                    { name: "Firebase", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" },
+                    { name: "GraphQL", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/graphql/graphql-plain.svg" },
+                    { name: "Docker", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
+                ].map((tech, i) => (
+                    <motion.div
+                        key={tech.name}
+                        initial={{ opacity: 0, y: 6 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: i * 0.04 }}
+                        className="flex flex-col items-center gap-2 group"
+                    >
+                        <img
+                            src={tech.src}
+                            alt={tech.name}
+                            className="w-9 h-9 md:w-11 md:h-11 opacity-55 group-hover:opacity-100 transition-opacity duration-300 drop-shadow-[0_0_8px_rgba(0,112,243,0.3)]"
+                        />
+                        <span className="text-[10px] md:text-[11px] text-white/40 group-hover:text-white/75 transition-colors duration-300 tracking-wide">{tech.name}</span>
+                    </motion.div>
+                ))}
+            </motion.div>
+        </div> */}
+
     </Container>
 );
 
 export const RpmDetail = () => (
     <Container className="justify-center py-4">
-        <SubHeading className="text-[10px] md:text-xs mb-2">REMOTE PATIENT MONITORING (RPM)</SubHeading>
-        <Heading gradient className="text-2xl md:text-4xl leading-tight mb-2">Remote Patient Monitoring (RPM)</Heading>
-        <p className="text-brand-cyan/80 text-sm md:text-base font-semibold mb-6 md:mb-7">Comprehensive platforms for continuous care</p>
 
-        <div className="relative overflow-hidden rounded-2xl border border-brand-cyan/20 bg-dark-surface/90 p-6 md:p-7">
-            <div
-                className="absolute inset-0 bg-cover bg-center opacity-45 scale-110"
-                style={{ backgroundImage: "url('/assets/custom-medical/web-apps-bg.png')" }}
-                aria-hidden
-            />
-            <div
-                className="absolute inset-0 mix-blend-soft-light opacity-70"
-                style={{ backgroundImage: "radial-gradient(60% 60% at 20% 15%, rgba(0, 223, 216, 0.35), transparent 65%), radial-gradient(60% 60% at 85% 80%, rgba(0, 112, 243, 0.30), transparent 65%)" }}
-                aria-hidden
-            />
-            <div className="absolute inset-0 bg-linear-to-br from-[#02060d]/72 via-[#02060d]/58 to-[#001b26]/48" aria-hidden />
+        {/* Header */}
+        {/* <SubHeading className="text-[10px] md:text-xs mb-2 text-center">REMOTE PATIENT MONITORING (RPM)</SubHeading> */}
+        <Heading gradient className="text-xl md:text-2xl leading-tight mb-2 text-center">Remote Patient Monitoring (RPM)</Heading>
+        {/* <p className="text-white/50 text-xs leading-relaxed max-w-xl mx-auto mb-6 text-center">
+            Comprehensive platforms for continuous care — connecting patients, providers, and devices.
+        </p> */}
 
-            <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Patient-Facing Apps</h4>
-                    <p className="text-white/75 text-sm leading-relaxed">
-                        Easy-to-use mobile apps for symptom logging, medication adherence, vitals capture (BP, glucose, SpO2, weight), and secure messaging.
-                    </p>
+        {/* Main Row — All Content Left | Two Stacked Images Right */}
+        <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="flex flex-col md:flex-row gap-6 md:gap-10 w-full mb-6"
+        >
+            {/* Left — All Content */}
+            <div className="md:w-1/2 flex flex-col gap-4">
+
+                <div className="flex flex-col gap-1.5">
+                    <h3 className="text-base md:text-lg font-bold text-brand-cyan">Patient-Facing Apps</h3>
+                    <ul className="space-y-1 text-white/65 text-xs leading-snug">
+                        <li><span className="text-white/85 font-semibold">Vitals Capture — </span>BP, glucose, SpO2, and weight logging via connected or manual entry flows.</li>
+                        <li><span className="text-white/85 font-semibold">Medication Adherence — </span>Scheduled reminders, dosage tracking, and missed-dose alerts.</li>
+                        <li><span className="text-white/85 font-semibold">Secure Messaging — </span>HIPAA-compliant in-app chat between patients and care teams.</li>
+                    </ul>
                 </div>
 
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Provider Dashboards</h4>
-                    <p className="text-white/75 text-sm leading-relaxed">
-                        Real-time alerts, trend visualization, patient risk scoring, and telemedicine integration for timely interventions.
-                    </p>
+                <div className="w-full h-px bg-white/8" />
+
+                <div className="flex flex-col gap-1.5">
+                    <h3 className="text-base md:text-lg font-bold text-brand-cyan">Provider Dashboards</h3>
+                    <ul className="space-y-1 text-white/65 text-xs leading-snug">
+                        <li><span className="text-white/85 font-semibold">Real-Time Alerts — </span>Risk scoring and threshold-based notifications for timely clinical interventions.</li>
+                        <li><span className="text-white/85 font-semibold">Trend Visualization — </span>Longitudinal charts and heatmaps across patient cohorts and individual timelines.</li>
+                        <li><span className="text-white/85 font-semibold">Telemedicine Integration — </span>Launch video consultations directly from the dashboard on triggered alerts.</li>
+                    </ul>
                 </div>
 
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Device Agnostic</h4>
-                    <p className="text-white/75 text-sm leading-relaxed">
-                        Connect with FDA-cleared wearables, Bluetooth-enabled monitors, and proprietary medical sensors via APIs or SDKs.
-                    </p>
+                <div className="w-full h-px bg-white/8" />
+
+                <div className="flex flex-col gap-1.5">
+                    <h3 className="text-base md:text-lg font-bold text-brand-cyan">Device Agnostic & Sync</h3>
+                    <ul className="space-y-1 text-white/65 text-xs leading-snug">
+                        <li><span className="text-white/85 font-semibold">FDA-Cleared Wearables — </span>Bluetooth and SDK integrations for monitors, patches, and sensors.</li>
+                        <li><span className="text-white/85 font-semibold">Offline-First Sync — </span>Local storage with auto-sync on reconnect, built for rural and home-based care.</li>
+                        <li><span className="text-white/85 font-semibold">Regulatory Ready — </span>HIPAA, GDPR, and MDR compliance with audit trails and role-based encryption.</li>
+                    </ul>
                 </div>
 
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Offline and Async Data Sync</h4>
-                    <p className="text-white/75 text-sm leading-relaxed">
-                        Store readings locally when offline; auto-sync when connectivity restores, ideal for rural or home-based care.
-                    </p>
-                </div>
             </div>
 
-            <div className="relative z-10 mt-5 rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
-                <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Regulatory Ready</h4>
-                <p className="text-white/75 text-sm leading-relaxed">
-                    HIPAA, GDPR, and MDR compliance with audit trails, role-based access, and end-to-end encryption.
-                </p>
+            {/* Right — Two Stacked Images */}
+            <div className="md:w-1/2 flex flex-col gap-4">
+                <div className="relative rounded-xl overflow-hidden w-full flex-1" style={{ minHeight: "160px" }}>
+                    <div
+                        className="absolute inset-0 bg-cover bg-center scale-105"
+                        style={{ backgroundImage: "url('/assets/rpm/rpm1.png')" }}
+                        aria-hidden
+                    />
+                    <div
+                        className="absolute inset-0"
+                        style={{ backgroundImage: "radial-gradient(60% 60% at 30% 30%, rgba(0,223,216,0.15), transparent 70%)" }}
+                        aria-hidden
+                    />
+                    <div className="absolute inset-0 border border-brand-cyan/20 rounded-xl" aria-hidden />
+                </div>
+
+                <div className="relative rounded-xl overflow-hidden w-full flex-1" style={{ minHeight: "160px" }}>
+                    <div
+                        className="absolute inset-0 bg-cover bg-center scale-105"
+                        style={{ backgroundImage: "url('/assets/rpm/rpm2.png')" }}
+                        aria-hidden
+                    />
+                    <div
+                        className="absolute inset-0"
+                        style={{ backgroundImage: "radial-gradient(60% 60% at 70% 60%, rgba(0,112,243,0.15), transparent 70%)" }}
+                        aria-hidden
+                    />
+                    <div className="absolute inset-0 border border-brand-blue/20 rounded-xl" aria-hidden />
+                </div>
             </div>
-        </div>
+        </motion.div>
+
+        {/* Tech Stack Logos */}
+        {/* <div className="w-full border-t border-white/8 pt-5">
+            <p className="text-white/35 text-[10px] uppercase tracking-[0.2em] text-center mb-5">Technology Stack</p>
+            <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="flex flex-wrap items-center justify-center gap-x-8 gap-y-5 md:gap-x-12"
+            >
+                {[
+                    // { name: "React Native", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+                    { name: "Figma", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" },
+                    { name: "TypeScript", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" },
+                    { name: "Node.js", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
+                    { name: "PostgreSQL", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" },
+                    { name: "Firebase", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" },
+                    { name: "GraphQL", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/graphql/graphql-plain.svg" },
+                    { name: "Docker", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
+                ].map((tech, i) => (
+                    <motion.div
+                        key={tech.name}
+                        initial={{ opacity: 0, y: 6 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: i * 0.04 }}
+                        className="flex flex-col items-center gap-2 group"
+                    >
+                        <img
+                            src={tech.src}
+                            alt={tech.name}
+                            className="w-9 h-9 md:w-11 md:h-11 opacity-55 group-hover:opacity-100 transition-opacity duration-300 drop-shadow-[0_0_8px_rgba(0,223,216,0.3)]"
+                        />
+                        <span className="text-[10px] md:text-[11px] text-white/40 group-hover:text-white/75 transition-colors duration-300 tracking-wide">{tech.name}</span>
+                    </motion.div>
+                ))}
+            </motion.div>
+        </div> */}
+
     </Container>
 );
 
 export const EhrDetail = () => (
     <Container className="justify-center py-4">
-        <SubHeading className="text-[10px] md:text-xs mb-2">ELECTRONIC HEALTH RECORDS (EHR)</SubHeading>
-        <Heading gradient className="text-2xl md:text-4xl leading-tight mb-2">Electronic Health Records (EHR)</Heading>
-        <p className="text-brand-cyan/80 text-sm md:text-base font-semibold mb-6 md:mb-7">Seamless health data management and interoperability</p>
 
-        <div className="relative overflow-hidden rounded-2xl border border-brand-blue/20 bg-dark-surface/90 p-6 md:p-7">
-            <div
-                className="absolute inset-0 bg-cover bg-center opacity-45 scale-110"
-                style={{ backgroundImage: "url('/assets/custom-medical/tech-landscape-bg.jpg')" }}
-                aria-hidden
-            />
-            <div
-                className="absolute inset-0 mix-blend-soft-light opacity-70"
-                style={{ backgroundImage: "radial-gradient(60% 60% at 20% 15%, rgba(0, 112, 243, 0.35), transparent 65%), radial-gradient(60% 60% at 85% 80%, rgba(0, 223, 216, 0.26), transparent 65%)" }}
-                aria-hidden
-            />
-            <div className="absolute inset-0 bg-linear-to-br from-[#02060d]/72 via-[#02060d]/58 to-[#00142a]/48" aria-hidden />
+        {/* Header */}
+        {/* <SubHeading className="text-[10px] md:text-xs mb-2 text-center">ELECTRONIC HEALTH RECORDS (EHR)</SubHeading> */}
+        <Heading gradient className="text-xl md:text-2xl leading-tight mb-2 text-center">Electronic Health Records (EHR)</Heading>
+        {/* <p className="text-white/50 text-xs leading-relaxed max-w-xl mx-auto mb-6 text-center">
+            Seamless health data management and interoperability — built for clinical precision and compliance.
+        </p> */}
 
-            <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-blue mb-2">Comprehensive Data Management</h4>
-                    <p className="text-white/75 text-sm leading-relaxed">
-                        Centralized patient records including demographics, medical history, medications, lab results, immunization records, and progress notes.
-                    </p>
+        {/* Main Row — All Content Left | Two Stacked Images Right */}
+        <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="flex flex-col md:flex-row gap-6 md:gap-10 w-full mb-6"
+        >
+            {/* Left — All Content */}
+            <div className="md:w-1/2 flex flex-col gap-4">
+
+                <div className="flex flex-col gap-1.5">
+                    <h3 className="text-base md:text-lg font-bold text-brand-blue">Comprehensive Data Management</h3>
+                    <ul className="space-y-1 text-white/65 text-xs leading-snug">
+                        <li><span className="text-white/85 font-semibold">Centralized Records — </span>Demographics, medical history, medications, lab results, and immunization records in one place.</li>
+                        <li><span className="text-white/85 font-semibold">Progress Notes — </span>Structured clinical documentation with specialty-specific templates and voice-to-text support.</li>
+                        <li><span className="text-white/85 font-semibold">Audit Trails — </span>Full access logs and change history for every patient record modification.</li>
+                    </ul>
                 </div>
 
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-blue mb-2">Interoperability</h4>
-                    <p className="text-white/75 text-sm leading-relaxed">
-                        HL7/FHIR standards support for exchanging data with hospital systems, labs, pharmacies, and public health registries.
-                    </p>
+                <div className="w-full h-px bg-white/8" />
+
+                <div className="flex flex-col gap-1.5">
+                    <h3 className="text-base md:text-lg font-bold text-brand-blue">Interoperability & Clinical Workflows</h3>
+                    <ul className="space-y-1 text-white/65 text-xs leading-snug">
+                        <li><span className="text-white/85 font-semibold">HL7 / FHIR — </span>Standards-based data exchange with hospital systems, labs, pharmacies, and health registries.</li>
+                        <li><span className="text-white/85 font-semibold">E-Prescribing — </span>Order entry, clinical decision support, and drug interaction checks at the point of care.</li>
+                        <li><span className="text-white/85 font-semibold">Custom Templates — </span>Configurable workflows and documentation templates across multiple clinical specialties.</li>
+                    </ul>
                 </div>
 
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-blue mb-2">Regulatory Compliance</h4>
-                    <p className="text-white/75 text-sm leading-relaxed">
-                        HIPAA, GDPR, 21 CFR Part 11 (if applicable), and regional e-prescribing mandates built into the platform.
-                    </p>
+                <div className="w-full h-px bg-white/8" />
+
+                <div className="flex flex-col gap-1.5">
+                    <h3 className="text-base md:text-lg font-bold text-brand-blue">Compliance & Patient Portal</h3>
+                    <ul className="space-y-1 text-white/65 text-xs leading-snug">
+                        <li><span className="text-white/85 font-semibold">Regulatory Ready — </span>HIPAA, GDPR, and 21 CFR Part 11 compliance with role-based access and encryption.</li>
+                        <li><span className="text-white/85 font-semibold">Patient Portal — </span>Secure access for patients to view records, request refills, and message their care team.</li>
+                        <li><span className="text-white/85 font-semibold">Regional Mandates — </span>E-prescribing and data retention rules configured per jurisdiction and facility type.</li>
+                    </ul>
                 </div>
 
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-blue mb-2">Clinical Workflows</h4>
-                    <p className="text-white/75 text-sm leading-relaxed">
-                        E-prescribing, order entry, clinical decision support, and customizable templates for various specialties.
-                    </p>
-                </div>
             </div>
 
-            <div className="relative z-10 mt-5 rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
-                <h4 className="text-base md:text-lg font-semibold text-brand-blue mb-2">Patient Portal Integration</h4>
-                <p className="text-white/75 text-sm leading-relaxed">
-                    Secure access for patients to view records, request refills, and communicate with providers.
-                </p>
+            {/* Right — Two Stacked Images */}
+            <div className="md:w-1/2 flex flex-col gap-4">
+                <div className="relative rounded-xl overflow-hidden w-full flex-1" style={{ minHeight: "160px" }}>
+                    <div
+                        className="absolute inset-0 bg-cover bg-center scale-105"
+                        style={{ backgroundImage: "url('/assets/rpm/ehr1.png')" }}
+                        aria-hidden
+                    />
+                    <div
+                        className="absolute inset-0"
+                        style={{ backgroundImage: "radial-gradient(60% 60% at 30% 30%, rgba(0,112,243,0.18), transparent 70%)" }}
+                        aria-hidden
+                    />
+                    <div className="absolute inset-0 border border-brand-blue/20 rounded-xl" aria-hidden />
+                </div>
+
+                <div className="relative rounded-xl overflow-hidden w-full flex-1" style={{ minHeight: "160px" }}>
+                    <div
+                        className="absolute inset-0 bg-cover bg-center scale-105"
+                        style={{ backgroundImage: "url('/assets/rpm/ehr2.png')" }}
+                        aria-hidden
+                    />
+                    <div
+                        className="absolute inset-0"
+                        style={{ backgroundImage: "radial-gradient(60% 60% at 70% 60%, rgba(0,223,216,0.15), transparent 70%)" }}
+                        aria-hidden
+                    />
+                    <div className="absolute inset-0 border border-brand-cyan/20 rounded-xl" aria-hidden />
+                </div>
             </div>
-        </div>
+        </motion.div>
+
+        {/* Tech Stack Logos */}
+        {/* <div className="w-full border-t border-white/8 pt-5">
+            <p className="text-white/35 text-[10px] uppercase tracking-[0.2em] text-center mb-5">Technology Stack</p>
+            <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="flex flex-wrap items-center justify-center gap-x-8 gap-y-5 md:gap-x-12"
+            >
+                {[
+                    { name: "React", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+                    { name: "Next.js", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" },
+                    { name: "TypeScript", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" },
+                    { name: "Node.js", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
+                    { name: "PostgreSQL", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" },
+                    { name: "GraphQL", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/graphql/graphql-plain.svg" },
+                    { name: "Docker", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
+                    { name: "Figma", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" },
+                ].map((tech, i) => (
+                    <motion.div
+                        key={tech.name}
+                        initial={{ opacity: 0, y: 6 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: i * 0.04 }}
+                        className="flex flex-col items-center gap-2 group"
+                    >
+                        <img
+                            src={tech.src}
+                            alt={tech.name}
+                            className="w-9 h-9 md:w-11 md:h-11 opacity-55 group-hover:opacity-100 transition-opacity duration-300 drop-shadow-[0_0_8px_rgba(0,112,243,0.3)]"
+                        />
+                        <span className="text-[10px] md:text-[11px] text-white/40 group-hover:text-white/75 transition-colors duration-300 tracking-wide">{tech.name}</span>
+                    </motion.div>
+                ))}
+            </motion.div>
+        </div> */}
+
     </Container>
 );
 
 export const ImagingAnalysisDetail = () => (
     <Container className="justify-center py-4">
-        <SubHeading className="text-[10px] md:text-xs mb-2">MEDICAL IMAGING and ANALYSIS</SubHeading>
-        <Heading gradient className="text-2xl md:text-4xl leading-tight mb-2">Medical Imaging & Analysis</Heading>
-        <p className="text-brand-cyan/80 text-sm md:text-base font-semibold mb-6 md:mb-7">Secure storage, viewing, annotation and AI-powered insights</p>
 
-        <div className="relative overflow-hidden rounded-2xl border border-brand-cyan/20 bg-dark-surface/90 p-6 md:p-7">
-            <div
-                className="absolute inset-0 bg-cover bg-center opacity-45 scale-110"
-                style={{ backgroundImage: "url('/assets/custom-medical/tech-landscape-bg.jpg')" }}
-                aria-hidden
-            />
-            <div
-                className="absolute inset-0 mix-blend-soft-light opacity-70"
-                style={{ backgroundImage: "radial-gradient(60% 60% at 20% 15%, rgba(0, 223, 216, 0.35), transparent 65%), radial-gradient(60% 60% at 85% 80%, rgba(0, 112, 243, 0.30), transparent 65%)" }}
-                aria-hidden
-            />
-            <div className="absolute inset-0 bg-linear-to-br from-[#02060d]/72 via-[#02060d]/58 to-[#00192d]/48" aria-hidden />
+        {/* Header */}
+        {/* <SubHeading className="text-[10px] md:text-xs mb-2 text-center">MEDICAL IMAGING AND ANALYSIS</SubHeading> */}
+        <Heading gradient className="text-xl md:text-2xl leading-tight mb-2 text-center">Medical Imaging & Analysis</Heading>
+        {/* <p className="text-white/50 text-xs leading-relaxed max-w-xl mx-auto mb-6 text-center">
+            Secure storage, viewing, annotation and AI-powered insights for clinical imaging workflows.
+        </p> */}
 
-            <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Secure Image Storage</h4>
-                    <p className="text-white/75 text-sm leading-relaxed">
-                        DICOM-compliant repository with role-based access, encryption at rest and in transit, and automated backup.
-                    </p>
+        {/* Main Row — All Content Left | Two Stacked Images Right */}
+        <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="flex flex-col md:flex-row gap-6 md:gap-10 w-full mb-6"
+        >
+            {/* Left — All Content */}
+            <div className="md:w-1/2 flex flex-col gap-4">
+
+                <div className="flex flex-col gap-1.5">
+                    <h3 className="text-base md:text-lg font-bold text-brand-cyan">Secure Image Storage</h3>
+                    <ul className="space-y-1 text-white/65 text-xs leading-snug">
+                        <li><span className="text-white/85 font-semibold">DICOM-Compliant — </span>Role-based access, encryption at rest and in transit, and automated backup for all imaging data.</li>
+                        <li><span className="text-white/85 font-semibold">Advanced Viewing — </span>Zero-footprint PACS viewer with zoom, pan, windowing, 3D reconstruction, and multi-planar reformatting.</li>
+                        <li><span className="text-white/85 font-semibold">Cloud-Native Storage — </span>Scalable object storage with geo-redundancy and near-zero retrieval latency for large DICOM files.</li>
+                    </ul>
                 </div>
 
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Advanced Viewing</h4>
-                    <p className="text-white/75 text-sm leading-relaxed">
-                        Zero-footprint web viewer for PACS, zoom/pan/windowing, 3D reconstruction, and multi-planar reformatting.
-                    </p>
+                <div className="w-full h-px bg-white/8" />
+
+                <div className="flex flex-col gap-1.5">
+                    <h3 className="text-base md:text-lg font-bold text-brand-cyan">Annotation & AI Analysis</h3>
+                    <ul className="space-y-1 text-white/65 text-xs leading-snug">
+                        <li><span className="text-white/85 font-semibold">Annotation Tools — </span>Freehand drawing, measurement (length/angle/area), landmark placement, and radiologist reporting.</li>
+                        <li><span className="text-white/85 font-semibold">AI-Powered Detection — </span>Computer-vision models for nodules, fractures, and hemorrhages with critical case prioritization.</li>
+                        <li><span className="text-white/85 font-semibold">Segmentation — </span>Automated organ and lesion segmentation to support surgical planning and oncology workflows.</li>
+                    </ul>
                 </div>
 
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Annotation Tools</h4>
-                    <p className="text-white/75 text-sm leading-relaxed">
-                        Freehand drawing, measurement (length/angle/area), landmark placement, and structured reporting for radiologists.
-                    </p>
+                <div className="w-full h-px bg-white/8" />
+
+                <div className="flex flex-col gap-1.5">
+                    <h3 className="text-base md:text-lg font-bold text-brand-cyan">Interoperability & Compliance</h3>
+                    <ul className="space-y-1 text-white/65 text-xs leading-snug">
+                        <li><span className="text-white/85 font-semibold">DICOMweb & FHIR — </span>Imaging Study integration and HL7 data exchange with existing EHR and RIS systems.</li>
+                        <li><span className="text-white/85 font-semibold">Regulatory Ready — </span>HIPAA, GDPR, and FDA/CE compliance with full audit trails and access logging.</li>
+                        <li><span className="text-white/85 font-semibold">RIS Integration — </span>Worklist management, study routing, and report distribution across radiology departments.</li>
+                    </ul>
                 </div>
 
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">AI-Powered Analysis</h4>
-                    <p className="text-white/75 text-sm leading-relaxed">
-                        Integration with computer-vision models for detection (nodules, fractures, hemorrhages), segmentation, and prioritization of critical cases.
-                    </p>
-                </div>
             </div>
 
-            <div className="relative z-10 mt-5 rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
-                <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Interoperability</h4>
-                <p className="text-white/75 text-sm leading-relaxed">
-                    DICOMweb, FHIR Imaging Study, and HL7 integration with existing EHR/RIS systems.
-                </p>
+            {/* Right — Two Stacked Images */}
+            <div className="md:w-1/2 flex flex-col gap-4">
+                <div className="relative rounded-xl overflow-hidden w-full flex-1" style={{ minHeight: "160px" }}>
+                    <div
+                        className="absolute inset-0 bg-cover bg-center scale-105"
+                        style={{ backgroundImage: "url('/assets/rpm/imaging2.png')" }}
+                        aria-hidden
+                    />
+                    <div
+                        className="absolute inset-0"
+                        style={{ backgroundImage: "radial-gradient(60% 60% at 30% 30%, rgba(0,223,216,0.18), transparent 70%)" }}
+                        aria-hidden
+                    />
+                    <div className="absolute inset-0 border border-brand-cyan/20 rounded-xl" aria-hidden />
+                </div>
+
+                <div className="relative rounded-xl overflow-hidden w-full flex-1" style={{ minHeight: "160px" }}>
+                    <div
+                        className="absolute inset-0 bg-cover bg-center scale-105"
+                        style={{ backgroundImage: "url('/assets/rpm/imaging1.png')" }}
+                        aria-hidden
+                    />
+                    <div
+                        className="absolute inset-0"
+                        style={{ backgroundImage: "radial-gradient(60% 60% at 70% 60%, rgba(0,112,243,0.15), transparent 70%)" }}
+                        aria-hidden
+                    />
+                    <div className="absolute inset-0 border border-brand-blue/20 rounded-xl" aria-hidden />
+                </div>
             </div>
-        </div>
+        </motion.div>
+
+        {/* Tech Stack Logos */}
+        {/* <div className="w-full border-t border-white/8 pt-5">
+            <p className="text-white/35 text-[10px] uppercase tracking-[0.2em] text-center mb-5">Technology Stack</p>
+            <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="flex flex-wrap items-center justify-center gap-x-8 gap-y-5 md:gap-x-12"
+            >
+                {[
+                    { name: "React", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+                    { name: "TypeScript", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" },
+                    { name: "Python", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
+                    { name: "Node.js", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
+                    { name: "PostgreSQL", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" },
+                    { name: "Docker", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
+                    { name: "GraphQL", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/graphql/graphql-plain.svg" },
+                    { name: "Figma", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" },
+                ].map((tech, i) => (
+                    <motion.div
+                        key={tech.name}
+                        initial={{ opacity: 0, y: 6 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: i * 0.04 }}
+                        className="flex flex-col items-center gap-2 group"
+                    >
+                        <img
+                            src={tech.src}
+                            alt={tech.name}
+                            className="w-9 h-9 md:w-11 md:h-11 opacity-55 group-hover:opacity-100 transition-opacity duration-300 drop-shadow-[0_0_8px_rgba(0,223,216,0.3)]"
+                        />
+                        <span className="text-[10px] md:text-[11px] text-white/40 group-hover:text-white/75 transition-colors duration-300 tracking-wide">{tech.name}</span>
+                    </motion.div>
+                ))}
+            </motion.div>
+        </div> */}
+
     </Container>
 );
 
@@ -2625,178 +3091,265 @@ export const Cat3Details = ({
 
 export const SchedulerDetail = () => (
     <Container className="justify-center py-4">
-        <SubHeading className="text-[10px] md:text-xs mb-2">INTELLIGENT APPOINTMENT and RESOURCE SCHEDULER</SubHeading>
-        <Heading gradient className="text-2xl md:text-4xl leading-tight mb-2">Intelligent Appointment & Resource Scheduler</Heading>
-        <p className="text-brand-cyan/80 text-sm md:text-base font-semibold mb-6 md:mb-7">Smart scheduling systems for optimized care delivery</p>
 
-        <div className="relative overflow-hidden rounded-2xl border border-brand-cyan/20 bg-dark-surface/90 p-6 md:p-7">
-            <div
-                className="absolute inset-0 bg-cover bg-center opacity-45 scale-110"
-                style={{ backgroundImage: "url('/assets/custom-medical/tech-landscape-bg.jpg')" }}
-                aria-hidden
-            />
-            <div
-                className="absolute inset-0 mix-blend-soft-light opacity-70"
-                style={{ backgroundImage: "radial-gradient(60% 60% at 20% 15%, rgba(0, 223, 216, 0.35), transparent 65%), radial-gradient(60% 60% at 85% 80%, rgba(0, 112, 243, 0.28), transparent 65%)" }}
-                aria-hidden
-            />
-            <div className="absolute inset-0 bg-linear-to-br from-[#02060d]/72 via-[#02060d]/58 to-[#00192d]/48" aria-hidden />
+        {/* Header */}
+        {/* <SubHeading className="text-[10px] md:text-xs mb-2 text-center">INTELLIGENT APPOINTMENT AND RESOURCE SCHEDULER</SubHeading> */}
+        <Heading gradient className="text-xl md:text-2xl leading-tight mb-2 text-left">Intelligent Appointment & Resource Scheduler</Heading>
+        {/* <p className="text-white/50 text-xs leading-relaxed max-w-xl mx-auto mb-6 text-center">
+            Smart scheduling systems for optimized care delivery — built for providers, patients, and operations.
+        </p> */}
 
-            <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Provider Time Optimization</h4>
-                    <p className="text-white/75 text-sm leading-relaxed">
-                        Algorithms that balance appointment types (routine, urgent, follow-up), block time for admin tasks, and minimize idle slots.
-                    </p>
+        {/* Main Row — Two Stacked Images Left | All Content Right */}
+        <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="flex flex-col md:flex-row gap-6 md:gap-10 w-full"
+        >
+            {/* Left — Two Stacked Images */}
+            <div className="md:w-1/2 flex flex-col gap-4">
+                <div className="relative rounded-xl overflow-hidden w-full flex-1" style={{ minHeight: "160px" }}>
+                    <div
+                        className="absolute inset-0 bg-cover bg-center scale-105"
+                        style={{ backgroundImage: "url('/assets/scheduler/schedular1.png')" }}
+                        aria-hidden
+                    />
+                    <div
+                        className="absolute inset-0"
+                        style={{ backgroundImage: "radial-gradient(60% 60% at 30% 30%, rgba(0,223,216,0.18), transparent 70%)" }}
+                        aria-hidden
+                    />
+                    <div className="absolute inset-0 border border-brand-cyan/20 rounded-xl" aria-hidden />
                 </div>
 
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Patient Preference Handling</h4>
-                    <p className="text-white/75 text-sm leading-relaxed">
-                        Capture preferred dates, times, provider, and visit modality (in-person, virtual) to increase satisfaction and reduce no-shows.
-                    </p>
-                </div>
-
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Resource Allocation</h4>
-                    <p className="text-white/75 text-sm leading-relaxed">
-                        Automatically assign exam rooms, medical equipment, and nursing staff based on appointment requirements and real-time availability.
-                    </p>
-                </div>
-
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Auto-Scheduling Features</h4>
-                    <p className="text-white/75 text-sm leading-relaxed">
-                        Offer one-click appointment booking from reminders, waitlist auto-fill, and recurring appointment generation for chronic care.
-                    </p>
+                <div className="relative rounded-xl overflow-hidden w-full flex-1" style={{ minHeight: "160px" }}>
+                    <div
+                        className="absolute inset-0 bg-cover bg-center scale-105"
+                        style={{ backgroundImage: "url('/assets/scheduler/schedular2.png')" }}
+                        aria-hidden
+                    />
+                    <div
+                        className="absolute inset-0"
+                        style={{ backgroundImage: "radial-gradient(60% 60% at 70% 60%, rgba(0,112,243,0.15), transparent 70%)" }}
+                        aria-hidden
+                    />
+                    <div className="absolute inset-0 border border-brand-blue/20 rounded-xl" aria-hidden />
                 </div>
             </div>
 
-            <div className="relative z-10 mt-5 rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
-                <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Integration Ready</h4>
-                <p className="text-white/75 text-sm leading-relaxed">
-                    APIs to sync with EHR, patient portals, and billing systems for end-to-end workflow continuity.
-                </p>
+            {/* Right — All Content */}
+            <div className="md:w-1/2 flex flex-col gap-4">
+
+                <div className="flex flex-col gap-1.5">
+                    <h3 className="text-base md:text-lg font-bold text-brand-cyan">Provider Time Optimization</h3>
+                    <ul className="space-y-1 text-white/65 text-xs leading-snug">
+                        <li><span className="text-white/85 font-semibold">Smart Balancing — </span>Algorithms that balance routine, urgent, and follow-up appointments while minimizing idle slots.</li>
+                        <li><span className="text-white/85 font-semibold">Admin Blocking — </span>Automatically reserve time blocks for administrative tasks, breaks, and buffer periods.</li>
+                        <li><span className="text-white/85 font-semibold">Patient Preferences — </span>Capture preferred dates, times, provider, and visit modality to reduce no-shows and increase satisfaction.</li>
+                    </ul>
+                </div>
+
+                <div className="w-full h-px bg-white/8" />
+
+                <div className="flex flex-col gap-1.5">
+                    <h3 className="text-base md:text-lg font-bold text-brand-cyan">Resource Allocation</h3>
+                    <ul className="space-y-1 text-white/65 text-xs leading-snug">
+                        <li><span className="text-white/85 font-semibold">Auto-Assignment — </span>Exam rooms, medical equipment, and nursing staff assigned based on real-time availability.</li>
+                        <li><span className="text-white/85 font-semibold">Waitlist Auto-Fill — </span>One-click booking from reminders and automatic slot filling from waitlists on cancellations.</li>
+                        <li><span className="text-white/85 font-semibold">Recurring Appointments — </span>Automated recurring scheduling for chronic care patients with configurable cadences.</li>
+                    </ul>
+                </div>
+
+                <div className="w-full h-px bg-white/8" />
+
+                <div className="flex flex-col gap-1.5">
+                    <h3 className="text-base md:text-lg font-bold text-brand-cyan">Integration Ready</h3>
+                    <ul className="space-y-1 text-white/65 text-xs leading-snug">
+                        <li><span className="text-white/85 font-semibold">EHR Sync — </span>Real-time APIs to sync appointments, clinical notes, and patient data with existing EHR systems.</li>
+                        <li><span className="text-white/85 font-semibold">Billing Integration — </span>Appointment data flows directly into billing and claims for end-to-end workflow continuity.</li>
+                        <li><span className="text-white/85 font-semibold">Patient Portal — </span>Self-service booking, rescheduling, and cancellation via integrated patient-facing portals.</li>
+                    </ul>
+                </div>
+
             </div>
-        </div>
+        </motion.div>
+
     </Container>
 );
 
 export const WorkflowOrchestrationDetail = () => (
     <Container className="justify-center py-4">
-        <SubHeading className="text-[10px] md:text-xs mb-2">AUTOMATED CLINICAL WORKFLOW ORCHESTRATION</SubHeading>
-        <Heading gradient className="text-2xl md:text-4xl leading-tight mb-2">Automated Clinical Workflow Orchestration</Heading>
-        <p className="text-brand-cyan/80 text-sm md:text-base font-semibold mb-6 md:mb-7">Eliminate routine tasks, accelerate care delivery</p>
 
-        <div className="relative overflow-hidden rounded-2xl border border-brand-cyan/20 bg-dark-surface/90 p-6 md:p-7">
-            <div
-                className="absolute inset-0 bg-cover bg-center opacity-45 scale-110"
-                style={{ backgroundImage: "url('/assets/custom-medical/tech-landscape-bg.jpg')" }}
-                aria-hidden
-            />
-            <div
-                className="absolute inset-0 mix-blend-soft-light opacity-70"
-                style={{ backgroundImage: "radial-gradient(60% 60% at 20% 15%, rgba(0, 223, 216, 0.35), transparent 65%), radial-gradient(60% 60% at 85% 80%, rgba(0, 112, 243, 0.28), transparent 65%)" }}
-                aria-hidden
-            />
-            <div className="absolute inset-0 bg-linear-to-br from-[#02060d]/72 via-[#02060d]/58 to-[#00192d]/48" aria-hidden />
+        {/* Header */}
+        {/* <SubHeading className="text-[10px] md:text-xs mb-2 text-center">AUTOMATED CLINICAL WORKFLOW ORCHESTRATION</SubHeading> */}
+        <Heading gradient className="text-xl md:text-2xl leading-tight mb-2 text-left">Automated Clinical Workflow Orchestration</Heading>
+        {/* <p className="text-white/50 text-xs leading-relaxed max-w-xl mx-auto mb-6 text-center">
+            Eliminate routine tasks, accelerate care delivery — intelligent automation across every clinical touchpoint.
+        </p> */}
 
-            <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Referral Processing</h4>
-                    <p className="text-white/75 text-sm leading-relaxed">
-                        Auto‑route incoming referrals to the right specialist, validate insurance, and schedule initial consultation without manual triage.
-                    </p>
+        {/* Main Row — Two Stacked Images Left | All Content Right */}
+        <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="flex flex-col md:flex-row gap-6 md:gap-10 w-full"
+        >
+            {/* Left — Two Stacked Images */}
+            <div className="md:w-1/2 flex flex-col gap-4">
+                <div className="relative rounded-xl overflow-hidden w-full flex-1" style={{ minHeight: "160px" }}>
+                    <div
+                        className="absolute inset-0 bg-cover bg-center scale-105"
+                        style={{ backgroundImage: "url('/assets/scheduler/cwf.png')" }}
+                        aria-hidden
+                    />
+                    <div
+                        className="absolute inset-0"
+                        style={{ backgroundImage: "radial-gradient(60% 60% at 30% 30%, rgba(0,223,216,0.18), transparent 70%)" }}
+                        aria-hidden
+                    />
+                    <div className="absolute inset-0 border border-brand-cyan/20 rounded-xl" aria-hidden />
                 </div>
 
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Lab Order Tracking</h4>
-                    <p className="text-white/75 text-sm leading-relaxed">
-                        Automatically generate lab requisitions, send orders to affiliated labs, and push results back to the ordering provider’s dashboard.
-                    </p>
-                </div>
-
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Task Automation</h4>
-                    <p className="text-white/75 text-sm leading-relaxed">
-                        Handle prescription renewals, prior authorization requests, discharge summaries, and patient follow‑up reminders via rules‑based workflows.
-                    </p>
-                </div>
-
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Inter‑system Orchestration</h4>
-                    <p className="text-white/75 text-sm leading-relaxed">
-                        Coordinate actions across EHR, lab information systems, pharmacy systems, and communication platforms (e.g., secure chat).
-                    </p>
+                <div className="relative rounded-xl overflow-hidden w-full flex-1" style={{ minHeight: "160px" }}>
+                    <div
+                        className="absolute inset-0 bg-cover bg-center scale-105"
+                        style={{ backgroundImage: "url('/assets/scheduler/cwf1.png')" }}
+                        aria-hidden
+                    />
+                    <div
+                        className="absolute inset-0"
+                        style={{ backgroundImage: "radial-gradient(60% 60% at 70% 60%, rgba(0,112,243,0.15), transparent 70%)" }}
+                        aria-hidden
+                    />
+                    <div className="absolute inset-0 border border-brand-blue/20 rounded-xl" aria-hidden />
                 </div>
             </div>
 
-            <div className="relative z-10 mt-5 rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
-                <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Real‑time Analytics</h4>
-                <p className="text-white/75 text-sm leading-relaxed">
-                    Dashboards showing throughput, bottlenecks, and staff workload to enable continuous process improvement.
-                </p>
+            {/* Right — All Content */}
+            <div className="md:w-1/2 flex flex-col gap-4">
+
+                <div className="flex flex-col gap-1.5">
+                    <h3 className="text-base md:text-lg font-bold text-brand-cyan">Referral & Lab Processing</h3>
+                    <ul className="space-y-1 text-white/65 text-xs leading-snug">
+                        <li><span className="text-white/85 font-semibold">Auto-Routing — </span>Incoming referrals routed to the right specialist with insurance validation and consultation scheduling.</li>
+                        <li><span className="text-white/85 font-semibold">Lab Order Tracking — </span>Auto-generate requisitions, send to affiliated labs, and push results to the provider dashboard.</li>
+                        <li><span className="text-white/85 font-semibold">No Manual Triage — </span>Rules-based logic handles routing decisions without staff intervention at each step.</li>
+                    </ul>
+                </div>
+
+                <div className="w-full h-px bg-white/8" />
+
+                <div className="flex flex-col gap-1.5">
+                    <h3 className="text-base md:text-lg font-bold text-brand-cyan">Task Automation</h3>
+                    <ul className="space-y-1 text-white/65 text-xs leading-snug">
+                        <li><span className="text-white/85 font-semibold">Prescription Renewals — </span>Automated renewal requests, prior auth submissions, and approval status tracking.</li>
+                        <li><span className="text-white/85 font-semibold">Discharge Summaries — </span>Templated generation and delivery of discharge documentation to patients and care teams.</li>
+                        <li><span className="text-white/85 font-semibold">Follow-Up Reminders — </span>Scheduled patient outreach via SMS, email, or portal message based on care plan triggers.</li>
+                    </ul>
+                </div>
+
+                <div className="w-full h-px bg-white/8" />
+
+                <div className="flex flex-col gap-1.5">
+                    <h3 className="text-base md:text-lg font-bold text-brand-cyan">Inter-system Orchestration & Analytics</h3>
+                    <ul className="space-y-1 text-white/65 text-xs leading-snug">
+                        <li><span className="text-white/85 font-semibold">Cross-System Sync — </span>Coordinate actions across EHR, LIS, pharmacy systems, and secure communication platforms.</li>
+                        <li><span className="text-white/85 font-semibold">Real-Time Dashboards — </span>Throughput, bottleneck, and staff workload visibility for continuous process improvement.</li>
+                        <li><span className="text-white/85 font-semibold">Audit & Compliance — </span>Full workflow logs with timestamps for regulatory review and operational accountability.</li>
+                    </ul>
+                </div>
+
             </div>
-        </div>
+        </motion.div>
+
     </Container>
 );
 
 export const RecommendationEnginesDetail = () => (
     <Container className="justify-center py-4">
-        <SubHeading className="text-[10px] md:text-xs mb-2">MEDICAL RESEARCH & RECOMMENDATION ENGINES</SubHeading>
-        <Heading gradient className="text-2xl md:text-4xl leading-tight mb-2">Medical Research & Recommendation Engines</Heading>
-        <p className="text-brand-cyan/80 text-sm md:text-base font-semibold mb-6 md:mb-7">Accelerate evidence‑based decisions & discovery</p>
 
-        <div className="relative overflow-hidden rounded-2xl border border-brand-cyan/20 bg-dark-surface/90 p-6 md:p-7">
-            <div
-                className="absolute inset-0 bg-cover bg-center opacity-45 scale-110"
-                style={{ backgroundImage: "url('/assets/custom-medical/tech-landscape-bg.jpg')" }}
-                aria-hidden
-            />
-            <div
-                className="absolute inset-0 mix-blend-soft-light opacity-70"
-                style={{ backgroundImage: "radial-gradient(60% 60% at 20% 15%, rgba(0, 223, 216, 0.35), transparent 65%), radial-gradient(60% 60% at 85% 80%, rgba(0, 112, 243, 0.28), transparent 65%)" }}
-                aria-hidden
-            />
-            <div className="absolute inset-0 bg-linear-to-br from-[#02060d]/72 via-[#02060d]/58 to-[#00192d]/48" aria-hidden />
+        {/* Header */}
+        {/* <SubHeading className="text-[10px] md:text-xs mb-2 text-center">MEDICAL RESEARCH & RECOMMENDATION ENGINES</SubHeading> */}
+        <Heading gradient className="text-xl md:text-2xl leading-tight mb-2 text-left">Medical Research & Recommendation Engines</Heading>
+        {/* <p className="text-white/50 text-xs leading-relaxed max-w-xl mx-auto mb-6 text-center">
+            Accelerate evidence-based decisions & discovery — AI-powered insights for researchers and clinicians.
+        </p> */}
 
-            <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Smart Literature Discovery</h4>
-                    <p className="text-white/75 text-sm leading-relaxed">
-                        AI‑powered search over PubMed, clinical trial registries, guidelines, and proprietary repositories – ranks results by relevance and recency.
-                    </p>
+        {/* Main Row — Two Stacked Images Left | All Content Right */}
+        <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="flex flex-col md:flex-row gap-6 md:gap-10 w-full"
+        >
+            {/* Left — Two Stacked Images */}
+            <div className="md:w-1/2 flex flex-col gap-4">
+                <div className="relative rounded-xl overflow-hidden w-full flex-1" style={{ minHeight: "160px" }}>
+                    <div
+                        className="absolute inset-0 bg-cover bg-center scale-105"
+                        style={{ backgroundImage: "url('/assets/scheduler/research1.png')" }}
+                        aria-hidden
+                    />
+                    <div
+                        className="absolute inset-0"
+                        style={{ backgroundImage: "radial-gradient(60% 60% at 30% 30%, rgba(0,223,216,0.18), transparent 70%)" }}
+                        aria-hidden
+                    />
+                    <div className="absolute inset-0 border border-brand-cyan/20 rounded-xl" aria-hidden />
                 </div>
 
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Personalized Recommendations</h4>
-                    <p className="text-white/75 text-sm leading-relaxed">
-                        For researchers: suggest relevant studies based on past queries, publication history, and current projects. For clinicians: surface guidelines matching patient presentation.
-                    </p>
-                </div>
-
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Clinical Trial Matching</h4>
-                    <p className="text-white/75 text-sm leading-relaxed">
-                        Automatically compare patient eligibility criteria against active trial databases and notify providers or researchers of potential matches.
-                    </p>
-                </div>
-
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Trend & Gap Analysis</h4>
-                    <p className="text-white/75 text-sm leading-relaxed">
-                        Visualise research hotspots, emerging therapies, and understudied conditions using natural language processing on abstracts and full texts.
-                    </p>
+                <div className="relative rounded-xl overflow-hidden w-full flex-1" style={{ minHeight: "160px" }}>
+                    <div
+                        className="absolute inset-0 bg-cover bg-center scale-105"
+                        style={{ backgroundImage: "url('/assets/scheduler/research2.png')" }}
+                        aria-hidden
+                    />
+                    <div
+                        className="absolute inset-0"
+                        style={{ backgroundImage: "radial-gradient(60% 60% at 70% 60%, rgba(0,112,243,0.15), transparent 70%)" }}
+                        aria-hidden
+                    />
+                    <div className="absolute inset-0 border border-brand-blue/20 rounded-xl" aria-hidden />
                 </div>
             </div>
 
-            <div className="relative z-10 mt-5 rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
-                <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Integration with EHR/Workflow</h4>
-                <p className="text-white/75 text-sm leading-relaxed">
-                    Embed recommendation widgets into clinical dashboards so clinicians can review evidence without leaving the patient record.
-                </p>
+            {/* Right — All Content */}
+            <div className="md:w-1/2 flex flex-col gap-4">
+
+                <div className="flex flex-col gap-1.5">
+                    <h3 className="text-base md:text-lg font-bold text-brand-cyan">Smart Literature Discovery</h3>
+                    <ul className="space-y-1 text-white/65 text-xs leading-snug">
+                        <li><span className="text-white/85 font-semibold">AI-Powered Search — </span>Search PubMed, clinical trial registries, and guidelines ranked by relevance and recency.</li>
+                        <li><span className="text-white/85 font-semibold">Personalized for Researchers — </span>Suggest studies based on past queries, publication history, and active projects.</li>
+                        <li><span className="text-white/85 font-semibold">Personalized for Clinicians — </span>Surface matching guidelines and evidence directly from the patient presentation context.</li>
+                    </ul>
+                </div>
+
+                <div className="w-full h-px bg-white/8" />
+
+                <div className="flex flex-col gap-1.5">
+                    <h3 className="text-base md:text-lg font-bold text-brand-cyan">Clinical Trial Matching</h3>
+                    <ul className="space-y-1 text-white/65 text-xs leading-snug">
+                        <li><span className="text-white/85 font-semibold">Eligibility Comparison — </span>Automatically match patient criteria against active trial databases in real time.</li>
+                        <li><span className="text-white/85 font-semibold">Provider Alerts — </span>Notify clinicians and researchers of potential trial matches without manual searching.</li>
+                        <li><span className="text-white/85 font-semibold">Trend & Gap Analysis — </span>Visualise research hotspots and understudied conditions via NLP on abstracts and full texts.</li>
+                    </ul>
+                </div>
+
+                <div className="w-full h-px bg-white/8" />
+
+                <div className="flex flex-col gap-1.5">
+                    <h3 className="text-base md:text-lg font-bold text-brand-cyan">EHR & Workflow Integration</h3>
+                    <ul className="space-y-1 text-white/65 text-xs leading-snug">
+                        <li><span className="text-white/85 font-semibold">Embedded Widgets — </span>Recommendation panels embedded directly into clinical dashboards and patient record views.</li>
+                        <li><span className="text-white/85 font-semibold">Zero Context Switch — </span>Clinicians review evidence without leaving the EHR or interrupting their workflow.</li>
+                        <li><span className="text-white/85 font-semibold">API-First — </span>Plug into existing hospital systems, portals, and research platforms via standard REST/FHIR APIs.</li>
+                    </ul>
+                </div>
+
             </div>
-        </div>
+        </motion.div>
+
     </Container>
 );
 
@@ -2836,294 +3389,366 @@ export const Cat4Details = ({
 
 export const DevOpsCloudInfrastructureDetail = () => (
     <Container className="justify-center py-4">
-        <SubHeading className="text-[10px] md:text-xs mb-2">DEVOPS & CLOUD INFRASTRUCTURE</SubHeading>
+        {/* <SubHeading className="text-[10px] md:text-xs mb-2">DEVOPS & CLOUD INFRASTRUCTURE</SubHeading> */}
         <Heading gradient className="text-2xl md:text-4xl leading-tight mb-2">DevOps & Cloud Infrastructure</Heading>
-        <p className="text-brand-cyan/80 text-sm md:text-base font-semibold mb-6 md:mb-7">Automated, scalable, and highly available medical software environments</p>
+        {/* <p className="text-brand-cyan/80 text-sm md:text-base font-semibold mb-6 md:mb-7">Automated, scalable, and highly available medical software environments</p> */}
 
-        <div className="relative overflow-hidden rounded-2xl border border-brand-cyan/20 bg-dark-surface/90 p-6 md:p-7">
-            <div
-                className="absolute inset-0 bg-cover bg-center opacity-45 scale-110"
-                style={{ backgroundImage: "url('/assets/custom-medical/tech-landscape-bg.jpg')" }}
-                aria-hidden
-            />
-            <div
-                className="absolute inset-0 mix-blend-soft-light opacity-70"
-                style={{ backgroundImage: "radial-gradient(60% 60% at 20% 15%, rgba(0, 223, 216, 0.35), transparent 65%), radial-gradient(60% 60% at 85% 80%, rgba(0, 112, 243, 0.28), transparent 65%)" }}
-                aria-hidden
-            />
-            <div className="absolute inset-0 bg-linear-to-br from-[#02060d]/72 via-[#02060d]/58 to-[#00192d]/48" aria-hidden />
+        <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-stretch">
 
-            <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 md:gap-6">
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-cyan/30 transition-all duration-300">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Multi‑Cloud Expertise</h4>
-                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
-                        Architect and manage infrastructure on AWS (HealthLake, Comprehend Medical), Azure (Healthcare APIs, FHIR), and GCP (Healthcare API) – or hybrid/on‑prem where required.
-                    </p>
+            {/* Left: Stacked content sections */}
+            <div className="flex-1 flex flex-col gap-6 md:gap-8 justify-center">
+
+                {/* Section 1 */}
+                <div className="border-b border-brand-cyan/15 pb-6 md:pb-8">
+                    <h4 className="text-base md:text-lg font-bold text-brand-cyan mb-3">Multi‑Cloud & Infrastructure as Code</h4>
+                    <div className="flex flex-col gap-2">
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            <span className="font-semibold text-white">Multi‑Cloud Expertise —</span> Architect on AWS (HealthLake), Azure (Healthcare APIs), or GCP (Healthcare API); hybrid and on‑prem supported.
+                        </p>
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            <span className="font-semibold text-white">Infrastructure as Code —</span> Provision auditable, repeatable dev/test/prod environments using Terraform, CloudFormation, or ARM templates.
+                        </p>
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            <span className="font-semibold text-white">CI/CD Pipelines —</span> Automate build, test, and deploy via GitHub Actions or Azure DevOps with SAST/DAST and HIPAA compliance gates.
+                        </p>
+                    </div>
                 </div>
 
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-cyan/30 transition-all duration-300">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Infrastructure as Code (IaC)</h4>
-                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
-                        Use Terraform, CloudFormation, or ARM templates to provision repeatable, auditable environments (dev, test, prod) with version control.
-                    </p>
+                {/* Section 2 */}
+                <div className="border-b border-brand-cyan/15 pb-6 md:pb-8">
+                    <h4 className="text-base md:text-lg font-bold text-brand-cyan mb-3">High Availability & Observability</h4>
+                    <div className="flex flex-col gap-2">
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            <span className="font-semibold text-white">HA & Disaster Recovery —</span> Multi‑AZ/multi‑region deployments with auto‑scaling and warm standby strategies for 99.99% uptime SLAs.
+                        </p>
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            <span className="font-semibold text-white">Monitoring & Alerting —</span> Real‑time metrics via Prometheus/Grafana or Datadog with intelligent alerting on latency, errors, and resource usage.
+                        </p>
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            <span className="font-semibold text-white">Incident Response —</span> Automated runbooks and on-call escalation policies to minimize MTTR during production incidents.
+                        </p>
+                    </div>
                 </div>
 
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-cyan/30 transition-all duration-300">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">CI/CD Pipelines</h4>
-                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
-                        Automate build, test, and deployment with GitHub Actions, GitLab CI, or Azure DevOps; include security scanning (SAST/DAST) and compliance checks (HIPAA, GDPR) as pipeline gates.
-                    </p>
+                {/* Section 3 */}
+                <div>
+                    <h4 className="text-base md:text-lg font-bold text-brand-cyan mb-3">Security Automation & Cost Optimization</h4>
+                    <div className="flex flex-col gap-2">
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            <span className="font-semibold text-white">Security Automation —</span> Least-privilege IAM, continuous vulnerability scanning (Trivy, Snyk), and AWS Config rules for HIPAA compliance evidence.
+                        </p>
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            <span className="font-semibold text-white">Cost Optimization —</span> Right-size instances, leverage spot VMs for non-prod, and deliver monthly spend analytics with actionable savings recommendations.
+                        </p>
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            <span className="font-semibold text-white">FinOps Governance —</span> Tag-based cost allocation and budget alerts to maintain full cloud spend visibility across teams and environments.
+                        </p>
+                    </div>
                 </div>
 
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-cyan/30 transition-all duration-300">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">High Availability & DR</h4>
-                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
-                        Design multi‑AZ / multi‑region deployments with auto‑scaling, load balancing, and RPO/RTO strategies (e.g., warm standby, pilot light) for 99.99% uptime SLAs.
-                    </p>
+            </div>
+
+            {/* Right: Two stacked images */}
+            <div className="flex flex-col gap-4 w-full md:w-[38%] shrink-0">
+                <div className="relative rounded-2xl overflow-hidden flex-1 min-h-[180px]">
+                    <img
+                        src="/assets/custom-medical/devops.png"
+                        alt="DevOps & Cloud Infrastructure"
+                        className="absolute inset-0 w-full h-full object-cover"
+                    />
+                    <div
+                        className="absolute inset-0 mix-blend-soft-light opacity-70"
+                        style={{ backgroundImage: "radial-gradient(60% 60% at 20% 15%, rgba(0, 223, 216, 0.35), transparent 65%), radial-gradient(60% 60% at 85% 80%, rgba(0, 112, 243, 0.28), transparent 65%)" }}
+                        aria-hidden
+                    />
+                    <div className="absolute inset-0 bg-linear-to-br from-[#02060d]/40 via-transparent to-[#00192d]/40" aria-hidden />
                 </div>
 
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-cyan/30 transition-all duration-300">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Monitoring & Observability</h4>
-                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
-                        Implement Prometheus/Grafana, Datadog, or Azure Monitor for real‑time metrics (latency, error rates, resource utilization); set up intelligent alerting to prevent downtime.
-                    </p>
-                </div>
-
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-cyan/30 transition-all duration-300">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Security Automation</h4>
-                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
-                        Enforce least‑privilege IAM policies, automate vulnerability scanning (e.g., Trivy, Snyk), and maintain continuous compliance evidence (e.g., AWS Config rules for HIPAA).
-                    </p>
-                </div>
-
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-cyan/30 transition-all duration-300 xl:col-span-2">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Cost Optimization</h4>
-                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
-                        Right‑size instances, use spot/preemptible VMs for non‑production, implement auto‑scaling, and provide monthly cloud spend analytics with actionable recommendations.
-                    </p>
+                <div className="relative rounded-2xl overflow-hidden flex-1 min-h-[180px]">
+                    <img
+                        src="/assets/custom-medical/tech.png"
+                        alt="DevOps & Cloud Infrastructure"
+                        className="absolute inset-0 w-full h-full object-cover object-bottom"
+                    />
+                    <div
+                        className="absolute inset-0 mix-blend-soft-light opacity-70"
+                        style={{ backgroundImage: "radial-gradient(60% 60% at 80% 85%, rgba(0, 112, 243, 0.28), transparent 65%), radial-gradient(60% 60% at 15% 20%, rgba(0, 223, 216, 0.35), transparent 65%)" }}
+                        aria-hidden
+                    />
+                    <div className="absolute inset-0 bg-linear-to-tl from-[#02060d]/40 via-transparent to-[#00192d]/40" aria-hidden />
                 </div>
             </div>
+
         </div>
     </Container>
 );
 
 export const SaaSEnablementDetail = () => (
     <Container className="justify-center py-4">
-        <SubHeading className="text-[10px] md:text-xs mb-2">SAAS ENABLEMENT & MODERNIZATION</SubHeading>
         <Heading gradient className="text-2xl md:text-4xl leading-tight mb-2">SaaS Enablement & Modernization</Heading>
-        <p className="text-brand-cyan/80 text-sm md:text-base font-semibold mb-6 md:mb-7">Transform legacy medical software into modern, scalable SaaS</p>
 
-        <div className="relative overflow-hidden rounded-2xl border border-brand-cyan/20 bg-dark-surface/90 p-6 md:p-7">
-            <div
-                className="absolute inset-0 bg-cover bg-center opacity-45 scale-110"
-                style={{ backgroundImage: "url('/assets/custom-medical/tech-landscape-bg.jpg')" }}
-                aria-hidden
-            />
-            <div
-                className="absolute inset-0 mix-blend-soft-light opacity-70"
-                style={{ backgroundImage: "radial-gradient(60% 60% at 20% 15%, rgba(0, 223, 216, 0.35), transparent 65%), radial-gradient(60% 60% at 85% 80%, rgba(0, 112, 243, 0.28), transparent 65%)" }}
-                aria-hidden
-            />
-            <div className="absolute inset-0 bg-linear-to-br from-[#02060d]/72 via-[#02060d]/58 to-[#00192d]/48" aria-hidden />
+        <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-stretch">
 
-            <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 md:gap-6">
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-cyan/30 transition-all duration-300">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Legacy Assessment & Roadmap</h4>
-                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
-                        Analyze existing monolithic or client‑server applications (e.g., on‑prem EHR, PACS) to identify refactoring candidates, dependencies, and migration complexity.
-                    </p>
+            {/* Left: Stacked content sections */}
+            <div className="flex-1 flex flex-col gap-6 md:gap-8 justify-center">
+
+                {/* Section 1 */}
+                <div className="border-b border-brand-cyan/15 pb-6 md:pb-8">
+                    <h4 className="text-base md:text-lg font-bold text-brand-cyan mb-3">Legacy Assessment & Modernization</h4>
+                    <div className="flex flex-col gap-2">
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            <span className="font-semibold text-white">Legacy Roadmap —</span> Audit monolithic EHR or PACS systems to identify refactoring candidates, dependencies, and migration complexity.
+                        </p>
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            <span className="font-semibold text-white">Microservices Decomposition —</span> Break monoliths into containerized services (Docker, Kubernetes) with well-defined APIs per domain.
+                        </p>
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            <span className="font-semibold text-white">Zero‑Downtime Migration —</span> Use strangler pattern and data sync strategies to cut over without disrupting clinical operations.
+                        </p>
+                    </div>
                 </div>
 
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-cyan/30 transition-all duration-300">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Microservices Decomposition</h4>
-                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
-                        Break down monolithic functions (authentication, patient management, billing) into containerized microservices (Docker, Kubernetes) with well‑defined APIs.
-                    </p>
+                {/* Section 2 */}
+                <div className="border-b border-brand-cyan/15 pb-6 md:pb-8">
+                    <h4 className="text-base md:text-lg font-bold text-brand-cyan mb-3">Multi‑Tenancy & API‑First Design</h4>
+                    <div className="flex flex-col gap-2">
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            <span className="font-semibold text-white">Tenant Isolation —</span> Design database-per-tenant or schema-per-tenant models to securely serve multiple orgs from one codebase.
+                        </p>
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            <span className="font-semibold text-white">API‑First Architecture —</span> Expose RESTful/GraphQL APIs with developer portals (Swagger/OpenAPI) and built-in usage analytics.
+                        </p>
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            <span className="font-semibold text-white">Subscription & Metering —</span> Integrate usage-based billing (per patient, per API call) with Stripe or Chargebee across tiered plans.
+                        </p>
+                    </div>
                 </div>
 
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-cyan/30 transition-all duration-300">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Multi‑Tenancy Architecture</h4>
-                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
-                        Design isolation models (database‑per‑tenant, schema‑per‑tenant, or row‑level) to securely serve multiple healthcare organizations from a single codebase.
-                    </p>
+                {/* Section 3 */}
+                <div>
+                    <h4 className="text-base md:text-lg font-bold text-brand-cyan mb-3">Compliance & SaaS Governance</h4>
+                    <div className="flex flex-col gap-2">
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            <span className="font-semibold text-white">Built-In Compliance —</span> Embed audit trails, logging, and data residency controls for HIPAA and GDPR from day one.
+                        </p>
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            <span className="font-semibold text-white">SOC 2 & HITRUST —</span> Prepare and obtain SOC 2 Type II and HITRUST certifications to meet enterprise customer procurement requirements.
+                        </p>
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            <span className="font-semibold text-white">Tenant Governance —</span> Enforce per-tenant access policies, data isolation audits, and compliance reporting dashboards at scale.
+                        </p>
+                    </div>
                 </div>
 
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-cyan/30 transition-all duration-300">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">API‑First Design</h4>
-                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
-                        Expose RESTful/GraphQL APIs for frontend apps and third‑party integrations; include developer portals (Swagger/OpenAPI) and usage analytics.
-                    </p>
-                </div>
-
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-cyan/30 transition-all duration-300">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Subscription & Metering</h4>
-                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
-                        Integrate usage‑based billing (e.g., per active patient, per API call) with tools like Stripe or Chargebee; support tiered plans (basic, professional, enterprise).
-                    </p>
-                </div>
-
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-cyan/30 transition-all duration-300">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Zero‑Downtime Migration</h4>
-                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
-                        Execute phased cutovers using strategies like strangler pattern, data synchronization between old and new systems, and rollback plans to ensure clinical continuity.
-                    </p>
-                </div>
-
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-cyan/30 transition-all duration-300 xl:col-span-2">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Compliance in SaaS</h4>
-                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
-                        Embed logging, audit trails, and data residency controls (GDPR, HIPAA) into the SaaS platform; obtain SOC 2 Type II and HITRUST certifications as needed.
-                    </p>
-                </div>
             </div>
+
+            {/* Right: Single tall image */}
+            <div className="relative w-full md:w-[42%] shrink-0 rounded-2xl overflow-hidden min-h-[280px] md:min-h-0">
+                <img
+                    src="/assets/custom-medical/saas.png"
+                    alt="SaaS Enablement & Modernization"
+                    className="absolute inset-0 w-full h-full object-cover"
+                />
+                <div
+                    className="absolute inset-0 mix-blend-soft-light opacity-70"
+                    style={{ backgroundImage: "radial-gradient(60% 60% at 20% 15%, rgba(0, 223, 216, 0.35), transparent 65%), radial-gradient(60% 60% at 85% 80%, rgba(0, 112, 243, 0.28), transparent 65%)" }}
+                    aria-hidden
+                />
+                <div className="absolute inset-0 bg-linear-to-br from-[#02060d]/40 via-transparent to-[#00192d]/40" aria-hidden />
+            </div>
+
         </div>
     </Container>
 );
 
 export const QaValidationDetail = () => (
     <Container className="justify-center py-4">
-        <SubHeading className="text-[10px] md:text-xs mb-2">QUALITY ASSURANCE & VALIDATION</SubHeading>
+        {/* <SubHeading className="text-[10px] md:text-xs mb-2">QUALITY ASSURANCE & VALIDATION</SubHeading> */}
         <Heading gradient className="text-2xl md:text-4xl leading-tight mb-2">Quality Assurance & Validation</Heading>
-        <p className="text-brand-cyan/80 text-sm md:text-base font-semibold mb-6 md:mb-7">Comprehensive testing & compliance validation (IQ/OQ/PQ)</p>
+        {/* <p className="text-brand-cyan/80 text-sm md:text-base font-semibold mb-6 md:mb-7">Comprehensive testing & compliance validation (IQ/OQ/PQ)</p> */}
 
-        <div className="relative overflow-hidden rounded-2xl border border-brand-cyan/20 bg-dark-surface/90 p-6 md:p-7">
-            <div
-                className="absolute inset-0 bg-cover bg-center opacity-45 scale-110"
-                style={{ backgroundImage: "url('/assets/custom-medical/tech-landscape-bg.jpg')" }}
-                aria-hidden
-            />
-            <div
-                className="absolute inset-0 mix-blend-soft-light opacity-70"
-                style={{ backgroundImage: "radial-gradient(60% 60% at 20% 15%, rgba(0, 223, 216, 0.35), transparent 65%), radial-gradient(60% 60% at 85% 80%, rgba(0, 112, 243, 0.28), transparent 65%)" }}
-                aria-hidden
-            />
-            <div className="absolute inset-0 bg-linear-to-br from-[#02060d]/72 via-[#02060d]/58 to-[#00192d]/48" aria-hidden />
+        <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-stretch">
 
-            <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 md:gap-6">
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-cyan/30 transition-all duration-300">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Full Test Spectrum</h4>
-                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
-                        Execute functional, integration, system, performance, security, and usability testing – tailored to medical software risk levels (IEC 62304 Class A/B/C).
-                    </p>
-                </div>
+            {/* Left: Stacked content sections */}
+            <div className="flex-1 flex flex-col gap-6 md:gap-8 justify-center">
 
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-cyan/30 transition-all duration-300">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Automated Regression</h4>
-                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
-                        Build Selenium/Cypress for UI, Postman/Newman for API, and JMeter for load testing; run on every CI commit to catch regressions early.
-                    </p>
-                </div>
-
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-cyan/30 transition-all duration-300">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Performance & Scalability</h4>
-                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
-                        Simulate realistic clinical workloads (e.g., 10,000 concurrent users, bulk FHIR queries, image uploads) to validate response times, throughput, and resource limits.
-                    </p>
-                </div>
-
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-cyan/30 transition-all duration-300">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Security Testing</h4>
-                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
-                        Conduct static (SAST), dynamic (DAST), penetration testing, and dependency scanning; produce reports for HIPAA, FDA, and customer security reviews.
-                    </p>
-                </div>
-
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-cyan/30 transition-all duration-300 xl:col-span-2">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Compliance Validation (IQ/OQ/PQ)</h4>
-                    <div className="text-white/75 text-xs md:text-sm leading-relaxed space-y-1">
-                        <p><strong className="text-brand-cyan font-medium">IQ (Installation):</strong> Verify correct installation in target environments (OS, network, dependencies).</p>
-                        <p><strong className="text-brand-cyan font-medium">OQ (Operational):</strong> Test all functional and boundary conditions under simulated clinical use.</p>
-                        <p><strong className="text-brand-cyan font-medium">PQ (Performance):</strong> Demonstrate consistent performance in real-world clinical workflows.</p>
+                {/* Section 1 */}
+                <div className="border-b border-brand-cyan/15 pb-6 md:pb-8">
+                    <h4 className="text-base md:text-lg font-bold text-brand-cyan mb-3">Full Test Spectrum & Automation</h4>
+                    <div className="flex flex-col gap-2">
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            <span className="font-semibold text-white">Full Test Coverage —</span> Functional, integration, system, performance, security, and usability testing aligned to IEC 62304 Class A/B/C risk levels.
+                        </p>
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            <span className="font-semibold text-white">Automated Regression —</span> Selenium/Cypress for UI, Postman/Newman for API, and JMeter for load — triggered on every CI commit.
+                        </p>
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            <span className="font-semibold text-white">Performance & Security —</span> Simulate 10k concurrent users and run SAST/DAST/pen testing with reports ready for HIPAA and FDA review.
+                        </p>
                     </div>
                 </div>
 
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-cyan/30 transition-all duration-300">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Traceability & Docs</h4>
-                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
-                        Maintain trace matrix linking requirements → test cases → defects → validation results; generate audit‑ready summary reports for regulatory submissions.
-                    </p>
+                {/* Section 2 */}
+                <div className="border-b border-brand-cyan/15 pb-6 md:pb-8">
+                    <h4 className="text-base md:text-lg font-bold text-brand-cyan mb-3">Compliance Validation (IQ/OQ/PQ)</h4>
+                    <div className="flex flex-col gap-2">
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            <span className="font-semibold text-white">IQ (Installation) —</span> Verify correct installation across target environments including OS, network, and dependency configurations.
+                        </p>
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            <span className="font-semibold text-white">OQ (Operational) —</span> Test all functional and boundary conditions under simulated real-world clinical use scenarios.
+                        </p>
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            <span className="font-semibold text-white">PQ (Performance) —</span> Demonstrate consistent, repeatable performance within validated production clinical workflows.
+                        </p>
+                    </div>
                 </div>
 
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-cyan/30 transition-all duration-300">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Test Env Management</h4>
-                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
-                        Provision isolated, production‑like environments (including FHIR sandboxes, simulated medical devices) with data anonymization tools for realistic yet compliant testing.
-                    </p>
+                {/* Section 3 */}
+                <div>
+                    <h4 className="text-base md:text-lg font-bold text-brand-cyan mb-3">Traceability, Docs & Test Environments</h4>
+                    <div className="flex flex-col gap-2">
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            <span className="font-semibold text-white">Trace Matrix —</span> Link requirements → test cases → defects → validation results in a single audit-ready artifact for regulatory submissions.
+                        </p>
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            <span className="font-semibold text-white">Test Env Management —</span> Provision isolated, production-like environments with FHIR sandboxes and anonymized clinical data.
+                        </p>
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            <span className="font-semibold text-white">Audit-Ready Reporting —</span> Generate structured summary reports and sign-off documentation aligned to FDA 21 CFR 820 and EU MDR standards.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+            {/* Right: Two stacked images */}
+            <div className="flex flex-col gap-4 w-full md:w-[38%] shrink-0">
+                <div className="relative rounded-2xl overflow-hidden flex-1 min-h-[180px]">
+                    <img
+                        src="/assets/custom-medical/qa1.png"
+                        alt="Quality Assurance & Validation"
+                        className="absolute inset-0 w-full h-full object-cover"
+                    />
+                    <div
+                        className="absolute inset-0 mix-blend-soft-light opacity-70"
+                        style={{ backgroundImage: "radial-gradient(60% 60% at 20% 15%, rgba(0, 223, 216, 0.35), transparent 65%), radial-gradient(60% 60% at 85% 80%, rgba(0, 112, 243, 0.28), transparent 65%)" }}
+                        aria-hidden
+                    />
+                    <div className="absolute inset-0 bg-linear-to-br from-[#02060d]/40 via-transparent to-[#00192d]/40" aria-hidden />
+                </div>
+
+                <div className="relative rounded-2xl overflow-hidden flex-1 min-h-[180px]">
+                    <img
+                        src="/assets/custom-medical/qa2.png"
+                        alt="Quality Assurance & Validation"
+                        className="absolute inset-0 w-full h-full object-cover object-bottom"
+                    />
+                    <div
+                        className="absolute inset-0 mix-blend-soft-light opacity-70"
+                        style={{ backgroundImage: "radial-gradient(60% 60% at 80% 85%, rgba(0, 112, 243, 0.28), transparent 65%), radial-gradient(60% 60% at 15% 20%, rgba(0, 223, 216, 0.35), transparent 65%)" }}
+                        aria-hidden
+                    />
+                    <div className="absolute inset-0 bg-linear-to-tl from-[#02060d]/40 via-transparent to-[#00192d]/40" aria-hidden />
                 </div>
             </div>
+
         </div>
     </Container>
 );
 
 export const OngoingMaintenanceDetail = () => (
     <Container className="justify-center py-4">
-        <SubHeading className="text-[10px] md:text-xs mb-2">ONGOING MAINTENANCE & SUPPORT</SubHeading>
+        {/* <SubHeading className="text-[10px] md:text-xs mb-2">ONGOING MAINTENANCE & SUPPORT</SubHeading> */}
         <Heading gradient className="text-2xl md:text-4xl leading-tight mb-2">Ongoing Maintenance & Support</Heading>
-        <p className="text-brand-cyan/80 text-sm md:text-base font-semibold mb-6 md:mb-7">Reliable IT support, patches, monitoring, and continuous improvement</p>
+        {/* <p className="text-brand-cyan/80 text-sm md:text-base font-semibold mb-6 md:mb-7">Reliable IT support, patches, monitoring, and continuous improvement</p> */}
 
-        <div className="relative overflow-hidden rounded-2xl border border-brand-cyan/20 bg-dark-surface/90 p-6 md:p-7">
-            <div
-                className="absolute inset-0 bg-cover bg-center opacity-45 scale-110"
-                style={{ backgroundImage: "url('/assets/custom-medical/tech-landscape-bg.jpg')" }}
-                aria-hidden
-            />
-            <div
-                className="absolute inset-0 mix-blend-soft-light opacity-70"
-                style={{ backgroundImage: "radial-gradient(60% 60% at 20% 15%, rgba(0, 223, 216, 0.35), transparent 65%), radial-gradient(60% 60% at 85% 80%, rgba(0, 112, 243, 0.28), transparent 65%)" }}
-                aria-hidden
-            />
-            <div className="absolute inset-0 bg-linear-to-br from-[#02060d]/72 via-[#02060d]/58 to-[#00192d]/48" aria-hidden />
+        <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-stretch">
 
-            <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 md:gap-6">
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-cyan/30 transition-all duration-300">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Tiered Support Model</h4>
-                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
-                        Provide L1 (helpdesk), L2 (application troubleshooting), and L3 (engineering escalation) with SLAs for response and resolution (e.g., critical: 15 min, high: 4 hrs).
-                    </p>
+            {/* Left: Stacked content sections */}
+            <div className="flex-1 flex flex-col gap-6 md:gap-8 justify-center">
+
+                {/* Section 1 */}
+                <div className="border-b border-brand-cyan/15 pb-6 md:pb-8">
+                    <h4 className="text-base md:text-lg font-bold text-brand-cyan mb-3">Tiered Support & Bug Management</h4>
+                    <div className="flex flex-col gap-2">
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            <span className="font-semibold text-white">Tiered Support Model —</span> L1 helpdesk, L2 app troubleshooting, and L3 engineering escalation with defined SLAs (critical: 15 min, high: 4 hrs).
+                        </p>
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            <span className="font-semibold text-white">Bug Fixes & Patches —</span> Security hotfixes within 24–48 hrs; severity-triaged defects resolved on scheduled monthly patch cycles.
+                        </p>
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            <span className="font-semibold text-white">Security Patch Automation —</span> Dependabot or AWS Patch Manager auto-applies OS and library patches in non-prod before validated promotion.
+                        </p>
+                    </div>
                 </div>
 
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-cyan/30 transition-all duration-300">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Bug Fixes & Patches</h4>
-                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
-                        Triage and prioritize defects by severity (critical, major, minor); release hotfixes for security vulnerabilities within 24‑48 hours, scheduled patches monthly.
-                    </p>
+                {/* Section 2 */}
+                <div className="border-b border-brand-cyan/15 pb-6 md:pb-8">
+                    <h4 className="text-base md:text-lg font-bold text-brand-cyan mb-3">Monitoring & Incident Management</h4>
+                    <div className="flex flex-col gap-2">
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            <span className="font-semibold text-white">24/7 Performance Monitoring —</span> Synthetic and real-user monitoring (RUM) on API latency, error rates, and DB query performance with proactive alerts.
+                        </p>
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            <span className="font-semibold text-white">Incident Management —</span> ITIL-aligned detection → diagnosis → resolution → post-mortem with on-call rotations and customer status pages.
+                        </p>
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            <span className="font-semibold text-white">Release Management —</span> Off-peak maintenance windows with blue-green or canary deployments to minimize clinical disruption.
+                        </p>
+                    </div>
                 </div>
 
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-cyan/30 transition-all duration-300">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Security Patch Automation</h4>
-                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
-                        Use tools like Dependabot, Renovate, or AWS Systems Manager Patch Manager to automatically apply OS and library patches in non‑prod, then validated promotion to production.
-                    </p>
+                {/* Section 3 */}
+                <div>
+                    <h4 className="text-base md:text-lg font-bold text-brand-cyan mb-3">Continuous Improvement</h4>
+                    <div className="flex flex-col gap-2">
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            <span className="font-semibold text-white">Feedback Loop —</span> Aggregate support tickets, logs, and user surveys into a prioritized backlog each sprint.
+                        </p>
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            <span className="font-semibold text-white">Tech Debt Reduction —</span> Scheduled refactoring cycles to address code quality, dependency upgrades, and architectural drift.
+                        </p>
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            <span className="font-semibold text-white">Roadmap Alignment —</span> Quarterly reviews to align maintenance priorities with evolving regulatory requirements and product goals.
+                        </p>
+                    </div>
                 </div>
 
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-cyan/30 transition-all duration-300">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Continuous Performance</h4>
-                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
-                        24/7 synthetic and real‑user monitoring (RUM) for API latency, error rates, database query performance, and storage I/O; proactive threshold alerts.
-                    </p>
+            </div>
+
+            {/* Right: Two stacked images */}
+            <div className="flex flex-col gap-4 w-full md:w-[38%] shrink-0">
+                <div className="relative rounded-2xl overflow-hidden flex-1 min-h-[180px]">
+                    <img
+                        src="/assets/custom-medical/it1.png"
+                        alt="Ongoing Maintenance & Support"
+                        className="absolute inset-0 w-full h-full object-cover"
+                    />
+                    <div
+                        className="absolute inset-0 mix-blend-soft-light opacity-70"
+                        style={{ backgroundImage: "radial-gradient(60% 60% at 20% 15%, rgba(0, 223, 216, 0.35), transparent 65%), radial-gradient(60% 60% at 85% 80%, rgba(0, 112, 243, 0.28), transparent 65%)" }}
+                        aria-hidden
+                    />
+                    <div className="absolute inset-0 bg-linear-to-br from-[#02060d]/40 via-transparent to-[#00192d]/40" aria-hidden />
                 </div>
 
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-cyan/30 transition-all duration-300">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Incident Management</h4>
-                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
-                        Follow ITIL‑aligned process (detection → diagnosis → resolution → post‑mortem) with on‑call rotations and status pages for customer transparency.
-                    </p>
-                </div>
-
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-cyan/30 transition-all duration-300">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Release Management</h4>
-                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
-                        Schedule regular maintenance windows (e.g., off‑peak hours), communicate changes, and use blue‑green or canary deployments to minimize user impact.
-                    </p>
-                </div>
-
-                <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5 hover:border-brand-cyan/30 transition-all duration-300 xl:col-span-2">
-                    <h4 className="text-base md:text-lg font-semibold text-brand-cyan mb-2">Continuous Improvement</h4>
-                    <p className="text-white/75 text-xs md:text-sm leading-relaxed">
-                        Collect feedback from support tickets, logs, and user surveys; prioritize feature enhancements, technical debt reduction, and usability improvements for each sprint.
-                    </p>
+                <div className="relative rounded-2xl overflow-hidden flex-1 min-h-[180px]">
+                    <img
+                        src="/assets/custom-medical/it2.png"
+                        alt="Ongoing Maintenance & Support"
+                        className="absolute inset-0 w-full h-full object-cover object-bottom"
+                    />
+                    <div
+                        className="absolute inset-0 mix-blend-soft-light opacity-70"
+                        style={{ backgroundImage: "radial-gradient(60% 60% at 80% 85%, rgba(0, 112, 243, 0.28), transparent 65%), radial-gradient(60% 60% at 15% 20%, rgba(0, 223, 216, 0.35), transparent 65%)" }}
+                        aria-hidden
+                    />
+                    <div className="absolute inset-0 bg-linear-to-tl from-[#02060d]/40 via-transparent to-[#00192d]/40" aria-hidden />
                 </div>
             </div>
+
         </div>
     </Container>
 );
