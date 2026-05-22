@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Globe from "react-globe.gl";
 import { motion, useScroll, useSpring, AnimatePresence } from "motion/react";
 import { Brain, Code2, Zap, Server, ShieldCheck, ExternalLink, Smartphone, Cloud, Trophy, ClipboardList, ShieldCheckIcon} from "lucide-react";
+import { div } from "three/src/nodes/math/OperatorNode";
 
 const Container = ({ children, className = "", isActive, ...props }: { children: React.ReactNode, className?: string, isActive?: boolean, [key: string]: any }) => {
     const { scrollYProgress } = useScroll();
@@ -384,14 +385,13 @@ export const AnimatedMap = () => {
             }
         };
         updateDimensions();
-        // Give it a small delay to ensure container is fully rendered before capturing dimension
         const timer = setTimeout(updateDimensions, 100);
         window.addEventListener('resize', updateDimensions);
         return () => {
             clearTimeout(timer);
             window.removeEventListener('resize', updateDimensions);
         };
-    }, [show2DMap]); // Re-measure when toggling views
+    }, [show2DMap]);
 
     React.useEffect(() => {
         if (!show2DMap) {
@@ -399,10 +399,8 @@ export const AnimatedMap = () => {
                 globeEl.current.controls().autoRotate = true;
                 globeEl.current.controls().autoRotateSpeed = 0.8;
                 globeEl.current.controls().enableZoom = false;
-                // Set initial POV so both locations are visible
                 globeEl.current.pointOfView({ lat: 38, lng: -10, altitude: 2 }, 0);
             }
-            // Delay rendering HTML elements slightly to ensure globe is fully mounted
             const htmlTimer = setTimeout(() => setRenderGlobeHTML(true), 200);
             return () => clearTimeout(htmlTimer);
         } else {
@@ -410,31 +408,22 @@ export const AnimatedMap = () => {
         }
     }, [dimensions.width, show2DMap]);
 
-    // Marker data
     const gData = [
-        { lat: 45.6083, lng: -94.2069, label: 'Head Office (USA)', color: '#0070f3' }, // Minnesota
-        { lat: 33.6844, lng: 73.0479, label: 'Off-shore R&D and Production Facility (Isb)', color: '#00dfd8' }  // Islamabad
+        { lat: 45.6083, lng: -94.2069, label: 'Head Office (USA)', color: '#0070f3' },
+        { lat: 33.6844, lng: 73.0479, label: 'Off-shore R&D and Production Facility (Isb)', color: '#00dfd8' }
     ];
 
-    // Arc data
     const arcsData = [
-        {
-            startLat: 45.6083, startLng: -94.2069,
-            endLat: 33.6844, endLng: 73.0479,
-        },
-        {
-            startLat: 33.6844, startLng: 73.0479,
-            endLat: 45.6083, endLng: -94.2069,
-        }
+        { startLat: 45.6083, startLng: -94.2069, endLat: 33.6844, endLng: 73.0479 },
+        { startLat: 33.6844, startLng: 73.0479, endLat: 45.6083, endLng: -94.2069 }
     ];
 
     return (
         <Container className="text-center items-center">
-            <SubHeading>OUR LOCATIONS</SubHeading>
-            <Heading gradient>Global Presence</Heading>
-            <p className="text-lg md:text-xl text-white/60 font-light leading-relaxed mb-12 max-w-2xl mx-auto">
+            {!show2DMap && <Heading gradient>Global Presence</Heading>}
+            {/* <p className="text-lg md:text-xl text-white/60 font-light leading-relaxed mb-12 max-w-2xl mx-auto">
                 Bridging innovation across continents with our 3D scalable architecture.
-            </p>
+            </p> */}
 
             <AnimatePresence mode="wait">
                 {!show2DMap ? (
@@ -446,15 +435,12 @@ export const AnimatedMap = () => {
                         ref={containerRef}
                         className="relative w-full h-[40vh] md:h-[50vh] max-w-4xl mx-auto mt-6 mb-16 rounded-[3rem] overflow-hidden glass-dark border border-white/10 shadow-[0_0_50px_rgba(0,112,243,0.15)] bg-black group"
                     >
-                        {/* Fallback glow behind globe */}
                         <div className="absolute inset-x-0 bottom-0 top-1/2 bg-brand-cyan/20 blur-[100px] z-0 pointer-events-none" />
-
-                        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 pointer-events-none animate-bounce opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                        {/* <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 pointer-events-none animate-bounce opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                             <div className="bg-brand-cyan/20 text-brand-cyan border border-brand-cyan/50 px-6 py-2 rounded-full backdrop-blur-sm text-sm font-semibold tracking-wider transition-all duration-300 shadow-[0_0_20px_rgba(0,223,216,0.2)]">
                                 DRAG TO ROTATE • CLICK TO EXPAND
                             </div>
-                        </div>
-
+                        </div> */}
                         <div className="absolute inset-0 z-10">
                             <Globe
                                 ref={globeEl}
@@ -463,10 +449,7 @@ export const AnimatedMap = () => {
                                 globeImageUrl="//unpkg.com/three-globe/example/img/earth-dark.jpg"
                                 bumpImageUrl="//unpkg.com/three-globe/example/img/earth-topology.png"
                                 backgroundColor="rgba(0,0,0,0)"
-
                                 onGlobeClick={() => setShow2DMap(true)}
-
-                                // Arcs configuration
                                 arcsData={arcsData}
                                 arcColor={() => ['#0070f3', '#00dfd8']}
                                 arcDashLength={0.4}
@@ -474,8 +457,6 @@ export const AnimatedMap = () => {
                                 arcDashInitialGap={() => Math.random()}
                                 arcDashAnimateTime={2000}
                                 arcStroke={1.5}
-
-                                // Marker dots
                                 htmlElementsData={renderGlobeHTML ? gData : []}
                                 htmlElement={(d: any) => {
                                     const el = document.createElement('div');
@@ -493,112 +474,200 @@ export const AnimatedMap = () => {
                         </div>
                     </motion.div>
                 ) : (
+                    /* ── 2D MAP VIEW ──────────────────────────────────────────────────────
+                       Break out of Container width constraints by using negative margins
+                       so the panel stretches edge-to-edge relative to the viewport.
+                    ──────────────────────────────────────────────────────────────────── */
                     <motion.div
                         key="2d-map-view"
                         initial={{ opacity: 0, scale: 0.95, y: 30 }}
                         animate={{ opacity: 1, scale: 1, y: 0 }}
                         exit={{ opacity: 0, scale: 0.95, y: 30 }}
                         transition={{ duration: 0.5, ease: "easeOut" }}
-                        className="relative w-full aspect-square md:aspect-video max-w-7xl mx-auto mt-6 mb-16 rounded-[3rem] glass-dark border border-white/10 shadow-[0_0_50px_rgba(0,223,216,0.15)] bg-black flex items-center justify-center p-4 md:p-8"
+                        style={{
+                            width: "80vw",
+                            marginLeft: "calc(-40vw + 50%)",
+                            marginRight: "calc(-40vw + 50%)",
+                        }}
+                        className="mt-6 mb-16 px-4 md:px-8"
                     >
-                        <button
-                            onClick={(e) => { e.stopPropagation(); setShow2DMap(false); }}
-                            className="absolute z-50 top-6 right-6 md:top-8 md:right-8 bg-black/60 border border-white/20 text-white/70 hover:text-brand-cyan hover:border-brand-cyan rounded-full px-6 py-2.5 backdrop-blur-md transition-all duration-300 font-bold uppercase tracking-widest text-xs md:text-sm hover:scale-105 shadow-lg"
+                        {/* ── Map Panel ─────────────────────────────────────────────────────
+                            Full viewport-width panel, tall enough to comfortably show everything.
+                            overflow-hidden keeps the rounded corners clean.
+                        ──────────────────────────────────────────────────────────────────── */}
+                        <div
+                            className="relative w-full rounded-[3rem] glass-dark border border-white/10 shadow-[0_0_60px_rgba(0,223,216,0.15)] bg-black overflow-hidden"
+                            style={{ minHeight: "75vh" }}
                         >
-                            Back to 3D Globe
-                        </button>
+                            {/* Glow */}
+                            <div className="absolute inset-x-0 bottom-0 top-1/2 bg-brand-cyan/20 blur-[120px] z-0 pointer-events-none" />
 
-                        <div className="absolute inset-x-0 bottom-0 top-1/2 bg-brand-cyan/20 blur-[120px] z-0 pointer-events-none" />
+                            {/* World map SVG — large and centred */}
+                            <div className="relative inset-0 flex items-center justify-center pointer-events-none z-10">
+                                <img
+                                    src="/world-map.svg"
+                                    alt="World Map"
+                                    className="w-[75%] h-auto object-contain opacity-[0.4] invert drop-shadow-[0_0_20px_rgba(255,255,255,0.15)]"
+                                />
+                            </div>
 
-                        <div className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none">
-                            <img src="/world-map.svg" alt="World Map" className="w-[90%] md:w-[85%] h-auto object-contain opacity-[0.4] invert drop-shadow-[0_0_20px_rgba(255,255,255,0.15)]" />
-                        </div>
-
-                        <svg className="absolute inset-0 w-full h-full pointer-events-none z-20" viewBox="0 0 1000 1000" preserveAspectRatio="none">
-                            <defs>
-                                <linearGradient id="gradient-line" x1="0%" y1="0%" x2="100%" y2="0%">
-                                    <stop offset="0%" stopColor="#0070f3" stopOpacity={0.2} />
-                                    <stop offset="50%" stopColor="#00dfd8" />
-                                    <stop offset="100%" stopColor="#0070f3" stopOpacity={0.2} />
-                                </linearGradient>
-                                <linearGradient id="glow-line" x1="0%" y1="0%" x2="100%" y2="0%">
-                                    <stop offset="0%" stopColor="#00dfd8" stopOpacity={0.1} />
-                                    <stop offset="100%" stopColor="#0070f3" />
-                                </linearGradient>
-                            </defs>
-
-                            {/* Multiple animated global connections highlighting the network */}
-                            {[
-                                { d: "M 250 400 Q 500 100 700 450", duration: 3, delay: 0 },
-                                { d: "M 250 400 Q 300 600 450 750", duration: 4, delay: 1 },
-                                { d: "M 700 450 Q 750 650 850 750", duration: 3.5, delay: 0.5 },
-                                { d: "M 500 350 Q 600 250 700 450", duration: 2.5, delay: 1.5 },
-                            ].map((path, idx) => (
-                                <g key={idx}>
+                            {/* Animated SVG arcs */}
+                            <svg
+                                className="absolute inset-0 w-full h-full pointer-events-none z-20"
+                                viewBox="0 0 1000 1000"
+                                preserveAspectRatio="none"
+                            >
+                                <defs>
+                                    <linearGradient id="gradient-line" x1="0%" y1="0%" x2="100%" y2="0%">
+                                        <stop offset="0%" stopColor="#0070f3" stopOpacity={0.2} />
+                                        <stop offset="50%" stopColor="#00dfd8" />
+                                        <stop offset="100%" stopColor="#0070f3" stopOpacity={0.2} />
+                                    </linearGradient>
+                                </defs>
+                                
+                                {/* Single arc connecting US (300,450) to Pakistan (630,450) */}
+                                <g>
                                     <motion.path
-                                        d={path.d}
+                                        d="M 307 320 Q 465 10 630 390"
                                         fill="none"
-                                        stroke={`url(#${idx % 2 === 0 ? 'gradient-line' : 'glow-line'})`}
-                                        strokeWidth="2"
-                                        strokeDasharray="4 6"
+                                        stroke="url(#gradient-line)"
+                                        strokeWidth="2.5"
+                                        strokeDasharray="5 7"
                                         initial={{ pathLength: 0, opacity: 0 }}
-                                        whileInView={{ pathLength: 1, opacity: 0.6 }}
-                                        transition={{ duration: 2, ease: "easeInOut", delay: path.delay }}
+                                        whileInView={{ pathLength: 1, opacity: 0.7 }}
+                                        transition={{ duration: 2, ease: "easeInOut", delay: 0 }}
                                     />
-                                    <motion.circle r={idx === 0 ? "3" : "2"} fill="#fff" filter="drop-shadow(0 0 5px #fff)">
-                                        <animateMotion path={path.d} dur={`${path.duration}s`} repeatCount="indefinite" />
+                                    <motion.circle r="3" fill="#fff" filter="drop-shadow(0 0 5px #fff)">
+                                        <animateMotion 
+                                            path="M 307 320 Q 465 10 630 390" 
+                                            dur="3s" 
+                                            repeatCount="indefinite" 
+                                        />
                                     </motion.circle>
                                 </g>
-                            ))}
-                        </svg>
+                            </svg>
 
-                        {/* US Marker */}
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            transition={{ delay: 0.5, type: "spring" }}
-                            className="absolute top-[38%] left-[23%] md:left-[22%] -translate-x-1/2 -translate-y-1/2 flex items-center z-30 group"
-                        >
-                            <div className="absolute right-full mr-2 md:mr-4 flex-row items-center whitespace-nowrap hidden sm:flex">
-                                <div className="text-right mr-2 md:mr-4 bg-black/60 p-3 lg:p-4 rounded-xl border border-white/10 backdrop-blur-md shadow-[0_0_30px_rgba(0,112,243,0.15)]">
-                                    <p className="text-brand-cyan font-bold text-sm md:text-xl lg:text-2xl leading-tight mb-1">Head Office</p>
-                                    <p className="text-white text-[10px] md:text-xs lg:text-sm leading-snug font-medium italic">in Saint Cloud<br />Edgewater Business Centre<br />Sartell, Minnesota, USA</p>
-                                </div>
-                                <div className="w-4 md:w-16 h-px bg-brand-cyan" />
-                                <div className="w-1.5 h-1.5 rounded-full bg-brand-cyan -ml-1 shadow-[0_0_10px_#00dfd8]" />
-                            </div>
+                            {/* Back button */}
+                            <button
+                                onClick={(e) => { e.stopPropagation(); setShow2DMap(false); }}
+                                className="absolute z-50 top-6 right-6 md:top-8 md:right-8 bg-black/60 border border-white/20 text-white/70 hover:text-brand-cyan hover:border-brand-cyan rounded-full px-6 py-2.5 backdrop-blur-md transition-all duration-300 font-bold uppercase tracking-widest text-xs md:text-sm hover:scale-105 shadow-lg"
+                            >
+                                Back
+                            </button>
 
-                            <div className="relative flex items-center justify-center">
-                                <motion.div animate={{ scale: [1, 2.5, 1], opacity: [0.6, 0, 0.6] }} transition={{ duration: 2, repeat: Infinity }} className="absolute -inset-1.5 border border-brand-cyan rounded-full" />
-                                <div className="w-5 h-5 bg-red-600 rounded-full relative z-10 shadow-[0_0_20px_rgba(239,68,68,0.8)] border-[3px] border-white flex items-center justify-center group-hover:scale-125 transition-transform">
-                                    <div className="w-1.5 h-1.5 bg-white rounded-full"></div>
+                            {/* ── US Card — left edge of panel ──────────────────────────────── */}
+                           <motion.div
+                                initial={{ opacity: 0, x: -20 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{ delay: 0.7 }}
+                                whileHover={{ 
+                                    scale: 1.05,
+                                    transition: { duration: 0.2, ease: "easeInOut" }
+                                }}
+                                className="absolute left-[2%] top-[40%] -translate-y-1/2 z-30 w-64 glass-dark rounded-2xl border border-brand-blue/30 overflow-hidden shadow-[0_0_30px_rgba(0,112,243,0.25)] hidden md:block cursor-pointer"
+                            >
+                                <div className="relative h-32 overflow-hidden">
+                                    <img src="/assets/us-facility.png" alt="US Facility" className="w-full h-full object-cover opacity-85 hover:scale-105 transition-transform duration-700" />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                                    <div className="absolute bottom-2 left-3">
+                                        <div className="flex items-center gap-1.5">
+                                            <span className="text-sm">🇺🇸</span>
+                                            <p className="text-white font-bold text-sm">Minnesota</p>
+                                        </div>
+                                        <p className="text-brand-blue/80 font-mono text-[9px] tracking-widest uppercase">Global Headquarters</p>
+                                    </div>
                                 </div>
-                            </div>
-                        </motion.div>
+                                <div className="p-4 flex flex-col gap-2">
+                                    <p className="text-brand-cyan font-bold text-sm text-left leading-tight">Headquarters</p>
+                                    <p className="text-white/60 text-[11px] text-left leading-relaxed">Oversees global operations, regulatory excellence & strategic international partnerships.</p>
+                                    <div className="grid grid-cols-2 gap-1.5 mt-1">
+                                        {["Regulatory Hub", "Strategic Ops", "Global Partnerships", "US Compliance"].map((item, i) => (
+                                            <div key={i} className="flex items-center gap-1.5">
+                                                <div className="w-1.5 h-1.5 rounded-full bg-brand-cyan shrink-0" />
+                                                <span className="text-white/50 text-[10px]">{item}</span>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            </motion.div>
 
-                        {/* Pak Marker */}
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            transition={{ delay: 0.8, type: "spring" }}
-                            className="absolute top-[48%] md:top-[45%] left-[66%] md:left-[68%] -translate-x-1/2 -translate-y-1/2 flex items-center z-30 group"
-                        >
-                            <div className="relative flex items-center justify-center">
-                                <motion.div animate={{ scale: [1, 2.5, 1], opacity: [0.6, 0, 0.6] }} transition={{ duration: 2, repeat: Infinity, delay: 1 }} className="absolute -inset-1.5 border border-brand-cyan rounded-full" />
-                                <div className="w-5 h-5 bg-red-600 rounded-full relative z-10 shadow-[0_0_20px_rgba(239,68,68,0.8)] border-[3px] border-white flex items-center justify-center group-hover:scale-125 transition-transform">
-                                    <div className="w-1.5 h-1.5 bg-white rounded-full"></div>
+                            {/* US Pin */}
+                            <motion.div
+                                initial={{ opacity: 0, scale: 0 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                transition={{ delay: 0.5, type: "spring" }}
+                                className="absolute top-[32%] left-[31%] -translate-x-1/2 -translate-y-1/2 z-30 group hidden md:block"
+                            >
+                                {/* Connector line to card */}
+                                <div className="absolute top-1/2 right-full -translate-y-1/2 flex items-center">
+                                    <div className="w-[3vw] h-px bg-gradient-to-l from-brand-cyan to-transparent" />
+                                    <div className="w-1.5 h-1.5 rounded-full bg-brand-cyan shadow-[0_0_10px_#00dfd8] shrink-0" />
                                 </div>
-                            </div>
+                                <div className="relative flex items-center justify-center">
+                                    <motion.div animate={{ scale: [1, 2.5, 1], opacity: [0.6, 0, 0.6] }} transition={{ duration: 2, repeat: Infinity }} className="absolute -inset-1.5 border border-brand-cyan rounded-full" />
+                                    <div className="w-5 h-5 bg-red-600 rounded-full relative z-10 shadow-[0_0_20px_rgba(239,68,68,0.8)] border-[3px] border-white flex items-center justify-center group-hover:scale-125 transition-transform">
+                                        <div className="w-1.5 h-1.5 bg-white rounded-full" />
+                                    </div>
+                                </div>
+                            </motion.div>
 
-                            <div className="absolute left-full ml-2 md:ml-4 flex-row items-center whitespace-nowrap hidden sm:flex">
-                                <div className="w-1.5 h-1.5 rounded-full bg-brand-cyan -mr-1 shadow-[0_0_10px_#00dfd8]" />
-                                <div className="w-4 md:w-16 h-px bg-brand-cyan" />
-                                <div className="text-left ml-2 md:ml-4 bg-black/60 p-3 lg:p-4 rounded-xl border border-white/10 backdrop-blur-md shadow-[0_0_30px_rgba(0,223,216,0.15)]">
-                                    <p className="text-brand-cyan font-bold text-sm md:text-xl lg:text-2xl leading-tight mb-1">Off-shore R&D and<br />Production Facility</p>
-                                    <p className="text-white text-[10px] md:text-xs lg:text-sm leading-snug font-bold">in Islamabad Pakistan</p>
+                            {/* ── Pakistan Pin ──────────────────────────────────────────────── */}
+                            <motion.div
+                                initial={{ opacity: 0, scale: 0 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                transition={{ delay: 0.8, type: "spring" }}
+                                className="absolute top-[40%] left-[63.5%] -translate-x-1/2 -translate-y-1/2 z-30 group hidden md:block"
+                            >
+                                {/* Connector line to card */}
+                                <div className="absolute top-1/2 left-full -translate-y-1/2 flex items-center">
+                                    <div className="w-1.5 h-1.5 rounded-full bg-brand-cyan shadow-[0_0_10px_#00dfd8] shrink-0" />
+                                    <div className="w-[3vw] h-px bg-gradient-to-r from-brand-cyan to-transparent" />
                                 </div>
-                            </div>
-                        </motion.div>
+                                <div className="relative flex items-center justify-center">
+                                    <motion.div animate={{ scale: [1, 2.5, 1], opacity: [0.6, 0, 0.6] }} transition={{ duration: 2, repeat: Infinity, delay: 1 }} className="absolute -inset-1.5 border border-brand-cyan rounded-full" />
+                                    <div className="w-5 h-5 bg-red-600 rounded-full relative z-10 shadow-[0_0_20px_rgba(239,68,68,0.8)] border-[3px] border-white flex items-center justify-center group-hover:scale-125 transition-transform">
+                                        <div className="w-1.5 h-1.5 bg-white rounded-full" />
+                                    </div>
+                                </div>
+                            </motion.div>
+
+                            {/* ── Pakistan Card — right edge of panel ───────────────────────── */}
+                            <motion.div
+                                initial={{ opacity: 0, x: 20 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{ delay: 1 }}
+                                whileHover={{ 
+                                    scale: 1.05,
+                                    transition: { duration: 0.2, ease: "easeInOut" }
+                                }}
+                                className="absolute right-[2%] top-[45%] -translate-y-1/2 z-30 w-64 glass-dark rounded-2xl border border-brand-cyan/30 overflow-hidden shadow-[0_0_30px_rgba(0,223,216,0.25)] hidden md:block cursor-pointer"
+                            >
+                                <div className="relative h-32 overflow-hidden">
+                                    <img src="/assets/pak-facility.png" alt="Pakistan Facility" className="w-full h-full object-cover object-top opacity-85 hover:scale-105 transition-transform duration-700" />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                                    <div className="absolute bottom-2 left-3">
+                                        <div className="flex items-center gap-1.5">
+                                            <span className="text-sm">🇵🇰</span>
+                                            <p className="text-white font-bold text-sm">Islamabad</p>
+                                        </div>
+                                        <p className="text-brand-cyan/80 font-mono text-[9px] tracking-widest uppercase">R&D and Production Hub</p>
+                                    </div>
+                                </div>
+                                <div className="p-4 flex flex-col gap-2">
+                                    <p className="text-brand-cyan font-bold text-sm text-left leading-tight">R&D Facility</p>
+                                    <p className="text-white/60 text-[11px] text-left leading-relaxed">Primary off-shore R&D and production hub with advanced laboratories and certified cleanrooms.</p>
+                                    <div className="grid grid-cols-2 gap-1 mt-1">
+                                        {["Biomaterials Lab", "Software & AI Suite", "ISO Cleanrooms", "Mechanical Workshop"].map((item, i) => (
+                                            <div key={i} className="flex items-center gap-1">
+                                                <div className="w-1.5 h-1.5 rounded-full bg-brand-cyan shrink-0" />
+                                                <span className="text-white/50 text-[10px] whitespace-nowrap">{item}</span>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            </motion.div>
+
+                        </div>
                     </motion.div>
                 )}
             </AnimatePresence>
