@@ -262,7 +262,7 @@ const slideComponents = [
   Content.SoftwareTeam,
   Content.RMTBackground,
   Content.OurCompany,
-  Content.GlobalLocations,
+  // Content.GlobalLocations,
   Content.AnimatedMap,
   Content.ServicesIntro,
   Content.ServicesCategories,
