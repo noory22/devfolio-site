@@ -63,8 +63,8 @@ function AnimatedShape() {
 
 export default function Scene3D() {
   return (
-    <div className="absolute inset-0 z-0 pointer-events-none opacity-60">
-      <Canvas camera={{ position: [0, 0, 5], fov: 75 }}>
+    <div className="absolute inset-0 z-0 pointer-events-none opacity-40 sm:opacity-50 md:opacity-60">
+      <Canvas camera={{ position: [0, 0, 5], fov: 60 }} className="touch-none">
         <ambientLight intensity={0.5} />
         <pointLight position={[10, 10, 10]} intensity={1} color="#00dfd8" />
         <spotLight position={[-10, 10, 10]} angle={0.15} penumbra={1} intensity={1} color="#0070f3" />

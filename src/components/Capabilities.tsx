@@ -144,7 +144,7 @@ export default function Capabilities({ isActive }: { isActive?: boolean }) {
   return (
     <section
       id="capabilities"
-      className="h-screen w-screen flex flex-col justify-center bg-dark-bg relative overflow-hidden py-10"
+      className="min-h-[100dvh] h-screen w-full max-w-[100vw] flex flex-col justify-center bg-dark-bg relative overflow-hidden py-10 px-4 sm:px-6"
     >
       <div className="w-full px-6 flex flex-col items-center">
         <div className="flex flex-col items-center text-center mb-16 gap-4">
@@ -176,7 +176,7 @@ export default function Capabilities({ isActive }: { isActive?: boolean }) {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="text-4xl md:text-6xl font-display font-bold tracking-tighter"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold tracking-tighter"
           >
             The Architecture <br />
             <span className="text-white/20">of Excellence</span>
@@ -184,7 +184,7 @@ export default function Capabilities({ isActive }: { isActive?: boolean }) {
         </div>
 
         {/* 6 Cards — cascading stagger from left */}
-        <div className="w-full max-w-[90vw] grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mx-auto">
+        <div className="w-full max-w-7xl grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4 mx-auto">
           {capabilities.map((cap, i) => (
             <EnvelopeCard key={i} cap={cap} index={i} />
           ))}

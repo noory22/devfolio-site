@@ -62,7 +62,7 @@ export default function Labs({ isActive }: { isActive?: boolean }) {
   return (
     <section
       id="labs"
-      className="h-screen w-screen flex flex-col justify-center bg-dark-bg relative overflow-hidden"
+      className="min-h-[100dvh] h-screen w-full max-w-[100vw] flex flex-col justify-center bg-dark-bg relative overflow-hidden px-4 sm:px-6"
     >
       {/* Background */}
       <div className="absolute inset-0 bg-grid opacity-10" />
@@ -93,7 +93,7 @@ export default function Labs({ isActive }: { isActive?: boolean }) {
               className="h-px bg-brand-cyan"
             />
           </div>
-          <h2 className="text-5xl md:text-7xl font-display font-bold tracking-tighter leading-none mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-display font-bold tracking-tighter leading-none mb-4">
             Built for{" "}
             <span className="text-transparent bg-clip-text bg-linear-to-r from-brand-blue to-brand-cyan">
               Healthcare

@@ -40,6 +40,10 @@
 }
 
 @layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
   body {
     @apply bg-dark-bg text-white font-sans antialiased selection:bg-brand-blue/30;
     overflow-x: hidden;
@@ -83,7 +87,7 @@
 }
 
 .card-content {
-  @apply relative h-full w-full bg-black/90 rounded-[calc(1.5rem-1px)] p-8;
+  @apply relative h-full w-full bg-black/90 rounded-[calc(1.5rem-1px)] p-5 sm:p-6 md:p-8;
 }
 
 .text-gradient {
@@ -126,4 +130,33 @@
 
 .flip-card-back {
   @apply rotate-y-180 bg-brand-blue/10 border border-brand-blue/20 p-6 flex items-center justify-center text-center;
+}
+
+/* Shared slide layout — used across all presentation pages */
+@layer components {
+  .slide-container {
+    @apply max-w-7xl mx-auto w-full min-w-0;
+    @apply px-4 sm:px-6 lg:px-8;
+    @apply pt-16 sm:pt-20 md:pt-24;
+    @apply pb-20 sm:pb-24 md:pb-28;
+    @apply flex flex-col justify-center min-h-[100dvh] min-h-screen;
+  }
+
+  .slide-heading {
+    @apply text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter mb-4 sm:mb-6 md:mb-8;
+  }
+
+  .slide-subheading-line {
+    @apply h-px w-8 sm:w-12 bg-brand-cyan shrink-0;
+  }
+}
+
+@layer utilities {
+  .pb-safe-nav {
+    padding-bottom: max(5rem, env(safe-area-inset-bottom, 0px));
+  }
+
+  .pt-safe-nav {
+    padding-top: max(4.5rem, env(safe-area-inset-top, 0px));
+  }
 }

@@ -14,7 +14,7 @@ export default function Contact({ isActive }: { isActive?: boolean }) {
   return (
     <section
       id="contact"
-      className="h-screen w-screen flex flex-col bg-dark-bg relative overflow-hidden"
+      className="min-h-[100dvh] h-screen w-full max-w-[100vw] flex flex-col bg-dark-bg relative overflow-hidden"
     >
       {/* Background */}
       <div className="absolute inset-0 bg-grid opacity-10" />
@@ -46,7 +46,7 @@ export default function Contact({ isActive }: { isActive?: boolean }) {
               className="h-px bg-brand-cyan"
             />
           </div>
-          <h2 className="text-4xl md:text-6xl font-display font-bold tracking-tighter leading-none mb-2">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold tracking-tighter leading-none mb-2">
             Initiate{" "}
             <span className="text-transparent bg-clip-text bg-linear-to-r from-brand-blue to-brand-cyan">
               Protocol
@@ -205,7 +205,7 @@ export default function Contact({ isActive }: { isActive?: boolean }) {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 }}
-                className="grid grid-cols-2 gap-4"
+                className="grid grid-cols-1 sm:grid-cols-2 gap-4"
               >
                 <div className="space-y-1.5">
                   <label className="text-[9px] font-bold uppercase tracking-widest text-white/30 ml-1">
@@ -233,7 +233,7 @@ export default function Contact({ isActive }: { isActive?: boolean }) {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6 }}
-                className="grid grid-cols-2 gap-4"
+                className="grid grid-cols-1 sm:grid-cols-2 gap-4"
               >
                 <div className="space-y-1.5">
                   <label className="text-[9px] font-bold uppercase tracking-widest text-white/30 ml-1">

@@ -7,6 +7,7 @@ import Labs from "./components/Labs";
 // import Regulatory from "./components/Regulatory";
 import Contact from "./components/Contact";
 import { motion, AnimatePresence } from "motion/react";
+import * as AIContent from "./components/AIContent";
 
 // --- Unique transition variants per slide ---
 const slideTransitions = [
@@ -40,216 +41,30 @@ const slideTransitions = [
     animate: { opacity: 1, scale: 1, transition: { duration: 0.8 } },
     exit: { opacity: 0, scale: 1.2, transition: { duration: 0.5 } },
   },
-  // 5: Global Locations
-  {
-    initial: { opacity: 0, y: 100 },
-    animate: { opacity: 1, y: 0, transition: { duration: 0.8 } },
-    exit: { opacity: 0, y: -100, transition: { duration: 0.5 } },
-  },
-  // 6: Animated Map
+  // 5: Animated Map
   {
     initial: { opacity: 0, rotateX: 90 },
     animate: { opacity: 1, rotateX: 0, transition: { duration: 1 } },
     exit: { opacity: 0, rotateX: -90, transition: { duration: 0.6 } },
   },
-  // 7: Services Intro
+  // 6: Services Intro
   {
     initial: { opacity: 0, y: 100 },
     animate: { opacity: 1, y: 0, transition: { duration: 0.8 } },
     exit: { opacity: 0, y: -100, transition: { duration: 0.5 } },
   },
-  // 8: Services Categories (Selection)
-  {
+  // 7-15: AI Slides (9 slides, using horizontal slide transition)
+  ...Array(9).fill(null).map(() => ({
+    initial: { opacity: 0, x: 150 },
+    animate: { opacity: 1, x: 0, transition: { duration: 0.8, ease: "easeOut" } },
+    exit: { opacity: 0, x: -150, transition: { duration: 0.5, ease: "easeIn" } },
+  })),
+  // 16 to 47: Services and other slides (using vertical transition)
+  ...Array(32).fill(null).map(() => ({
     initial: { opacity: 0, y: 100 },
     animate: { opacity: 1, y: 0, transition: { duration: 0.8 } },
     exit: { opacity: 0, y: -100, transition: { duration: 0.5 } },
-  },
-  // 9: Cat 1 Detail
-  {
-    initial: { opacity: 0, y: 100 },
-    animate: { opacity: 1, y: 0, transition: { duration: 0.8 } },
-    exit: { opacity: 0, y: -100, transition: { duration: 0.5 } },
-  },
-  // 10: Generative AI Detail
-  {
-    initial: { opacity: 0, y: 100 },
-    animate: { opacity: 1, y: 0, transition: { duration: 0.8 } },
-    exit: { opacity: 0, y: -100, transition: { duration: 0.5 } },
-  },
-  // 11: Clinical Decision Support Detail
-  {
-    initial: { opacity: 0, y: 100 },
-    animate: { opacity: 1, y: 0, transition: { duration: 0.8 } },
-    exit: { opacity: 0, y: -100, transition: { duration: 0.5 } },
-  },
-  // 12: Predictive Health Analytics Detail
-  {
-    initial: { opacity: 0, y: 100 },
-    animate: { opacity: 1, y: 0, transition: { duration: 0.8 } },
-    exit: { opacity: 0, y: -100, transition: { duration: 0.5 } },
-  },
-  // 13: Custom AI Detail
-  {
-    initial: { opacity: 0, y: 100 },
-    animate: { opacity: 1, y: 0, transition: { duration: 0.8 } },
-    exit: { opacity: 0, y: -100, transition: { duration: 0.5 } },
-  },
-  // 14: Billing Efficiency Detail
-  {
-    initial: { opacity: 0, y: 100 },
-    animate: { opacity: 1, y: 0, transition: { duration: 0.8 } },
-    exit: { opacity: 0, y: -100, transition: { duration: 0.5 } },
-  },
-  // 15: Cat 2 Detail
-  {
-    initial: { opacity: 0, y: 100 },
-    animate: { opacity: 1, y: 0, transition: { duration: 0.8 } },
-    exit: { opacity: 0, y: -100, transition: { duration: 0.5 } },
-  },
-  // 13: Custom Medical Applications Detail
-  {
-    initial: { opacity: 0, y: 100 },
-    animate: { opacity: 1, y: 0, transition: { duration: 0.8 } },
-    exit: { opacity: 0, y: -100, transition: { duration: 0.5 } },
-  },
-  // 12: Medical Mobile Apps Detail
-  {
-    initial: { opacity: 0, y: 100 },
-    animate: { opacity: 1, y: 0, transition: { duration: 0.8 } },
-    exit: { opacity: 0, y: -100, transition: { duration: 0.5 } },
-  },
-  // 13: Store Deployment Detail
-  {
-    initial: { opacity: 0, y: 100 },
-    animate: { opacity: 1, y: 0, transition: { duration: 0.8 } },
-    exit: { opacity: 0, y: -100, transition: { duration: 0.5 } },
-  },
-  // 14: RPM Detail
-  {
-    initial: { opacity: 0, y: 100 },
-    animate: { opacity: 1, y: 0, transition: { duration: 0.8 } },
-    exit: { opacity: 0, y: -100, transition: { duration: 0.5 } },
-  },
-  // 15: EHR Detail
-  {
-    initial: { opacity: 0, y: 100 },
-    animate: { opacity: 1, y: 0, transition: { duration: 0.8 } },
-    exit: { opacity: 0, y: -100, transition: { duration: 0.5 } },
-  },
-  // 16: Imaging & Analysis Detail
-  {
-    initial: { opacity: 0, y: 100 },
-    animate: { opacity: 1, y: 0, transition: { duration: 0.8 } },
-    exit: { opacity: 0, y: -100, transition: { duration: 0.5 } },
-  },
-  // 17: Cat 3 Detail
-  {
-    initial: { opacity: 0, y: 100 },
-    animate: { opacity: 1, y: 0, transition: { duration: 0.8 } },
-    exit: { opacity: 0, y: -100, transition: { duration: 0.5 } },
-  },
-  // 18: Scheduler Detail
-  {
-    initial: { opacity: 0, y: 100 },
-    animate: { opacity: 1, y: 0, transition: { duration: 0.8 } },
-    exit: { opacity: 0, y: -100, transition: { duration: 0.5 } },
-  },
-  // 19: Workflow Orchestration Detail
-  {
-    initial: { opacity: 0, y: 100 },
-    animate: { opacity: 1, y: 0, transition: { duration: 0.8 } },
-    exit: { opacity: 0, y: -100, transition: { duration: 0.5 } },
-  },
-  // 20: Recommendation Engines Detail
-  {
-    initial: { opacity: 0, y: 100 },
-    animate: { opacity: 1, y: 0, transition: { duration: 0.8 } },
-    exit: { opacity: 0, y: -100, transition: { duration: 0.5 } },
-  },
-  // 21: Cat 5 Details (Software Compliance)
-  {
-    initial: { opacity: 0, y: 100 },
-    animate: { opacity: 1, y: 0, transition: { duration: 0.8 } },
-    exit: { opacity: 0, y: -100, transition: { duration: 0.5 } },
-  },
-  // 20: QA Medical Software Detail
-  {
-    initial: { opacity: 0, y: 100 },
-    animate: { opacity: 1, y: 0, transition: { duration: 0.8 } },
-    exit: { opacity: 0, y: -100, transition: { duration: 0.5 } },
-  },
-  // 21: IEC 62304 Compliance Detail
-  {
-    initial: { opacity: 0, y: 100 },
-    animate: { opacity: 1, y: 0, transition: { duration: 0.8 } },
-    exit: { opacity: 0, y: -100, transition: { duration: 0.5 } },
-  },
-  // 22: HIPAA Compliance Detail
-  {
-    initial: { opacity: 0, y: 100 },
-    animate: { opacity: 1, y: 0, transition: { duration: 0.8 } },
-    exit: { opacity: 0, y: -100, transition: { duration: 0.5 } },
-  },
-  // 23: ONC Health IT Detail
-  {
-    initial: { opacity: 0, y: 100 },
-    animate: { opacity: 1, y: 0, transition: { duration: 0.8 } },
-    exit: { opacity: 0, y: -100, transition: { duration: 0.5 } },
-  },
-  // 24: FHIR Integration Detail
-  {
-    initial: { opacity: 0, y: 100 },
-    animate: { opacity: 1, y: 0, transition: { duration: 0.8 } },
-    exit: { opacity: 0, y: -100, transition: { duration: 0.5 } },
-  },
-  // 25: Cat 4 Details (Infrastructure)
-  {
-    initial: { opacity: 0, y: 100 },
-    animate: { opacity: 1, y: 0, transition: { duration: 0.8 } },
-    exit: { opacity: 0, y: -100, transition: { duration: 0.5 } },
-  },
-  // 26: DevOps Detail
-  {
-    initial: { opacity: 0, y: 100 },
-    animate: { opacity: 1, y: 0, transition: { duration: 0.8 } },
-    exit: { opacity: 0, y: -100, transition: { duration: 0.5 } },
-  },
-  // 27: SaaS Detail
-  {
-    initial: { opacity: 0, y: 100 },
-    animate: { opacity: 1, y: 0, transition: { duration: 0.8 } },
-    exit: { opacity: 0, y: -100, transition: { duration: 0.5 } },
-  },
-  // 28: QA Validation Detail
-  {
-    initial: { opacity: 0, y: 100 },
-    animate: { opacity: 1, y: 0, transition: { duration: 0.8 } },
-    exit: { opacity: 0, y: -100, transition: { duration: 0.5 } },
-  },
-  // 29: Maintenance Detail
-  {
-    initial: { opacity: 0, y: 100 },
-    animate: { opacity: 1, y: 0, transition: { duration: 0.8 } },
-    exit: { opacity: 0, y: -100, transition: { duration: 0.5 } },
-  },
-  // 30: Accomplishments
-  {
-    initial: { opacity: 0, scale: 1.2, rotateX: 45 },
-    animate: { opacity: 1, scale: 1, rotateX: 0, transition: { duration: 1, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] } },
-    exit: { opacity: 0, scale: 0.8, transition: { duration: 0.6 } },
-  },
-  // 31: Testimonials
-  {
-    initial: { opacity: 0, scale: 0.95, y: 50 },
-    animate: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
-    exit: { opacity: 0, scale: 0.95, y: -50, transition: { duration: 0.5 } },
-  },
-  // 32: Thank You
-  {
-    initial: { opacity: 0, clipPath: "inset(50% 0% 50% 0%)" },
-    animate: { opacity: 1, clipPath: "inset(0% 0% 0% 0%)", transition: { duration: 1, ease: [0.77, 0, 0.175, 1] as [number, number, number, number] } },
-    exit: { opacity: 0, transition: { duration: 0.8 } },
-  },
+  }))
 ];
 
 
@@ -265,6 +80,19 @@ const slideComponents = [
   // Content.GlobalLocations,
   Content.AnimatedMap,
   Content.ServicesIntro,
+  
+  // AI Section
+  AIContent.AIShapingHealthcare,
+  AIContent.AIKeyApplications,
+  AIContent.AIEthicsFramework,
+  AIContent.AIDataAlgorithmicFailures,
+  AIContent.AIHumanSystemicBarriers,
+  AIContent.AITechnicalMitigations,
+  AIContent.AIHumanWorkflowIntegration,
+  AIContent.AIRegulatoryRoadmap,
+  AIContent.AICeocallToAction,
+
+  // Services Section
   Content.ServicesCategories,
   Content.Cat1Details,
   Content.GenerativeAiDetail,
@@ -325,43 +153,53 @@ const BackgroundMapping = [
   Backgrounds.TechNetworkBG,  // 2: Software Team
   Backgrounds.FloatingCubesBG,// 3: RMT Background
   Backgrounds.AuroraBG,       // 4: Our Company
-  Backgrounds.DNAHelixBG,     // 5: Global Locations (Merged)
-  Backgrounds.GridPulseBG,    // 6: Animated Map
-  Backgrounds.AuroraBG,       // 7: Services Intro
-  () => null,                 // 8: Categories
-  Backgrounds.TechNetworkBG,  // 9: Cat 1
-  Backgrounds.TechNetworkBG,  // 10: Generative AI Detail
-  Backgrounds.TechNetworkBG,  // 11: Clinical Decision Support Detail
-  Backgrounds.TechNetworkBG,  // 12: Predictive Health Analytics Detail
-  Backgrounds.TechNetworkBG,  // 13: Custom AI Detail
-  Backgrounds.TechNetworkBG,  // 14: Billing Efficiency Detail
-  Backgrounds.FloatingCubesBG,// 15: Cat 2
-  Backgrounds.AuroraBG,       // 12: Custom Medical Applications
-  Backgrounds.FloatingCubesBG,// 13: Medical Mobile Apps
-  Backgrounds.TechNetworkBG,  // 14: Store Deployment
-  Backgrounds.DNAHelixBG,     // 15: RPM
-  Backgrounds.TechNetworkBG,  // 16: EHR
-  Backgrounds.GridPulseBG,    // 17: Imaging & Analysis
-  Backgrounds.AuroraBG,       // 18: Cat 3
-  Backgrounds.TechNetworkBG,  // 19: Scheduler Detail
-  Backgrounds.GridPulseBG,    // 20: Workflow Orchestration Detail
-  Backgrounds.DNAHelixBG,     // 21: Recommendation Engines Detail
-  Backgrounds.DNAHelixBG,     // 22: Cat 5
-  Backgrounds.TechNetworkBG,  // 23: QA Medical Software Detail
-  Backgrounds.GridPulseBG,    // 24: IEC 62304 Compliance Detail
-  Backgrounds.DNAHelixBG,     // 25: HIPAA Compliance Detail
-  Backgrounds.GridPulseBG,    // 26: ONC Health IT Detail
-  Backgrounds.TechNetworkBG,  // 27: FHIR Integration Detail
-  Backgrounds.GridPulseBG,    // 28: Cat 4
-  Backgrounds.TechNetworkBG,  // 29: DevOps & Cloud Infrastructure Detail
-  Backgrounds.DNAHelixBG,     // 30: SaaS Enablement Detail
-  Backgrounds.GridPulseBG,    // 31: QA Validation Detail
-  Backgrounds.FloatingCubesBG,// 32: Ongoing Maintenance Detail
-  // Backgrounds.TechNetworkBG,  // 14: RPM Demo Showcase
-  // Backgrounds.DNAHelixBG,     // 15: Pricing
-  Backgrounds.TechNetworkBG,  // 33: Accomplishments
-  Backgrounds.GridPulseBG,    // 34: Testimonials
-  Backgrounds.AuroraBG,       // 35: Thank You
+  Backgrounds.GridPulseBG,    // 5: Animated Map
+  Backgrounds.AuroraBG,       // 6: Services Intro
+
+  // AI Section (7 to 15)
+  Backgrounds.DNAHelixBG,     // 7: AI Shaping Healthcare
+  Backgrounds.TechNetworkBG,  // 8: AI Key Applications
+  Backgrounds.GridPulseBG,    // 9: AI Ethics Framework
+  Backgrounds.DNAHelixBG,     // 10: AI Data Algorithmic Failures
+  Backgrounds.FloatingCubesBG,// 11: AI Human Systemic Barriers
+  Backgrounds.TechNetworkBG,  // 12: AI Technical Mitigations
+  Backgrounds.GridPulseBG,    // 13: AI Human Workflow Integration
+  Backgrounds.DNAHelixBG,     // 14: AI Regulatory Roadmap
+  Backgrounds.AuroraBG,       // 15: CEO Call to Action
+
+  // Services Section (16 to 47)
+  () => null,                 // 16: Categories
+  Backgrounds.TechNetworkBG,  // 17: Cat 1 Details
+  Backgrounds.TechNetworkBG,  // 18: Generative AI Detail
+  Backgrounds.TechNetworkBG,  // 19: Clinical Decision Support Detail
+  Backgrounds.TechNetworkBG,  // 20: Predictive Health Analytics Detail
+  Backgrounds.TechNetworkBG,  // 21: Custom AI Detail
+  Backgrounds.TechNetworkBG,  // 22: Billing Efficiency Detail
+  Backgrounds.FloatingCubesBG,// 23: Cat 2 Details
+  Backgrounds.AuroraBG,       // 24: Custom Medical Applications Detail
+  Backgrounds.FloatingCubesBG,// 25: Medical Mobile Apps Detail
+  Backgrounds.TechNetworkBG,  // 26: Store Deployment Detail
+  Backgrounds.DNAHelixBG,     // 27: RPM Detail
+  Backgrounds.TechNetworkBG,  // 28: EHR Detail
+  Backgrounds.GridPulseBG,    // 29: Imaging Analysis Detail
+  Backgrounds.AuroraBG,       // 30: Cat 3 Details
+  Backgrounds.TechNetworkBG,  // 31: Scheduler Detail
+  Backgrounds.GridPulseBG,    // 32: Workflow Orchestration Detail
+  Backgrounds.DNAHelixBG,     // 33: Recommendation Engines Detail
+  Backgrounds.DNAHelixBG,     // 34: Cat 5 Details (Software Compliance)
+  Backgrounds.TechNetworkBG,  // 35: QA Medical Software Detail
+  Backgrounds.GridPulseBG,    // 36: IEC 62304 Compliance Detail
+  Backgrounds.DNAHelixBG,     // 37: HIPAA Compliance Detail
+  Backgrounds.GridPulseBG,    // 38: ONC Health IT Detail
+  Backgrounds.TechNetworkBG,  // 39: FHIR Integration Detail
+  Backgrounds.GridPulseBG,    // 40: Cat 4 Details (Infrastructure)
+  Backgrounds.TechNetworkBG,  // 41: DevOps Detail
+  Backgrounds.DNAHelixBG,     // 42: SaaS Detail
+  Backgrounds.GridPulseBG,    // 43: QA Validation Detail
+  Backgrounds.FloatingCubesBG,// 44: Ongoing Maintenance Detail
+  Backgrounds.TechNetworkBG,  // 45: Accomplishments
+  Backgrounds.GridPulseBG,    // 46: Testimonials
+  Backgrounds.AuroraBG,       // 47: Thank You
 ];
 
 import { ChevronLeft, ChevronRight, ChevronUp, ChevronDown } from "lucide-react";
@@ -394,35 +232,35 @@ export default function App() {
   const [showQaValidationDetail, setShowQaValidationDetail] = useState(false);
   const [showMaintenanceDetail, setShowMaintenanceDetail] = useState(false);
 
-  const GENERATIVE_AI_DETAIL_SLIDE = 10;
-  const CLINICAL_DECISION_SUPPORT_DETAIL_SLIDE = 11;
-  const PREDICTIVE_HEALTH_DETAIL_SLIDE = 12;
-  const CUSTOM_AI_DETAIL_SLIDE = 13;
-  const BILLING_EFFICIENCY_DETAIL_SLIDE = 14;
-  const CUSTOM_MEDICAL_DETAIL_SLIDE = 16;
-  const MEDICAL_MOBILE_DETAIL_SLIDE = 17;
-  const STORE_DEPLOYMENT_DETAIL_SLIDE = 18;
-  const RPM_DETAIL_SLIDE = 19;
-  const EHR_DETAIL_SLIDE = 20;
-  const IMAGING_DETAIL_SLIDE = 21;
-  const SCHEDULER_DETAIL_SLIDE = 23;
-  const WORKFLOW_ORCHESTRATION_DETAIL_SLIDE = 24;
-  const RECOMMENDATION_DETAIL_SLIDE = 25;
-  const QA_MEDICAL_DETAIL_SLIDE = 27;
-  const IEC_62304_DETAIL_SLIDE = 28;
-  const HIPAA_DETAIL_SLIDE = 29;
-  const ONC_DETAIL_SLIDE = 30;
-  const FHIR_DETAIL_SLIDE = 31;
-  const DEVOPS_DETAIL_SLIDE = 33;
-  const SAAS_DETAIL_SLIDE = 34;
-  const QA_VALIDATION_DETAIL_SLIDE = 35;
-  const MAINTENANCE_DETAIL_SLIDE = 36;
+  const GENERATIVE_AI_DETAIL_SLIDE = 18;
+  const CLINICAL_DECISION_SUPPORT_DETAIL_SLIDE = 19;
+  const PREDICTIVE_HEALTH_DETAIL_SLIDE = 20;
+  const CUSTOM_AI_DETAIL_SLIDE = 21;
+  const BILLING_EFFICIENCY_DETAIL_SLIDE = 22;
+  const CUSTOM_MEDICAL_DETAIL_SLIDE = 24;
+  const MEDICAL_MOBILE_DETAIL_SLIDE = 25;
+  const STORE_DEPLOYMENT_DETAIL_SLIDE = 26;
+  const RPM_DETAIL_SLIDE = 27;
+  const EHR_DETAIL_SLIDE = 28;
+  const IMAGING_DETAIL_SLIDE = 29;
+  const SCHEDULER_DETAIL_SLIDE = 31;
+  const WORKFLOW_ORCHESTRATION_DETAIL_SLIDE = 32;
+  const RECOMMENDATION_DETAIL_SLIDE = 33;
+  const QA_MEDICAL_DETAIL_SLIDE = 35;
+  const IEC_62304_DETAIL_SLIDE = 36;
+  const HIPAA_DETAIL_SLIDE = 37;
+  const ONC_DETAIL_SLIDE = 38;
+  const FHIR_DETAIL_SLIDE = 39;
+  const DEVOPS_DETAIL_SLIDE = 41;
+  const SAAS_DETAIL_SLIDE = 42;
+  const QA_VALIDATION_DETAIL_SLIDE = 43;
+  const MAINTENANCE_DETAIL_SLIDE = 44;
 
   // Cooldown for scroll/wheel navigation
   const lastScrollTime = useRef(0);
   const SCROLL_COOLDOWN = 1000;
 
-  const isServices = currentSlide >= 8 && currentSlide <= 36;
+  const isServices = currentSlide >= 16 && currentSlide <= 44;
 
   const isHiddenSlide = useCallback((index: number) => (
     (index === GENERATIVE_AI_DETAIL_SLIDE && !showGenerativeAiDetail) ||
@@ -463,7 +301,8 @@ export default function App() {
 
   const getCategoryRange = (index: number) => {
     if (index < 7) return [0, 6];      // Intro (Slides 1-7)
-    return [7, TOTAL_SLIDES - 1];      // Services, Accomplishments & Thank You
+    if (index >= 7 && index < 16) return [7, 15]; // AI Section (Slides 2-10)
+    return [16, TOTAL_SLIDES - 1];      // Services, Accomplishments & Thank You
   };
 
   const [min, max] = getCategoryRange(currentSlide);
@@ -787,9 +626,60 @@ export default function App() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [goToNext, goToPrev, currentSlide, isServices]);
 
+  // Touch swipe navigation (mobile / tablet)
+  const touchStart = useRef<{ x: number; y: number } | null>(null);
+
+  useEffect(() => {
+    const SWIPE_THRESHOLD = 50;
+    const onTouchStart = (e: TouchEvent) => {
+      touchStart.current = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+    };
+    const onTouchEnd = (e: TouchEvent) => {
+      if (!touchStart.current) return;
+      const dx = e.changedTouches[0].clientX - touchStart.current.x;
+      const dy = e.changedTouches[0].clientY - touchStart.current.y;
+      touchStart.current = null;
+      if (Math.abs(dx) < SWIPE_THRESHOLD && Math.abs(dy) < SWIPE_THRESHOLD) return;
+      if (Math.abs(dx) <= Math.abs(dy)) {
+        if (dy < -SWIPE_THRESHOLD) goToNext();
+        else if (dy > SWIPE_THRESHOLD) goToPrev();
+      } else if (!isServices) {
+        if (dx < -SWIPE_THRESHOLD) goToNext();
+        else if (dx > SWIPE_THRESHOLD) goToPrev();
+      }
+    };
+    window.addEventListener("touchstart", onTouchStart, { passive: true });
+    window.addEventListener("touchend", onTouchEnd, { passive: true });
+    return () => {
+      window.removeEventListener("touchstart", onTouchStart);
+      window.removeEventListener("touchend", onTouchEnd);
+    };
+  }, [goToNext, goToPrev, isServices]);
+
   // Wheel/Scroll Navigation
   useEffect(() => {
     const handleWheel = (e: WheelEvent) => {
+      const section = document.querySelector('section');
+      if (section) {
+        const { scrollTop, scrollHeight, clientHeight } = section;
+        const isScrollable = scrollHeight > clientHeight;
+
+        if (isScrollable) {
+          // If scrolling down, only trigger transition if we are at the bottom of slide content
+          if (e.deltaY > 0) {
+            if (scrollTop + clientHeight < scrollHeight - 5) {
+              return;
+            }
+          }
+          // If scrolling up, only trigger transition if we are at the top of slide content
+          else if (e.deltaY < 0) {
+            if (scrollTop > 5) {
+              return;
+            }
+          }
+        }
+      }
+
       const now = Date.now();
       if (now - lastScrollTime.current < SCROLL_COOLDOWN) return;
 
@@ -822,7 +712,7 @@ export default function App() {
     .filter((index) => !isHiddenSlide(index) || index === currentSlide);
 
   return (
-    <div className="bg-dark-bg selection:bg-brand-blue/30 selection:text-white relative h-screen w-screen overflow-hidden perspective-1000">
+    <div className="bg-dark-bg selection:bg-brand-blue/30 selection:text-white relative h-[100dvh] h-screen w-full max-w-[100vw] overflow-hidden perspective-1000">
       {/* Dynamic Background Mapping */}
       {(() => {
         const BG = BackgroundMapping[currentSlide] || Backgrounds.BubblesBG;
@@ -842,7 +732,7 @@ export default function App() {
       <Navbar currentSlide={currentSlide} setCurrentSlide={(idx: number) => navigateTo(idx)} />
 
       {/* Slide Container with AnimatePresence for unique transitions */}
-      <div className="h-screen w-screen overflow-hidden flex items-center justify-center perspective-1000">
+      <div className="h-[100dvh] h-screen w-full max-w-[100vw] overflow-hidden flex items-center justify-center perspective-1000">
         <AnimatePresence
           mode="wait"
           onExitComplete={() => setIsTransitioning(false)}
@@ -852,13 +742,13 @@ export default function App() {
             initial={currentVariants.initial}
             animate={currentVariants.animate}
             exit={currentVariants.exit}
-            className="w-screen h-screen shrink-0 overflow-hidden flex items-center justify-center relative z-10"
+            className="w-full max-w-[100vw] min-h-[100dvh] h-screen shrink-0 overflow-y-auto overflow-x-hidden flex flex-col items-center justify-start md:justify-center relative z-10 overscroll-y-contain"
             style={{ transformStyle: "preserve-3d" }}
           >
             <CurrentSlideComponent
               isActive={true}
               onSelect={(idx: number) => {
-                if (currentSlide === 8) {
+                if (currentSlide === 16) {
                   navigateTo(idx);
                 }
               }}
@@ -899,12 +789,13 @@ export default function App() {
             animate={isServices ? { opacity: 1, y: 0, x: "-50%" } : { opacity: 1, x: 0, y: "-50%" }}
             exit={isServices ? { opacity: 0, y: -20, x: "-50%" } : { opacity: 0, x: -20, y: "-50%" }}
             onClick={goToPrev}
-            className={`fixed z-50 p-4 rounded-full bg-black/20 hover:bg-black/50 border border-white/10 text-white/50 hover:text-brand-cyan transition-all cursor-pointer ${isServices
-              ? "left-1/2 top-24"
-              : "left-8 top-1/2"
+            className={`fixed z-50 p-2 sm:p-3 md:p-4 rounded-full bg-black/40 hover:bg-black/60 border border-white/10 text-white/60 hover:text-brand-cyan transition-all cursor-pointer flex ${isServices
+              ? "left-1/2 top-20 sm:top-24"
+              : "left-3 sm:left-6 md:left-8 top-1/2"
               }`}
+            aria-label="Previous slide"
           >
-            {isServices ? <ChevronUp size={32} /> : <ChevronLeft size={32} />}
+            {isServices ? <ChevronUp size={20} className="sm:w-6 sm:h-6 md:w-8 md:h-8" /> : <ChevronLeft size={20} className="sm:w-6 sm:h-6 md:w-8 md:h-8" />}
           </motion.button>
         )}
       </AnimatePresence>
@@ -917,20 +808,21 @@ export default function App() {
             animate={isServices ? { opacity: 1, y: 0, x: "-50%" } : { opacity: 1, x: 0, y: "-50%" }}
             exit={isServices ? { opacity: 0, y: 20, x: "-50%" } : { opacity: 0, x: 20, y: "-50%" }}
             onClick={goToNext}
-            className={`fixed z-50 p-4 rounded-full bg-black/20 hover:bg-black/50 border border-white/10 text-white/50 hover:text-brand-cyan transition-all cursor-pointer ${isServices
-              ? "left-1/2 bottom-20"
-              : "right-8 top-1/2"
+            className={`fixed z-50 p-2 sm:p-3 md:p-4 rounded-full bg-black/40 hover:bg-black/60 border border-white/10 text-white/60 hover:text-brand-cyan transition-all cursor-pointer flex ${isServices
+              ? "left-1/2 bottom-24 sm:bottom-20"
+              : "right-3 sm:right-6 md:right-8 top-1/2"
               }`}
+            aria-label="Next slide"
           >
-            {isServices ? <ChevronDown size={32} /> : <ChevronRight size={32} />}
+            {isServices ? <ChevronDown size={20} className="sm:w-6 sm:h-6 md:w-8 md:h-8" /> : <ChevronRight size={20} className="sm:w-6 sm:h-6 md:w-8 md:h-8" />}
           </motion.button>
         )}
       </AnimatePresence>
 
       {/* Slide Indicators Navigation - Moved to side for services */}
-      <div className={`fixed z-50 transition-all duration-700 flex ${isServices
-        ? "right-8 top-1/2 -translate-y-1/2 flex-col gap-4"
-        : "bottom-8 left-1/2 -translate-x-1/2 gap-3"
+      <div className={`fixed z-50 transition-all duration-700 flex pointer-events-auto ${isServices
+        ? "right-3 sm:right-6 md:right-8 top-1/2 -translate-y-1/2 flex-col gap-2 sm:gap-3 md:gap-4 max-h-[50vh] overflow-y-auto overscroll-contain py-2"
+        : "bottom-20 sm:bottom-8 left-1/2 -translate-x-1/2 gap-2 sm:gap-3 max-w-[90vw] flex-wrap justify-center"
         }`}>
         {categorySlides.map((index) => (
           <motion.button
@@ -953,10 +845,10 @@ export default function App() {
         key={currentSlide}
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
-        className={`fixed z-50 flex items-baseline gap-1 font-mono transition-all duration-700 ${isServices ? "bottom-24 right-8 scale-75 opacity-50" : "bottom-8 right-8"
+        className={`fixed z-50 flex items-baseline gap-1 font-mono transition-all duration-700 ${isServices ? "bottom-28 sm:bottom-24 right-3 sm:right-6 md:right-8 scale-75 opacity-50" : "bottom-28 sm:bottom-8 right-3 sm:right-6 md:right-8"
           }`}
       >
-        <span className="text-2xl font-bold text-brand-blue">
+        <span className="text-lg sm:text-xl md:text-2xl font-bold text-brand-blue">
           {String(currentSlide + 1).padStart(2, "0")}
         </span>
         <span className="text-xs text-white/20">/</span>

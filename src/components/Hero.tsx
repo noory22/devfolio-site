@@ -36,7 +36,7 @@ export default function Hero({ isActive }: { isActive?: boolean }) {
   return (
     <section
       id="home"
-      className="relative min-h-screen w-screen flex items-center justify-center pt-20 overflow-hidden bg-dark-bg"
+      className="relative min-h-[100dvh] min-h-screen w-full max-w-[100vw] flex items-center justify-center pt-safe-nav px-4 sm:px-6 overflow-hidden bg-dark-bg"
     >
       {/* Immersive 3D Background */}
       <Scene3D />
@@ -52,7 +52,7 @@ export default function Hero({ isActive }: { isActive?: boolean }) {
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-75 h-75 rounded-full bg-brand-blue/30 pointer-events-none"
       />
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10 text-center">
+      <div className="max-w-7xl mx-auto w-full relative z-10 text-center">
         <motion.div
           initial="hidden"
           animate="visible"
@@ -63,7 +63,7 @@ export default function Hero({ isActive }: { isActive?: boolean }) {
           <motion.h1
             variants={fadeUp}
             transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-            className="text-6xl md:text-8xl lg:text-9xl font-display font-bold leading-[0.9] mb-10 tracking-tighter perspective-1000"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-display font-bold leading-[0.9] mb-6 sm:mb-8 md:mb-10 tracking-tighter perspective-1000"
           >
             <motion.span
               initial={{ opacity: 1, y: 0, rotateX: 0 }}
@@ -88,7 +88,7 @@ export default function Hero({ isActive }: { isActive?: boolean }) {
           <motion.p
             variants={fadeUp}
             transition={{ duration: 0 }}
-            className="max-w-2xl mx-auto text-lg md:text-xl text-white/50 mb-12 leading-relaxed font-light"
+            className="max-w-2xl mx-auto text-base sm:text-lg md:text-xl text-white/50 mb-8 sm:mb-10 md:mb-12 leading-relaxed font-light px-2"
           >
             Your comprehensive software solution partner, guiding you from
             initial conceptualization to the realization of a full-scale

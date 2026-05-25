@@ -44,7 +44,7 @@ export default function Mission({
   return (
     <section
       id="mission"
-      className="w-screen h-screen flex flex-col justify-center items-center bg-dark-bg relative overflow-hidden perspective-1000"
+      className="w-full max-w-[100vw] min-h-[100dvh] h-screen flex flex-col justify-center items-center bg-dark-bg relative overflow-hidden perspective-1000 px-4 sm:px-6"
     >
       {/* Expanding glow ring on entry */}
       <motion.div
@@ -134,7 +134,7 @@ export default function Mission({
                   : { opacity: 0, y: 40, scale: 0.8 }
               }
               transition={{ delay: 0.4, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-              className="text-5xl md:text-7xl lg:text-8xl font-display font-black leading-[0.9] tracking-tighter mb-8 text-white drop-shadow-[0_20px_40px_rgba(0,112,243,0.3)]"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl xl:text-8xl font-display font-black leading-[0.9] tracking-tighter mb-6 sm:mb-8 text-white drop-shadow-[0_20px_40px_rgba(0,112,243,0.3)]"
             >
               Empowering Clients <br />
               <span className="text-transparent bg-clip-text bg-linear-to-r from-brand-blue to-brand-cyan">

@@ -13,7 +13,7 @@ const Container = ({ children, className = "", isActive, ...props }: { children:
     });
 
     return (
-        <div className={`max-w-7xl mx-auto px-6 py-20 flex flex-col justify-center min-h-screen ${className}`} {...props}>
+        <div className={`slide-container ${className}`} {...props}>
             <motion.div
                 className="fixed top-0 left-0 right-0 h-1 bg-brand-cyan origin-left z-50"
                 style={{ scaleX }}
@@ -28,7 +28,7 @@ const Heading = ({ children, gradient = false, className = "" }: { children: Rea
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className={`text-4xl md:text-5xl lg:text-7xl font-bold tracking-tighter mb-8 ${gradient ? 'text-gradient' : ''} ${className}`}
+        className={`slide-heading ${gradient ? 'text-gradient' : ''} ${className}`}
     >
         {children}
     </motion.h2>
@@ -40,7 +40,7 @@ const SubHeading = ({ children, className = "" }: { children: React.ReactNode, c
         whileInView={{ opacity: 1, x: 0 }}
         className={`flex items-center gap-4 mb-6 ${className}`}
     >
-        <div className="h-px w-12 bg-brand-cyan" />
+        <div className="slide-subheading-line" />
         <span className="text-brand-cyan font-bold tracking-[0.3em] uppercase text-[10px] md:text-xs">{children}</span>
     </motion.div>
 );
@@ -204,7 +204,7 @@ export const CEOIntro = () => {
                                 className="flex gap-4 md:gap-6 group"
                             >
                                 <div className="h-2 w-2 mt-2.5 rounded-full bg-white/20 group-hover:bg-brand-cyan/80 group-hover:scale-150 transition-all duration-500 shrink-0 shadow-[0_0_10px_rgba(0,223,216,0)] group-hover:shadow-[0_0_10px_rgba(0,223,216,0.5)]" />
-                                <p className="text-lg md:text-xl text-white/70 font-light leading-relaxed group-hover:text-white transition-colors">
+                                <p className="text-base sm:text-lg md:text-xl text-white/70 font-light leading-relaxed group-hover:text-white transition-colors">
                                     {item}
                                 </p>
                             </motion.div>
@@ -260,7 +260,7 @@ export const OurCompany = () => (
     <Container className="text-center items-center">
         <SubHeading>Our Company</SubHeading>
         <Heading gradient>A One-Stop Shop for Health-Tech</Heading>
-        <p className="text-lg md:text-2xl text-white/60 font-light max-w-3xl mb-12 lg:mb-16 leading-relaxed">
+        <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/60 font-light max-w-3xl mb-8 sm:mb-10 lg:mb-16 leading-relaxed">
             Turning <span className="text-brand-cyan font-bold">HEALTH-TECH IDEAS</span> into <span className="text-brand-blue font-bold">MARKETABLE PRODUCTS</span> by centralizing and streamlining diverse activities.
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 w-full">
@@ -433,7 +433,7 @@ export const AnimatedMap = () => {
                         animate={{ opacity: 1, scale: 1 }}
                         exit={{ opacity: 0, scale: 0.9 }}
                         ref={containerRef}
-                        className="relative w-full h-[40vh] md:h-[50vh] max-w-4xl mx-auto mt-6 mb-16 rounded-[3rem] overflow-hidden glass-dark border border-white/10 shadow-[0_0_50px_rgba(0,112,243,0.15)] bg-black group"
+                        className="relative w-full h-[32vh] sm:h-[38vh] md:h-[45vh] lg:h-[50vh] max-w-4xl mx-auto mt-4 sm:mt-6 mb-8 sm:mb-12 md:mb-16 rounded-2xl sm:rounded-3xl md:rounded-[3rem] overflow-hidden glass-dark border border-white/10 shadow-[0_0_50px_rgba(0,112,243,0.15)] bg-black group"
                     >
                         <div className="absolute inset-x-0 bottom-0 top-1/2 bg-brand-cyan/20 blur-[100px] z-0 pointer-events-none" />
                         {/* <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 pointer-events-none animate-bounce opacity-0 group-hover:opacity-100 transition-opacity duration-500">
@@ -484,20 +484,14 @@ export const AnimatedMap = () => {
                         animate={{ opacity: 1, scale: 1, y: 0 }}
                         exit={{ opacity: 0, scale: 0.95, y: 30 }}
                         transition={{ duration: 0.5, ease: "easeOut" }}
-                        style={{
-                            width: "80vw",
-                            marginLeft: "calc(-40vw + 50%)",
-                            marginRight: "calc(-40vw + 50%)",
-                        }}
-                        className="mt-6 mb-16 px-4 md:px-8"
+                        className="mt-4 sm:mt-6 mb-8 sm:mb-12 md:mb-16 w-full px-0 sm:px-4 md:px-8"
                     >
                         {/* ── Map Panel ─────────────────────────────────────────────────────
                             Full viewport-width panel, tall enough to comfortably show everything.
                             overflow-hidden keeps the rounded corners clean.
                         ──────────────────────────────────────────────────────────────────── */}
                         <div
-                            className="relative w-full rounded-[3rem] glass-dark border border-white/10 shadow-[0_0_60px_rgba(0,223,216,0.15)] bg-black overflow-hidden"
-                            style={{ minHeight: "75vh" }}
+                            className="relative w-full rounded-2xl sm:rounded-3xl md:rounded-[3rem] glass-dark border border-white/10 shadow-[0_0_60px_rgba(0,223,216,0.15)] bg-black overflow-hidden min-h-[45vh] sm:min-h-[55vh] md:min-h-[65vh] lg:min-h-[75vh]"
                         >
                             {/* Glow */}
                             <div className="absolute inset-x-0 bottom-0 top-1/2 bg-brand-cyan/20 blur-[120px] z-0 pointer-events-none" />
@@ -667,6 +661,44 @@ export const AnimatedMap = () => {
                                 </div>
                             </motion.div>
 
+                        </div>
+
+                        {/* Mobile / tablet: location details below map */}
+                        <div className="md:hidden grid grid-cols-1 gap-4 mt-4 w-full">
+                            <div className="glass-dark rounded-2xl border border-brand-blue/30 overflow-hidden">
+                                <div className="relative h-28 overflow-hidden">
+                                    <img src="/assets/us-facility.png" alt="US Facility" className="w-full h-full object-cover opacity-85" />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                                    <div className="absolute bottom-2 left-3">
+                                        <div className="flex items-center gap-1.5">
+                                            <span className="text-sm">🇺🇸</span>
+                                            <p className="text-white font-bold text-sm">Minnesota</p>
+                                        </div>
+                                        <p className="text-brand-blue/80 font-mono text-[9px] tracking-widest uppercase">Global Headquarters</p>
+                                    </div>
+                                </div>
+                                <div className="p-4">
+                                    <p className="text-brand-cyan font-bold text-sm mb-1">Headquarters</p>
+                                    <p className="text-white/60 text-xs leading-relaxed">Oversees global operations, regulatory excellence & strategic international partnerships.</p>
+                                </div>
+                            </div>
+                            <div className="glass-dark rounded-2xl border border-brand-cyan/30 overflow-hidden">
+                                <div className="relative h-28 overflow-hidden">
+                                    <img src="/assets/pak-facility.png" alt="Pakistan Facility" className="w-full h-full object-cover object-top opacity-85" />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                                    <div className="absolute bottom-2 left-3">
+                                        <div className="flex items-center gap-1.5">
+                                            <span className="text-sm">🇵🇰</span>
+                                            <p className="text-white font-bold text-sm">Islamabad</p>
+                                        </div>
+                                        <p className="text-brand-cyan/80 font-mono text-[9px] tracking-widest uppercase">R&D and Production Hub</p>
+                                    </div>
+                                </div>
+                                <div className="p-4">
+                                    <p className="text-brand-cyan font-bold text-sm mb-1">R&D Facility</p>
+                                    <p className="text-white/60 text-xs leading-relaxed">Primary off-shore R&D and production hub with advanced laboratories and certified cleanrooms.</p>
+                                </div>
+                            </div>
                         </div>
                     </motion.div>
                 )}
@@ -1028,7 +1060,7 @@ export const ServicesCategories = ({ onSelect }: { onSelect: (index: number) => 
                 <Heading gradient className="text-3xl md:text-5xl">Medical Solutions</Heading>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-5 gap-5 md:gap-6 w-full max-w-1400">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 sm:gap-5 md:gap-6 w-full max-w-7xl">
                 {categories.map((cat, i) => (
                     <motion.div
                         key={i}
@@ -1044,7 +1076,7 @@ export const ServicesCategories = ({ onSelect }: { onSelect: (index: number) => 
                         }}
                         whileHover={{ y: -8, scale: 1.02 }}
                         onClick={() => {
-                            const slideIndices = [9, 15, 22, 26, 32];
+                            const slideIndices = [17, 23, 30, 34, 40];
                             onSelect(slideIndices[i]);
                         }}
                         className="group relative cursor-pointer flex flex-col"
@@ -1145,11 +1177,11 @@ export const ServicesCategories = ({ onSelect }: { onSelect: (index: number) => 
 
 export const CategoryDetail = ({ title, items, categoryNum, description, onItemClick, clickableIndices = [] }: { title: string, items: { title: string, desc: string }[], categoryNum: string, description?: string, onItemClick?: (index: number) => void, clickableIndices?: number[] }) => (
     <Container className="justify-center py-4">
-        <div className="flex items-center gap-5 md:gap-8 mb-8 md:mb-10">
+        <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-5 md:gap-8 mb-6 sm:mb-8 md:mb-10">
             <motion.div
                 initial={{ opacity: 0, scale: 0.5 }}
                 whileInView={{ opacity: 0.3, scale: 1 }}
-                className="text-6xl md:text-8xl font-black text-brand-cyan leading-none shrink-0"
+                className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-black text-brand-cyan leading-none shrink-0"
             >
                 {categoryNum}
             </motion.div>
@@ -1167,7 +1199,7 @@ export const CategoryDetail = ({ title, items, categoryNum, description, onItemC
                 {description}
             </motion.p>
         )}
-        <div className={`grid gap-4 md:gap-5 items-stretch ${items.length <= 3 ? 'grid-cols-1 md:grid-cols-3' : items.length <= 4 ? 'grid-cols-1 md:grid-cols-2 lg:grid-cols-4' : 'grid-cols-1 md:grid-cols-3 lg:grid-cols-5'}`}>
+        <div className={`grid gap-3 sm:gap-4 md:gap-5 items-stretch ${items.length <= 3 ? 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3' : items.length <= 4 ? 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-4' : 'grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5'}`}>
             {items.map((item, i) => {
                 const isClickable = clickableIndices.includes(i) && !!onItemClick;
 
@@ -2232,11 +2264,11 @@ export const Cat2Details = ({ onOpenCustomMedicalDetail, onOpenMedicalMobileDeta
 
     return (
         <Container className="justify-center py-4">
-            <div className="flex items-center gap-5 md:gap-8 mb-8 md:mb-10">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-5 md:gap-8 mb-6 sm:mb-8 md:mb-10">
                 <motion.div
                     initial={{ opacity: 0, scale: 0.5 }}
                     whileInView={{ opacity: 0.3, scale: 1 }}
-                    className="text-6xl md:text-8xl font-black text-brand-cyan leading-none shrink-0"
+                    className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-black text-brand-cyan leading-none shrink-0"
                 >
                     02
                 </motion.div>
@@ -2245,7 +2277,7 @@ export const Cat2Details = ({ onOpenCustomMedicalDetail, onOpenMedicalMobileDeta
                     <Heading gradient className="text-2xl md:text-4xl leading-tight mb-0!">Application & Platform Development</Heading>
                 </div>
             </div>
-            <div className="grid grid-cols-2 md:grid-cols-6 gap-4 md:gap-5 w-full">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-6 gap-3 sm:gap-4 md:gap-5 w-full">
                 {items.map((item, i) => {
                     const isCustomMedicalCard = i === 0;
                     const isMedicalMobileCard = i === 1;
@@ -4281,13 +4313,13 @@ export const Testimonials = () => {
             </div>
 
             {/* Testimonials Card */}
-            <div className="relative w-full max-w-3xl mx-auto mb-16 md:mb-20">
+            <div className="relative w-full max-w-3xl mx-auto mb-10 sm:mb-14 md:mb-20 px-1">
                 {/* Decorative background glow behind the card */}
                 <div className="absolute inset-0 bg-brand-cyan/5 blur-3xl rounded-full pointer-events-none" />
 
-                <div className="glass-dark p-8 md:p-12 rounded-4xl border border-white/10 relative overflow-hidden shadow-2xl min-h-62.5 md:min-h-55 flex flex-col justify-between">
+                <div className="glass-dark p-6 sm:p-8 md:p-12 rounded-3xl sm:rounded-4xl border border-white/10 relative overflow-hidden shadow-2xl min-h-48 sm:min-h-55 md:min-h-55 flex flex-col justify-between">
                     {/* Quotation icon */}
-                    <div className="absolute -top-4 -left-4 text-white/5 font-serif text-9xl select-none pointer-events-none">
+                    <div className="absolute -top-2 -left-2 sm:-top-4 sm:-left-4 text-white/5 font-serif text-6xl sm:text-8xl md:text-9xl select-none pointer-events-none">
                         “
                     </div>
 

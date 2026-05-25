@@ -180,7 +180,7 @@ export default function Regulatory({ isActive }: { isActive?: boolean }) {
   return (
     <section
       id="regulatory"
-      className="h-screen w-screen flex flex-col justify-center bg-dark-bg relative overflow-hidden"
+      className="min-h-[100dvh] h-screen w-full max-w-[100vw] flex flex-col justify-center bg-dark-bg relative overflow-hidden px-4 sm:px-6"
     >
       <div className="absolute inset-0 bg-grid opacity-10" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-175 h-175 bg-brand-blue/8 blur-[150px] rounded-full pointer-events-none" />
@@ -224,7 +224,7 @@ export default function Regulatory({ isActive }: { isActive?: boolean }) {
         </motion.div>
 
         {/* 3D Flip Cards Grid — zoom out stagger */}
-        <div className="w-full max-w-[90vw] grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mx-auto">
+        <div className="w-full max-w-7xl grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4 mx-auto">
           {standards.map((std, i) => (
             <FlipCard key={i} std={std} index={i} />
           ))}
