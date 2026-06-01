@@ -85,8 +85,8 @@ const slideComponents = [
   Content.RMTBackground2,
   Content.OurCompany,
   // Content.GlobalLocations,
-  // Content.AnimatedMap,
-  Content.OneStopDestination,
+  Content.AnimatedMap,
+  // Content.OneStopDestination,
   Content.ServicesIntro,
   
   // AI Section
