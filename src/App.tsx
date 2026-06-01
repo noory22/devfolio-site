@@ -731,6 +731,40 @@ export default function App() {
 
       <Navbar currentSlide={currentSlide} setCurrentSlide={(idx: number) => navigateTo(idx)} />
 
+      {/* Header and Footer for Introductory Slides */}
+      <AnimatePresence>
+        {currentSlide < 7 && (
+          <>
+            {/* Logo Header (Top-Left) */}
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.5 }}
+              className="fixed top-4 sm:top-6 left-4 sm:left-6 md:left-8 z-50 pointer-events-none"
+            >
+              <img
+                src="/assets/logo.png"
+                alt="REVIVE Medical Technologies Inc. Logo"
+                className="h-10 sm:h-14 md:h-16 lg:h-18 w-auto object-contain brightness-0 invert drop-shadow-[0_0_12px_rgba(255,255,255,0.4)]"
+              />
+            </motion.div>
+
+            {/* Footer Text (Bottom-Right) */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 20 }}
+              transition={{ duration: 0.5 }}
+              className="fixed bottom-4 sm:bottom-6 right-3 sm:right-6 md:right-8 z-50 pointer-events-none font-sans text-xs sm:text-sm md:text-base text-white font-semibold tracking-[0.15em]"
+              style={{ textShadow: '0 0 20px rgba(255,255,255,0.5), 0 2px 8px rgba(0,0,0,0.8)' }}
+            >
+              Revive Medical Technologies Inc. | www.rmt-usa.com
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
+
       {/* Slide Container with AnimatePresence for unique transitions */}
       <div className="h-[100dvh] h-screen w-full max-w-[100vw] overflow-hidden flex items-center justify-center perspective-1000">
         <AnimatePresence
@@ -845,8 +879,13 @@ export default function App() {
         key={currentSlide}
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
-        className={`fixed z-50 flex items-baseline gap-1 font-mono transition-all duration-700 ${isServices ? "bottom-28 sm:bottom-24 right-3 sm:right-6 md:right-8 scale-75 opacity-50" : "bottom-28 sm:bottom-8 right-3 sm:right-6 md:right-8"
-          }`}
+        className={`fixed z-50 flex items-baseline gap-1 font-mono transition-all duration-700 ${
+          isServices 
+            ? "bottom-28 sm:bottom-24 right-3 sm:right-6 md:right-8 scale-75 opacity-50" 
+            : currentSlide < 7
+              ? "bottom-32 sm:bottom-16 md:bottom-20 right-3 sm:right-6 md:right-8"
+              : "bottom-28 sm:bottom-8 right-3 sm:right-6 md:right-8"
+        }`}
       >
         <span className="text-lg sm:text-xl md:text-2xl font-bold text-brand-blue">
           {String(currentSlide + 1).padStart(2, "0")}

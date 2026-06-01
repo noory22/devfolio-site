@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Globe from "react-globe.gl";
 import { motion, useScroll, useSpring, AnimatePresence } from "motion/react";
-import { Brain, Code2, Zap, Server, ShieldCheck, ExternalLink, Smartphone, Cloud, Trophy, ClipboardList, ShieldCheckIcon} from "lucide-react";
+import { Brain, Code2, Zap, Server, ShieldCheck, ExternalLink, Smartphone, Cloud, Trophy, ClipboardList, ShieldCheckIcon } from "lucide-react";
 import { div } from "three/src/nodes/math/OperatorNode";
 
 const Container = ({ children, className = "", isActive, ...props }: { children: React.ReactNode, className?: string, isActive?: boolean, [key: string]: any }) => {
@@ -32,6 +32,19 @@ const Heading = ({ children, gradient = false, className = "" }: { children: Rea
     >
         {children}
     </motion.h2>
+);
+
+const Heading2 = ({ children, gradient = false, className = "" }: { children: React.ReactNode, gradient?: boolean, className?: string }) => (
+    <motion.h3
+        initial={{ opacity: 0, y: 15 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className={`text-lg sm:text-xl md:text-2xl font-bold tracking-[0.2em] uppercase mb-8 ${
+            gradient ? 'text-gradient' : 'text-white/60'
+        } ${className}`}
+    >
+        {children}
+    </motion.h3>
 );
 
 const SubHeading = ({ children, className = "" }: { children: React.ReactNode, className?: string }) => (
@@ -126,8 +139,11 @@ export const SoftwareTeam = () => {
 
     return (
         <Container>
-            <SubHeading>Software Team</SubHeading>
-            <Heading gradient>RMT Software Engineering Team</Heading>
+            {/* <SubHeading>Software Team</SubHeading> */}
+            <Heading gradient>RMT Software Center</Heading>
+            <div className="text-center">
+                <Heading2>Our Software Core Team</Heading2>
+            </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
                 {[
                     { image: "WAK.jpg", name: "Wajahat Ali Khan", role: "Head Of Software Department" },
@@ -170,31 +186,60 @@ export const CEOIntro = () => {
             <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 items-center">
                 <div className="md:col-span-5 lg:col-span-4 relative group max-w-65 md:max-w-75 mx-auto w-full">
                     <div
-                        className="relative rounded-2xl overflow-hidden aspect-3/4 md:aspect-3/4 lg:aspect-3/4 bg-dark-surface cursor-pointer shadow-[0_0_20px_rgba(0,223,216,0.05)] group-hover:shadow-[0_0_30px_rgba(0,223,216,0.15)] transition-shadow duration-500"
+                        className="relative rounded-2xl overflow-hidden bg-dark-surface cursor-pointer shadow-[0_0_20px_rgba(0,223,216,0.05)] group-hover:shadow-[0_0_30px_rgba(0,223,216,0.15)] transition-all duration-500 border border-white/10 flex flex-col"
                         onClick={() => setIsActive(!isActive)}
                     >
-                        <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/20 to-transparent z-10" />
-                        <img
-                            src="/assets/dr.murtaza.jpg"
-                            alt="Prof Dr Murtaza Najabat Ali"
-                            className="w-full h-full object-cover transition-all duration-700 grayscale-0 opacity-100"
-                        />
-                        <div className="absolute bottom-6 left-6 right-6 z-20">
-                            <h3 className="text-xl md:text-2xl font-bold text-white tracking-tight">Prof Dr Murtaza Najabat Ali</h3>
-                            <div className="h-px w-12 bg-brand-cyan my-3" />
-                            <p className="text-brand-cyan font-bold tracking-widest text-[10px] uppercase mb-1">CEO & Co-Founder</p>
-                            <p className="text-white/60 font-mono text-[9px] tracking-widest uppercase">Revive Medical Technologies Inc</p>
+                        <div className="relative aspect-3/4 w-full overflow-hidden">
+                            <div className="absolute inset-0 bg-linear-to-t from-black/50 via-transparent to-transparent z-10" />
+                            <img
+                                src="/assets/dr.murtaza.jpg"
+                                alt="Prof Dr Murtaza Najabat Ali"
+                                className="w-full h-full object-cover transition-all duration-700 grayscale-0 opacity-100"
+                            />
+                        </div>
+                        {/* Solid black credentials footer strip */}
+                        <div className="bg-transparent py-4 px-3 border-t border-white/15 text-center flex flex-col gap-1.5 z-20">
+                            <div className="text-white font-bold text-xs sm:text-sm tracking-wide leading-tight">
+                                Founding CEO
+                            </div>
+                            <div className="text-white font-bold text-xs sm:text-sm tracking-wide leading-tight">
+                                REVIVE MEDICAL TECHNOLOGIES Inc.
+                            </div>
+                            <div className="text-white/80 text-[10px] sm:text-xs tracking-wide leading-normal font-sans">
+                                Professor at UNIVERSITY of JORDAN
+                            </div>
+                            <div className="text-white/80 text-[10px] sm:text-xs tracking-wide leading-normal font-sans">
+                                Distinguished Expert at COMSTECH
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div className="md:col-span-7 lg:col-span-8 px-4 lg:px-0">
                     <div className="space-y-6 md:space-y-8">
-                        {[
-                            "Recipient of Mandate from PM Office of Pakistan",
-                            "Founding CEO of Pakistan 1st State-owned Medical Device Industry (N-ovative Health Technologies)",
-                            "Founding Director of Medical Devices Development Center (A Center of Excellence) Pakistan",
-                            "20+ Years of Experience in Medical Device Design, Development, Production, Licensing and Technology Transfer",
-                            "Founding HoD and Professor at NUST University Pakistan"
+                        {[ 
+                            { 
+                                prefix: "20+", 
+                                prefixColor: "text-white/90 font-bold", 
+                                dotColor: "bg-white/90 group-hover:bg-white/90 group-hover:shadow-[0_0_10px_rgba(239,68,68,0.5)]",
+                                text: " Years of Experience in Medical Device Design, Development, Production, Licensing and Technology Transfer" 
+                            },
+                            { 
+                                text: "Founding HoD and Professor of Biomedical Engineering Dept. at NUST University Pakistan" 
+                            },
+                            { 
+                                text: "Recipient of Mandate from PM Office of Pakistan to setup Country’s first Medical Device Industry" 
+                            },
+                            { 
+                                text: "Founding CEO of Pakistan 1st State-owned Medical Device Industry ",
+                                suffix: "(N-ovative Health Technologies)",
+                                suffixColor: "text-white/90 italic font-semibold"
+                            },
+                            { 
+                                text: "Founding Director of Medical Devices Development Center ",
+                                suffix: "(A Center of Excellence)",
+                                suffixColor: "italic text-white/90",
+                                text2: " Pakistan"
+                            }
                         ].map((item, i) => (
                             <motion.div
                                 key={i}
@@ -203,9 +248,14 @@ export const CEOIntro = () => {
                                 transition={{ delay: i * 0.1 + 0.2 }}
                                 className="flex gap-4 md:gap-6 group"
                             >
-                                <div className="h-2 w-2 mt-2.5 rounded-full bg-white/20 group-hover:bg-brand-cyan/80 group-hover:scale-150 transition-all duration-500 shrink-0 shadow-[0_0_10px_rgba(0,223,216,0)] group-hover:shadow-[0_0_10px_rgba(0,223,216,0.5)]" />
+                                <div className={`h-2 w-2 mt-2.5 rounded-full transition-all duration-500 shrink-0 ${
+                                    item.dotColor || "bg-white/20 group-hover:bg-brand-cyan/80 group-hover:shadow-[0_0_10px_rgba(0,223,216,0.5)]"
+                                } group-hover:scale-150`} />
                                 <p className="text-base sm:text-lg md:text-xl text-white/70 font-light leading-relaxed group-hover:text-white transition-colors">
-                                    {item}
+                                    {item.prefix && <span className={item.prefixColor}>{item.prefix}</span>}
+                                    {item.text}
+                                    {item.suffix && <span className={item.suffixColor}>{item.suffix}</span>}
+                                    {item.text2}
                                 </p>
                             </motion.div>
                         ))}
@@ -522,7 +572,7 @@ export const AnimatedMap = () => {
                                 {/* Single arc connecting US (300,450) to Pakistan (630,450) */}
                                 <g>
                                     <motion.path
-                                        d="M 307 320 Q 465 10 630 390"
+                                        d="M 310 220 Q 465 10 635 280"
                                         fill="none"
                                         stroke="url(#gradient-line)"
                                         strokeWidth="2.5"
@@ -533,7 +583,7 @@ export const AnimatedMap = () => {
                                     />
                                     <motion.circle r="3" fill="#fff" filter="drop-shadow(0 0 5px #fff)">
                                         <animateMotion 
-                                            path="M 307 320 Q 465 10 630 390" 
+                                            path="M 310 220 Q 465 10 635 280" 
                                             dur="3s" 
                                             repeatCount="indefinite" 
                                         />
@@ -590,7 +640,7 @@ export const AnimatedMap = () => {
                                 initial={{ opacity: 0, scale: 0 }}
                                 animate={{ opacity: 1, scale: 1 }}
                                 transition={{ delay: 0.5, type: "spring" }}
-                                className="absolute top-[32%] left-[31%] -translate-x-1/2 -translate-y-1/2 z-30 group hidden md:block"
+                                className="absolute top-[22%] left-[31%] -translate-x-1/2 -translate-y-1/2 z-30 group hidden md:block"
                             >
                                 {/* Connector line to card */}
                                 <div className="absolute top-1/2 right-full -translate-y-1/2 flex items-center">
@@ -610,7 +660,7 @@ export const AnimatedMap = () => {
                                 initial={{ opacity: 0, scale: 0 }}
                                 animate={{ opacity: 1, scale: 1 }}
                                 transition={{ delay: 0.8, type: "spring" }}
-                                className="absolute top-[40%] left-[63.5%] -translate-x-1/2 -translate-y-1/2 z-30 group hidden md:block"
+                                className="absolute top-[28%] left-[63.5%] -translate-x-1/2 -translate-y-1/2 z-30 group hidden md:block"
                             >
                                 {/* Connector line to card */}
                                 <div className="absolute top-1/2 left-full -translate-y-1/2 flex items-center">
