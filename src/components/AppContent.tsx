@@ -330,7 +330,7 @@ export const OurCompany = () => (
                 </motion.div>
             ))}
         </div>
-        <div className="flex flex-row flex-wrap justify-center items-center gap-8 md:gap-12 mt-8 sm:mt-10 md:mt-12">
+        {/* <div className="flex flex-row flex-wrap justify-center items-center gap-8 md:gap-12 mt-8 sm:mt-10 md:mt-12">
             <motion.div
                 initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -357,7 +357,7 @@ export const OurCompany = () => (
                     className="h-16 sm:h-20 md:h-24 w-auto object-contain relative z-10 transition-opacity duration-300 hover:opacity-100 opacity-90 filter drop-shadow-[0_0_15px_rgba(16,185,129,0.15)] rounded-2xl"
                 />
             </motion.div>
-        </div>
+        </div> */}
     </Container>
 );
 
@@ -851,12 +851,12 @@ export const OneStopDestination = () => (
                 <img
                     src="/assets/drap-approved.png"
                     alt="DRAP Approved"
-                    className="h-12 sm:h-14 md:h-18 w-auto object-contain rounded-xl filter drop-shadow-[0_0_12px_rgba(16,185,129,0.15)]"
+                    className="h-24 sm:h-28 md:h-36 w-auto object-contain rounded-xl filter drop-shadow-[0_0_12px_rgba(16,185,129,0.15)]"
                 />
                 <img
                     src="/assets/iso-certified.png"
                     alt="ISO 13485 Certified"
-                    className="h-12 sm:h-14 md:h-18 w-auto object-contain rounded-xl filter drop-shadow-[0_0_12px_rgba(0,223,216,0.15)]"
+                    className="h-24 sm:h-28 md:h-36 w-auto object-contain rounded-xl filter drop-shadow-[0_0_12px_rgba(0,223,216,0.15)]"
                 />
             </motion.div>
         </div>
