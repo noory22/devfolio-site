@@ -35,31 +35,37 @@ const slideTransitions = [
     animate: { opacity: 1, x: 0, transition: { duration: 0.8 } },
     exit: { opacity: 0, x: 100, transition: { duration: 0.5 } },
   },
-  // 4: Our Company
+  // 4: RMT Background 2
+  {
+    initial: { opacity: 0, x: -100 },
+    animate: { opacity: 1, x: 0, transition: { duration: 0.8 } },
+    exit: { opacity: 0, x: 100, transition: { duration: 0.5 } },
+  },
+  // 5: Our Company
   {
     initial: { opacity: 0, scale: 0.8 },
     animate: { opacity: 1, scale: 1, transition: { duration: 0.8 } },
     exit: { opacity: 0, scale: 1.2, transition: { duration: 0.5 } },
   },
-  // 5: One Stop Destination
+  // 6: One Stop Destination
   {
     initial: { opacity: 0, scale: 0.9 },
     animate: { opacity: 1, scale: 1, transition: { duration: 0.8 } },
     exit: { opacity: 0, scale: 1.1, transition: { duration: 0.5 } },
   },
-  // 6: Services Intro
+  // 7: Services Intro
   {
     initial: { opacity: 0, y: 100 },
     animate: { opacity: 1, y: 0, transition: { duration: 0.8 } },
     exit: { opacity: 0, y: -100, transition: { duration: 0.5 } },
   },
-  // 7-15: AI Slides (9 slides, using horizontal slide transition)
+  // 8-16: AI Slides (9 slides, using horizontal slide transition)
   ...Array(9).fill(null).map(() => ({
     initial: { opacity: 0, x: 150 },
     animate: { opacity: 1, x: 0, transition: { duration: 0.8, ease: "easeOut" } },
     exit: { opacity: 0, x: -150, transition: { duration: 0.5, ease: "easeIn" } },
   })),
-  // 16 to 47: Services and other slides (using vertical transition)
+  // 17 to 48: Services and other slides (using vertical transition)
   ...Array(32).fill(null).map(() => ({
     initial: { opacity: 0, y: 100 },
     animate: { opacity: 1, y: 0, transition: { duration: 0.8 } },
@@ -76,6 +82,7 @@ const slideComponents = [
   Content.CEOIntro,
   Content.SoftwareTeam,
   Content.RMTBackground,
+  Content.RMTBackground2,
   Content.OurCompany,
   // Content.GlobalLocations,
   // Content.AnimatedMap,
@@ -153,54 +160,55 @@ const BackgroundMapping = [
   Backgrounds.AuroraBG,       // 1: CEO Intro
   Backgrounds.TechNetworkBG,  // 2: Software Team
   Backgrounds.FloatingCubesBG,// 3: RMT Background
-  Backgrounds.AuroraBG,       // 4: Our Company
-  Backgrounds.AuroraBG,       // 5: One Stop Destination
-  Backgrounds.AuroraBG,       // 6: Services Intro
+  Backgrounds.FloatingCubesBG,// 4: RMT Background 2
+  Backgrounds.AuroraBG,       // 5: Our Company
+  Backgrounds.AuroraBG,       // 6: One Stop Destination
+  Backgrounds.AuroraBG,       // 7: Services Intro
 
-  // AI Section (7 to 15)
-  Backgrounds.DNAHelixBG,     // 7: AI Shaping Healthcare
-  Backgrounds.TechNetworkBG,  // 8: AI Key Applications
-  Backgrounds.GridPulseBG,    // 9: AI Ethics Framework
-  Backgrounds.DNAHelixBG,     // 10: AI Data Algorithmic Failures
-  Backgrounds.FloatingCubesBG,// 11: AI Human Systemic Barriers
-  Backgrounds.TechNetworkBG,  // 12: AI Technical Mitigations
-  Backgrounds.GridPulseBG,    // 13: AI Human Workflow Integration
-  Backgrounds.DNAHelixBG,     // 14: AI Regulatory Roadmap
-  Backgrounds.AuroraBG,       // 15: CEO Call to Action
+  // AI Section (8 to 16)
+  Backgrounds.DNAHelixBG,     // 8: AI Shaping Healthcare
+  Backgrounds.TechNetworkBG,  // 9: AI Key Applications
+  Backgrounds.GridPulseBG,    // 10: AI Ethics Framework
+  Backgrounds.DNAHelixBG,     // 11: AI Data Algorithmic Failures
+  Backgrounds.FloatingCubesBG,// 12: AI Human Systemic Barriers
+  Backgrounds.TechNetworkBG,  // 13: AI Technical Mitigations
+  Backgrounds.GridPulseBG,    // 14: AI Human Workflow Integration
+  Backgrounds.DNAHelixBG,     // 15: AI Regulatory Roadmap
+  Backgrounds.AuroraBG,       // 16: CEO Call to Action
 
-  // Services Section (16 to 47)
-  () => null,                 // 16: Categories
-  Backgrounds.TechNetworkBG,  // 17: Cat 1 Details
-  Backgrounds.TechNetworkBG,  // 18: Generative AI Detail
-  Backgrounds.TechNetworkBG,  // 19: Clinical Decision Support Detail
-  Backgrounds.TechNetworkBG,  // 20: Predictive Health Analytics Detail
-  Backgrounds.TechNetworkBG,  // 21: Custom AI Detail
-  Backgrounds.TechNetworkBG,  // 22: Billing Efficiency Detail
-  Backgrounds.FloatingCubesBG,// 23: Cat 2 Details
-  Backgrounds.AuroraBG,       // 24: Custom Medical Applications Detail
-  Backgrounds.FloatingCubesBG,// 25: Medical Mobile Apps Detail
-  Backgrounds.TechNetworkBG,  // 26: Store Deployment Detail
-  Backgrounds.DNAHelixBG,     // 27: RPM Detail
-  Backgrounds.TechNetworkBG,  // 28: EHR Detail
-  Backgrounds.GridPulseBG,    // 29: Imaging Analysis Detail
-  Backgrounds.AuroraBG,       // 30: Cat 3 Details
-  Backgrounds.TechNetworkBG,  // 31: Scheduler Detail
-  Backgrounds.GridPulseBG,    // 32: Workflow Orchestration Detail
-  Backgrounds.DNAHelixBG,     // 33: Recommendation Engines Detail
-  Backgrounds.DNAHelixBG,     // 34: Cat 5 Details (Software Compliance)
-  Backgrounds.TechNetworkBG,  // 35: QA Medical Software Detail
-  Backgrounds.GridPulseBG,    // 36: IEC 62304 Compliance Detail
-  Backgrounds.DNAHelixBG,     // 37: HIPAA Compliance Detail
-  Backgrounds.GridPulseBG,    // 38: ONC Health IT Detail
-  Backgrounds.TechNetworkBG,  // 39: FHIR Integration Detail
-  Backgrounds.GridPulseBG,    // 40: Cat 4 Details (Infrastructure)
-  Backgrounds.TechNetworkBG,  // 41: DevOps Detail
-  Backgrounds.DNAHelixBG,     // 42: SaaS Detail
-  Backgrounds.GridPulseBG,    // 43: QA Validation Detail
-  Backgrounds.FloatingCubesBG,// 44: Ongoing Maintenance Detail
-  Backgrounds.TechNetworkBG,  // 45: Accomplishments
-  Backgrounds.GridPulseBG,    // 46: Testimonials
-  Backgrounds.AuroraBG,       // 47: Thank You
+  // Services Section (17 to 48)
+  () => null,                 // 17: Categories
+  Backgrounds.TechNetworkBG,  // 18: Cat 1 Details
+  Backgrounds.TechNetworkBG,  // 19: Generative AI Detail
+  Backgrounds.TechNetworkBG,  // 20: Clinical Decision Support Detail
+  Backgrounds.TechNetworkBG,  // 21: Predictive Health Analytics Detail
+  Backgrounds.TechNetworkBG,  // 22: Custom AI Detail
+  Backgrounds.TechNetworkBG,  // 23: Billing Efficiency Detail
+  Backgrounds.FloatingCubesBG,// 24: Cat 2 Details
+  Backgrounds.AuroraBG,       // 25: Custom Medical Applications Detail
+  Backgrounds.FloatingCubesBG,// 26: Medical Mobile Apps Detail
+  Backgrounds.TechNetworkBG,  // 27: Store Deployment Detail
+  Backgrounds.DNAHelixBG,     // 28: RPM Detail
+  Backgrounds.TechNetworkBG,  // 29: EHR Detail
+  Backgrounds.GridPulseBG,    // 30: Imaging Analysis Detail
+  Backgrounds.AuroraBG,       // 31: Cat 3 Details
+  Backgrounds.TechNetworkBG,  // 32: Scheduler Detail
+  Backgrounds.GridPulseBG,    // 33: Workflow Orchestration Detail
+  Backgrounds.DNAHelixBG,     // 34: Recommendation Engines Detail
+  Backgrounds.DNAHelixBG,     // 35: Cat 5 Details (Software Compliance)
+  Backgrounds.TechNetworkBG,  // 36: QA Medical Software Detail
+  Backgrounds.GridPulseBG,    // 37: IEC 62304 Compliance Detail
+  Backgrounds.DNAHelixBG,     // 38: HIPAA Compliance Detail
+  Backgrounds.GridPulseBG,    // 39: ONC Health IT Detail
+  Backgrounds.TechNetworkBG,  // 40: FHIR Integration Detail
+  Backgrounds.GridPulseBG,    // 41: Cat 4 Details (Infrastructure)
+  Backgrounds.TechNetworkBG,  // 42: DevOps Detail
+  Backgrounds.DNAHelixBG,     // 43: SaaS Detail
+  Backgrounds.GridPulseBG,    // 44: QA Validation Detail
+  Backgrounds.FloatingCubesBG,// 45: Ongoing Maintenance Detail
+  Backgrounds.TechNetworkBG,  // 46: Accomplishments
+  Backgrounds.GridPulseBG,    // 47: Testimonials
+  Backgrounds.AuroraBG,       // 48: Thank You
 ];
 
 import { ChevronLeft, ChevronRight, ChevronUp, ChevronDown } from "lucide-react";
@@ -233,35 +241,35 @@ export default function App() {
   const [showQaValidationDetail, setShowQaValidationDetail] = useState(false);
   const [showMaintenanceDetail, setShowMaintenanceDetail] = useState(false);
 
-  const GENERATIVE_AI_DETAIL_SLIDE = 18;
-  const CLINICAL_DECISION_SUPPORT_DETAIL_SLIDE = 19;
-  const PREDICTIVE_HEALTH_DETAIL_SLIDE = 20;
-  const CUSTOM_AI_DETAIL_SLIDE = 21;
-  const BILLING_EFFICIENCY_DETAIL_SLIDE = 22;
-  const CUSTOM_MEDICAL_DETAIL_SLIDE = 24;
-  const MEDICAL_MOBILE_DETAIL_SLIDE = 25;
-  const STORE_DEPLOYMENT_DETAIL_SLIDE = 26;
-  const RPM_DETAIL_SLIDE = 27;
-  const EHR_DETAIL_SLIDE = 28;
-  const IMAGING_DETAIL_SLIDE = 29;
-  const SCHEDULER_DETAIL_SLIDE = 31;
-  const WORKFLOW_ORCHESTRATION_DETAIL_SLIDE = 32;
-  const RECOMMENDATION_DETAIL_SLIDE = 33;
-  const QA_MEDICAL_DETAIL_SLIDE = 35;
-  const IEC_62304_DETAIL_SLIDE = 36;
-  const HIPAA_DETAIL_SLIDE = 37;
-  const ONC_DETAIL_SLIDE = 38;
-  const FHIR_DETAIL_SLIDE = 39;
-  const DEVOPS_DETAIL_SLIDE = 41;
-  const SAAS_DETAIL_SLIDE = 42;
-  const QA_VALIDATION_DETAIL_SLIDE = 43;
-  const MAINTENANCE_DETAIL_SLIDE = 44;
+  const GENERATIVE_AI_DETAIL_SLIDE = 19;
+  const CLINICAL_DECISION_SUPPORT_DETAIL_SLIDE = 20;
+  const PREDICTIVE_HEALTH_DETAIL_SLIDE = 21;
+  const CUSTOM_AI_DETAIL_SLIDE = 22;
+  const BILLING_EFFICIENCY_DETAIL_SLIDE = 23;
+  const CUSTOM_MEDICAL_DETAIL_SLIDE = 25;
+  const MEDICAL_MOBILE_DETAIL_SLIDE = 26;
+  const STORE_DEPLOYMENT_DETAIL_SLIDE = 27;
+  const RPM_DETAIL_SLIDE = 28;
+  const EHR_DETAIL_SLIDE = 29;
+  const IMAGING_DETAIL_SLIDE = 30;
+  const SCHEDULER_DETAIL_SLIDE = 32;
+  const WORKFLOW_ORCHESTRATION_DETAIL_SLIDE = 33;
+  const RECOMMENDATION_DETAIL_SLIDE = 34;
+  const QA_MEDICAL_DETAIL_SLIDE = 36;
+  const IEC_62304_DETAIL_SLIDE = 37;
+  const HIPAA_DETAIL_SLIDE = 38;
+  const ONC_DETAIL_SLIDE = 39;
+  const FHIR_DETAIL_SLIDE = 40;
+  const DEVOPS_DETAIL_SLIDE = 42;
+  const SAAS_DETAIL_SLIDE = 43;
+  const QA_VALIDATION_DETAIL_SLIDE = 44;
+  const MAINTENANCE_DETAIL_SLIDE = 45;
 
   // Cooldown for scroll/wheel navigation
   const lastScrollTime = useRef(0);
   const SCROLL_COOLDOWN = 1000;
 
-  const isServices = currentSlide >= 16 && currentSlide <= 44;
+  const isServices = currentSlide >= 17 && currentSlide <= 45;
 
   const isHiddenSlide = useCallback((index: number) => (
     (index === GENERATIVE_AI_DETAIL_SLIDE && !showGenerativeAiDetail) ||
@@ -301,9 +309,9 @@ export default function App() {
   ]);
 
   const getCategoryRange = (index: number) => {
-    if (index < 7) return [0, 6];      // Intro (Slides 0-6)
-    if (index >= 7 && index < 16) return [7, 15]; // AI Section (Slides 7-15)
-    return [16, TOTAL_SLIDES - 1];      // Services, Accomplishments & Thank You
+    if (index < 8) return [0, 7];      // Intro (Slides 0-7)
+    if (index >= 8 && index < 17) return [8, 16]; // AI Section (Slides 8-16)
+    return [17, TOTAL_SLIDES - 1];      // Services, Accomplishments & Thank You
   };
 
   const [min, max] = getCategoryRange(currentSlide);
@@ -767,7 +775,7 @@ export default function App() {
             <CurrentSlideComponent
               isActive={true}
               onSelect={(idx: number) => {
-                if (currentSlide === 16) {
+                if (currentSlide === 17) {
                   navigateTo(idx);
                 }
               }}

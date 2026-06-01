@@ -142,7 +142,7 @@ export const SoftwareTeam = () => {
             {/* <SubHeading>Software Team</SubHeading> */}
             <Heading gradient>RMT Software Center</Heading>
             <div className="text-left text-white/90 ">
-                <Heading2>The Software Core</Heading2>
+                <Heading2>Our Software Core Team</Heading2>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
                 {[
@@ -267,22 +267,55 @@ export const CEOIntro = () => {
 };
 
 // 4. RMT Background
+// export const RMTBackground = () => (
+//     <Container>
+//         {/* <SubHeading>BACKGROUND OF RMT</SubHeading> */}
+//         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+//             <div>
+//                 <Heading gradient>Our Legacy</Heading>
+//                 <div className="space-y-6 md:space-y-8 mt-6 md:mt-8">
+//                     {[
+//                         { color: "brand-cyan", text: "RMT has successfully established Pakistan’s and Saudi Arabia’s first medical device industries and commissioned over 20 production/testing machines in medical device factories." },
+//                         { color: "brand-blue", text: "Pioneer in the R&D, Production and Licensing of Medical Devices and Healthcare Technologies in Pakistan." },
+//                         { color: "brand-cyan", text: "The team includes specialists in biomaterials, production, quality, regulatory affairs, finance, software, marketing, and technical consulting." },
+//                         // { color: "brand-blue", text: "Involved in Regulatory Approvals of Medical Devices / Healthcare Technologies." }
+//                     ].map((item, i) => (
+//                         <div key={i} className="flex gap-4 md:gap-6">
+//                             <div className={`h-10 md:h-12 w-1 bg-${item.color} rounded-full shrink-0`} />
+//                             <p className="text-base md:text-lg lg:text-xl text-white/70 font-light leading-relaxed">
+//                                 {item.text}
+//                             </p>
+//                         </div>
+//                     ))}
+//                 </div>
+//             </div>
+//             <div className="relative group lg:h-full flex items-center justify-center">
+//                 <div className="glass-dark rounded-4xl md:rounded-[3rem] border border-white/10 overflow-hidden w-full max-w-sm sm:max-w-md mx-auto aspect-[5/6] lg:h-[60vh] lg:max-h-[500px] lg:w-auto lg:aspect-[5/6] flex items-center justify-center relative">
+//                     <img src="/assets/leagacy.png" alt="RMT Legacy" className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-700 group-hover:scale-105" />
+//                     <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
+//                     <motion.div
+//                         animate={{ scale: [1, 1.05, 1], opacity: [0.3, 0.5, 0.3] }}
+//                         transition={{ duration: 5, repeat: Infinity }}
+//                         className="absolute inset-4 border border-brand-cyan/20 rounded-3xl md:rounded-[2.5rem] pointer-events-none"
+//                     />
+//                 </div>
+//             </div>
+//         </div>
+//     </Container>
+// );
 export const RMTBackground = () => (
     <Container>
-        {/* <SubHeading>BACKGROUND OF RMT</SubHeading> */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
             <div>
                 <Heading gradient>Our Legacy</Heading>
                 <div className="space-y-6 md:space-y-8 mt-6 md:mt-8">
                     {[
-                        { color: "brand-cyan", text: "Rich history of setting up Pakistan's 1st State-owned Medical Device Industry." },
+                        { color: "brand-cyan", text: "RMT has successfully established Pakistan's and Saudi Arabia's first medical device industries and commissioned over 20 production/testing machines in medical device factories." },
                         { color: "brand-blue", text: "Pioneer in the R&D, Production and Licensing of Medical Devices and Healthcare Technologies in Pakistan." },
-                        { color: "white/20", text: "Involved for the last 02 decades in R&D of Medical Devices / Healthcare Technologies." },
-                        { color: "brand-cyan", text: "Involved in Production of Medical Devices / Healthcare Technologies." },
-                        { color: "brand-blue", text: "Involved in Regulatory Approvals of Medical Devices / Healthcare Technologies." }
+                        { color: "brand-cyan", text: "The team includes specialists in biomaterials, production, quality, regulatory affairs, finance, software, marketing, and technical consulting." },
                     ].map((item, i) => (
                         <div key={i} className="flex gap-4 md:gap-6">
-                            <div className={`h-10 md:h-12 w-1 bg-${item.color} rounded-full shrink-0`} />
+                            <div className={`self-stretch w-1 bg-${item.color} rounded-full shrink-0`} />
                             <p className="text-base md:text-lg lg:text-xl text-white/70 font-light leading-relaxed">
                                 {item.text}
                             </p>
@@ -290,10 +323,103 @@ export const RMTBackground = () => (
                     ))}
                 </div>
             </div>
-            <div className="relative group lg:h-full flex items-center">
-                <div className="glass-dark rounded-4xl md:rounded-[3rem] border border-white/10 overflow-hidden w-full aspect-square md:aspect-video lg:aspect-auto lg:h-[80%] flex items-center justify-center relative">
+            <div className="relative group lg:h-full flex items-center justify-center">
+                <div className="glass-dark rounded-4xl md:rounded-[3rem] border border-white/10 overflow-hidden w-full max-w-md sm:max-w-xl mx-auto aspect-[5/6] lg:h-[70vh] lg:max-h-[650px] lg:w-auto lg:aspect-[5/6] flex items-center justify-center relative">
                     <img src="/assets/leagacy.png" alt="RMT Legacy" className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-700 group-hover:scale-105" />
-                    <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
+                    <motion.div
+                        animate={{ scale: [1, 1.05, 1], opacity: [0.3, 0.5, 0.3] }}
+                        transition={{ duration: 5, repeat: Infinity }}
+                        className="absolute inset-4 border border-brand-cyan/20 rounded-3xl md:rounded-[2.5rem] pointer-events-none"
+                    />
+                </div>
+            </div>
+        </div>
+    </Container>
+);
+
+// 4.2 RMT Background Part 2
+// export const RMTBackground2 = () => (
+//     <Container>
+//         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+//             <div>
+//                 <Heading gradient>Our Legacy</Heading>
+//                 <div className="space-y-6 md:space-y-8 mt-6 md:mt-8">
+//                     <div className="flex gap-4 md:gap-6">
+//                         <div className="h-10 md:h-12 w-1 bg-brand-cyan rounded-full shrink-0" />
+//                         <p className="text-base md:text-lg lg:text-xl text-white/70 font-light leading-relaxed">
+//                             Cross-functional RMT Team has been involved for the last 02 decades in:
+//                         </p>
+//                     </div>
+//                     <ul className="space-y-4 md:space-y-5 ml-6 md:ml-8">
+//                         {[
+//                             "R&D of Medical Devices / Healthcare Technologies",
+//                             "Production of Medical Devices / Healthcare Technologies",
+//                             "Regulatory Approvals of Medical Devices / Healthcare Technologies."
+//                         ].map((text, i) => (
+//                             <li key={i} className="flex gap-4 md:gap-6">
+//                                 <div className="h-2 w-2 bg-brand-blue rounded-full shrink-0 mt-2.5" />
+//                                 <p className="text-base md:text-lg lg:text-xl text-white/70 font-light leading-relaxed">
+//                                     {text}
+//                                 </p>
+//                             </li>
+//                         ))}
+//                     </ul>
+//                 </div>
+//             </div>
+//             <div className="relative group lg:h-full flex items-center justify-center">
+//                 <div className="glass-dark rounded-4xl md:rounded-[3rem] border border-white/10 overflow-hidden w-full max-w-sm sm:max-w-md mx-auto aspect-[5/6] lg:h-[60vh] lg:max-h-[500px] lg:w-auto lg:aspect-[5/6] flex items-center justify-center relative">
+//                     <img src="/assets/pakFacility.png" 
+//                     alt="RMT Legacy Part 2" 
+//                     className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-700 group-hover:scale-105" 
+//                     />
+//                     <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
+//                     <motion.div
+//                         animate={{ scale: [1, 1.05, 1], opacity: [0.3, 0.5, 0.3] }}
+//                         transition={{ duration: 5, repeat: Infinity }}
+//                         className="absolute inset-4 border border-brand-cyan/20 rounded-3xl md:rounded-[2.5rem] pointer-events-none"
+//                     />
+//                 </div>
+//             </div>
+//         </div>
+//     </Container>
+// );
+export const RMTBackground2 = () => (
+    <Container>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+            <div>
+                <Heading gradient>Our Legacy</Heading>
+                <div className="space-y-6 md:space-y-8 mt-6 md:mt-8">
+                    <div className="flex gap-4 md:gap-6">
+                        <div className="self-stretch w-1 bg-brand-cyan rounded-full shrink-0" />
+                        <p className="text-base md:text-lg lg:text-xl text-white/70 font-light leading-relaxed">
+                            Cross-functional RMT Team has been involved for the last 02 decades in:
+                        </p>
+                    </div>
+                    <ul className="space-y-4 md:space-y-5 ml-6 md:ml-8">
+                        {[
+                            "R&D of Medical Devices / Healthcare Technologies",
+                            "Production of Medical Devices / Healthcare Technologies",
+                            "Regulatory Approvals of Medical Devices / Healthcare Technologies."
+                        ].map((text, i) => (
+                            <li key={i} className="flex gap-4 md:gap-6">
+                                <div className="h-2 w-2 bg-brand-blue rounded-full shrink-0 mt-2.5" />
+                                <p className="text-base md:text-lg lg:text-xl text-white/70 font-light leading-relaxed">
+                                    {text}
+                                </p>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            </div>
+            <div className="relative group lg:h-full flex items-center justify-center">
+                <div className="glass-dark rounded-4xl md:rounded-[3rem] border border-white/10 overflow-hidden w-full max-w-md sm:max-w-xl mx-auto aspect-[5/6] lg:h-[70vh] lg:max-h-[650px] lg:w-auto lg:aspect-[5/6] flex items-center justify-center relative">
+                    <img
+                        src="/assets/pakFacility.png"
+                        alt="RMT Legacy Part 2"
+                        className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-700 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
                     <motion.div
                         animate={{ scale: [1, 1.05, 1], opacity: [0.3, 0.5, 0.3] }}
                         transition={{ duration: 5, repeat: Infinity }}
@@ -799,7 +925,7 @@ export const OneStopDestination = () => (
                 <img
                     src="/assets/pak-facility.png"
                     alt="Pakistan R&D Facility"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-contain object-top"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                 <div className="absolute top-4 left-4">
@@ -815,7 +941,7 @@ export const OneStopDestination = () => (
                 <img
                     src="/assets/us-facility.png"
                     alt="US Headquarters"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-contain object-top"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                 <div className="absolute top-4 right-4">
@@ -848,16 +974,20 @@ export const OneStopDestination = () => (
                 transition={{ duration: 0.6, delay: 0.45 }}
                 className="flex flex-row items-center gap-4 md:gap-6 shrink-0"
             >
-                <img
-                    src="/assets/drap-approved.png"
-                    alt="DRAP Approved"
-                    className="h-24 sm:h-28 md:h-36 w-auto object-contain rounded-xl filter drop-shadow-[0_0_12px_rgba(16,185,129,0.15)]"
-                />
-                <img
-                    src="/assets/iso-certified.png"
-                    alt="ISO 13485 Certified"
-                    className="h-24 sm:h-28 md:h-36 w-auto object-contain rounded-xl filter drop-shadow-[0_0_12px_rgba(0,223,216,0.15)]"
-                />
+                <div className="w-24 h-24 sm:w-28 sm:h-28 md:w-36 md:h-36 bg-white p-3 rounded-2xl sm:rounded-3xl border border-white/10 shadow-[0_0_20px_rgba(255,255,255,0.15)] flex items-center justify-center shrink-0">
+                    <img
+                        src="/assets/drap-approved.png"
+                        alt="DRAP Approved"
+                        className="max-w-full max-h-full object-contain"
+                    />
+                </div>
+                <div className="w-24 h-24 sm:w-28 sm:h-28 md:w-36 md:h-36 bg-white p-3 rounded-2xl sm:rounded-3xl border border-white/10 shadow-[0_0_20px_rgba(255,255,255,0.15)] flex items-center justify-center shrink-0">
+                    <img
+                        src="/assets/iso-certified.png"
+                        alt="ISO 13485 Certified"
+                        className="max-w-full max-h-full object-contain"
+                    />
+                </div>
             </motion.div>
         </div>
     </Container>
