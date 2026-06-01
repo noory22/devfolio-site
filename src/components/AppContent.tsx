@@ -40,7 +40,7 @@ const Heading2 = ({ children, gradient = false, className = "" }: { children: Re
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
         className={`text-lg sm:text-xl md:text-2xl font-bold tracking-[0.2em] uppercase mb-8 ${
-            gradient ? 'text-gradient' : 'text-white/60'
+            gradient ? 'text-gradient' : 'text-white/90'
         } ${className}`}
     >
         {children}
@@ -141,8 +141,8 @@ export const SoftwareTeam = () => {
         <Container>
             {/* <SubHeading>Software Team</SubHeading> */}
             <Heading gradient>RMT Software Center</Heading>
-            <div className="text-center">
-                <Heading2>Our Software Core Team</Heading2>
+            <div className="text-left text-white/90 ">
+                <Heading2>The Software Core</Heading2>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
                 {[
@@ -181,7 +181,7 @@ export const CEOIntro = () => {
 
     return (
         <Container>
-            <SubHeading>LEADERSHIP</SubHeading>
+            {/* <SubHeading>LEADERSHIP</SubHeading> */}
             <Heading gradient>Chief Executive Officer</Heading>
             <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 items-center">
                 <div className="md:col-span-5 lg:col-span-4 relative group max-w-65 md:max-w-75 mx-auto w-full">
@@ -206,7 +206,7 @@ export const CEOIntro = () => {
                                 REVIVE MEDICAL TECHNOLOGIES Inc.
                             </div>
                             <div className="text-white/80 text-[10px] sm:text-xs tracking-wide leading-normal font-sans">
-                                Professor at UNIVERSITY of JORDAN
+                                Professor at UNIVERSITY of JORDAN & RIPHAH
                             </div>
                             <div className="text-white/80 text-[10px] sm:text-xs tracking-wide leading-normal font-sans">
                                 Distinguished Expert at COMSTECH
@@ -269,7 +269,7 @@ export const CEOIntro = () => {
 // 4. RMT Background
 export const RMTBackground = () => (
     <Container>
-        <SubHeading>BACKGROUND OF RMT</SubHeading>
+        {/* <SubHeading>BACKGROUND OF RMT</SubHeading> */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
             <div>
                 <Heading gradient>Our Legacy</Heading>
@@ -308,7 +308,7 @@ export const RMTBackground = () => (
 // 5. Our Company
 export const OurCompany = () => (
     <Container className="text-center items-center">
-        <SubHeading>Our Company</SubHeading>
+        {/* <SubHeading>Our Company</SubHeading> */}
         <Heading gradient>A One-Stop Shop for Health-Tech</Heading>
         <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/60 font-light max-w-3xl mb-8 sm:mb-10 lg:mb-16 leading-relaxed">
             Turning <span className="text-brand-cyan font-bold">HEALTH-TECH IDEAS</span> into <span className="text-brand-blue font-bold">MARKETABLE PRODUCTS</span> by centralizing and streamlining diverse activities.
@@ -329,6 +329,34 @@ export const OurCompany = () => (
                     <p className="text-white/50 text-sm md:text-base leading-relaxed">{wing.desc}</p>
                 </motion.div>
             ))}
+        </div>
+        <div className="flex flex-row flex-wrap justify-center items-center gap-8 md:gap-12 mt-8 sm:mt-10 md:mt-12">
+            <motion.div
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                whileHover={{ scale: 1.05 }}
+                className="relative cursor-pointer"
+            >
+                <img
+                    src="/assets/iso-certified.png"
+                    alt="ISO 13485 Certified"
+                    className="h-16 sm:h-20 md:h-24 w-auto object-contain relative z-10 transition-opacity duration-300 hover:opacity-100 opacity-90 filter drop-shadow-[0_0_15px_rgba(0,223,216,0.15)] rounded-2xl"
+                />
+            </motion.div>
+            <motion.div
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                whileHover={{ scale: 1.05 }}
+                className="relative cursor-pointer"
+            >
+                <img
+                    src="/assets/drap-approved.png"
+                    alt="DRAP Approved"
+                    className="h-16 sm:h-20 md:h-24 w-auto object-contain relative z-10 transition-opacity duration-300 hover:opacity-100 opacity-90 filter drop-shadow-[0_0_15px_rgba(16,185,129,0.15)] rounded-2xl"
+                />
+            </motion.div>
         </div>
     </Container>
 );
@@ -417,345 +445,423 @@ export const OurCompany = () => (
 
 // Animated Map Global Locations
 // Animated Map Global Locations
-export const AnimatedMap = () => {
-    const globeEl = React.useRef<any>(null);
-    const containerRef = React.useRef<HTMLDivElement>(null);
-    const [dimensions, setDimensions] = React.useState({ width: 800, height: 400 });
-    const [show2DMap, setShow2DMap] = React.useState(false);
-    const [renderGlobeHTML, setRenderGlobeHTML] = React.useState(false);
+// export const AnimatedMap = () => {
+//     const globeEl = React.useRef<any>(null);
+//     const containerRef = React.useRef<HTMLDivElement>(null);
+//     const [dimensions, setDimensions] = React.useState({ width: 800, height: 400 });
+//     const [show2DMap, setShow2DMap] = React.useState(false);
+//     const [renderGlobeHTML, setRenderGlobeHTML] = React.useState(false);
 
-    React.useEffect(() => {
-        if (!containerRef.current) return;
-        const updateDimensions = () => {
-            if (containerRef.current) {
-                setDimensions({
-                    width: containerRef.current.clientWidth,
-                    height: containerRef.current.clientHeight
-                });
-            }
-        };
-        updateDimensions();
-        const timer = setTimeout(updateDimensions, 100);
-        window.addEventListener('resize', updateDimensions);
-        return () => {
-            clearTimeout(timer);
-            window.removeEventListener('resize', updateDimensions);
-        };
-    }, [show2DMap]);
+//     React.useEffect(() => {
+//         if (!containerRef.current) return;
+//         const updateDimensions = () => {
+//             if (containerRef.current) {
+//                 setDimensions({
+//                     width: containerRef.current.clientWidth,
+//                     height: containerRef.current.clientHeight
+//                 });
+//             }
+//         };
+//         updateDimensions();
+//         const timer = setTimeout(updateDimensions, 100);
+//         window.addEventListener('resize', updateDimensions);
+//         return () => {
+//             clearTimeout(timer);
+//             window.removeEventListener('resize', updateDimensions);
+//         };
+//     }, [show2DMap]);
 
-    React.useEffect(() => {
-        if (!show2DMap) {
-            if (globeEl.current) {
-                globeEl.current.controls().autoRotate = true;
-                globeEl.current.controls().autoRotateSpeed = 0.8;
-                globeEl.current.controls().enableZoom = false;
-                globeEl.current.pointOfView({ lat: 38, lng: -10, altitude: 2 }, 0);
-            }
-            const htmlTimer = setTimeout(() => setRenderGlobeHTML(true), 200);
-            return () => clearTimeout(htmlTimer);
-        } else {
-            setRenderGlobeHTML(false);
-        }
-    }, [dimensions.width, show2DMap]);
+//     React.useEffect(() => {
+//         if (!show2DMap) {
+//             if (globeEl.current) {
+//                 globeEl.current.controls().autoRotate = true;
+//                 globeEl.current.controls().autoRotateSpeed = 0.8;
+//                 globeEl.current.controls().enableZoom = false;
+//                 globeEl.current.pointOfView({ lat: 38, lng: -10, altitude: 2 }, 0);
+//             }
+//             const htmlTimer = setTimeout(() => setRenderGlobeHTML(true), 200);
+//             return () => clearTimeout(htmlTimer);
+//         } else {
+//             setRenderGlobeHTML(false);
+//         }
+//     }, [dimensions.width, show2DMap]);
 
-    const gData = [
-        { lat: 45.6083, lng: -94.2069, label: 'Head Office (USA)', color: '#0070f3' },
-        { lat: 33.6844, lng: 73.0479, label: 'Off-shore R&D and Production Facility (Isb)', color: '#00dfd8' }
-    ];
+//     const gData = [
+//         { lat: 45.6083, lng: -94.2069, label: 'Head Office (USA)', color: '#0070f3' },
+//         { lat: 33.6844, lng: 73.0479, label: 'Off-shore R&D and Production Facility (Isb)', color: '#00dfd8' }
+//     ];
 
-    const arcsData = [
-        { startLat: 45.6083, startLng: -94.2069, endLat: 33.6844, endLng: 73.0479 },
-        { startLat: 33.6844, startLng: 73.0479, endLat: 45.6083, endLng: -94.2069 }
-    ];
+//     const arcsData = [
+//         { startLat: 45.6083, startLng: -94.2069, endLat: 33.6844, endLng: 73.0479 },
+//         { startLat: 33.6844, startLng: 73.0479, endLat: 45.6083, endLng: -94.2069 }
+//     ];
 
-    return (
-        <Container className="text-center items-center">
-            {!show2DMap && <Heading gradient>Global Presence</Heading>}
-            {/* <p className="text-lg md:text-xl text-white/60 font-light leading-relaxed mb-12 max-w-2xl mx-auto">
-                Bridging innovation across continents with our 3D scalable architecture.
-            </p> */}
+//     return (
+//         <Container className="text-center items-center">
+//             {!show2DMap && <Heading gradient>Global Presence</Heading>}
+//             {/* <p className="text-lg md:text-xl text-white/60 font-light leading-relaxed mb-12 max-w-2xl mx-auto">
+//                 Bridging innovation across continents with our 3D scalable architecture.
+//             </p> */}
 
-            <AnimatePresence mode="wait">
-                {!show2DMap ? (
-                    <motion.div
-                        key="globe-view"
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        exit={{ opacity: 0, scale: 0.9 }}
-                        ref={containerRef}
-                        className="relative w-full h-[32vh] sm:h-[38vh] md:h-[45vh] lg:h-[50vh] max-w-4xl mx-auto mt-4 sm:mt-6 mb-8 sm:mb-12 md:mb-16 rounded-2xl sm:rounded-3xl md:rounded-[3rem] overflow-hidden glass-dark border border-white/10 shadow-[0_0_50px_rgba(0,112,243,0.15)] bg-black group"
-                    >
-                        <div className="absolute inset-x-0 bottom-0 top-1/2 bg-brand-cyan/20 blur-[100px] z-0 pointer-events-none" />
-                        {/* <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 pointer-events-none animate-bounce opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                            <div className="bg-brand-cyan/20 text-brand-cyan border border-brand-cyan/50 px-6 py-2 rounded-full backdrop-blur-sm text-sm font-semibold tracking-wider transition-all duration-300 shadow-[0_0_20px_rgba(0,223,216,0.2)]">
-                                DRAG TO ROTATE • CLICK TO EXPAND
-                            </div>
-                        </div> */}
-                        <div className="absolute inset-0 z-10">
-                            <Globe
-                                ref={globeEl}
-                                width={dimensions.width}
-                                height={dimensions.height}
-                                globeImageUrl="//unpkg.com/three-globe/example/img/earth-dark.jpg"
-                                bumpImageUrl="//unpkg.com/three-globe/example/img/earth-topology.png"
-                                backgroundColor="rgba(0,0,0,0)"
-                                onGlobeClick={() => setShow2DMap(true)}
-                                arcsData={arcsData}
-                                arcColor={() => ['#0070f3', '#00dfd8']}
-                                arcDashLength={0.4}
-                                arcDashGap={0.2}
-                                arcDashInitialGap={() => Math.random()}
-                                arcDashAnimateTime={2000}
-                                arcStroke={1.5}
-                                htmlElementsData={renderGlobeHTML ? gData : []}
-                                htmlElement={(d: any) => {
-                                    const el = document.createElement('div');
-                                    el.innerHTML = `
-                                        <div style="display: flex; flex-direction: column; align-items: center; transform: translate(-50%, -100%); pointer-events: none;">
-                                            <div style="color: ${d.color}; font-weight: bold; font-family: ui-sans-serif, system-ui, sans-serif; font-size: 13px; white-space: nowrap; background: rgba(0,0,0,0.85); padding: 6px 14px; border-radius: 8px; border: 1px solid ${d.color}60; margin-bottom: 8px; backdrop-filter: blur(8px); box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
-                                                ${d.label}
-                                            </div>
-                                            <div style="width: 16px; height: 16px; border-radius: 50%; background-color: ${d.color}; box-shadow: 0 0 20px ${d.color}, inset 0 0 5px #fff; border: 2px solid white;"></div>
-                                        </div>
-                                    `;
-                                    return el;
-                                }}
-                            />
-                        </div>
-                    </motion.div>
-                ) : (
-                    /* ── 2D MAP VIEW ──────────────────────────────────────────────────────
-                       Break out of Container width constraints by using negative margins
-                       so the panel stretches edge-to-edge relative to the viewport.
-                    ──────────────────────────────────────────────────────────────────── */
-                    <motion.div
-                        key="2d-map-view"
-                        initial={{ opacity: 0, scale: 0.95, y: 30 }}
-                        animate={{ opacity: 1, scale: 1, y: 0 }}
-                        exit={{ opacity: 0, scale: 0.95, y: 30 }}
-                        transition={{ duration: 0.5, ease: "easeOut" }}
-                        className="mt-4 sm:mt-6 mb-8 sm:mb-12 md:mb-16 w-full px-0 sm:px-4 md:px-8"
-                    >
-                        {/* ── Map Panel ─────────────────────────────────────────────────────
-                            Full viewport-width panel, tall enough to comfortably show everything.
-                            overflow-hidden keeps the rounded corners clean.
-                        ──────────────────────────────────────────────────────────────────── */}
-                        <div
-                            className="relative w-full rounded-2xl sm:rounded-3xl md:rounded-[3rem] glass-dark border border-white/10 shadow-[0_0_60px_rgba(0,223,216,0.15)] bg-black overflow-hidden min-h-[45vh] sm:min-h-[55vh] md:min-h-[65vh] lg:min-h-[75vh]"
-                        >
-                            {/* Glow */}
-                            <div className="absolute inset-x-0 bottom-0 top-1/2 bg-brand-cyan/20 blur-[120px] z-0 pointer-events-none" />
+//             <AnimatePresence mode="wait">
+//                 {!show2DMap ? (
+//                     <motion.div
+//                         key="globe-view"
+//                         initial={{ opacity: 0, scale: 0.9 }}
+//                         animate={{ opacity: 1, scale: 1 }}
+//                         exit={{ opacity: 0, scale: 0.9 }}
+//                         ref={containerRef}
+//                         className="relative w-full h-[32vh] sm:h-[38vh] md:h-[45vh] lg:h-[50vh] max-w-4xl mx-auto mt-4 sm:mt-6 mb-8 sm:mb-12 md:mb-16 rounded-2xl sm:rounded-3xl md:rounded-[3rem] overflow-hidden glass-dark border border-white/10 shadow-[0_0_50px_rgba(0,112,243,0.15)] bg-black group"
+//                     >
+//                         <div className="absolute inset-x-0 bottom-0 top-1/2 bg-brand-cyan/20 blur-[100px] z-0 pointer-events-none" />
+//                         {/* <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 pointer-events-none animate-bounce opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+//                             <div className="bg-brand-cyan/20 text-brand-cyan border border-brand-cyan/50 px-6 py-2 rounded-full backdrop-blur-sm text-sm font-semibold tracking-wider transition-all duration-300 shadow-[0_0_20px_rgba(0,223,216,0.2)]">
+//                                 DRAG TO ROTATE • CLICK TO EXPAND
+//                             </div>
+//                         </div> */}
+//                         <div className="absolute inset-0 z-10">
+//                             <Globe
+//                                 ref={globeEl}
+//                                 width={dimensions.width}
+//                                 height={dimensions.height}
+//                                 globeImageUrl="//unpkg.com/three-globe/example/img/earth-dark.jpg"
+//                                 bumpImageUrl="//unpkg.com/three-globe/example/img/earth-topology.png"
+//                                 backgroundColor="rgba(0,0,0,0)"
+//                                 onGlobeClick={() => setShow2DMap(true)}
+//                                 arcsData={arcsData}
+//                                 arcColor={() => ['#0070f3', '#00dfd8']}
+//                                 arcDashLength={0.4}
+//                                 arcDashGap={0.2}
+//                                 arcDashInitialGap={() => Math.random()}
+//                                 arcDashAnimateTime={2000}
+//                                 arcStroke={1.5}
+//                                 htmlElementsData={renderGlobeHTML ? gData : []}
+//                                 htmlElement={(d: any) => {
+//                                     const el = document.createElement('div');
+//                                     el.innerHTML = `
+//                                         <div style="display: flex; flex-direction: column; align-items: center; transform: translate(-50%, -100%); pointer-events: none;">
+//                                             <div style="color: ${d.color}; font-weight: bold; font-family: ui-sans-serif, system-ui, sans-serif; font-size: 13px; white-space: nowrap; background: rgba(0,0,0,0.85); padding: 6px 14px; border-radius: 8px; border: 1px solid ${d.color}60; margin-bottom: 8px; backdrop-filter: blur(8px); box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
+//                                                 ${d.label}
+//                                             </div>
+//                                             <div style="width: 16px; height: 16px; border-radius: 50%; background-color: ${d.color}; box-shadow: 0 0 20px ${d.color}, inset 0 0 5px #fff; border: 2px solid white;"></div>
+//                                         </div>
+//                                     `;
+//                                     return el;
+//                                 }}
+//                             />
+//                         </div>
+//                     </motion.div>
+//                 ) : (
+//                     /* ── 2D MAP VIEW ──────────────────────────────────────────────────────
+//                        Break out of Container width constraints by using negative margins
+//                        so the panel stretches edge-to-edge relative to the viewport.
+//                     ──────────────────────────────────────────────────────────────────── */
+//                     <motion.div
+//                         key="2d-map-view"
+//                         initial={{ opacity: 0, scale: 0.95, y: 30 }}
+//                         animate={{ opacity: 1, scale: 1, y: 0 }}
+//                         exit={{ opacity: 0, scale: 0.95, y: 30 }}
+//                         transition={{ duration: 0.5, ease: "easeOut" }}
+//                         className="mt-4 sm:mt-6 mb-8 sm:mb-12 md:mb-16 w-full px-0 sm:px-4 md:px-8"
+//                     >
+//                         {/* ── Map Panel ─────────────────────────────────────────────────────
+//                             Full viewport-width panel, tall enough to comfortably show everything.
+//                             overflow-hidden keeps the rounded corners clean.
+//                         ──────────────────────────────────────────────────────────────────── */}
+//                         <div
+//                             className="relative w-full rounded-2xl sm:rounded-3xl md:rounded-[3rem] glass-dark border border-white/10 shadow-[0_0_60px_rgba(0,223,216,0.15)] bg-black overflow-hidden min-h-[45vh] sm:min-h-[55vh] md:min-h-[65vh] lg:min-h-[75vh]"
+//                         >
+//                             {/* Glow */}
+//                             <div className="absolute inset-x-0 bottom-0 top-1/2 bg-brand-cyan/20 blur-[120px] z-0 pointer-events-none" />
 
-                            {/* World map SVG — large and centred */}
-                            <div className="relative inset-0 flex items-center justify-center pointer-events-none z-10">
-                                <img
-                                    src="/world-map.svg"
-                                    alt="World Map"
-                                    className="w-[75%] h-auto object-contain opacity-[0.4] invert drop-shadow-[0_0_20px_rgba(255,255,255,0.15)]"
-                                />
-                            </div>
+//                             {/* World map SVG — large and centred */}
+//                             <div className="relative inset-0 flex items-center justify-center pointer-events-none z-10">
+//                                 <img
+//                                     src="/world-map.svg"
+//                                     alt="World Map"
+//                                     className="w-[75%] h-auto object-contain opacity-[0.4] invert drop-shadow-[0_0_20px_rgba(255,255,255,0.15)]"
+//                                 />
+//                             </div>
 
-                            {/* Animated SVG arcs */}
-                            <svg
-                                className="absolute inset-0 w-full h-full pointer-events-none z-20"
-                                viewBox="0 0 1000 1000"
-                                preserveAspectRatio="none"
-                            >
-                                <defs>
-                                    <linearGradient id="gradient-line" x1="0%" y1="0%" x2="100%" y2="0%">
-                                        <stop offset="0%" stopColor="#0070f3" stopOpacity={0.2} />
-                                        <stop offset="50%" stopColor="#00dfd8" />
-                                        <stop offset="100%" stopColor="#0070f3" stopOpacity={0.2} />
-                                    </linearGradient>
-                                </defs>
+//                             {/* Animated SVG arcs */}
+//                             <svg
+//                                 className="absolute inset-0 w-full h-full pointer-events-none z-20"
+//                                 viewBox="0 0 1000 1000"
+//                                 preserveAspectRatio="none"
+//                             >
+//                                 <defs>
+//                                     <linearGradient id="gradient-line" x1="0%" y1="0%" x2="100%" y2="0%">
+//                                         <stop offset="0%" stopColor="#0070f3" stopOpacity={0.2} />
+//                                         <stop offset="50%" stopColor="#00dfd8" />
+//                                         <stop offset="100%" stopColor="#0070f3" stopOpacity={0.2} />
+//                                     </linearGradient>
+//                                 </defs>
                                 
-                                {/* Single arc connecting US (300,450) to Pakistan (630,450) */}
-                                <g>
-                                    <motion.path
-                                        d="M 310 220 Q 465 10 635 280"
-                                        fill="none"
-                                        stroke="url(#gradient-line)"
-                                        strokeWidth="2.5"
-                                        strokeDasharray="5 7"
-                                        initial={{ pathLength: 0, opacity: 0 }}
-                                        whileInView={{ pathLength: 1, opacity: 0.7 }}
-                                        transition={{ duration: 2, ease: "easeInOut", delay: 0 }}
-                                    />
-                                    <motion.circle r="3" fill="#fff" filter="drop-shadow(0 0 5px #fff)">
-                                        <animateMotion 
-                                            path="M 310 220 Q 465 10 635 280" 
-                                            dur="3s" 
-                                            repeatCount="indefinite" 
-                                        />
-                                    </motion.circle>
-                                </g>
-                            </svg>
+//                                 {/* Single arc connecting US (300,450) to Pakistan (630,450) */}
+//                                 <g>
+//                                     <motion.path
+//                                         d="M 310 220 Q 465 10 635 280"
+//                                         fill="none"
+//                                         stroke="url(#gradient-line)"
+//                                         strokeWidth="2.5"
+//                                         strokeDasharray="5 7"
+//                                         initial={{ pathLength: 0, opacity: 0 }}
+//                                         whileInView={{ pathLength: 1, opacity: 0.7 }}
+//                                         transition={{ duration: 2, ease: "easeInOut", delay: 0 }}
+//                                     />
+//                                     <motion.circle r="3" fill="#fff" filter="drop-shadow(0 0 5px #fff)">
+//                                         <animateMotion 
+//                                             path="M 310 220 Q 465 10 635 280" 
+//                                             dur="3s" 
+//                                             repeatCount="indefinite" 
+//                                         />
+//                                     </motion.circle>
+//                                 </g>
+//                             </svg>
 
-                            {/* Back button */}
-                            <button
-                                onClick={(e) => { e.stopPropagation(); setShow2DMap(false); }}
-                                className="absolute z-50 top-6 right-6 md:top-8 md:right-8 bg-black/60 border border-white/20 text-white/70 hover:text-brand-cyan hover:border-brand-cyan rounded-full px-6 py-2.5 backdrop-blur-md transition-all duration-300 font-bold uppercase tracking-widest text-xs md:text-sm hover:scale-105 shadow-lg"
-                            >
-                                Back
-                            </button>
+//                             {/* Back button */}
+//                             <button
+//                                 onClick={(e) => { e.stopPropagation(); setShow2DMap(false); }}
+//                                 className="absolute z-50 top-6 right-6 md:top-8 md:right-8 bg-black/60 border border-white/20 text-white/70 hover:text-brand-cyan hover:border-brand-cyan rounded-full px-6 py-2.5 backdrop-blur-md transition-all duration-300 font-bold uppercase tracking-widest text-xs md:text-sm hover:scale-105 shadow-lg"
+//                             >
+//                                 Back
+//                             </button>
 
-                            {/* ── US Card — left edge of panel ──────────────────────────────── */}
-                           <motion.div
-                                initial={{ opacity: 0, x: -20 }}
-                                animate={{ opacity: 1, x: 0 }}
-                                transition={{ delay: 0.7 }}
-                                whileHover={{ 
-                                    scale: 1.05,
-                                    transition: { duration: 0.2, ease: "easeInOut" }
-                                }}
-                                className="absolute left-[2%] top-[40%] -translate-y-1/2 z-30 w-64 glass-dark rounded-2xl border border-brand-blue/30 overflow-hidden shadow-[0_0_30px_rgba(0,112,243,0.25)] hidden md:block cursor-pointer"
-                            >
-                                <div className="relative h-32 overflow-hidden">
-                                    <img src="/assets/us-facility.png" alt="US Facility" className="w-full h-full object-cover opacity-85 hover:scale-105 transition-transform duration-700" />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                                    <div className="absolute bottom-2 left-3">
-                                        <div className="flex items-center gap-1.5">
-                                            <span className="text-sm">🇺🇸</span>
-                                            <p className="text-white font-bold text-sm">Minnesota</p>
-                                        </div>
-                                        <p className="text-brand-blue/80 font-mono text-[9px] tracking-widest uppercase">Global Headquarters</p>
-                                    </div>
-                                </div>
-                                <div className="p-4 flex flex-col gap-2">
-                                    <p className="text-brand-cyan font-bold text-sm text-left leading-tight">Headquarters</p>
-                                    <p className="text-white/60 text-[11px] text-left leading-relaxed">Oversees global operations, regulatory excellence & strategic international partnerships.</p>
-                                    <div className="grid grid-cols-2 gap-1.5 mt-1">
-                                        {["Regulatory Hub", "Strategic Ops", "Global Partnerships", "US Compliance"].map((item, i) => (
-                                            <div key={i} className="flex items-center gap-1.5">
-                                                <div className="w-1.5 h-1.5 rounded-full bg-brand-cyan shrink-0" />
-                                                <span className="text-white/50 text-[10px]">{item}</span>
-                                            </div>
-                                        ))}
-                                    </div>
-                                </div>
-                            </motion.div>
+//                             {/* ── US Card — left edge of panel ──────────────────────────────── */}
+//                            <motion.div
+//                                 initial={{ opacity: 0, x: -20 }}
+//                                 animate={{ opacity: 1, x: 0 }}
+//                                 transition={{ delay: 0.7 }}
+//                                 whileHover={{ 
+//                                     scale: 1.05,
+//                                     transition: { duration: 0.2, ease: "easeInOut" }
+//                                 }}
+//                                 className="absolute left-[2%] top-[40%] -translate-y-1/2 z-30 w-64 glass-dark rounded-2xl border border-brand-blue/30 overflow-hidden shadow-[0_0_30px_rgba(0,112,243,0.25)] hidden md:block cursor-pointer"
+//                             >
+//                                 <div className="relative h-32 overflow-hidden">
+//                                     <img src="/assets/us-facility.png" alt="US Facility" className="w-full h-full object-cover opacity-85 hover:scale-105 transition-transform duration-700" />
+//                                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+//                                     <div className="absolute bottom-2 left-3">
+//                                         <div className="flex items-center gap-1.5">
+//                                             <span className="text-sm">🇺🇸</span>
+//                                             <p className="text-white font-bold text-sm">Minnesota</p>
+//                                         </div>
+//                                         <p className="text-brand-blue/80 font-mono text-[9px] tracking-widest uppercase">Global Headquarters</p>
+//                                     </div>
+//                                 </div>
+//                                 <div className="p-4 flex flex-col gap-2">
+//                                     <p className="text-brand-cyan font-bold text-sm text-left leading-tight">Headquarters</p>
+//                                     <p className="text-white/60 text-[11px] text-left leading-relaxed">Oversees global operations, regulatory excellence & strategic international partnerships.</p>
+//                                     <div className="grid grid-cols-2 gap-1.5 mt-1">
+//                                         {["Regulatory Hub", "Strategic Ops", "Global Partnerships", "US Compliance"].map((item, i) => (
+//                                             <div key={i} className="flex items-center gap-1.5">
+//                                                 <div className="w-1.5 h-1.5 rounded-full bg-brand-cyan shrink-0" />
+//                                                 <span className="text-white/50 text-[10px]">{item}</span>
+//                                             </div>
+//                                         ))}
+//                                     </div>
+//                                 </div>
+//                             </motion.div>
 
-                            {/* US Pin */}
-                            <motion.div
-                                initial={{ opacity: 0, scale: 0 }}
-                                animate={{ opacity: 1, scale: 1 }}
-                                transition={{ delay: 0.5, type: "spring" }}
-                                className="absolute top-[22%] left-[31%] -translate-x-1/2 -translate-y-1/2 z-30 group hidden md:block"
-                            >
-                                {/* Connector line to card */}
-                                <div className="absolute top-1/2 right-full -translate-y-1/2 flex items-center">
-                                    <div className="w-[3vw] h-px bg-gradient-to-l from-brand-cyan to-transparent" />
-                                    <div className="w-1.5 h-1.5 rounded-full bg-brand-cyan shadow-[0_0_10px_#00dfd8] shrink-0" />
-                                </div>
-                                <div className="relative flex items-center justify-center">
-                                    <motion.div animate={{ scale: [1, 2.5, 1], opacity: [0.6, 0, 0.6] }} transition={{ duration: 2, repeat: Infinity }} className="absolute -inset-1.5 border border-brand-cyan rounded-full" />
-                                    <div className="w-5 h-5 bg-red-600 rounded-full relative z-10 shadow-[0_0_20px_rgba(239,68,68,0.8)] border-[3px] border-white flex items-center justify-center group-hover:scale-125 transition-transform">
-                                        <div className="w-1.5 h-1.5 bg-white rounded-full" />
-                                    </div>
-                                </div>
-                            </motion.div>
+//                             {/* US Pin */}
+//                             <motion.div
+//                                 initial={{ opacity: 0, scale: 0 }}
+//                                 animate={{ opacity: 1, scale: 1 }}
+//                                 transition={{ delay: 0.5, type: "spring" }}
+//                                 className="absolute top-[22%] left-[31%] -translate-x-1/2 -translate-y-1/2 z-30 group hidden md:block"
+//                             >
+//                                 {/* Connector line to card */}
+//                                 <div className="absolute top-1/2 right-full -translate-y-1/2 flex items-center">
+//                                     <div className="w-[3vw] h-px bg-gradient-to-l from-brand-cyan to-transparent" />
+//                                     <div className="w-1.5 h-1.5 rounded-full bg-brand-cyan shadow-[0_0_10px_#00dfd8] shrink-0" />
+//                                 </div>
+//                                 <div className="relative flex items-center justify-center">
+//                                     <motion.div animate={{ scale: [1, 2.5, 1], opacity: [0.6, 0, 0.6] }} transition={{ duration: 2, repeat: Infinity }} className="absolute -inset-1.5 border border-brand-cyan rounded-full" />
+//                                     <div className="w-5 h-5 bg-red-600 rounded-full relative z-10 shadow-[0_0_20px_rgba(239,68,68,0.8)] border-[3px] border-white flex items-center justify-center group-hover:scale-125 transition-transform">
+//                                         <div className="w-1.5 h-1.5 bg-white rounded-full" />
+//                                     </div>
+//                                 </div>
+//                             </motion.div>
 
-                            {/* ── Pakistan Pin ──────────────────────────────────────────────── */}
-                            <motion.div
-                                initial={{ opacity: 0, scale: 0 }}
-                                animate={{ opacity: 1, scale: 1 }}
-                                transition={{ delay: 0.8, type: "spring" }}
-                                className="absolute top-[28%] left-[63.5%] -translate-x-1/2 -translate-y-1/2 z-30 group hidden md:block"
-                            >
-                                {/* Connector line to card */}
-                                <div className="absolute top-1/2 left-full -translate-y-1/2 flex items-center">
-                                    <div className="w-1.5 h-1.5 rounded-full bg-brand-cyan shadow-[0_0_10px_#00dfd8] shrink-0" />
-                                    <div className="w-[3vw] h-px bg-gradient-to-r from-brand-cyan to-transparent" />
-                                </div>
-                                <div className="relative flex items-center justify-center">
-                                    <motion.div animate={{ scale: [1, 2.5, 1], opacity: [0.6, 0, 0.6] }} transition={{ duration: 2, repeat: Infinity, delay: 1 }} className="absolute -inset-1.5 border border-brand-cyan rounded-full" />
-                                    <div className="w-5 h-5 bg-red-600 rounded-full relative z-10 shadow-[0_0_20px_rgba(239,68,68,0.8)] border-[3px] border-white flex items-center justify-center group-hover:scale-125 transition-transform">
-                                        <div className="w-1.5 h-1.5 bg-white rounded-full" />
-                                    </div>
-                                </div>
-                            </motion.div>
+//                             {/* ── Pakistan Pin ──────────────────────────────────────────────── */}
+//                             <motion.div
+//                                 initial={{ opacity: 0, scale: 0 }}
+//                                 animate={{ opacity: 1, scale: 1 }}
+//                                 transition={{ delay: 0.8, type: "spring" }}
+//                                 className="absolute top-[28%] left-[63.5%] -translate-x-1/2 -translate-y-1/2 z-30 group hidden md:block"
+//                             >
+//                                 {/* Connector line to card */}
+//                                 <div className="absolute top-1/2 left-full -translate-y-1/2 flex items-center">
+//                                     <div className="w-1.5 h-1.5 rounded-full bg-brand-cyan shadow-[0_0_10px_#00dfd8] shrink-0" />
+//                                     <div className="w-[3vw] h-px bg-gradient-to-r from-brand-cyan to-transparent" />
+//                                 </div>
+//                                 <div className="relative flex items-center justify-center">
+//                                     <motion.div animate={{ scale: [1, 2.5, 1], opacity: [0.6, 0, 0.6] }} transition={{ duration: 2, repeat: Infinity, delay: 1 }} className="absolute -inset-1.5 border border-brand-cyan rounded-full" />
+//                                     <div className="w-5 h-5 bg-red-600 rounded-full relative z-10 shadow-[0_0_20px_rgba(239,68,68,0.8)] border-[3px] border-white flex items-center justify-center group-hover:scale-125 transition-transform">
+//                                         <div className="w-1.5 h-1.5 bg-white rounded-full" />
+//                                     </div>
+//                                 </div>
+//                             </motion.div>
 
-                            {/* ── Pakistan Card — right edge of panel ───────────────────────── */}
-                            <motion.div
-                                initial={{ opacity: 0, x: 20 }}
-                                animate={{ opacity: 1, x: 0 }}
-                                transition={{ delay: 1 }}
-                                whileHover={{ 
-                                    scale: 1.05,
-                                    transition: { duration: 0.2, ease: "easeInOut" }
-                                }}
-                                className="absolute right-[2%] top-[45%] -translate-y-1/2 z-30 w-64 glass-dark rounded-2xl border border-brand-cyan/30 overflow-hidden shadow-[0_0_30px_rgba(0,223,216,0.25)] hidden md:block cursor-pointer"
-                            >
-                                <div className="relative h-32 overflow-hidden">
-                                    <img src="/assets/pak-facility.png" alt="Pakistan Facility" className="w-full h-full object-cover object-top opacity-85 hover:scale-105 transition-transform duration-700" />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                                    <div className="absolute bottom-2 left-3">
-                                        <div className="flex items-center gap-1.5">
-                                            <span className="text-sm">🇵🇰</span>
-                                            <p className="text-white font-bold text-sm">Islamabad</p>
-                                        </div>
-                                        <p className="text-brand-cyan/80 font-mono text-[9px] tracking-widest uppercase">R&D and Production Hub</p>
-                                    </div>
-                                </div>
-                                <div className="p-4 flex flex-col gap-2">
-                                    <p className="text-brand-cyan font-bold text-sm text-left leading-tight">R&D Facility</p>
-                                    <p className="text-white/60 text-[11px] text-left leading-relaxed">Primary off-shore R&D and production hub with advanced laboratories and certified cleanrooms.</p>
-                                    <div className="grid grid-cols-2 gap-1 mt-1">
-                                        {["Biomaterials Lab", "Software & AI Suite", "ISO Cleanrooms", "Mechanical Workshop"].map((item, i) => (
-                                            <div key={i} className="flex items-center gap-1">
-                                                <div className="w-1.5 h-1.5 rounded-full bg-brand-cyan shrink-0" />
-                                                <span className="text-white/50 text-[10px] whitespace-nowrap">{item}</span>
-                                            </div>
-                                        ))}
-                                    </div>
-                                </div>
-                            </motion.div>
+//                             {/* ── Pakistan Card — right edge of panel ───────────────────────── */}
+//                             <motion.div
+//                                 initial={{ opacity: 0, x: 20 }}
+//                                 animate={{ opacity: 1, x: 0 }}
+//                                 transition={{ delay: 1 }}
+//                                 whileHover={{ 
+//                                     scale: 1.05,
+//                                     transition: { duration: 0.2, ease: "easeInOut" }
+//                                 }}
+//                                 className="absolute right-[2%] top-[45%] -translate-y-1/2 z-30 w-64 glass-dark rounded-2xl border border-brand-cyan/30 overflow-hidden shadow-[0_0_30px_rgba(0,223,216,0.25)] hidden md:block cursor-pointer"
+//                             >
+//                                 <div className="relative h-32 overflow-hidden">
+//                                     <img src="/assets/pak-facility.png" alt="Pakistan Facility" className="w-full h-full object-cover object-top opacity-85 hover:scale-105 transition-transform duration-700" />
+//                                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+//                                     <div className="absolute bottom-2 left-3">
+//                                         <div className="flex items-center gap-1.5">
+//                                             <span className="text-sm">🇵🇰</span>
+//                                             <p className="text-white font-bold text-sm">Islamabad</p>
+//                                         </div>
+//                                         <p className="text-brand-cyan/80 font-mono text-[9px] tracking-widest uppercase">R&D and Production Hub</p>
+//                                     </div>
+//                                 </div>
+//                                 <div className="p-4 flex flex-col gap-2">
+//                                     <p className="text-brand-cyan font-bold text-sm text-left leading-tight">R&D Facility</p>
+//                                     <p className="text-white/60 text-[11px] text-left leading-relaxed">Primary off-shore R&D and production hub with advanced laboratories and certified cleanrooms.</p>
+//                                     <div className="grid grid-cols-2 gap-1 mt-1">
+//                                         {["Biomaterials Lab", "Software & AI Suite", "ISO Cleanrooms", "Mechanical Workshop"].map((item, i) => (
+//                                             <div key={i} className="flex items-center gap-1">
+//                                                 <div className="w-1.5 h-1.5 rounded-full bg-brand-cyan shrink-0" />
+//                                                 <span className="text-white/50 text-[10px] whitespace-nowrap">{item}</span>
+//                                             </div>
+//                                         ))}
+//                                     </div>
+//                                 </div>
+//                             </motion.div>
 
-                        </div>
+//                         </div>
 
-                        {/* Mobile / tablet: location details below map */}
-                        <div className="md:hidden grid grid-cols-1 gap-4 mt-4 w-full">
-                            <div className="glass-dark rounded-2xl border border-brand-blue/30 overflow-hidden">
-                                <div className="relative h-28 overflow-hidden">
-                                    <img src="/assets/us-facility.png" alt="US Facility" className="w-full h-full object-cover opacity-85" />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                                    <div className="absolute bottom-2 left-3">
-                                        <div className="flex items-center gap-1.5">
-                                            <span className="text-sm">🇺🇸</span>
-                                            <p className="text-white font-bold text-sm">Minnesota</p>
-                                        </div>
-                                        <p className="text-brand-blue/80 font-mono text-[9px] tracking-widest uppercase">Global Headquarters</p>
-                                    </div>
-                                </div>
-                                <div className="p-4">
-                                    <p className="text-brand-cyan font-bold text-sm mb-1">Headquarters</p>
-                                    <p className="text-white/60 text-xs leading-relaxed">Oversees global operations, regulatory excellence & strategic international partnerships.</p>
-                                </div>
-                            </div>
-                            <div className="glass-dark rounded-2xl border border-brand-cyan/30 overflow-hidden">
-                                <div className="relative h-28 overflow-hidden">
-                                    <img src="/assets/pak-facility.png" alt="Pakistan Facility" className="w-full h-full object-cover object-top opacity-85" />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                                    <div className="absolute bottom-2 left-3">
-                                        <div className="flex items-center gap-1.5">
-                                            <span className="text-sm">🇵🇰</span>
-                                            <p className="text-white font-bold text-sm">Islamabad</p>
-                                        </div>
-                                        <p className="text-brand-cyan/80 font-mono text-[9px] tracking-widest uppercase">R&D and Production Hub</p>
-                                    </div>
-                                </div>
-                                <div className="p-4">
-                                    <p className="text-brand-cyan font-bold text-sm mb-1">R&D Facility</p>
-                                    <p className="text-white/60 text-xs leading-relaxed">Primary off-shore R&D and production hub with advanced laboratories and certified cleanrooms.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </motion.div>
-                )}
-            </AnimatePresence>
-        </Container>
-    );
-};
+//                         {/* Mobile / tablet: location details below map */}
+//                         <div className="md:hidden grid grid-cols-1 gap-4 mt-4 w-full">
+//                             <div className="glass-dark rounded-2xl border border-brand-blue/30 overflow-hidden">
+//                                 <div className="relative h-28 overflow-hidden">
+//                                     <img src="/assets/us-facility.png" alt="US Facility" className="w-full h-full object-cover opacity-85" />
+//                                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+//                                     <div className="absolute bottom-2 left-3">
+//                                         <div className="flex items-center gap-1.5">
+//                                             <span className="text-sm">🇺🇸</span>
+//                                             <p className="text-white font-bold text-sm">Minnesota</p>
+//                                         </div>
+//                                         <p className="text-brand-blue/80 font-mono text-[9px] tracking-widest uppercase">Global Headquarters</p>
+//                                     </div>
+//                                 </div>
+//                                 <div className="p-4">
+//                                     <p className="text-brand-cyan font-bold text-sm mb-1">Headquarters</p>
+//                                     <p className="text-white/60 text-xs leading-relaxed">Oversees global operations, regulatory excellence & strategic international partnerships.</p>
+//                                 </div>
+//                             </div>
+//                             <div className="glass-dark rounded-2xl border border-brand-cyan/30 overflow-hidden">
+//                                 <div className="relative h-28 overflow-hidden">
+//                                     <img src="/assets/pak-facility.png" alt="Pakistan Facility" className="w-full h-full object-cover object-top opacity-85" />
+//                                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+//                                     <div className="absolute bottom-2 left-3">
+//                                         <div className="flex items-center gap-1.5">
+//                                             <span className="text-sm">🇵🇰</span>
+//                                             <p className="text-white font-bold text-sm">Islamabad</p>
+//                                         </div>
+//                                         <p className="text-brand-cyan/80 font-mono text-[9px] tracking-widest uppercase">R&D and Production Hub</p>
+//                                     </div>
+//                                 </div>
+//                                 <div className="p-4">
+//                                     <p className="text-brand-cyan font-bold text-sm mb-1">R&D Facility</p>
+//                                     <p className="text-white/60 text-xs leading-relaxed">Primary off-shore R&D and production hub with advanced laboratories and certified cleanrooms.</p>
+//                                 </div>
+//                             </div>
+//                         </div>
+//                     </motion.div>
+//                 )}
+//             </AnimatePresence>
+//         </Container>
+//     );
+// };
+
+// 7.5 One Stop Destination
+export const OneStopDestination = () => (
+    <Container className="items-center justify-center">
+        {/* Two Facility Images Side by Side */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 w-full mb-8 md:mb-10">
+            <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8 }}
+                className="relative rounded-2xl sm:rounded-3xl overflow-hidden aspect-[4/3] border border-white/10 shadow-[0_0_30px_rgba(0,223,216,0.08)]"
+            >
+                <img
+                    src="/assets/pak-facility.png"
+                    alt="Pakistan R&D Facility"
+                    className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                <div className="absolute top-4 left-4">
+                    <img src="/assets/rmt-logo.png" alt="RMT Logo" className="h-8 sm:h-10 md:h-12 w-auto object-contain brightness-0 invert drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]" />
+                </div>
+            </motion.div>
+            <motion.div
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.15 }}
+                className="relative rounded-2xl sm:rounded-3xl overflow-hidden aspect-[4/3] border border-white/10 shadow-[0_0_30px_rgba(0,112,243,0.08)]"
+            >
+                <img
+                    src="/assets/us-facility.png"
+                    alt="US Headquarters"
+                    className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                <div className="absolute top-4 right-4">
+                    <img src="/assets/rmt-logo.png" alt="RMT Logo" className="h-8 sm:h-10 md:h-12 w-auto object-contain brightness-0 invert drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]" />
+                </div>
+            </motion.div>
+        </div>
+
+        {/* Bottom Section: Text Left, Badges Right */}
+        <div className="flex flex-col sm:flex-row items-center sm:items-end justify-between w-full gap-6">
+            {/* Text */}
+            <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.3 }}
+                className="text-left"
+            >
+                <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-tight mb-2 md:mb-3">
+                    REVIVE MEDICAL TECHNOLOGIES INC.
+                </h2>
+                <p className="text-xs sm:text-sm md:text-base text-white/50 font-semibold tracking-[0.15em] uppercase">
+                    End-to-End Service Provider; From Ideation to Commercialization
+                </p>
+            </motion.div>
+
+            {/* Certification Badges */}
+            <motion.div
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.45 }}
+                className="flex flex-row items-center gap-4 md:gap-6 shrink-0"
+            >
+                <img
+                    src="/assets/drap-approved.png"
+                    alt="DRAP Approved"
+                    className="h-12 sm:h-14 md:h-18 w-auto object-contain rounded-xl filter drop-shadow-[0_0_12px_rgba(16,185,129,0.15)]"
+                />
+                <img
+                    src="/assets/iso-certified.png"
+                    alt="ISO 13485 Certified"
+                    className="h-12 sm:h-14 md:h-18 w-auto object-contain rounded-xl filter drop-shadow-[0_0_12px_rgba(0,223,216,0.15)]"
+                />
+            </motion.div>
+        </div>
+    </Container>
+);
 
 // 8. Services Intro
 export const ServicesIntro = () => (

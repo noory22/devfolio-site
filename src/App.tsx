@@ -41,11 +41,11 @@ const slideTransitions = [
     animate: { opacity: 1, scale: 1, transition: { duration: 0.8 } },
     exit: { opacity: 0, scale: 1.2, transition: { duration: 0.5 } },
   },
-  // 5: Animated Map
+  // 5: One Stop Destination
   {
-    initial: { opacity: 0, rotateX: 90 },
-    animate: { opacity: 1, rotateX: 0, transition: { duration: 1 } },
-    exit: { opacity: 0, rotateX: -90, transition: { duration: 0.6 } },
+    initial: { opacity: 0, scale: 0.9 },
+    animate: { opacity: 1, scale: 1, transition: { duration: 0.8 } },
+    exit: { opacity: 0, scale: 1.1, transition: { duration: 0.5 } },
   },
   // 6: Services Intro
   {
@@ -78,7 +78,8 @@ const slideComponents = [
   Content.RMTBackground,
   Content.OurCompany,
   // Content.GlobalLocations,
-  Content.AnimatedMap,
+  // Content.AnimatedMap,
+  Content.OneStopDestination,
   Content.ServicesIntro,
   
   // AI Section
@@ -153,7 +154,7 @@ const BackgroundMapping = [
   Backgrounds.TechNetworkBG,  // 2: Software Team
   Backgrounds.FloatingCubesBG,// 3: RMT Background
   Backgrounds.AuroraBG,       // 4: Our Company
-  Backgrounds.GridPulseBG,    // 5: Animated Map
+  Backgrounds.AuroraBG,       // 5: One Stop Destination
   Backgrounds.AuroraBG,       // 6: Services Intro
 
   // AI Section (7 to 15)
@@ -300,8 +301,8 @@ export default function App() {
   ]);
 
   const getCategoryRange = (index: number) => {
-    if (index < 7) return [0, 6];      // Intro (Slides 1-7)
-    if (index >= 7 && index < 16) return [7, 15]; // AI Section (Slides 2-10)
+    if (index < 7) return [0, 6];      // Intro (Slides 0-6)
+    if (index >= 7 && index < 16) return [7, 15]; // AI Section (Slides 7-15)
     return [16, TOTAL_SLIDES - 1];      // Services, Accomplishments & Thank You
   };
 
@@ -731,39 +732,23 @@ export default function App() {
 
       <Navbar currentSlide={currentSlide} setCurrentSlide={(idx: number) => navigateTo(idx)} />
 
-      {/* Header and Footer for Introductory Slides */}
-      <AnimatePresence>
-        {currentSlide < 7 && (
-          <>
-            {/* Logo Header (Top-Left) */}
-            <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.5 }}
-              className="fixed top-4 sm:top-6 left-4 sm:left-6 md:left-8 z-50 pointer-events-none"
-            >
-              <img
-                src="/assets/logo.png"
-                alt="REVIVE Medical Technologies Inc. Logo"
-                className="h-10 sm:h-14 md:h-16 lg:h-18 w-auto object-contain brightness-0 invert drop-shadow-[0_0_12px_rgba(255,255,255,0.4)]"
-              />
-            </motion.div>
+      {/* Header and Footer for All Slides */}
+      {/* Logo Header (Top-Left) */}
+      <div className="fixed top-6 sm:top-8 left-4 sm:left-6 md:left-8 z-50 pointer-events-none">
+        <img
+          src="/assets/logo.png"
+          alt="REVIVE Medical Technologies Inc. Logo"
+          className="h-12 sm:h-16 md:h-20 lg:h-24 xl:h-28 w-auto object-contain brightness-0 invert drop-shadow-[0_0_15px_rgba(255,255,255,0.5)]"
+        />
+      </div>
 
-            {/* Footer Text (Bottom-Right) */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 20 }}
-              transition={{ duration: 0.5 }}
-              className="fixed bottom-4 sm:bottom-6 right-3 sm:right-6 md:right-8 z-50 pointer-events-none font-sans text-xs sm:text-sm md:text-base text-white font-semibold tracking-[0.15em]"
-              style={{ textShadow: '0 0 20px rgba(255,255,255,0.5), 0 2px 8px rgba(0,0,0,0.8)' }}
-            >
-              Revive Medical Technologies Inc. | www.rmt-usa.com
-            </motion.div>
-          </>
-        )}
-      </AnimatePresence>
+      {/* Footer Text (Bottom-Right) */}
+      <div
+        className="fixed bottom-4 sm:bottom-6 right-3 sm:right-6 md:right-8 z-50 pointer-events-none font-sans text-xs sm:text-sm md:text-base text-white font-semibold tracking-[0.15em]"
+        style={{ textShadow: '0 0 20px rgba(255,255,255,0.5), 0 2px 8px rgba(0,0,0,0.8)' }}
+      >
+        Revive Medical Technologies Inc. | www.rmt-usa.com
+      </div>
 
       {/* Slide Container with AnimatePresence for unique transitions */}
       <div className="h-[100dvh] h-screen w-full max-w-[100vw] overflow-hidden flex items-center justify-center perspective-1000">
