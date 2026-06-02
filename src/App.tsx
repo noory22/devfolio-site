@@ -862,7 +862,7 @@ export default function App() {
                 ? `bg-brand-blue ${isServices ? "h-8" : "w-8"}`
                 : `bg-white/20 hover:bg-white/50 ${isServices ? "h-2" : "w-2"}`
               }`}
-            aria-label={`Go to slide ${index + 1}`}
+            aria-label={`Go to slide ${categorySlides.indexOf(index) + 1}`}
           />
         ))}
       </div>
@@ -881,11 +881,11 @@ export default function App() {
         }`}
       >
         <span className="text-lg sm:text-xl md:text-2xl font-bold text-brand-blue">
-          {String(currentSlide + 1).padStart(2, "0")}
+          {String(categorySlides.indexOf(currentSlide) + 1).padStart(2, "0")}
         </span>
         <span className="text-xs text-white/20">/</span>
         <span className="text-xs text-white/20">
-          {String(TOTAL_SLIDES).padStart(2, "0")}
+          {String(categorySlides.length).padStart(2, "0")}
         </span>
       </motion.div>
     </div>

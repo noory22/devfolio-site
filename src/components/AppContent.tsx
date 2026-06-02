@@ -1375,7 +1375,7 @@ export const ServicesCategories = ({ onSelect }: { onSelect: (index: number) => 
                         }}
                         whileHover={{ y: -8, scale: 1.02 }}
                         onClick={() => {
-                            const slideIndices = [17, 23, 30, 34, 40];
+                            const slideIndices = [18, 24, 31, 35, 41];
                             onSelect(slideIndices[i]);
                         }}
                         className="group relative cursor-pointer flex flex-col"
@@ -1604,10 +1604,10 @@ export const GenerativeAiDetail = () => (
 
         {/* Header */}
         {/* <SubHeading className="text-[10px] md:text-xs mb-2 text-center">GENERATIVE AI FOR HEALTHCARE</SubHeading> */}
-        <Heading gradient className="text-xl md:text-2xl leading-tight mb-2 text-center">Generative AI for Healthcare</Heading>
-        <p className="text-white/50 text-xs leading-relaxed max-w-xl mx-auto mb-6 text-center">
+        <Heading gradient className="text-2xl md:text-4xl leading-tight mb-2">Generative AI for Healthcare</Heading>
+        {/* <p className="text-white/50 text-xs leading-relaxed max-w-xl mx-auto mb-6 text-center">
             Revolutionizing care with synthetic data, automated notes & patient education.
-        </p>
+        </p> */}
 
         {/* Main Row — Two Stacked Images Left | All Content Right */}
         <motion.div
@@ -1692,7 +1692,7 @@ export const ClinicalDecisionSupportDetail = () => (
 
         {/* Header */}
         {/* <SubHeading className="text-[10px] md:text-xs mb-2 text-center">AI-POWERED CLINICAL DECISION SUPPORT</SubHeading> */}
-        <Heading gradient className="text-xl md:text-2xl leading-tight mb-2 text-center">AI-Powered Clinical Decision Support</Heading>
+        <Heading gradient className="text-2xl md:text-4xl leading-tight mb-2">AI-Powered Clinical Decision Support</Heading>
         {/* <p className="text-white/50 text-xs leading-relaxed max-w-xl mx-auto mb-6 text-center">
             Real-time, evidence-based diagnostic & treatment recommendations for clinicians.
         </p> */}
@@ -1779,11 +1779,11 @@ export const PredictiveHealthAnalyticsDetail = () => (
     <Container className="justify-center py-4">
 
         {/* Header */}
-        <SubHeading className="text-[10px] md:text-xs mb-2 text-center">PREDICTIVE HEALTH ANALYTICS</SubHeading>
-        <Heading gradient className="text-xl md:text-2xl leading-tight mb-2 text-center">Predictive Health Analytics</Heading>
-        <p className="text-white/50 text-xs leading-relaxed max-w-xl mx-auto mb-6 text-center">
+        {/* <SubHeading className="text-[10px] md:text-xs mb-2 text-center">PREDICTIVE HEALTH ANALYTICS</SubHeading> */}
+        <Heading gradient className="text-2xl md:text-4xl leading-tight mb-2">Predictive Health Analytics</Heading>
+        {/* <p className="text-white/50 text-xs leading-relaxed max-w-xl mx-auto mb-6 text-center">
             From reactive to proactive intervention — identify at-risk individuals early.
-        </p>
+        </p> */}
 
         {/* Main Row — One Image Left | All Content Right */}
         <motion.div
@@ -1851,9 +1851,9 @@ export const PredictiveHealthAnalyticsDetail = () => (
 
 export const CustomAiDetail = () => (
     <Container className="justify-center py-4">
-        <SubHeading className="text-[10px] md:text-xs mb-2">CUSTOM AI SOLUTIONS</SubHeading>
+        {/* <SubHeading className="text-[10px] md:text-xs mb-2">CUSTOM AI SOLUTIONS</SubHeading> */}
         <Heading gradient className="text-2xl md:text-4xl leading-tight mb-2">Custom AI Solutions</Heading>
-        <p className="text-brand-cyan/80 text-sm md:text-base font-semibold mb-6 md:mb-7 text-center">Purpose‑built AI that learns from your data, adapts to your processes, and evolves with your business</p>
+        {/* <p className="text-brand-cyan/80 text-sm md:text-base font-semibold mb-6 md:mb-7 text-center">Purpose‑built AI that learns from your data, adapts to your processes, and evolves with your business</p> */}
 
         <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-stretch">
             {/* Left: Single tall image */}
@@ -2046,7 +2046,7 @@ export const Cat5Details = ({
 export const QaMedicalSoftwareDetail = () => (
     <Container className="justify-center py-4">
         {/* <SubHeading className="text-[10px] md:text-xs mb-2">QUALITY ASSURANCE FOR MEDICAL SOFTWARE</SubHeading> */}
-        <Heading gradient className="text-xl md:text-2xl leading-tight mb-2">Quality Assurance (QA) for Medical Software</Heading>
+        <Heading gradient className="text-2xl md:text-4xl leading-tight mb-2">Quality Assurance (QA) for Medical Software</Heading>
         {/* <p className="text-brand-blue font-semibold mb-6 md:mb-7">Ensuring reliability, safety & performance through systematic SQA</p> */}
 
         <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-stretch">
@@ -2141,7 +2141,7 @@ export const QaMedicalSoftwareDetail = () => (
 export const Iec62304ComplianceDetail = () => (
     <Container className="justify-center py-4">
         {/* <SubHeading className="text-[10px] md:text-xs mb-2">IEC 62304 COMPLIANCE & CONSULTATION</SubHeading> */}
-        <Heading gradient className="text-xl md:text-2xl leading-tight mb-2">IEC 62304 Compliance & Consultation</Heading>
+        <Heading gradient className="text-2xl md:text-4xl leading-tight mb-2">IEC 62304 Compliance & Consultation</Heading>
         {/* <p className="text-brand-cyan font-semibold mb-6 md:mb-7">Expert guidance for medical device software lifecycle safety</p> */}
 
         <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-stretch">
@@ -2237,7 +2237,7 @@ export const Iec62304ComplianceDetail = () => (
 export const HipaaComplianceDetail = () => (
     <Container className="justify-center py-4">
         {/* <SubHeading className="text-[10px] md:text-xs mb-2">HIPAA COMPLIANCE & SECURITY IMPLEMENTATION</SubHeading> */}
-        <Heading gradient className="text-xl md:text-2xl leading-tight mb-2">HIPAA Compliance & Security Implementation</Heading>
+        <Heading gradient className="text-2xl md:text-4xl leading-tight mb-2">HIPAA Compliance & Security Implementation</Heading>
         {/* <p className="text-brand-blue font-semibold mb-6 md:mb-7">Enterprise‑grade protection for Protected Health Information (PHI)</p> */}
 
         <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-stretch">
@@ -2316,7 +2316,7 @@ export const HipaaComplianceDetail = () => (
 export const OncCertificationDetail = () => (
     <Container className="justify-center py-4">
         {/* <SubHeading className="text-[10px] md:text-xs mb-2">ONC HEALTH IT CERTIFICATION SUPPORT</SubHeading> */}
-        <Heading gradient className="text-xl md:text-2xl leading-tight mb-2">ONC Health IT Certification Support</Heading>
+        <Heading gradient className="text-2xl md:text-4xl leading-tight mb-2">ONC Health IT Certification Support</Heading>
         {/* <p className="text-brand-cyan font-semibold mb-6 md:mb-7">Strategic navigation of certification for interoperability & usability</p> */}
 
         <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-stretch">
@@ -2395,7 +2395,7 @@ export const OncCertificationDetail = () => (
 export const FhirIntegrationDetail = () => (
     <Container className="justify-center py-4">
         {/* <SubHeading className="text-[10px] md:text-xs mb-2">FHIR INTEGRATION</SubHeading> */}
-        <Heading gradient className="text-xl md:text-2xl leading-tight mb-2">FHIR Integration</Heading>
+        <Heading gradient className="text-2xl md:text-4xl leading-tight mb-2">FHIR Integration</Heading>
         {/* <p className="text-brand-blue font-semibold mb-6 md:mb-7">Seamless, standards‑based health data exchange & interoperability</p> */}
 
         <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-stretch">
@@ -2662,7 +2662,7 @@ export const CustomMedicalApplicationsDetail = () => (
 
         {/* Header */}
         {/* <SubHeading className="text-[10px] md:text-xs mb-2 text-center">CUSTOM MEDICAL APPLICATIONS</SubHeading> */}
-        <Heading gradient className="text-xl md:text-2xl leading-tight mb-2 text-center">Custom Medical Applications</Heading>
+        <Heading gradient className="text-2xl md:text-4xl leading-tight mb-2">Custom Medical Applications</Heading>
         {/* <p className="text-white/50 text-xs leading-relaxed max-w-xl mx-auto mb-6 text-center">
             Healthcare-grade applications — secure, scalable, and ready for real clinical workflows.
         </p> */}
@@ -2784,7 +2784,7 @@ export const MedicalMobileAppsDetail = () => (
 
         {/* Header */}
         {/* <SubHeading className="text-[10px] md:text-xs mb-2 text-center">MEDICAL MOBILE APPS</SubHeading> */}
-        <Heading gradient className="text-xl md:text-2xl leading-tight mb-2 text-center">Medical Mobile Apps</Heading>
+        <Heading gradient className="text-2xl md:text-4xl leading-tight mb-2">Medical Mobile Apps</Heading>
         {/* <p className="text-white/50 text-xs leading-relaxed max-w-xl mx-auto mb-6 text-center">
             Tailored solutions for modern healthcare — built for patients, providers, and field teams.
         </p> */}
@@ -2901,71 +2901,12 @@ export const MedicalMobileAppsDetail = () => (
 );
 
 
-// export const StoreDeploymentDetail = () => (
-//     <Container className="justify-center py-4">
-//         <SubHeading className="text-[10px] md:text-xs mb-2">PLAYSTORE and APP STORE DEPLOYMENT</SubHeading>
-//         <Heading gradient className="text-2xl md:text-4xl leading-tight mb-2">PlayStore & App Store Deployment</Heading>
-//         <p className="text-brand-cyan/80 text-sm md:text-base font-semibold mb-6 md:mb-7">End-to-end launch and compliance management</p>
-
-//         <div className="relative overflow-hidden rounded-2xl border border-brand-blue/20 bg-dark-surface/90 p-6 md:p-7">
-//             <div
-//                 className="absolute inset-0 bg-cover bg-center opacity-45 scale-110"
-//                 style={{ backgroundImage: "url('/assets/custom-medical/tech-landscape-bg.jpg')" }}
-//                 aria-hidden
-//             />
-//             <div
-//                 className="absolute inset-0 mix-blend-soft-light opacity-70"
-//                 style={{ backgroundImage: "radial-gradient(60% 60% at 20% 15%, rgba(0, 112, 243, 0.35), transparent 65%), radial-gradient(60% 60% at 85% 80%, rgba(0, 223, 216, 0.30), transparent 65%)" }}
-//                 aria-hidden
-//             />
-//             <div className="absolute inset-0 bg-linear-to-br from-[#02060d]/72 via-[#02060d]/58 to-[#00142a]/48" aria-hidden />
-
-//             <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
-//                 <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
-//                     <h4 className="text-base md:text-lg font-semibold text-brand-blue mb-2">Full Submission Lifecycle</h4>
-//                     <p className="text-white/75 text-sm leading-relaxed">
-//                         Handling of store accounts, metadata creation (descriptions, screenshots, keywords), and binary uploads for both Google Play and Apple App Store.
-//                     </p>
-//                 </div>
-
-//                 <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
-//                     <h4 className="text-base md:text-lg font-semibold text-brand-blue mb-2">Optimization (ASO)</h4>
-//                     <p className="text-white/75 text-sm leading-relaxed">
-//                         Keyword research, conversion rate optimization, and A/B testing for product pages to boost organic visibility.
-//                     </p>
-//                 </div>
-
-//                 <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
-//                     <h4 className="text-base md:text-lg font-semibold text-brand-blue mb-2">Compliance Management</h4>
-//                     <p className="text-white/75 text-sm leading-relaxed">
-//                         Pre-submission checks for policy adherence including privacy labels, data safety section, age ratings, and GDPR/CCPA disclosures.
-//                     </p>
-//                 </div>
-
-//                 <div className="rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
-//                     <h4 className="text-base md:text-lg font-semibold text-brand-blue mb-2">Accelerated Approval</h4>
-//                     <p className="text-white/75 text-sm leading-relaxed">
-//                         Proven strategies to reduce rejection risks and fast-track reviews, including expedited review requests for critical fixes.
-//                     </p>
-//                 </div>
-//             </div>
-
-//             <div className="relative z-10 mt-5 rounded-xl border border-white/12 bg-white/4 p-4 md:p-5">
-//                 <h4 className="text-base md:text-lg font-semibold text-brand-blue mb-2">Ongoing Maintenance</h4>
-//                 <p className="text-white/75 text-sm leading-relaxed">
-//                     Manage version updates, phased rollouts, and store responses to user reviews.
-//                 </p>
-//             </div>
-//         </div>
-//     </Container>
-// );
-
 export const StoreDeploymentDetail = () => (
     <Container className="justify-center py-4">
 
         {/* Header */}
         {/* <SubHeading className="text-[10px] md:text-xs mb-2 text-center">PLAYSTORE AND APP STORE DEPLOYMENT</SubHeading> */}
-        <Heading gradient className="text-xl md:text-2xl leading-tight mb-2 text-center">PlayStore & App Store Deployment</Heading>
+        <Heading gradient className="text-2xl md:text-4xl leading-tight mb-2">PlayStore & App Store Deployment</Heading>
         {/* <p className="text-white/50 text-xs leading-relaxed max-w-xl mx-auto mb-6 text-center">
             End-to-end launch and compliance management for Google Play and Apple App Store.
         </p> */}
@@ -3086,7 +3027,7 @@ export const RpmDetail = () => (
 
         {/* Header */}
         {/* <SubHeading className="text-[10px] md:text-xs mb-2 text-center">REMOTE PATIENT MONITORING (RPM)</SubHeading> */}
-        <Heading gradient className="text-xl md:text-2xl leading-tight mb-2 text-center">Remote Patient Monitoring (RPM)</Heading>
+        <Heading gradient className="text-2xl md:text-4xl leading-tight mb-2">Remote Patient Monitoring (RPM)</Heading>
         {/* <p className="text-white/50 text-xs leading-relaxed max-w-xl mx-auto mb-6 text-center">
             Comprehensive platforms for continuous care — connecting patients, providers, and devices.
         </p> */}
@@ -3212,7 +3153,7 @@ export const EhrDetail = () => (
 
         {/* Header */}
         {/* <SubHeading className="text-[10px] md:text-xs mb-2 text-center">ELECTRONIC HEALTH RECORDS (EHR)</SubHeading> */}
-        <Heading gradient className="text-xl md:text-2xl leading-tight mb-2 text-center">Electronic Health Records (EHR)</Heading>
+        <Heading gradient className="text-2xl md:text-4xl leading-tight mb-2">Electronic Health Records (EHR)</Heading>
         {/* <p className="text-white/50 text-xs leading-relaxed max-w-xl mx-auto mb-6 text-center">
             Seamless health data management and interoperability — built for clinical precision and compliance.
         </p> */}
@@ -3338,7 +3279,7 @@ export const ImagingAnalysisDetail = () => (
 
         {/* Header */}
         {/* <SubHeading className="text-[10px] md:text-xs mb-2 text-center">MEDICAL IMAGING AND ANALYSIS</SubHeading> */}
-        <Heading gradient className="text-xl md:text-2xl leading-tight mb-2 text-center">Medical Imaging & Analysis</Heading>
+        <Heading gradient className="text-2xl md:text-4xl leading-tight mb-2">Medical Imaging & Analysis</Heading>
         {/* <p className="text-white/50 text-xs leading-relaxed max-w-xl mx-auto mb-6 text-center">
             Secure storage, viewing, annotation and AI-powered insights for clinical imaging workflows.
         </p> */}
@@ -3494,7 +3435,7 @@ export const SchedulerDetail = () => (
 
         {/* Header */}
         {/* <SubHeading className="text-[10px] md:text-xs mb-2 text-center">INTELLIGENT APPOINTMENT AND RESOURCE SCHEDULER</SubHeading> */}
-        <Heading gradient className="text-xl md:text-2xl leading-tight mb-2 text-left">Intelligent Appointment & Resource Scheduler</Heading>
+        <Heading gradient className="text-2xl md:text-4xl leading-tight mb-2">Intelligent Appointment & Resource Scheduler</Heading>
         {/* <p className="text-white/50 text-xs leading-relaxed max-w-xl mx-auto mb-6 text-center">
             Smart scheduling systems for optimized care delivery — built for providers, patients, and operations.
         </p> */}
@@ -3582,7 +3523,7 @@ export const WorkflowOrchestrationDetail = () => (
 
         {/* Header */}
         {/* <SubHeading className="text-[10px] md:text-xs mb-2 text-center">AUTOMATED CLINICAL WORKFLOW ORCHESTRATION</SubHeading> */}
-        <Heading gradient className="text-xl md:text-2xl leading-tight mb-2 text-left">Automated Clinical Workflow Orchestration</Heading>
+        <Heading gradient className="text-2xl md:text-4xl leading-tight mb-2">Automated Clinical Workflow Orchestration</Heading>
         {/* <p className="text-white/50 text-xs leading-relaxed max-w-xl mx-auto mb-6 text-center">
             Eliminate routine tasks, accelerate care delivery — intelligent automation across every clinical touchpoint.
         </p> */}
@@ -3670,7 +3611,7 @@ export const RecommendationEnginesDetail = () => (
 
         {/* Header */}
         {/* <SubHeading className="text-[10px] md:text-xs mb-2 text-center">MEDICAL RESEARCH & RECOMMENDATION ENGINES</SubHeading> */}
-        <Heading gradient className="text-xl md:text-2xl leading-tight mb-2 text-left">Medical Research & Recommendation Engines</Heading>
+        <Heading gradient className="text-2xl md:text-4xl leading-tight mb-2">Medical Research & Recommendation Engines</Heading>
         {/* <p className="text-white/50 text-xs leading-relaxed max-w-xl mx-auto mb-6 text-center">
             Accelerate evidence-based decisions & discovery — AI-powered insights for researchers and clinicians.
         </p> */}
@@ -4550,6 +4491,156 @@ export const Accomplishments = () => {
 };
 
 // Testimonials Slide
+// export const Testimonials = () => {
+//     const reviews = [
+//         {
+//             name: "Dr. Babar Rao",
+//             company: "LegendEHR",
+//             quote: "Satisfactory IT support and fully ONC‑certified – exactly what you need for a reliable, audit‑ready EHR system.",
+//             role: "Dermatologist"
+//         },
+//         {
+//             name: "Ms. Rumana",
+//             company: "e-Vitals",
+//             quote: "The mobile app development and real-time remote monitoring dashboard exceeded our expectations. Robust, secure, and extremely user-friendly.",
+//             role: "Chief Executive Officer"
+//         },
+//         {
+//             name: "Sajol Ghoshal",
+//             company: "Cardio",
+//             quote: "RMT's team demonstrated absolute mastery in regulatory QA and Regulatory Compliance.",
+//             role: "Chief Executive Officer"
+//         },
+//         {
+//             name: "Dr. Amir Jamal",
+//             company: "Infuzamed",
+//             quote: "RMT tackled the complexity of our remote patient monitoring platform with precision — turning a challenging system into a reliable, production-ready solution.",
+//             role: "Chief Executive Officer"
+//         },
+//         {
+//             name: "Ricky Torres",
+//             company: "22-RPM",
+//             quote: "From design to deployment, RMT proved to be a reliable partner. Their expertise in healthcare IT and commitment to quality made them an invaluable asset in our product development journey.",
+//             role: "Chief Executive Officer"
+//         }
+//     ];
+
+//     const [currentIdx, setCurrentIdx] = useState(0);
+
+//     React.useEffect(() => {
+//         const timer = setInterval(() => {
+//             setCurrentIdx((prev) => (prev + 1) % reviews.length);
+//         }, 5000);
+//         return () => clearInterval(timer);
+//     }, [reviews.length]);
+
+//     const activeReview = reviews[currentIdx];
+
+//     const marqueeLogos = [
+//         { name: "LegendEHR", logoSrc: "/assets/legendEHR.jpg" },
+//         { name: "22-RPM", logoSrc: "/assets/22RPM.png" },
+//         { name: "Cardio", logoSrc: "/assets/cardio.png" },
+//         { name: "e-Vitals", logoSrc: "/assets/E-vitals.png" },
+//         { name: "Infuzamed", logoSrc: "/assets/infuzamed.png" },
+//         { name: "ABMI", logoSrc: "/assets/a.b.m.i-logo.png" },
+//         { name: "University of Toledo", logoSrc: "/assets/UOT.png" },
+//     ];
+//     const doubleLogos = [...marqueeLogos, ...marqueeLogos, ...marqueeLogos];
+
+//     return (
+//         <Container className="justify-center py-4">
+//             <div className="text-center mb-8 md:mb-12">
+//                 <SubHeading className="text-[10px] md:text-xs justify-center">VALUED PARTNERS & CLIENTS</SubHeading>
+//                 <Heading gradient className="text-3xl md:text-5xl">Testimonials</Heading>
+//             </div>
+
+//             {/* Testimonials Card */}
+//             <div className="relative w-full max-w-3xl mx-auto mb-10 sm:mb-14 md:mb-20 px-1">
+//                 {/* Decorative background glow behind the card */}
+//                 <div className="absolute inset-0 bg-brand-cyan/5 blur-3xl rounded-full pointer-events-none" />
+
+//                 <div className="glass-dark p-6 sm:p-8 md:p-12 rounded-3xl sm:rounded-4xl border border-white/10 relative overflow-hidden shadow-2xl min-h-48 sm:min-h-55 md:min-h-55 flex flex-col justify-between">
+//                     {/* Quotation icon */}
+//                     <div className="absolute -top-2 -left-2 sm:-top-4 sm:-left-4 text-white/5 font-serif text-6xl sm:text-8xl md:text-9xl select-none pointer-events-none">
+//                         “
+//                     </div>
+
+//                     <AnimatePresence mode="wait">
+//                         <motion.div
+//                             key={currentIdx}
+//                             initial={{ opacity: 0, y: 15 }}
+//                             animate={{ opacity: 1, y: 0 }}
+//                             exit={{ opacity: 0, y: -15 }}
+//                             transition={{ duration: 1 }}
+//                             className="relative z-10 flex flex-col justify-between h-full"
+//                         >
+//                             <p className="text-white/80 italic text-base md:text-lg lg:text-xl font-light leading-relaxed mb-6">
+//                                 "{activeReview.quote}"
+//                             </p>
+//                             <div>
+//                                 <h4 className="text-white font-bold text-base md:text-lg">
+//                                     {activeReview.name}
+//                                 </h4>
+//                                 <p className="text-brand-cyan text-xs md:text-sm font-medium">
+//                                     {/* {activeReview.role}  */}
+//                                      {activeReview.company}
+//                                 </p>
+//                             </div>
+//                         </motion.div>
+//                     </AnimatePresence>
+
+//                     {/* Pagination indicators inside the card */}
+//                     <div className="flex gap-2 justify-end mt-4 relative z-20">
+//                         {reviews.map((_, i) => (
+//                             <button
+//                                 key={i}
+//                                 onClick={() => setCurrentIdx(i)}
+//                                 className={`h-1.5 rounded-full transition-all duration-300 ${i === currentIdx ? "w-6 bg-brand-cyan" : "w-1.5 bg-white/20 hover:bg-white/40"
+//                                     }`}
+//                                 aria-label={`Go to testimonial ${i + 1}`}
+//                             />
+//                         ))}
+//                     </div>
+//                 </div>
+//             </div>
+
+//             {/* Continuous marquee slider for logos */}
+//             <div className="w-full max-w-4xl mx-auto flex flex-col items-center">
+//                 <p className="text-white/30 uppercase tracking-[0.2em] text-[10px] md:text-xs font-semibold mb-6">
+//                     TRUSTED BY HEALTHCARE INDUSTRY
+//                 </p>
+//                 <div className="relative w-full overflow-hidden py-4 border-y border-white/5">
+//                     {/* Fade gradients on edges */}
+//                     <div className="absolute inset-y-0 left-0 w-16 bg-linear-to-r from-dark-bg to-transparent z-10 pointer-events-none" />
+//                     <div className="absolute inset-y-0 right-0 w-16 bg-linear-to-l from-dark-bg to-transparent z-10 pointer-events-none" />
+
+//                     <motion.div
+//                         className="flex gap-8 whitespace-nowrap animate-marquee"
+//                         animate={{ x: ["0%", "-33.333%"] }}
+//                         transition={{
+//                             ease: "linear",
+//                             duration: 60,
+//                             repeat: Infinity,
+//                         }}
+//                     >
+//                         {doubleLogos.map((logo, i) => (
+//                             <div
+//                                 key={i}
+//                                 className="inline-flex items-center justify-center w-48 h-20 sm:w-60 sm:h-24 shrink-0 p-4 rounded-xl bg-white shadow-md transition-all hover:scale-105 group"
+//                             >
+//                                 <img
+//                                     src={logo.logoSrc}
+//                                     alt={logo.name}
+//                                     className="max-h-full max-w-full object-contain transition-opacity duration-300"
+//                                 />
+//                             </div>
+//                         ))}
+//                     </motion.div>
+//                 </div>
+//             </div>
+//         </Container>
+//     );
+// };
 export const Testimonials = () => {
     const reviews = [
         {
@@ -4596,13 +4687,19 @@ export const Testimonials = () => {
     const activeReview = reviews[currentIdx];
 
     const marqueeLogos = [
+        { name: "Rao Dermatology", logoSrc: "/assets/raodermatology-logo.svg" },
         { name: "LegendEHR", logoSrc: "/assets/legendEHR.jpg" },
         { name: "22-RPM", logoSrc: "/assets/22RPM.png" },
         { name: "Cardio", logoSrc: "/assets/cardio.png" },
         { name: "e-Vitals", logoSrc: "/assets/E-vitals.png" },
         { name: "Infuzamed", logoSrc: "/assets/infuzamed.png" },
+        { name: "ABMI", logoSrc: "/assets/a.b.m.i-logo.png" },
+        { name: "University of Toledo", logoSrc: "/assets/UOT.png" },
+        { name: "Convo", logoSrc: "/assets/convo-logo.png" },
     ];
-    const doubleLogos = [...marqueeLogos, ...marqueeLogos, ...marqueeLogos];
+
+    // Triple the logos so the seamless loop works correctly
+    const tripleLogos = [...marqueeLogos, ...marqueeLogos, ...marqueeLogos];
 
     return (
         <Container className="justify-center py-4">
@@ -4619,7 +4716,7 @@ export const Testimonials = () => {
                 <div className="glass-dark p-6 sm:p-8 md:p-12 rounded-3xl sm:rounded-4xl border border-white/10 relative overflow-hidden shadow-2xl min-h-48 sm:min-h-55 md:min-h-55 flex flex-col justify-between">
                     {/* Quotation icon */}
                     <div className="absolute -top-2 -left-2 sm:-top-4 sm:-left-4 text-white/5 font-serif text-6xl sm:text-8xl md:text-9xl select-none pointer-events-none">
-                        “
+                        "
                     </div>
 
                     <AnimatePresence mode="wait">
@@ -4628,7 +4725,7 @@ export const Testimonials = () => {
                             initial={{ opacity: 0, y: 15 }}
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -15 }}
-                            transition={{ duration: 0.5 }}
+                            transition={{ duration: 1 }}
                             className="relative z-10 flex flex-col justify-between h-full"
                         >
                             <p className="text-white/80 italic text-base md:text-lg lg:text-xl font-light leading-relaxed mb-6">
@@ -4640,7 +4737,7 @@ export const Testimonials = () => {
                                 </h4>
                                 <p className="text-brand-cyan text-xs md:text-sm font-medium">
                                     {/* {activeReview.role}  */}
-                                     {activeReview.company}
+                                    {activeReview.company}
                                 </p>
                             </div>
                         </motion.div>
@@ -4652,8 +4749,11 @@ export const Testimonials = () => {
                             <button
                                 key={i}
                                 onClick={() => setCurrentIdx(i)}
-                                className={`h-1.5 rounded-full transition-all duration-300 ${i === currentIdx ? "w-6 bg-brand-cyan" : "w-1.5 bg-white/20 hover:bg-white/40"
-                                    }`}
+                                className={`h-1.5 rounded-full transition-all duration-300 ${
+                                    i === currentIdx
+                                        ? "w-6 bg-brand-cyan"
+                                        : "w-1.5 bg-white/20 hover:bg-white/40"
+                                }`}
                                 aria-label={`Go to testimonial ${i + 1}`}
                             />
                         ))}
@@ -4666,33 +4766,45 @@ export const Testimonials = () => {
                 <p className="text-white/30 uppercase tracking-[0.2em] text-[10px] md:text-xs font-semibold mb-6">
                     TRUSTED BY HEALTHCARE INDUSTRY
                 </p>
+                {/* Outer wrapper clips overflow, inner wrapper adds padding so edge logos aren't cut */}
                 <div className="relative w-full overflow-hidden py-4 border-y border-white/5">
-                    {/* Fade gradients on edges */}
-                    <div className="absolute inset-y-0 left-0 w-16 bg-linear-to-r from-dark-bg to-transparent z-10 pointer-events-none" />
-                    <div className="absolute inset-y-0 right-0 w-16 bg-linear-to-l from-dark-bg to-transparent z-10 pointer-events-none" />
+                    {/* Fade gradients — kept narrow (w-8) so they don't eat into logos */}
+                    <div className="absolute inset-y-0 left-0 w-8 bg-linear-to-r from-dark-bg to-transparent z-10 pointer-events-none" />
+                    <div className="absolute inset-y-0 right-0 w-8 bg-linear-to-l from-dark-bg to-transparent z-10 pointer-events-none" />
 
-                    <motion.div
-                        className="flex gap-8 whitespace-nowrap animate-marquee"
-                        animate={{ x: ["0%", "-33.333%"] }}
-                        transition={{
-                            ease: "linear",
-                            duration: 20,
-                            repeat: Infinity,
-                        }}
-                    >
-                        {doubleLogos.map((logo, i) => (
-                            <div
-                                key={i}
-                                className="inline-flex items-center justify-center w-48 h-20 sm:w-60 sm:h-24 shrink-0 p-4 rounded-xl bg-white shadow-md transition-all hover:scale-105 group"
-                            >
-                                <img
-                                    src={logo.logoSrc}
-                                    alt={logo.name}
-                                    className="max-h-full max-w-full object-contain transition-opacity duration-300"
-                                />
-                            </div>
-                        ))}
-                    </motion.div>
+                    {/* px-10 ensures logos at the very start/end of the strip have breathing room */}
+                    <div className="px-10">
+                        <motion.div
+                            className="flex gap-6 w-max"
+                            animate={{ x: ["0%", "-33.333%"] }}
+                            transition={{
+                                ease: "linear",
+                                duration: 30,
+                                repeat: Infinity,
+                            }}
+                        >
+                            {tripleLogos.map((logo, i) => (
+                                <div
+                                    key={i}
+                                    className="inline-flex items-center justify-center w-44 h-20 sm:w-56 sm:h-24 shrink-0 p-3 rounded-xl bg-white shadow-md transition-all hover:scale-105 group"
+                                >
+                                    <img
+                                        src={logo.logoSrc}
+                                        alt={logo.name}
+                                        className="max-h-full max-w-full object-contain transition-opacity duration-300"
+                                        onError={(e) => {
+                                            const parent = e.currentTarget.parentElement;
+                                            e.currentTarget.style.display = "none";
+                                            if (parent) {
+                                                parent.style.opacity = "0";
+                                                parent.style.pointerEvents = "none";
+                                            }
+                                        }}
+                                    />
+                                </div>
+                            ))}
+                        </motion.div>
+                    </div>
                 </div>
             </div>
         </Container>
