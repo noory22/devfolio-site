@@ -372,17 +372,17 @@ export const CEOIntro = () => {
                     <img
                         src="/assets/comstech.png"
                         alt="COMSTECH"
-                        className="h-22 sm:h-28 md:h-36 lg:h-40 xl:h-30 w-auto object-contain  transition-opacity duration-300 "
+                        className="h-22 sm:h-28 md:h-36 lg:h-40 xl:h-30 w-auto bg-white p-4 object-contain  transition-opacity duration-300 "
                     />
                     <img
                         src="/assets/riphah.png"
                         alt="Riphah University"
-                        className="h-22 sm:h-28 md:h-36 lg:h-40 xl:h-30 w-auto object-contain  transition-opacity duration-300 "
+                        className="h-22 sm:h-28 md:h-36 lg:h-40 xl:h-30 w-auto bg-white p-4 object-contain  transition-opacity duration-300 "
                     />
                     <img
                         src="/assets/kit.png"
                         alt="KIT"
-                        className="h-22 sm:h-28 md:h-36 lg:h-40 xl:h-30 w-auto object-contain  transition-opacity duration-300 "
+                        className="h-22 sm:h-28 md:h-36 lg:h-40 xl:h-30 w-auto bg-white p-4 object-contain  transition-opacity duration-300 "
                     />
                 </div>
             </motion.div>
