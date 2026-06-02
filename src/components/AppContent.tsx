@@ -182,7 +182,7 @@ export const CEOIntro = () => {
     return (
         <Container>
             {/* <SubHeading>LEADERSHIP</SubHeading> */}
-            <Heading gradient>Chief Executive Officer</Heading>
+            {/* <Heading gradient>Chief Executive Officer</Heading> */}
             <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 items-center">
                 <div className="md:col-span-5 lg:col-span-4 relative group max-w-65 md:max-w-75 mx-auto w-full">
                     <div
@@ -199,22 +199,23 @@ export const CEOIntro = () => {
                         </div>
                         {/* Solid black credentials footer strip */}
                         <div className="bg-transparent py-4 px-3 border-t border-white/15 text-center flex flex-col gap-1.5 z-20">
-                            <div className="text-white font-bold text-xs sm:text-sm tracking-wide leading-tight">
+                            <div className="text-white font-bold text-4xl sm:text-sm tracking-wide leading-tight">
                                 Founding CEO
                             </div>
-                            <div className="text-white font-bold text-xs sm:text-sm tracking-wide leading-tight">
+                            <div className="text-white font-bold text-4xl sm:text-sm tracking-wide leading-tight">
                                 REVIVE MEDICAL TECHNOLOGIES Inc.
                             </div>
-                            <div className="text-white/80 text-[10px] sm:text-xs tracking-wide leading-normal font-sans">
+                            <div className="text-white/80 text-[40px] sm:text-xs tracking-wide leading-normal font-sans">
                                 Professor at UNIVERSITY of JORDAN & RIPHAH
                             </div>
-                            <div className="text-white/80 text-[10px] sm:text-xs tracking-wide leading-normal font-sans">
+                            <div className="text-white/80 text-[40px] sm:text-xs tracking-wide leading-normal font-sans">
                                 Distinguished Expert at COMSTECH
                             </div>
                         </div>
                     </div>
                 </div>
                 <div className="md:col-span-7 lg:col-span-8 px-4 lg:px-0">
+                    <Heading gradient>Background</Heading>
                     <div className="space-y-6 md:space-y-8">
                         {[ 
                             { 
@@ -251,7 +252,7 @@ export const CEOIntro = () => {
                                 <div className={`h-2 w-2 mt-2.5 rounded-full transition-all duration-500 shrink-0 ${
                                     item.dotColor || "bg-white/20 group-hover:bg-brand-cyan/80 group-hover:shadow-[0_0_10px_rgba(0,223,216,0.5)]"
                                 } group-hover:scale-150`} />
-                                <p className="text-base sm:text-lg md:text-xl text-white/70 font-light leading-relaxed group-hover:text-white transition-colors">
+                                <p className="text-base sm:text-8xl md:text-2xl text-white/70 font-light leading-relaxed group-hover:text-white transition-colors">
                                     {item.prefix && <span className={item.prefixColor}>{item.prefix}</span>}
                                     {item.text}
                                     {item.suffix && <span className={item.suffixColor}>{item.suffix}</span>}
@@ -775,7 +776,7 @@ export const AnimatedMap = () => {
                                         {/* Connector line to card */}
                                         <div className="absolute top-1/2 left-full -translate-y-1/2 flex items-center">
                                             <div className="w-1.5 h-1.5 rounded-full bg-brand-cyan shadow-[0_0_10px_#00dfd8] shrink-0" />
-                                            <div className="w-[10vw] xl:w-[12vw] h-px bg-gradient-to-r from-brand-cyan to-transparent" />
+                                            <div className="w-[10vw] xl:w-[12vw] h-px bg-linear-to-r from-brand-cyan to-transparent" />
                                         </div>
                                         <div className="relative flex items-center justify-center">
                                             <motion.div animate={{ scale: [1, 2.5, 1], opacity: [0.6, 0, 0.6] }} transition={{ duration: 2, repeat: Infinity, delay: 1 }} className="absolute -inset-1.5 border border-brand-cyan rounded-full pointer-events-none" />

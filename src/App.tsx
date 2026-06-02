@@ -62,8 +62,8 @@ const slideTransitions = [
   // 8-16: AI Slides (9 slides, using horizontal slide transition)
   ...Array(9).fill(null).map(() => ({
     initial: { opacity: 0, x: 150 },
-    animate: { opacity: 1, x: 0, transition: { duration: 0.8, ease: "easeOut" } },
-    exit: { opacity: 0, x: -150, transition: { duration: 0.5, ease: "easeIn" } },
+    animate: { opacity: 1, x: 0, transition: { duration: 0.8, ease: "easeOut" } as any },
+    exit: { opacity: 0, x: -150, transition: { duration: 0.5, ease: "easeIn" } as any },
   })),
   // 17 to 48: Services and other slides (using vertical transition)
   ...Array(32).fill(null).map(() => ({
@@ -747,6 +747,15 @@ export default function App() {
           src="/assets/logo.png"
           alt="REVIVE Medical Technologies Inc. Logo"
           className="h-12 sm:h-16 md:h-20 lg:h-24 xl:h-28 w-auto object-contain brightness-0 invert drop-shadow-[0_0_15px_rgba(255,255,255,0.5)]"
+        />
+      </div>
+
+      {/* APPNA Logo (Top-Right) */}
+      <div className="fixed top-8 sm:top-10 right-4 sm:right-6 md:right-8 z-50 pointer-events-none">
+        <img
+          src="/assets/appna-logo.png"
+          alt="APPNA Logo"
+          className="h-14 sm:h-18 md:h-22 lg:h-26 xl:h-30 w-auto object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]"
         />
       </div>
 
