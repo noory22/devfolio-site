@@ -176,6 +176,97 @@ export const SoftwareTeam = () => {
 };
 
 // CEO Intro Slide
+// export const CEOIntro = () => {
+//     const [isActive, setIsActive] = React.useState(false);
+
+//     return (
+//         <Container>
+//             {/* <SubHeading>LEADERSHIP</SubHeading> */}
+//             {/* <Heading gradient>Chief Executive Officer</Heading> */}
+//             <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 items-center">
+//                 <div className="md:col-span-5 lg:col-span-4 relative group max-w-65 md:max-w-75 mx-auto w-full">
+//                     <div
+//                         className="relative rounded-2xl overflow-hidden bg-dark-surface cursor-pointer shadow-[0_0_20px_rgba(0,223,216,0.05)] group-hover:shadow-[0_0_30px_rgba(0,223,216,0.15)] transition-all duration-500 border border-white/10 flex flex-col"
+//                         onClick={() => setIsActive(!isActive)}
+//                     >
+//                         <div className="relative aspect-3/4 w-full overflow-hidden">
+//                             <div className="absolute inset-0 bg-linear-to-t from-black/50 via-transparent to-transparent z-10" />
+//                             <img
+//                                 src="/assets/dr.murtaza.jpg"
+//                                 alt="Prof Dr Murtaza Najabat Ali"
+//                                 className="w-full h-full object-cover transition-all duration-700 grayscale-0 opacity-100"
+//                             />
+//                         </div>
+//                         {/* Solid black credentials footer strip */}
+//                         <div className="bg-transparent py-4 px-3 border-t border-white/15 text-center flex flex-col gap-1.5 z-20">
+//                             <div className="text-white font-bold text-4xl sm:text-sm tracking-wide leading-tight">
+//                                 Founding CEO
+//                             </div>
+//                             <div className="text-white font-bold text-4xl sm:text-sm tracking-wide leading-tight">
+//                                 REVIVE MEDICAL TECHNOLOGIES Inc.
+//                             </div>
+//                             <div className="text-white/80 text-[40px] sm:text-xs tracking-wide leading-normal font-sans">
+//                                 Professor at UNIVERSITY of JORDAN & RIPHAH
+//                             </div>
+//                             <div className="text-white/80 text-[40px] sm:text-xs tracking-wide leading-normal font-sans">
+//                                 Distinguished Expert at COMSTECH
+//                             </div>
+//                         </div>
+//                     </div>
+//                 </div>
+//                 <div className="md:col-span-7 lg:col-span-8 px-4 lg:px-0">
+//                     <Heading gradient>Background</Heading>
+//                     <div className="space-y-6 md:space-y-8">
+//                         {[ 
+//                             { 
+//                                 prefix: "20+", 
+//                                 prefixColor: "text-white/90 font-bold", 
+//                                 dotColor: "bg-white/90 group-hover:bg-white/90 group-hover:shadow-[0_0_10px_rgba(239,68,68,0.5)]",
+//                                 text: " Years of Experience in Medical Device Design, Development, Production, Licensing and Technology Transfer" 
+//                             },
+//                             { 
+//                                 text: "Founding HoD and Professor of Biomedical Engineering Dept. at NUST University Pakistan" 
+//                             },
+//                             { 
+//                                 text: "Recipient of Mandate from PM Office of Pakistan to setup Country’s first Medical Device Industry" 
+//                             },
+//                             { 
+//                                 text: "Founding CEO of Pakistan 1st State-owned Medical Device Industry ",
+//                                 suffix: "(N-ovative Health Technologies)",
+//                                 suffixColor: "text-white/90 italic font-semibold"
+//                             },
+//                             { 
+//                                 text: "Founding Director of Medical Devices Development Center ",
+//                                 suffix: "(A Center of Excellence)",
+//                                 suffixColor: "italic text-white/90",
+//                                 text2: " Pakistan"
+//                             }
+//                         ].map((item, i) => (
+//                             <motion.div
+//                                 key={i}
+//                                 initial={{ opacity: 0, x: 20 }}
+//                                 whileInView={{ opacity: 1, x: 0 }}
+//                                 transition={{ delay: i * 0.1 + 0.2 }}
+//                                 className="flex gap-4 md:gap-6 group"
+//                             >
+//                                 <div className={`h-2 w-2 mt-2.5 rounded-full transition-all duration-500 shrink-0 ${
+//                                     item.dotColor || "bg-white/20 group-hover:bg-brand-cyan/80 group-hover:shadow-[0_0_10px_rgba(0,223,216,0.5)]"
+//                                 } group-hover:scale-150`} />
+//                                 <p className="text-base sm:text-8xl md:text-2xl text-white/70 font-light leading-relaxed group-hover:text-white transition-colors">
+//                                     {item.prefix && <span className={item.prefixColor}>{item.prefix}</span>}
+//                                     {item.text}
+//                                     {item.suffix && <span className={item.suffixColor}>{item.suffix}</span>}
+//                                     {item.text2}
+//                                 </p>
+//                             </motion.div>
+//                         ))}
+//                     </div>
+//                 </div>
+//             </div>
+//         </Container>
+//     );
+// };
+
 export const CEOIntro = () => {
     const [isActive, setIsActive] = React.useState(false);
 
@@ -228,7 +319,7 @@ export const CEOIntro = () => {
                                 text: "Founding HoD and Professor of Biomedical Engineering Dept. at NUST University Pakistan" 
                             },
                             { 
-                                text: "Recipient of Mandate from PM Office of Pakistan to setup Country’s first Medical Device Industry" 
+                                text: "Recipient of Mandate from PM Office of Pakistan to setup Country's first Medical Device Industry" 
                             },
                             { 
                                 text: "Founding CEO of Pakistan 1st State-owned Medical Device Industry ",
@@ -263,6 +354,38 @@ export const CEOIntro = () => {
                     </div>
                 </div>
             </div>
+
+            {/* Logos Section */}
+            <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="mt-16 pt-8 border-t border-white/10"
+            >
+                
+                <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12 lg:gap-16">
+                    <img
+                        src="/assets/UOJ.png"
+                        alt="University of Jordan"
+                        className="h-22 sm:h-28 md:h-36 lg:h-40 xl:h-30 w-auto object-contain  transition-opacity duration-300 "
+                    />
+                    <img
+                        src="/assets/comstech.png"
+                        alt="COMSTECH"
+                        className="h-22 sm:h-28 md:h-36 lg:h-40 xl:h-30 w-auto object-contain  transition-opacity duration-300 "
+                    />
+                    <img
+                        src="/assets/riphah.png"
+                        alt="Riphah University"
+                        className="h-22 sm:h-28 md:h-36 lg:h-40 xl:h-30 w-auto object-contain  transition-opacity duration-300 "
+                    />
+                    <img
+                        src="/assets/kit.png"
+                        alt="KIT"
+                        className="h-22 sm:h-28 md:h-36 lg:h-40 xl:h-30 w-auto object-contain  transition-opacity duration-300 "
+                    />
+                </div>
+            </motion.div>
         </Container>
     );
 };
