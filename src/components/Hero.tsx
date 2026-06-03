@@ -22,16 +22,6 @@ const fadeIn = {
   visible: { opacity: 1 },
 };
 
-const slideFromLeft = {
-  hidden: { opacity: 0, x: -40 },
-  visible: { opacity: 1, x: 0 },
-};
-
-const slideFromRight = {
-  hidden: { opacity: 0, x: 40 },
-  visible: { opacity: 1, x: 0 },
-};
-
 export default function Hero({ isActive }: { isActive?: boolean }) {
   return (
     <section
@@ -43,7 +33,7 @@ export default function Hero({ isActive }: { isActive?: boolean }) {
 
       {/* Enhanced Grid Overlay */}
       <div className="absolute inset-0 bg-grid-white/[0.02] mask-radial pointer-events-none" />
-      
+
       {/* Gradient ambient overlay */}
       <div className="absolute inset-0 bg-gradient-to-t from-dark-bg via-transparent to-transparent pointer-events-none" />
 
@@ -61,26 +51,12 @@ export default function Hero({ isActive }: { isActive?: boolean }) {
           animate="visible"
           variants={staggerContainer}
         >
-          {/* Pre-title badge */}
-          {/* <motion.div
-            variants={fadeUp}
-            transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-brand-blue/30 bg-white/5 backdrop-blur-sm mb-6 sm:mb-8"
-          >
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-cyan opacity-60"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-cyan"></span>
-            </span>
-            <span className="text-xs sm:text-sm font-medium text-brand-cyan tracking-wide">
-              Revive Medical Technologies Inc.
-            </span>
-          </motion.div> */}
-
-          {/* Title with enhanced styling */}
+          {/* Title with fluid responsive sizing */}
           <motion.h1
             variants={fadeUp}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-display font-bold leading-[1.1] sm:leading-[1.1] md:leading-[1.1] mb-4 sm:mb-6 tracking-tighter"
+            className="font-display font-bold leading-[1.1] tracking-tighter mb-4 sm:mb-6"
+            style={{ fontSize: "clamp(2rem, 6vw + 1rem, 7rem)" }}
           >
             <span className="bg-gradient-to-r from-white via-white to-white/80 bg-clip-text text-transparent">
               AI Driven Healthcare
@@ -91,11 +67,12 @@ export default function Hero({ isActive }: { isActive?: boolean }) {
             </span>
           </motion.h1>
 
-          {/* Subtitle */}
+          {/* Subtitle with fluid responsive sizing */}
           <motion.h2
             variants={fadeUp}
             transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-            className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-display font-semibold leading-[1.2] mb-6 sm:mb-8 max-w-4xl mx-auto"
+            className="font-display font-semibold leading-[1.2] mb-6 sm:mb-8 max-w-4xl mx-auto"
+            style={{ fontSize: "clamp(1.1rem, 3.5vw + 0.5rem, 4rem)" }}
           >
             <span className="text-gradient bg-gradient-to-r from-brand-cyan via-brand-blue to-purple-400 bg-clip-text text-transparent">
               Building the Future of Clinical Intelligence in the USA
@@ -109,36 +86,25 @@ export default function Hero({ isActive }: { isActive?: boolean }) {
             className="w-24 h-[2px] bg-gradient-to-r from-transparent via-brand-cyan/50 to-transparent mx-auto mb-8 sm:mb-10"
           />
 
-          {/* Presenter Info */}
+          {/* Presenter Info with fluid responsive sizing */}
           <motion.div
             variants={fadeUp}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="space-y-2"
+            className="space-y-2 sm:space-y-3"
           >
-            {/* <p className="text-white/80 text-base sm:text-6xl md:text-8xl font-medium tracking-wide">
-              Presented by
-            </p> */}
-            <p className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight">
+            <p
+              className="text-white font-bold tracking-tight"
+              style={{ fontSize: "clamp(1.6rem, 5vw + 0.5rem, 6rem)" }}
+            >
               Dr. Murtaza Najabat Ali
             </p>
-            <p className="text-brand-cyan/80 text-8xl sm:text-base md:text-10xl font-light tracking-wide">
+            <p
+              className="text-brand-cyan/80 font-light tracking-wide"
+              style={{ fontSize: "clamp(0.85rem, 2.5vw + 0.4rem, 4rem)" }}
+            >
               Chief Executive Officer, Revive Medical Technologies
             </p>
           </motion.div>
-
-          {/* Optional CTA hint - subtle */}
-          {/* <motion.div
-            variants={fadeIn}
-            transition={{ duration: 0.6, delay: 0.5 }}
-            className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden sm:block"
-          >
-            <div className="flex flex-col items-center gap-2 opacity-40 hover:opacity-70 transition-opacity duration-300">
-              <span className="text-xs text-white/40 tracking-wider uppercase text-center">
-                Scroll to explore
-              </span>
-              <div className="w-[1px] h-12 bg-gradient-to-b from-brand-cyan/40 to-transparent" />
-            </div>
-          </motion.div> */}
         </motion.div>
       </div>
 
@@ -152,7 +118,7 @@ export default function Hero({ isActive }: { isActive?: boolean }) {
             height: `${Math.random() * 3 + 1}px`,
             left: `${10 + Math.random() * 80}%`,
             top: `${10 + Math.random() * 80}%`,
-            background: i % 2 === 0 ? '#00E0FF' : '#4A00FF',
+            background: i % 2 === 0 ? "#00E0FF" : "#4A00FF",
           }}
           animate={{
             y: [0, -40, 0],
@@ -168,7 +134,7 @@ export default function Hero({ isActive }: { isActive?: boolean }) {
           }}
         />
       ))}
-      
+
       {/* Additional subtle glow orbs */}
       {[...Array(3)].map((_, i) => (
         <motion.div
