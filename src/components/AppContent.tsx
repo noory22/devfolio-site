@@ -476,7 +476,7 @@ export const CEOIntro = () => {
                                 initial={{ opacity: 0, x: 20 }}
                                 whileInView={{ opacity: 1, x: 0 }}
                                 transition={{ delay: i * 0.1 + 0.2 }}
-                                className="flex gap-4 md:gap-5 group"
+                                className="flex gap-4 md:gap-5 items-bottom group"
                             >
                                 <div className={`mt-2 rounded-full transition-all duration-500 shrink-0 group-hover:scale-150 ${
                                     item.dotColor || "bg-white/20 group-hover:bg-brand-cyan/80 group-hover:shadow-[0_0_10px_rgba(0,223,216,0.5)]"
@@ -541,21 +541,20 @@ export const CEOIntro = () => {
 };
 
 // 4. RMT Background
+
 // export const RMTBackground = () => (
 //     <Container>
-//         {/* <SubHeading>BACKGROUND OF RMT</SubHeading> */}
 //         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
 //             <div>
 //                 <Heading gradient>Our Legacy</Heading>
 //                 <div className="space-y-6 md:space-y-8 mt-6 md:mt-8">
 //                     {[
-//                         { color: "brand-cyan", text: "RMT has successfully established Pakistan’s and Saudi Arabia’s first medical device industries and commissioned over 20 production/testing machines in medical device factories." },
+//                         { color: "brand-cyan", text: "RMT has successfully established Pakistan's and Saudi Arabia's first medical device industries and commissioned over 20 production/testing machines in medical device factories." },
 //                         { color: "brand-blue", text: "Pioneer in the R&D, Production and Licensing of Medical Devices and Healthcare Technologies in Pakistan." },
 //                         { color: "brand-cyan", text: "The team includes specialists in biomaterials, production, quality, regulatory affairs, finance, software, marketing, and technical consulting." },
-//                         // { color: "brand-blue", text: "Involved in Regulatory Approvals of Medical Devices / Healthcare Technologies." }
 //                     ].map((item, i) => (
 //                         <div key={i} className="flex gap-4 md:gap-6">
-//                             <div className={`h-10 md:h-12 w-1 bg-${item.color} rounded-full shrink-0`} />
+//                             <div className={`self-stretch w-1 bg-${item.color} rounded-full shrink-0`} />
 //                             <p className="text-base md:text-lg lg:text-xl text-white/70 font-light leading-relaxed">
 //                                 {item.text}
 //                             </p>
@@ -564,9 +563,9 @@ export const CEOIntro = () => {
 //                 </div>
 //             </div>
 //             <div className="relative group lg:h-full flex items-center justify-center">
-//                 <div className="glass-dark rounded-4xl md:rounded-[3rem] border border-white/10 overflow-hidden w-full max-w-sm sm:max-w-md mx-auto aspect-[5/6] lg:h-[60vh] lg:max-h-[500px] lg:w-auto lg:aspect-[5/6] flex items-center justify-center relative">
+//                 <div className="glass-dark rounded-4xl md:rounded-[3rem] border border-white/10 overflow-hidden w-full max-w-md sm:max-w-xl mx-auto aspect-[5/6] lg:h-[70vh] lg:max-h-[650px] lg:w-auto lg:aspect-[5/6] flex items-center justify-center relative">
 //                     <img src="/assets/leagacy.png" alt="RMT Legacy" className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-700 group-hover:scale-105" />
-//                     <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
+//                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
 //                     <motion.div
 //                         animate={{ scale: [1, 1.05, 1], opacity: [0.3, 0.5, 0.3] }}
 //                         transition={{ duration: 5, repeat: Infinity }}
@@ -579,27 +578,56 @@ export const CEOIntro = () => {
 // );
 export const RMTBackground = () => (
     <Container>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-16 2xl:gap-20 items-center w-full max-w-none">
+            
+            {/* Left: Text Content */}
             <div>
                 <Heading gradient>Our Legacy</Heading>
-                <div className="space-y-6 md:space-y-8 mt-6 md:mt-8">
+                <div className="space-y-5 md:space-y-6 xl:space-y-8 mt-5 md:mt-6 xl:mt-8">
                     {[
-                        { color: "brand-cyan", text: "RMT has successfully established Pakistan's and Saudi Arabia's first medical device industries and commissioned over 20 production/testing machines in medical device factories." },
-                        { color: "brand-blue", text: "Pioneer in the R&D, Production and Licensing of Medical Devices and Healthcare Technologies in Pakistan." },
-                        { color: "brand-cyan", text: "The team includes specialists in biomaterials, production, quality, regulatory affairs, finance, software, marketing, and technical consulting." },
+                        {
+                            color: "brand-cyan",
+                            text: "RMT has successfully established Pakistan's and Saudi Arabia's first medical device industries and commissioned over 20 production/testing machines in medical device factories."
+                        },
+                        {
+                            color: "brand-blue",
+                            text: "Pioneer in the R&D, Production and Licensing of Medical Devices and Healthcare Technologies in Pakistan."
+                        },
+                        {
+                            color: "brand-cyan",
+                            text: "The team includes specialists in biomaterials, production, quality, regulatory affairs, finance, software, marketing, and technical consulting."
+                        },
                     ].map((item, i) => (
-                        <div key={i} className="flex gap-4 md:gap-6">
-                            <div className={`self-stretch w-1 bg-${item.color} rounded-full shrink-0`} />
-                            <p className="text-base md:text-lg lg:text-xl text-white/70 font-light leading-relaxed">
+                        <div key={i} className="flex gap-4 md:gap-5 xl:gap-6">
+                            <div
+                                className={`self-stretch bg-${item.color} rounded-full shrink-0`}
+                                style={{ width: "clamp(3px, 0.3vw, 5px)" }}
+                            />
+                            <p
+                                className="text-white/70 font-light leading-relaxed"
+                                style={{ fontSize: "clamp(0.85rem, 1.5vw, 1.6rem)" }}
+                            >
                                 {item.text}
                             </p>
                         </div>
                     ))}
                 </div>
             </div>
+
+            {/* Right: Image Card */}
             <div className="relative group lg:h-full flex items-center justify-center">
-                <div className="glass-dark rounded-4xl md:rounded-[3rem] border border-white/10 overflow-hidden w-full max-w-md sm:max-w-xl mx-auto aspect-[5/6] lg:h-[70vh] lg:max-h-[650px] lg:w-auto lg:aspect-[5/6] flex items-center justify-center relative">
-                    <img src="/assets/leagacy.png" alt="RMT Legacy" className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-700 group-hover:scale-105" />
+                <div
+                    className="glass-dark rounded-4xl md:rounded-[3rem] border border-white/10 overflow-hidden w-full mx-auto flex items-center justify-center relative"
+                    style={{
+                        maxWidth: "clamp(300px, 45vw, 680px)",
+                        aspectRatio: "5 / 6",
+                    }}
+                >
+                    <img
+                        src="/assets/leagacy.png"
+                        alt="RMT Legacy"
+                        className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-700 group-hover:scale-105"
+                    />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
                     <motion.div
                         animate={{ scale: [1, 1.05, 1], opacity: [0.3, 0.5, 0.3] }}
@@ -608,11 +636,11 @@ export const RMTBackground = () => (
                     />
                 </div>
             </div>
+
         </div>
     </Container>
 );
 
-// 4.2 RMT Background Part 2
 // export const RMTBackground2 = () => (
 //     <Container>
 //         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
@@ -620,7 +648,7 @@ export const RMTBackground = () => (
 //                 <Heading gradient>Our Legacy</Heading>
 //                 <div className="space-y-6 md:space-y-8 mt-6 md:mt-8">
 //                     <div className="flex gap-4 md:gap-6">
-//                         <div className="h-10 md:h-12 w-1 bg-brand-cyan rounded-full shrink-0" />
+//                         <div className="self-stretch w-1 bg-brand-cyan rounded-full shrink-0" />
 //                         <p className="text-base md:text-lg lg:text-xl text-white/70 font-light leading-relaxed">
 //                             Cross-functional RMT Team has been involved for the last 02 decades in:
 //                         </p>
@@ -642,12 +670,13 @@ export const RMTBackground = () => (
 //                 </div>
 //             </div>
 //             <div className="relative group lg:h-full flex items-center justify-center">
-//                 <div className="glass-dark rounded-4xl md:rounded-[3rem] border border-white/10 overflow-hidden w-full max-w-sm sm:max-w-md mx-auto aspect-[5/6] lg:h-[60vh] lg:max-h-[500px] lg:w-auto lg:aspect-[5/6] flex items-center justify-center relative">
-//                     <img src="/assets/pakFacility.png" 
-//                     alt="RMT Legacy Part 2" 
-//                     className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-700 group-hover:scale-105" 
+//                 <div className="glass-dark rounded-4xl md:rounded-[3rem] border border-white/10 overflow-hidden w-full max-w-md sm:max-w-xl mx-auto aspect-[5/6] lg:h-[70vh] lg:max-h-[650px] lg:w-auto lg:aspect-[5/6] flex items-center justify-center relative">
+//                     <img
+//                         src="/assets/pakFacility.png"
+//                         alt="RMT Legacy Part 2"
+//                         className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-700 group-hover:scale-105"
 //                     />
-//                     <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
+//                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
 //                     <motion.div
 //                         animate={{ scale: [1, 1.05, 1], opacity: [0.3, 0.5, 0.3] }}
 //                         transition={{ duration: 5, repeat: Infinity }}
@@ -660,25 +689,47 @@ export const RMTBackground = () => (
 // );
 export const RMTBackground2 = () => (
     <Container>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-16 2xl:gap-20 items-center w-full max-w-none">
+
+            {/* Left: Text Content */}
             <div>
                 <Heading gradient>Our Legacy</Heading>
-                <div className="space-y-6 md:space-y-8 mt-6 md:mt-8">
-                    <div className="flex gap-4 md:gap-6">
-                        <div className="self-stretch w-1 bg-brand-cyan rounded-full shrink-0" />
-                        <p className="text-base md:text-lg lg:text-xl text-white/70 font-light leading-relaxed">
+                <div className="space-y-5 md:space-y-6 xl:space-y-8 mt-5 md:mt-6 xl:mt-8">
+                    <div className="flex gap-4 md:gap-5 xl:gap-6">
+                        <div
+                            className="self-stretch bg-brand-cyan rounded-full shrink-0"
+                            style={{ width: "clamp(3px, 0.3vw, 5px)" }}
+                        />
+                        <p
+                            className="text-white/70 font-light leading-relaxed"
+                            style={{ fontSize: "clamp(0.85rem, 1.5vw, 1.6rem)" }}
+                        >
                             Cross-functional RMT Team has been involved for the last 02 decades in:
                         </p>
                     </div>
-                    <ul className="space-y-4 md:space-y-5 ml-6 md:ml-8">
+
+                    <ul
+                        className="space-y-4 md:space-y-5 xl:space-y-6"
+                        style={{ marginLeft: "clamp(1.25rem, 2.5vw, 3rem)" }}
+                    >
                         {[
                             "R&D of Medical Devices / Healthcare Technologies",
                             "Production of Medical Devices / Healthcare Technologies",
                             "Regulatory Approvals of Medical Devices / Healthcare Technologies."
                         ].map((text, i) => (
-                            <li key={i} className="flex gap-4 md:gap-6">
-                                <div className="h-2 w-2 bg-brand-blue rounded-full shrink-0 mt-2.5" />
-                                <p className="text-base md:text-lg lg:text-xl text-white/70 font-light leading-relaxed">
+                            <li key={i} className="flex gap-4 md:gap-5 xl:gap-6">
+                                <div
+                                    className="bg-brand-blue rounded-full shrink-0"
+                                    style={{
+                                        width: "clamp(6px, 0.55vw, 10px)",
+                                        height: "clamp(6px, 0.55vw, 10px)",
+                                        marginTop: "clamp(6px, 0.6vw, 12px)",
+                                    }}
+                                />
+                                <p
+                                    className="text-white/70 font-light leading-relaxed"
+                                    style={{ fontSize: "clamp(0.85rem, 1.5vw, 1.6rem)" }}
+                                >
                                     {text}
                                 </p>
                             </li>
@@ -686,8 +737,16 @@ export const RMTBackground2 = () => (
                     </ul>
                 </div>
             </div>
+
+            {/* Right: Image Card */}
             <div className="relative group lg:h-full flex items-center justify-center">
-                <div className="glass-dark rounded-4xl md:rounded-[3rem] border border-white/10 overflow-hidden w-full max-w-md sm:max-w-xl mx-auto aspect-[5/6] lg:h-[70vh] lg:max-h-[650px] lg:w-auto lg:aspect-[5/6] flex items-center justify-center relative">
+                <div
+                    className="glass-dark rounded-4xl md:rounded-[3rem] border border-white/10 overflow-hidden w-full mx-auto flex items-center justify-center relative"
+                    style={{
+                        maxWidth: "clamp(300px, 45vw, 680px)",
+                        aspectRatio: "5 / 6",
+                    }}
+                >
                     <img
                         src="/assets/pakFacility.png"
                         alt="RMT Legacy Part 2"
@@ -701,6 +760,7 @@ export const RMTBackground2 = () => (
                     />
                 </div>
             </div>
+
         </div>
     </Container>
 );
