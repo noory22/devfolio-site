@@ -134,40 +134,202 @@ export const Expertise = () => (
 // New Intro Sections from PDF
 
 // 3. Software Team
+// export const SoftwareTeam = () => {
+//     const [activeIdx, setActiveIdx] = React.useState<number | null>(null);
+
+//     return (
+//         <Container>
+//             {/* <SubHeading>Software Team</SubHeading> */}
+//             <Heading gradient>RMT Software Center</Heading>
+//             <div className="text-left text-white/90 ">
+//                 <Heading2>Our Software Core Team</Heading2>
+//             </div>
+//             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+//                 {[
+//                     { image: "WAK.jpg", name: "Wajahat Ali Khan", role: "Head Of Software Department" },
+//                     { image: "Istafa.png", name: "Istafa Malik", role: "Software Development Manager" },
+//                     { image: "M.Umer.png", name: "M. Umer", role: "Software Compliance Manager" },
+//                     { image: "M.Amir.jpg", name: "M. Amir Jamshaid", role: "AI Software Manager" }
+//                 ].map((member, i) => (
+//                     <motion.div
+//                         key={i}
+//                         onClick={() => setActiveIdx(activeIdx === i ? null : i)}
+//                         initial={{ opacity: 0, y: 20 }}
+//                         whileInView={{ opacity: 1, y: 0 }}
+//                         transition={{ delay: i * 0.1 }}
+//                         className="glass-dark p-6 rounded-3xl border border-white/10 text-center group hover:border-brand-cyan/30 transition-all duration-500 cursor-pointer"
+//                     >
+//                         <div className="w-32 h-32 md:w-44 md:h-44 mx-auto mb-4 rounded-full bg-brand-cyan/10 border-2 border-brand-cyan/20 overflow-hidden flex items-center justify-center group-hover:scale-105 group-hover:border-brand-cyan/50 transition-all duration-500 shadow-[0_0_15px_rgba(0,223,216,0.1)]">
+//                             <img
+//                                 src={`/assets/${member.image}`}
+//                                 alt={member.name}
+//                                 className="w-full h-full object-cover transition-all duration-700 grayscale-0 opacity-100"
+//                             />
+//                         </div>
+//                         <h3 className="text-base md:text-lg font-bold text-white group-hover:text-brand-cyan transition-colors">{member.name}</h3>
+//                         <p className="text-xs md:text-sm text-white/50">{member.role}</p>
+//                     </motion.div>
+//                 ))}
+//             </div>
+//         </Container>
+//     );
+// };
 export const SoftwareTeam = () => {
-    const [activeIdx, setActiveIdx] = React.useState<number | null>(null);
+    const departments = [
+        {
+            head: { image: "WAK.jpg", name: "Wajahat Ali Khan", role: "Head Of Software Department" },
+            // Only 2 team members as requested
+            team: [
+                { image: "Istafa.png", name: "Istafa Malik", role: "Software Development Manager" },
+                { image: "M.Amir.jpg", name: "M. Amir Jamshaid", role: "AI Software Manager" },
+            ],
+        },
+        {
+            head: { image: "M.Umer.png", name: "Muhammad Umer", role: "Compliance & Regulatory" },
+            // Only 2 team members
+            team: [
+                { image: "Reg1.jpg", name: "Regulatory Officer 1", role: "Regulatory Affairs Manager" },
+                { image: "Reg2.jpg", name: "Regulatory Officer 2", role: "Compliance Analyst" },
+            ],
+        },
+        {
+            head: { image: "suhail.webp", name: "Suhail Mehgwar", role: "General Manager Quality" },
+            // Only 2 team members
+            team: [
+                { image: "hammad.jpg", name: "Hammad Shakeel", role: "Software QA Manager" },
+                { image: "saleha.webp", name: "Saleha Naveed", role: "Manager Quality Control" },
+            ],
+        },
+        
+    ];
 
     return (
         <Container>
-            {/* <SubHeading>Software Team</SubHeading> */}
             <Heading gradient>RMT Software Center</Heading>
-            <div className="text-left text-white/90 ">
+            <div className="text-left text-white/90">
                 <Heading2>Our Software Core Team</Heading2>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-                {[
-                    { image: "WAK.jpg", name: "Wajahat Ali Khan", role: "Head Of Software Department" },
-                    { image: "Istafa.png", name: "Istafa Malik", role: "Software Development Manager" },
-                    { image: "M.Umer.png", name: "M. Umer", role: "Software Compliance Manager" },
-                    { image: "M.Amir.jpg", name: "M. Amir Jamshaid", role: "AI Software Manager" }
-                ].map((member, i) => (
+
+            {/* Responsive grid: stacks on mobile, 3 columns on large screens */}
+            <div
+                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full items-start gap-y-12 lg:gap-y-0"
+                style={{ gap: "clamp(1rem, 3vw, 3.5rem)" }}
+            >
+                {departments.map((dept, deptIdx) => (
                     <motion.div
-                        key={i}
-                        onClick={() => setActiveIdx(activeIdx === i ? null : i)}
-                        initial={{ opacity: 0, y: 20 }}
+                        key={deptIdx}
+                        initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ delay: i * 0.1 }}
-                        className="glass-dark p-6 rounded-3xl border border-white/10 text-center group hover:border-brand-cyan/30 transition-all duration-500 cursor-pointer"
+                        transition={{ delay: deptIdx * 0.15, duration: 0.5 }}
+                        className="flex flex-col items-center w-full h-full"
                     >
-                        <div className="w-32 h-32 md:w-44 md:h-44 mx-auto mb-4 rounded-full bg-brand-cyan/10 border-2 border-brand-cyan/20 overflow-hidden flex items-center justify-center group-hover:scale-105 group-hover:border-brand-cyan/50 transition-all duration-500 shadow-[0_0_15px_rgba(0,223,216,0.1)]">
-                            <img
-                                src={`/assets/${member.image}`}
-                                alt={member.name}
-                                className="w-full h-full object-cover transition-all duration-700 grayscale-0 opacity-100"
-                            />
+                        {/* ── HOD Card (fixed consistent proportions) ── */}
+                        <div
+                            className="glass-dark rounded-2xl border border-brand-cyan/40 text-center w-full shadow-[0_0_30px_rgba(0,223,216,0.15)] transition-all duration-300 hover:shadow-[0_0_40px_rgba(0,223,216,0.25)]"
+                            style={{ padding: "clamp(1.2rem, 2.5vw, 2rem)" }}
+                        >
+                            <div
+                                className="mx-auto rounded-full bg-brand-cyan/10 border-[3px] border-brand-cyan/50 overflow-hidden shadow-[0_0_30px_rgba(0,223,216,0.25)] transition-all duration-300 group-hover:scale-105"
+                                style={{
+                                    width: "clamp(100px, 12vw, 160px)",
+                                    height: "clamp(100px, 12vw, 160px)",
+                                    marginBottom: "clamp(0.8rem, 2vh, 1.5rem)",
+                                }}
+                            >
+                                <img
+                                    src={`/assets/${dept.head.image}`}
+                                    alt={dept.head.name}
+                                    className="w-full h-full object-cover"
+                                    style={{ objectPosition: "top center" }}
+                                />
+                            </div>
+                            <h3
+                                className="font-bold text-brand-cyan leading-tight px-2"
+                                style={{ fontSize: "clamp(1rem, 1.5vw, 1.8rem)" }}
+                            >
+                                {dept.head.name}
+                            </h3>
+                            <p
+                                className="text-white/50 mt-1 px-2"
+                                style={{ fontSize: "clamp(0.75rem, 1vw, 1rem)" }}
+                            >
+                                {dept.head.role}
+                            </p>
                         </div>
-                        <h3 className="text-base md:text-lg font-bold text-white group-hover:text-brand-cyan transition-colors">{member.name}</h3>
-                        <p className="text-xs md:text-sm text-white/50">{member.role}</p>
+
+                        {/* Vertical connector line */}
+                        <div
+                            className="w-px bg-gradient-to-b from-brand-cyan/60 to-transparent shrink-0"
+                            style={{ height: "clamp(24px, 3vh, 48px)" }}
+                        />
+
+                        {/* ── Team grid (always 2 columns, centered) ── */}
+                        <div className="relative w-full">
+                            {/* Horizontal connector line above team cards */}
+                            <div
+                                className="absolute top-0 left-1/2 -translate-x-1/2 bg-brand-cyan/40"
+                                style={{ width: "54.5%", height: "1px" }}
+                            />
+
+                            <div
+                                className="grid grid-cols-2 w-full justify-items-center"
+                                style={{ gap: "clamp(0.8rem, 2vw, 2rem)" }}
+                            >
+                                {dept.team.map((member, i) => (
+                                    <div key={i} className="flex flex-col items-center w-full min-w-0">
+                                        {/* Vertical drop line */}
+                                        <div
+                                            className="w-px bg-gradient-to-b from-brand-cyan/40 to-transparent shrink-0"
+                                            style={{ height: "clamp(20px, 2.5vh, 40px)" }}
+                                        />
+
+                                        {/* Member Card - consistent height and width */}
+                                        <div
+                                            className="glass-dark rounded-xl border border-white/10 text-center group hover:border-brand-cyan/40 transition-all duration-500 w-full h-full flex flex-col items-center"
+                                            style={{ padding: "clamp(0.8rem, 1.5vw, 1.5rem)" }}
+                                        >
+                                            {/* Member Avatar - significantly larger */}
+                                            <div
+                                                className="mx-auto rounded-full bg-brand-cyan/10 border-2 border-brand-cyan/20 overflow-hidden group-hover:border-brand-cyan/60 group-hover:scale-105 transition-all duration-500 shadow-[0_0_14px_rgba(0,223,216,0.12)]"
+                                                style={{
+                                                    width: "clamp(80px, 10vw, 120px)",
+                                                    height: "clamp(80px, 10vw, 120px)",
+                                                    marginBottom: "clamp(0.6rem, 1.5vh, 1rem)",
+                                                }}
+                                            >
+                                                <img
+                                                    src={`/assets/${member.image}`}
+                                                    alt={member.name}
+                                                    className="w-full h-full object-cover"
+                                                    style={{ objectPosition: "top center" }}
+                                                />
+                                            </div>
+
+                                            <h3
+                                                className="font-semibold text-white group-hover:text-brand-cyan transition-colors px-1"
+                                                style={{
+                                                    fontSize: "clamp(0.8rem, 1.2vw, 1.2rem)",
+                                                    lineHeight: 1.3,
+                                                    wordBreak: "break-word",
+                                                }}
+                                            >
+                                                {member.name}
+                                            </h3>
+                                            <p
+                                                className="text-white/50 mt-1 px-1"
+                                                style={{
+                                                    fontSize: "clamp(0.65rem, 0.9vw, 0.85rem)",
+                                                    lineHeight: 1.3,
+                                                    wordBreak: "break-word",
+                                                }}
+                                            >
+                                                {member.role}
+                                            </p>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
                     </motion.div>
                 ))}
             </div>
@@ -389,16 +551,168 @@ export const SoftwareTeam = () => {
 //         </Container>
 //     );
 // };
+// export const CEOIntro = () => {
+//     const [isActive, setIsActive] = React.useState(false);
+
+//     return (
+//         <Container>
+//             <div className="grid grid-cols-1 md:grid-cols-12 gap-6 lg:gap-10 xl:gap-14 2xl:gap-16 items-center w-full max-w-none">
+                
+//                 {/* Left: Photo Card */}
+//                 <div className="md:col-span-5 lg:col-span-4 relative group mx-auto w-full"
+//                     style={{ maxWidth: "clamp(220px, 28vw, 520px)" }}
+//                 >
+//                     <div
+//                         className="relative rounded-2xl overflow-hidden bg-dark-surface cursor-pointer shadow-[0_0_20px_rgba(0,223,216,0.05)] group-hover:shadow-[0_0_30px_rgba(0,223,216,0.15)] transition-all duration-500 border border-white/10 flex flex-col"
+//                         onClick={() => setIsActive(!isActive)}
+//                     >
+//                         <div className="relative aspect-3/4 w-full overflow-hidden">
+//                             <div className="absolute inset-0 bg-linear-to-t from-black/50 via-transparent to-transparent z-10" />
+//                             <img
+//                                 src="/assets/dr.murtaza.jpg"
+//                                 alt="Prof Dr Murtaza Najabat Ali"
+//                                 className="w-full h-full object-cover transition-all duration-700 grayscale-0 opacity-100"
+//                             />
+//                         </div>
+//                         {/* Credentials footer strip */}
+//                         <div className="bg-transparent py-4 px-3 border-t border-white/15 text-center flex flex-col gap-1.5 z-20">
+//                             <div
+//                                 className="text-white font-bold tracking-wide leading-tight"
+//                                 style={{ fontSize: "clamp(0.65rem, 1.1vw, 1.15rem)" }}
+//                             >
+//                                 Founding CEO
+//                             </div>
+//                             <div
+//                                 className="text-white font-bold tracking-wide leading-tight"
+//                                 style={{ fontSize: "clamp(0.6rem, 1vw, 1.05rem)" }}
+//                             >
+//                                 REVIVE MEDICAL TECHNOLOGIES Inc.
+//                             </div>
+//                             <div
+//                                 className="text-white/80 tracking-wide leading-normal font-sans"
+//                                 style={{ fontSize: "clamp(0.55rem, 0.85vw, 0.95rem)" }}
+//                             >
+//                                 Professor at UNIVERSITY of JORDAN & RIPHAH
+//                             </div>
+//                             <div
+//                                 className="text-white/80 tracking-wide leading-normal font-sans"
+//                                 style={{ fontSize: "clamp(0.55rem, 0.85vw, 0.95rem)" }}
+//                             >
+//                                 Distinguished Expert at COMSTECH
+//                             </div>
+//                         </div>
+//                     </div>
+//                 </div>
+
+//                 {/* Right: Background Content */}
+//                 <div className="md:col-span-7 lg:col-span-8 px-2 lg:px-0">
+//                     <Heading gradient>Background</Heading>
+//                     <div className="space-y-5 md:space-y-6 xl:space-y-8">
+//                         {[
+//                             {
+//                                 prefix: "20+",
+//                                 prefixColor: "text-white/90 font-bold",
+//                                 dotColor: "bg-white/90 group-hover:bg-white/90 group-hover:shadow-[0_0_10px_rgba(239,68,68,0.5)]",
+//                                 text: " Years of Experience in Medical Device Design, Development, Production, Licensing and Technology Transfer"
+//                             },
+//                             {
+//                                 text: "Founding HoD and Professor of Biomedical Engineering Dept. at NUST University Pakistan"
+//                             },
+//                             {
+//                                 text: "Recipient of Mandate from PM Office of Pakistan to setup Country's first Medical Device Industry"
+//                             },
+//                             {
+//                                 text: "Founding CEO of Pakistan 1st State-owned Medical Device Industry ",
+//                                 suffix: "(N-ovative Health Technologies)",
+//                                 suffixColor: "text-white/90 italic font-semibold"
+//                             },
+//                             {
+//                                 text: "Founding Director of Medical Devices Development Center ",
+//                                 suffix: "(A Center of Excellence)",
+//                                 suffixColor: "italic text-white/90",
+//                                 text2: " Pakistan"
+//                             }
+//                         ].map((item, i) => (
+//                             <motion.div
+//                                 key={i}
+//                                 initial={{ opacity: 0, x: 20 }}
+//                                 whileInView={{ opacity: 1, x: 0 }}
+//                                 transition={{ delay: i * 0.1 + 0.2 }}
+//                                 className="flex gap-4 md:gap-5 items-bottom group"
+//                             >
+//                                 <div className={`mt-2 rounded-full transition-all duration-500 shrink-0 group-hover:scale-150 ${
+//                                     item.dotColor || "bg-white/20 group-hover:bg-brand-cyan/80 group-hover:shadow-[0_0_10px_rgba(0,223,216,0.5)]"
+//                                 }`}
+//                                     style={{
+//                                         width: "clamp(6px, 0.55vw, 10px)",
+//                                         height: "clamp(6px, 0.55vw, 10px)",
+//                                         marginTop: "clamp(6px, 0.6vw, 12px)",
+//                                     }}
+//                                 />
+//                                 <p
+//                                     className="text-white/70 font-light leading-relaxed group-hover:text-white transition-colors"
+//                                     style={{ fontSize: "clamp(0.85rem, 1.5vw, 1.65rem)" }}
+//                                 >
+//                                     {item.prefix && <span className={item.prefixColor}>{item.prefix}</span>}
+//                                     {item.text}
+//                                     {item.suffix && <span className={item.suffixColor}>{item.suffix}</span>}
+//                                     {item.text2}
+//                                 </p>
+//                             </motion.div>
+//                         ))}
+//                     </div>
+//                 </div>
+//             </div>
+
+//             {/* Logos Section */}
+//             <motion.div
+//                 initial={{ opacity: 0, y: 30 }}
+//                 whileInView={{ opacity: 1, y: 0 }}
+//                 transition={{ duration: 0.6, delay: 0.3 }}
+//                 className="mt-12 xl:mt-16 pt-8 border-t border-white/10"
+//             >
+//                 <div className="flex flex-wrap items-center justify-center gap-6 md:gap-10 lg:gap-14 xl:gap-20">
+//                     <img
+//                         src="/assets/UOJ.png"
+//                         alt="University of Jordan"
+//                         className="w-auto object-contain transition-opacity duration-300"
+//                         style={{ height: "clamp(4rem, 7vw, 8rem)" }}
+//                     />
+//                     <img
+//                         src="/assets/comstech.png"
+//                         alt="COMSTECH"
+//                         className="w-auto bg-white p-3 object-contain transition-opacity duration-300"
+//                         style={{ height: "clamp(4rem, 7vw, 8rem)" }}
+//                     />
+//                     <img
+//                         src="/assets/riphah.png"
+//                         alt="Riphah University"
+//                         className="w-auto bg-white p-3 object-contain transition-opacity duration-300"
+//                         style={{ height: "clamp(4rem, 7vw, 8rem)" }}
+//                     />
+//                     <img
+//                         src="/assets/kit.png"
+//                         alt="KIT"
+//                         className="w-auto bg-white p-3 object-contain transition-opacity duration-300"
+//                         style={{ height: "clamp(4rem, 7vw, 8rem)" }}
+//                     />
+//                 </div>
+//             </motion.div>
+//         </Container>
+//     );
+// };
+
 export const CEOIntro = () => {
     const [isActive, setIsActive] = React.useState(false);
 
     return (
         <Container>
-            <div className="grid grid-cols-1 md:grid-cols-12 gap-6 lg:gap-10 xl:gap-14 2xl:gap-16 items-center w-full max-w-none">
-                
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-4 lg:gap-6 xl:gap-10 2xl:gap-14 items-center w-full max-w-none">
+
                 {/* Left: Photo Card */}
-                <div className="md:col-span-5 lg:col-span-4 relative group mx-auto w-full"
-                    style={{ maxWidth: "clamp(220px, 28vw, 520px)" }}
+                <div
+                    className="md:col-span-5 lg:col-span-4 relative group mx-auto w-full"
+                    style={{ maxWidth: "clamp(180px, 22vw, 400px)" }}
                 >
                     <div
                         className="relative rounded-2xl overflow-hidden bg-dark-surface cursor-pointer shadow-[0_0_20px_rgba(0,223,216,0.05)] group-hover:shadow-[0_0_30px_rgba(0,223,216,0.15)] transition-all duration-500 border border-white/10 flex flex-col"
@@ -412,29 +726,36 @@ export const CEOIntro = () => {
                                 className="w-full h-full object-cover transition-all duration-700 grayscale-0 opacity-100"
                             />
                         </div>
+
                         {/* Credentials footer strip */}
-                        <div className="bg-transparent py-4 px-3 border-t border-white/15 text-center flex flex-col gap-1.5 z-20">
+                        <div
+                            className="bg-transparent border-t border-white/15 text-center flex flex-col z-20"
+                            style={{
+                                padding: "clamp(0.5rem, 1vw, 1.2rem) clamp(0.5rem, 0.8vw, 1rem)",
+                                gap: "clamp(0.2rem, 0.4vw, 0.5rem)",
+                            }}
+                        >
                             <div
                                 className="text-white font-bold tracking-wide leading-tight"
-                                style={{ fontSize: "clamp(0.65rem, 1.1vw, 1.15rem)" }}
+                                style={{ fontSize: "clamp(0.55rem, 0.85vw, 1rem)" }}
                             >
                                 Founding CEO
                             </div>
                             <div
                                 className="text-white font-bold tracking-wide leading-tight"
-                                style={{ fontSize: "clamp(0.6rem, 1vw, 1.05rem)" }}
+                                style={{ fontSize: "clamp(0.5rem, 0.78vw, 0.92rem)" }}
                             >
                                 REVIVE MEDICAL TECHNOLOGIES Inc.
                             </div>
                             <div
                                 className="text-white/80 tracking-wide leading-normal font-sans"
-                                style={{ fontSize: "clamp(0.55rem, 0.85vw, 0.95rem)" }}
+                                style={{ fontSize: "clamp(0.45rem, 0.68vw, 0.82rem)" }}
                             >
                                 Professor at UNIVERSITY of JORDAN & RIPHAH
                             </div>
                             <div
                                 className="text-white/80 tracking-wide leading-normal font-sans"
-                                style={{ fontSize: "clamp(0.55rem, 0.85vw, 0.95rem)" }}
+                                style={{ fontSize: "clamp(0.45rem, 0.68vw, 0.82rem)" }}
                             >
                                 Distinguished Expert at COMSTECH
                             </div>
@@ -443,9 +764,12 @@ export const CEOIntro = () => {
                 </div>
 
                 {/* Right: Background Content */}
-                <div className="md:col-span-7 lg:col-span-8 px-2 lg:px-0">
+                <div className="md:col-span-7 lg:col-span-8 px-1 lg:px-0">
                     <Heading gradient>Background</Heading>
-                    <div className="space-y-5 md:space-y-6 xl:space-y-8">
+                    <div
+                        className="flex flex-col"
+                        style={{ gap: "clamp(0.6rem, 1.1vw, 1.6rem)" }}
+                    >
                         {[
                             {
                                 prefix: "20+",
@@ -476,20 +800,23 @@ export const CEOIntro = () => {
                                 initial={{ opacity: 0, x: 20 }}
                                 whileInView={{ opacity: 1, x: 0 }}
                                 transition={{ delay: i * 0.1 + 0.2 }}
-                                className="flex gap-4 md:gap-5 items-bottom group"
+                                className="flex group"
+                                style={{ gap: "clamp(0.6rem, 1vw, 1.4rem)" }}
                             >
-                                <div className={`mt-2 rounded-full transition-all duration-500 shrink-0 group-hover:scale-150 ${
-                                    item.dotColor || "bg-white/20 group-hover:bg-brand-cyan/80 group-hover:shadow-[0_0_10px_rgba(0,223,216,0.5)]"
-                                }`}
+                                <div
+                                    className={`rounded-full transition-all duration-500 shrink-0 group-hover:scale-150 ${
+                                        item.dotColor || "bg-white/20 group-hover:bg-brand-cyan/80 group-hover:shadow-[0_0_10px_rgba(0,223,216,0.5)]"
+                                    }`}
                                     style={{
-                                        width: "clamp(6px, 0.55vw, 10px)",
-                                        height: "clamp(6px, 0.55vw, 10px)",
-                                        marginTop: "clamp(6px, 0.6vw, 12px)",
+                                        width: "clamp(5px, 0.45vw, 8px)",
+                                        height: "clamp(5px, 0.45vw, 8px)",
+                                        marginTop: "clamp(5px, 0.55vw, 10px)",
+                                        flexShrink: 0,
                                     }}
                                 />
                                 <p
                                     className="text-white/70 font-light leading-relaxed group-hover:text-white transition-colors"
-                                    style={{ fontSize: "clamp(0.85rem, 1.5vw, 1.65rem)" }}
+                                    style={{ fontSize: "clamp(0.78rem, 1.15vw, 1.4rem)" }}
                                 >
                                     {item.prefix && <span className={item.prefixColor}>{item.prefix}</span>}
                                     {item.text}
@@ -507,32 +834,48 @@ export const CEOIntro = () => {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
-                className="mt-12 xl:mt-16 pt-8 border-t border-white/10"
+                className="border-t border-white/10"
+                style={{
+                    marginTop: "clamp(1.5rem, 3vw, 4rem)",
+                    paddingTop: "clamp(1rem, 2vw, 2.5rem)",
+                }}
             >
-                <div className="flex flex-wrap items-center justify-center gap-6 md:gap-10 lg:gap-14 xl:gap-20">
+                <div
+                    className="flex flex-wrap items-center justify-center"
+                    style={{ gap: "clamp(1rem, 3vw, 5rem)" }}
+                >
                     <img
                         src="/assets/UOJ.png"
                         alt="University of Jordan"
                         className="w-auto object-contain transition-opacity duration-300"
-                        style={{ height: "clamp(4rem, 7vw, 8rem)" }}
+                        style={{ height: "clamp(2.5rem, 5vw, 6.5rem)" }}
                     />
                     <img
                         src="/assets/comstech.png"
                         alt="COMSTECH"
-                        className="w-auto bg-white p-3 object-contain transition-opacity duration-300"
-                        style={{ height: "clamp(4rem, 7vw, 8rem)" }}
+                        className="w-auto bg-white object-contain transition-opacity duration-300"
+                        style={{
+                            height: "clamp(2.5rem, 5vw, 6.5rem)",
+                            padding: "clamp(0.3rem, 0.5vw, 0.75rem)",
+                        }}
                     />
                     <img
                         src="/assets/riphah.png"
                         alt="Riphah University"
-                        className="w-auto bg-white p-3 object-contain transition-opacity duration-300"
-                        style={{ height: "clamp(4rem, 7vw, 8rem)" }}
+                        className="w-auto bg-white object-contain transition-opacity duration-300"
+                        style={{
+                            height: "clamp(2.5rem, 5vw, 6.5rem)",
+                            padding: "clamp(0.3rem, 0.5vw, 0.75rem)",
+                        }}
                     />
                     <img
                         src="/assets/kit.png"
                         alt="KIT"
-                        className="w-auto bg-white p-3 object-contain transition-opacity duration-300"
-                        style={{ height: "clamp(4rem, 7vw, 8rem)" }}
+                        className="w-auto bg-white object-contain transition-opacity duration-300"
+                        style={{
+                            height: "clamp(2.5rem, 5vw, 6.5rem)",
+                            padding: "clamp(0.3rem, 0.5vw, 0.75rem)",
+                        }}
                     />
                 </div>
             </motion.div>
@@ -587,15 +930,23 @@ export const RMTBackground = () => (
                     {[
                         {
                             color: "brand-cyan",
-                            text: "RMT has successfully established Pakistan's and Saudi Arabia's first medical device industries and commissioned over 20 production/testing machines in medical device factories."
-                        },
-                        {
-                            color: "brand-blue",
-                            text: "Pioneer in the R&D, Production and Licensing of Medical Devices and Healthcare Technologies in Pakistan."
+                            text: "Ventilators – Developed & produced"
                         },
                         {
                             color: "brand-cyan",
-                            text: "The team includes specialists in biomaterials, production, quality, regulatory affairs, finance, software, marketing, and technical consulting."
+                            text: " FDA Approvals – Secured"
+                        },
+                        {
+                            color: "brand-cyan",
+                            text: "10 R&D domains – Embedded systems, Software Medical Design, Healthcare Software & AI, Biomaterials & Drug Synthesis."
+                        },
+                        {
+                            color: "brand-blue",
+                            text: "ISO 13485 & DRAP – Certified"
+                        },
+                        {
+                            color: "brand-cyan",
+                            text: "Full-scale in-house production capabilities"
                         },
                     ].map((item, i) => (
                         <div key={i} className="flex gap-4 md:gap-5 xl:gap-6">
