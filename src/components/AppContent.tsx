@@ -765,146 +765,6 @@ export const RMTBackground2 = () => (
     </Container>
 );
 
-// 5. Our Company
-export const OurCompany = () => (
-    <Container className="text-center items-center">
-        {/* <SubHeading>Our Company</SubHeading> */}
-        <Heading gradient>A One-Stop Shop for Health-Tech</Heading>
-        <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/60 font-light max-w-3xl mb-8 sm:mb-10 lg:mb-16 leading-relaxed">
-            Turning <span className="text-brand-cyan font-bold">HEALTH-TECH IDEAS</span> into <span className="text-brand-blue font-bold">MARKETABLE PRODUCTS</span> by centralizing and streamlining diverse activities.
-        </p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 w-full">
-            {[
-                { title: "R & D Wing", desc: "Advanced labs for biomaterials, software, AI, and medical device design." },
-                { title: "Production Wing", desc: "ISO Class 5, 7 and 8 cleanrooms for medical grade manufacturing." },
-                { title: "Regulatory Wing", desc: "Expert approvals including FDA, CE, UKCA, and SFDA." }
-            ].map((wing, i) => (
-                <motion.div
-                    key={i}
-                    whileHover={{ y: -10 }}
-                    className="glass-dark p-8 md:p-10 rounded-4xl md:rounded-[2.5rem] border border-white/10 relative overflow-hidden group text-left sm:text-center"
-                >
-                    <div className="absolute top-0 right-0 p-6 md:p-8 text-4xl md:text-6xl font-bold text-white/3 group-hover:text-brand-cyan/10 transition-colors">0{i + 1}</div>
-                    <h3 className="text-xl md:text-2xl font-bold mb-4 text-brand-cyan">{wing.title}</h3>
-                    <p className="text-white/50 text-sm md:text-base leading-relaxed">{wing.desc}</p>
-                </motion.div>
-            ))}
-        </div>
-        {/* <div className="flex flex-row flex-wrap justify-center items-center gap-8 md:gap-12 mt-8 sm:mt-10 md:mt-12">
-            <motion.div
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-                whileHover={{ scale: 1.05 }}
-                className="relative cursor-pointer"
-            >
-                <img
-                    src="/assets/iso-certified.png"
-                    alt="ISO 13485 Certified"
-                    className="h-16 sm:h-20 md:h-24 w-auto object-contain relative z-10 transition-opacity duration-300 hover:opacity-100 opacity-90 filter drop-shadow-[0_0_15px_rgba(0,223,216,0.15)] rounded-2xl"
-                />
-            </motion.div>
-            <motion.div
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                whileHover={{ scale: 1.05 }}
-                className="relative cursor-pointer"
-            >
-                <img
-                    src="/assets/drap-approved.png"
-                    alt="DRAP Approved"
-                    className="h-16 sm:h-20 md:h-24 w-auto object-contain relative z-10 transition-opacity duration-300 hover:opacity-100 opacity-90 filter drop-shadow-[0_0_15px_rgba(16,185,129,0.15)] rounded-2xl"
-                />
-            </motion.div>
-        </div> */}
-    </Container>
-);
-
-// 6. Global Locations
-// export const GlobalLocations = () => (
-//     <Container>
-//         <div className="text-center mb-8 md:mb-12">
-//             <SubHeading>OUR LOCATIONS</SubHeading>
-//             {/* <Heading gradient className="text-3xl md:text-5xl">Global Strategic Presence</Heading> */}
-//         </div>
-//         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-stretch">
-//             {/* Pakistan Facility */}
-//             <motion.div
-//                 initial={{ opacity: 0, x: -30 }}
-//                 whileInView={{ opacity: 1, x: 0 }}
-//                 viewport={{ once: true }}
-//                 className="relative group h-full"
-//             >
-//                 <div className="glass-dark rounded-3xl md:rounded-[2.5rem] border border-white/10 overflow-hidden flex flex-col h-full transition-all duration-500 hover:border-brand-cyan/30">
-//                     <div className="relative aspect-video overflow-hidden shrink-0">
-//                         <img src="/assets/pak-facility.png" alt="Pakistan Facility" className="w-full h-full object-cover object-top-left opacity-80 group-hover:opacity-100 transition-opacity duration-700 group-hover:scale-105" />
-//                         <div className="absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
-//                         <div className="absolute bottom-4 left-6 text-left pointer-events-none">
-//                             <div className="text-brand-cyan text-2xl md:text-4xl mb-1">🇵🇰</div>
-//                             <h3 className="text-xl md:text-2xl font-bold text-white">Islamabad</h3>
-//                             <p className="text-brand-cyan/80 font-mono text-[10px] tracking-widest uppercase">R&D and Production Hub</p>
-//                         </div>
-//                     </div>
-//                     <div className="p-6 md:p-8 flex flex-col grow justify-between">
-//                         <div>
-//                             <Heading gradient className="text-xl md:text-2xl mb-4">Pakistan R&D Facility</Heading>
-//                             <p className="text-sm md:text-base text-white/50 font-light leading-relaxed mb-6">
-//                                 Our primary off-shore R&D and production hub, featuring advanced laboratories and certified cleanrooms for medical device innovation.
-//                             </p>
-//                             <div className="grid grid-cols-2 gap-3">
-//                                 {["Biomaterials Lab", "Software & AI Suite", "ISO Cleanrooms", "Mechanical Workshop"].map((item, i) => (
-//                                     <div key={i} className="flex items-center gap-2 text-white/70">
-//                                         <div className="w-1 h-1 rounded-full bg-brand-cyan" />
-//                                         <span className="font-medium text-xs md:text-sm">{item}</span>
-//                                     </div>
-//                                 ))}
-//                             </div>
-//                         </div>
-//                     </div>
-//                 </div>
-//             </motion.div>
-
-//             {/* US Headquarters */}
-//             <motion.div
-//                 initial={{ opacity: 0, x: 30 }}
-//                 whileInView={{ opacity: 1, x: 0 }}
-//                 viewport={{ once: true }}
-//                 className="relative group h-full"
-//             >
-//                 <div className="glass-dark rounded-3xl md:rounded-[2.5rem] border border-white/10 overflow-hidden flex flex-col h-full transition-all duration-500 hover:border-brand-blue/30">
-//                     <div className="relative aspect-video overflow-hidden shrink-0">
-//                         <img src="/assets/us-facility.png" alt="United States Facility" className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-700 group-hover:scale-105" />
-//                         <div className="absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
-//                         <div className="absolute bottom-4 left-6 text-left pointer-events-none">
-//                             <div className="text-brand-blue text-2xl md:text-4xl mb-1">🇺🇸</div>
-//                             <h3 className="text-xl md:text-2xl font-bold text-white">Minnesota</h3>
-//                             <p className="text-brand-blue/80 font-mono text-[10px] tracking-widest uppercase">Global Headquarters</p>
-//                         </div>
-//                     </div>
-//                     <div className="p-6 md:p-8 flex flex-col grow justify-between">
-//                         <div>
-//                             <Heading gradient className="text-xl md:text-2xl mb-4">United States Headquarters</Heading>
-//                             <p className="text-sm md:text-base text-white/50 font-light leading-relaxed mb-6">
-//                                 Our Minnesota-based headquarters oversees global operations, ensuring regulatory excellence and managing strategic international partnerships.
-//                             </p>
-//                             <div className="bg-white/5 p-4 rounded-xl border border-white/10">
-//                                 <h4 className="text-brand-blue font-bold uppercase tracking-widest text-[10px] mb-2">Primary Office</h4>
-//                                 <p className="text-white/70 text-xs md:text-sm leading-relaxed">
-//                                     Saint Cloud Office, Edgewater Business Centre<br />
-//                                     Sartell, Minnesota, USA
-//                                 </p>
-//                             </div>
-//                         </div>
-//                     </div>
-//                 </div>
-//             </motion.div>
-//         </div>
-//     </Container>
-// );
-
-// Animated Map Global Locations
-// Animated Map Global Locations
 export const AnimatedMap = () => {
     const globeEl = React.useRef<any>(null);
     const containerRef = React.useRef<HTMLDivElement>(null);
@@ -1258,6 +1118,205 @@ export const AnimatedMap = () => {
     );
 };
 
+// 5. Our Company
+// export const OurCompany = () => (
+//     <Container className="text-center items-center">
+//         {/* <SubHeading>Our Company</SubHeading> */}
+//         <Heading gradient>A One-Stop Shop for Health-Tech</Heading>
+//         <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/60 font-light max-w-3xl mb-8 sm:mb-10 lg:mb-16 leading-relaxed">
+//             Turning <span className="text-brand-cyan font-bold">HEALTH-TECH IDEAS</span> into <span className="text-brand-blue font-bold">MARKETABLE PRODUCTS</span> by centralizing and streamlining diverse activities.
+//         </p>
+//         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 w-full">
+//             {[
+//                 { title: "R & D Wing", desc: "Advanced labs for biomaterials, software, AI, and medical device design." },
+//                 { title: "Production Wing", desc: "ISO Class 5, 7 and 8 cleanrooms for medical grade manufacturing." },
+//                 { title: "Regulatory Wing", desc: "Expert approvals including FDA, CE, UKCA, and SFDA." }
+//             ].map((wing, i) => (
+//                 <motion.div
+//                     key={i}
+//                     whileHover={{ y: -10 }}
+//                     className="glass-dark p-8 md:p-10 rounded-4xl md:rounded-[2.5rem] border border-white/10 relative overflow-hidden group text-left sm:text-center"
+//                 >
+//                     <div className="absolute top-0 right-0 p-6 md:p-8 text-4xl md:text-6xl font-bold text-white/3 group-hover:text-brand-cyan/10 transition-colors">0{i + 1}</div>
+//                     <h3 className="text-xl md:text-2xl font-bold mb-4 text-brand-cyan">{wing.title}</h3>
+//                     <p className="text-white/50 text-sm md:text-base leading-relaxed">{wing.desc}</p>
+//                 </motion.div>
+//             ))}
+//         </div>
+//         {/* <div className="flex flex-row flex-wrap justify-center items-center gap-8 md:gap-12 mt-8 sm:mt-10 md:mt-12">
+//             <motion.div
+//                 initial={{ opacity: 0, y: 15 }}
+//                 whileInView={{ opacity: 1, y: 0 }}
+//                 transition={{ duration: 0.6, delay: 0.1 }}
+//                 whileHover={{ scale: 1.05 }}
+//                 className="relative cursor-pointer"
+//             >
+//                 <img
+//                     src="/assets/iso-certified.png"
+//                     alt="ISO 13485 Certified"
+//                     className="h-16 sm:h-20 md:h-24 w-auto object-contain relative z-10 transition-opacity duration-300 hover:opacity-100 opacity-90 filter drop-shadow-[0_0_15px_rgba(0,223,216,0.15)] rounded-2xl"
+//                 />
+//             </motion.div>
+//             <motion.div
+//                 initial={{ opacity: 0, y: 15 }}
+//                 whileInView={{ opacity: 1, y: 0 }}
+//                 transition={{ duration: 0.6, delay: 0.2 }}
+//                 whileHover={{ scale: 1.05 }}
+//                 className="relative cursor-pointer"
+//             >
+//                 <img
+//                     src="/assets/drap-approved.png"
+//                     alt="DRAP Approved"
+//                     className="h-16 sm:h-20 md:h-24 w-auto object-contain relative z-10 transition-opacity duration-300 hover:opacity-100 opacity-90 filter drop-shadow-[0_0_15px_rgba(16,185,129,0.15)] rounded-2xl"
+//                 />
+//             </motion.div>
+//         </div> */}
+//     </Container>
+// );
+export const OurCompany = () => (
+    <Container className="text-center items-center">
+        <Heading gradient>A One-Stop Shop for Health-Tech</Heading>
+        <p
+            className="text-white/60 font-light leading-relaxed mx-auto"
+            style={{
+                fontSize: "clamp(0.9rem, 1.5vw, 1.75rem)",
+                maxWidth: "clamp(300px, 68vw, 1050px)",
+                marginBottom: "clamp(2rem, 4vw, 5rem)",
+            }}
+        >
+            Turning <span className="text-brand-cyan font-bold">HEALTH-TECH IDEAS</span> into{" "}
+            <span className="text-brand-blue font-bold">MARKETABLE PRODUCTS</span> by centralizing and streamlining diverse activities.
+        </p>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 w-full"
+            style={{ gap: "clamp(1rem, 2vw, 2.5rem)" }}
+        >
+            {[
+                { title: "R & D Wing", desc: "Advanced labs for biomaterials, software, AI, and medical device design." },
+                { title: "Production Wing", desc: "ISO Class 5, 7 and 8 cleanrooms for medical grade manufacturing." },
+                { title: "Regulatory Wing", desc: "Expert approvals including FDA, CE, UKCA, and SFDA." }
+            ].map((wing, i) => (
+                <motion.div
+                    key={i}
+                    whileHover={{ y: -10 }}
+                    className="glass-dark rounded-4xl md:rounded-[2.5rem] border border-white/10 relative overflow-hidden group text-left sm:text-center"
+                    style={{ padding: "clamp(1.5rem, 3vw, 3.5rem)" }}
+                >
+                    {/* Background number */}
+                    <div
+                        className="absolute top-0 right-0 font-bold text-white/3 group-hover:text-brand-cyan/10 transition-colors"
+                        style={{
+                            fontSize: "clamp(2.5rem, 5vw, 7rem)",
+                            padding: "clamp(1rem, 2vw, 2.5rem)",
+                        }}
+                    >
+                        0{i + 1}
+                    </div>
+
+                    <h3
+                        className="font-bold text-brand-cyan"
+                        style={{
+                            fontSize: "clamp(1rem, 1.8vw, 2rem)",
+                            marginBottom: "clamp(0.75rem, 1.2vw, 1.5rem)",
+                        }}
+                    >
+                        {wing.title}
+                    </h3>
+                    <p
+                        className="text-white/50 leading-relaxed"
+                        style={{ fontSize: "clamp(0.8rem, 1.2vw, 1.4rem)" }}
+                    >
+                        {wing.desc}
+                    </p>
+                </motion.div>
+            ))}
+        </div>
+    </Container>
+);
+// 6. Global Locations
+// export const GlobalLocations = () => (
+//     <Container>
+//         <div className="text-center mb-8 md:mb-12">
+//             <SubHeading>OUR LOCATIONS</SubHeading>
+//             {/* <Heading gradient className="text-3xl md:text-5xl">Global Strategic Presence</Heading> */}
+//         </div>
+//         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-stretch">
+//             {/* Pakistan Facility */}
+//             <motion.div
+//                 initial={{ opacity: 0, x: -30 }}
+//                 whileInView={{ opacity: 1, x: 0 }}
+//                 viewport={{ once: true }}
+//                 className="relative group h-full"
+//             >
+//                 <div className="glass-dark rounded-3xl md:rounded-[2.5rem] border border-white/10 overflow-hidden flex flex-col h-full transition-all duration-500 hover:border-brand-cyan/30">
+//                     <div className="relative aspect-video overflow-hidden shrink-0">
+//                         <img src="/assets/pak-facility.png" alt="Pakistan Facility" className="w-full h-full object-cover object-top-left opacity-80 group-hover:opacity-100 transition-opacity duration-700 group-hover:scale-105" />
+//                         <div className="absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
+//                         <div className="absolute bottom-4 left-6 text-left pointer-events-none">
+//                             <div className="text-brand-cyan text-2xl md:text-4xl mb-1">🇵🇰</div>
+//                             <h3 className="text-xl md:text-2xl font-bold text-white">Islamabad</h3>
+//                             <p className="text-brand-cyan/80 font-mono text-[10px] tracking-widest uppercase">R&D and Production Hub</p>
+//                         </div>
+//                     </div>
+//                     <div className="p-6 md:p-8 flex flex-col grow justify-between">
+//                         <div>
+//                             <Heading gradient className="text-xl md:text-2xl mb-4">Pakistan R&D Facility</Heading>
+//                             <p className="text-sm md:text-base text-white/50 font-light leading-relaxed mb-6">
+//                                 Our primary off-shore R&D and production hub, featuring advanced laboratories and certified cleanrooms for medical device innovation.
+//                             </p>
+//                             <div className="grid grid-cols-2 gap-3">
+//                                 {["Biomaterials Lab", "Software & AI Suite", "ISO Cleanrooms", "Mechanical Workshop"].map((item, i) => (
+//                                     <div key={i} className="flex items-center gap-2 text-white/70">
+//                                         <div className="w-1 h-1 rounded-full bg-brand-cyan" />
+//                                         <span className="font-medium text-xs md:text-sm">{item}</span>
+//                                     </div>
+//                                 ))}
+//                             </div>
+//                         </div>
+//                     </div>
+//                 </div>
+//             </motion.div>
+
+//             {/* US Headquarters */}
+//             <motion.div
+//                 initial={{ opacity: 0, x: 30 }}
+//                 whileInView={{ opacity: 1, x: 0 }}
+//                 viewport={{ once: true }}
+//                 className="relative group h-full"
+//             >
+//                 <div className="glass-dark rounded-3xl md:rounded-[2.5rem] border border-white/10 overflow-hidden flex flex-col h-full transition-all duration-500 hover:border-brand-blue/30">
+//                     <div className="relative aspect-video overflow-hidden shrink-0">
+//                         <img src="/assets/us-facility.png" alt="United States Facility" className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-700 group-hover:scale-105" />
+//                         <div className="absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
+//                         <div className="absolute bottom-4 left-6 text-left pointer-events-none">
+//                             <div className="text-brand-blue text-2xl md:text-4xl mb-1">🇺🇸</div>
+//                             <h3 className="text-xl md:text-2xl font-bold text-white">Minnesota</h3>
+//                             <p className="text-brand-blue/80 font-mono text-[10px] tracking-widest uppercase">Global Headquarters</p>
+//                         </div>
+//                     </div>
+//                     <div className="p-6 md:p-8 flex flex-col grow justify-between">
+//                         <div>
+//                             <Heading gradient className="text-xl md:text-2xl mb-4">United States Headquarters</Heading>
+//                             <p className="text-sm md:text-base text-white/50 font-light leading-relaxed mb-6">
+//                                 Our Minnesota-based headquarters oversees global operations, ensuring regulatory excellence and managing strategic international partnerships.
+//                             </p>
+//                             <div className="bg-white/5 p-4 rounded-xl border border-white/10">
+//                                 <h4 className="text-brand-blue font-bold uppercase tracking-widest text-[10px] mb-2">Primary Office</h4>
+//                                 <p className="text-white/70 text-xs md:text-sm leading-relaxed">
+//                                     Saint Cloud Office, Edgewater Business Centre<br />
+//                                     Sartell, Minnesota, USA
+//                                 </p>
+//                             </div>
+//                         </div>
+//                     </div>
+//                 </div>
+//             </motion.div>
+//         </div>
+//     </Container>
+// );
+
+
+
 // 7.5 One Stop Destination
 // export const OneStopDestination = () => (
 //     <Container className="items-center justify-center">
@@ -1341,11 +1400,26 @@ export const AnimatedMap = () => {
 // );
 
 // 8. Services Intro
+// export const ServicesIntro = () => (
+//     <Container className="text-center items-center">
+//         <SubHeading>SERVICES</SubHeading>
+//         <Heading gradient>Empowering our clients amidst a digital revolution</Heading>
+//         <p className="max-w-4xl text-lg md:text-xl text-white/50 font-light leading-relaxed">
+//             At Revive Medical Technologies (RMT), we operate in the novel areas of healthcare innovation, providing cutting-edge software solutions designed to meet the diverse needs of the industry. Our services encompass a wide range of advanced technologies and applications, each meticulously crafted to enhance efficiency, accuracy, and patient care.
+//         </p>
+//     </Container>
+// );
 export const ServicesIntro = () => (
     <Container className="text-center items-center">
         <SubHeading>SERVICES</SubHeading>
         <Heading gradient>Empowering our clients amidst a digital revolution</Heading>
-        <p className="max-w-4xl text-lg md:text-xl text-white/50 font-light leading-relaxed">
+        <p
+            className="text-white/50 font-light leading-relaxed mx-auto"
+            style={{
+                fontSize: "clamp(0.9rem, 1.5vw, 1.6rem)",
+                maxWidth: "clamp(320px, 72vw, 1100px)",
+            }}
+        >
             At Revive Medical Technologies (RMT), we operate in the novel areas of healthcare innovation, providing cutting-edge software solutions designed to meet the diverse needs of the industry. Our services encompass a wide range of advanced technologies and applications, each meticulously crafted to enhance efficiency, accuracy, and patient care.
         </p>
     </Container>
