@@ -53,20 +53,14 @@ const slideTransitions = [
     animate: { opacity: 1, scale: 1, transition: { duration: 0.8 } },
     exit: { opacity: 0, scale: 1.1, transition: { duration: 0.5 } },
   },
-  // 7: Services Intro
-  {
-    initial: { opacity: 0, y: 100 },
-    animate: { opacity: 1, y: 0, transition: { duration: 0.8 } },
-    exit: { opacity: 0, y: -100, transition: { duration: 0.5 } },
-  },
-  // 8-16: AI Slides (9 slides, using horizontal slide transition)
+  // 7-15: AI Slides (9 slides, using horizontal slide transition)
   ...Array(9).fill(null).map(() => ({
     initial: { opacity: 0, x: 150 },
     animate: { opacity: 1, x: 0, transition: { duration: 0.8, ease: "easeOut" } as any },
     exit: { opacity: 0, x: -150, transition: { duration: 0.5, ease: "easeIn" } as any },
   })),
-  // 17 to 48: Services and other slides (using vertical transition)
-  ...Array(32).fill(null).map(() => ({
+  // 16 to 49: Services and other slides (using vertical transition)
+  ...Array(34).fill(null).map(() => ({
     initial: { opacity: 0, y: 100 },
     animate: { opacity: 1, y: 0, transition: { duration: 0.8 } },
     exit: { opacity: 0, y: -100, transition: { duration: 0.5 } },
@@ -88,7 +82,7 @@ const slideComponents = [
   // Content.GlobalLocations,
   // Content.AnimatedMap,
   // Content.OneStopDestination,
-  Content.ServicesIntro,
+  // ServicesIntro moved from here (was slide 7)
   
   // AI Section
   AIContent.AIShapingHealthcare,
@@ -101,40 +95,41 @@ const slideComponents = [
   AIContent.AIRegulatoryRoadmap,
   AIContent.AICeocallToAction,
 
-  // Services Section
-  Content.ServicesCategories,
-  Content.Cat1Details,
-  Content.GenerativeAiDetail,
-  Content.ClinicalDecisionSupportDetail,
-  Content.PredictiveHealthAnalyticsDetail,
-  Content.CustomAiDetail,
-  Content.BillingEfficiencyDetail,
-  Content.Cat2Details,
-  Content.CustomMedicalApplicationsDetail,
-  Content.MedicalMobileAppsDetail,
-  Content.StoreDeploymentDetail,
-  Content.RpmDetail,
-  Content.EhrDetail,
-  Content.ImagingAnalysisDetail,
-  Content.Cat3Details,
-  Content.SchedulerDetail,
-  Content.WorkflowOrchestrationDetail,
-  Content.RecommendationEnginesDetail,
-  Content.Cat5Details,
-  Content.QaMedicalSoftwareDetail,
-  Content.Iec62304ComplianceDetail,
-  Content.HipaaComplianceDetail,
-  Content.OncCertificationDetail,
-  Content.FhirIntegrationDetail,
-  Content.Cat4Details,
-  Content.DevOpsCloudInfrastructureDetail,
-  Content.SaaSEnablementDetail,
-  Content.QaValidationDetail,
-  Content.OngoingMaintenanceDetail,
+  // Services Section - ServicesIntro now first here
+  Content.ServicesIntro,                   // 16 - First slide of services
+  Content.ServicesCategories,              // 17
+  Content.Cat1Details,                     // 18
+  Content.GenerativeAiDetail,              // 19
+  Content.ClinicalDecisionSupportDetail,   // 20
+  Content.PredictiveHealthAnalyticsDetail, // 21
+  Content.CustomAiDetail,                  // 22
+  Content.BillingEfficiencyDetail,         // 23
+  Content.Cat2Details,                     // 24
+  Content.CustomMedicalApplicationsDetail, // 25
+  Content.MedicalMobileAppsDetail,         // 26
+  Content.StoreDeploymentDetail,           // 27
+  Content.RpmDetail,                       // 28
+  Content.EhrDetail,                       // 29
+  Content.ImagingAnalysisDetail,           // 30
+  Content.Cat3Details,                     // 31
+  Content.SchedulerDetail,                 // 32
+  Content.WorkflowOrchestrationDetail,     // 33
+  Content.RecommendationEnginesDetail,     // 34
+  Content.Cat5Details,                     // 35
+  Content.QaMedicalSoftwareDetail,         // 36
+  Content.Iec62304ComplianceDetail,        // 37
+  Content.HipaaComplianceDetail,           // 38
+  Content.OncCertificationDetail,          // 39
+  Content.FhirIntegrationDetail,           // 40
+  Content.Cat4Details,                     // 41
+  Content.DevOpsCloudInfrastructureDetail, // 42
+  Content.SaaSEnablementDetail,            // 43
+  Content.QaValidationDetail,              // 44
+  Content.OngoingMaintenanceDetail,        // 45
   // Regulatory,
-  Content.Accomplishments,
-  Content.Testimonials,
-  Content.ThankYou
+  Content.Accomplishments,                 // 46
+  Content.Testimonials,                    // 47
+  Content.ThankYou                         // 48
 ];
 
 const TOTAL_SLIDES = slideComponents.length;
@@ -164,20 +159,20 @@ const BackgroundMapping = [
   Backgrounds.FloatingCubesBG,// 4: RMT Background 2
   Backgrounds.AuroraBG,       // 5: Our Company
   Backgrounds.AuroraBG,       // 6: One Stop Destination
-  Backgrounds.AuroraBG,       // 7: Services Intro
 
-  // AI Section (8 to 16)
-  Backgrounds.DNAHelixBG,     // 8: AI Shaping Healthcare
-  Backgrounds.TechNetworkBG,  // 9: AI Key Applications
-  Backgrounds.GridPulseBG,    // 10: AI Ethics Framework
-  Backgrounds.DNAHelixBG,     // 11: AI Data Algorithmic Failures
-  Backgrounds.FloatingCubesBG,// 12: AI Human Systemic Barriers
-  Backgrounds.TechNetworkBG,  // 13: AI Technical Mitigations
-  Backgrounds.GridPulseBG,    // 14: AI Human Workflow Integration
-  Backgrounds.DNAHelixBG,     // 15: AI Regulatory Roadmap
-  Backgrounds.AuroraBG,       // 16: CEO Call to Action
+  // AI Section (7 to 15)
+  Backgrounds.DNAHelixBG,     // 7: AI Shaping Healthcare
+  Backgrounds.TechNetworkBG,  // 8: AI Key Applications
+  Backgrounds.GridPulseBG,    // 9: AI Ethics Framework
+  Backgrounds.DNAHelixBG,     // 10: AI Data Algorithmic Failures
+  Backgrounds.FloatingCubesBG,// 11: AI Human Systemic Barriers
+  Backgrounds.TechNetworkBG,  // 12: AI Technical Mitigations
+  Backgrounds.GridPulseBG,    // 13: AI Human Workflow Integration
+  Backgrounds.DNAHelixBG,     // 14: AI Regulatory Roadmap
+  Backgrounds.AuroraBG,       // 15: CEO Call to Action
 
-  // Services Section (17 to 48)
+  // Services Section (16 to 48)
+  Backgrounds.AuroraBG,       // 16: Services Intro
   () => null,                 // 17: Categories
   Backgrounds.TechNetworkBG,  // 18: Cat 1 Details
   Backgrounds.TechNetworkBG,  // 19: Generative AI Detail
@@ -270,7 +265,7 @@ export default function App() {
   const lastScrollTime = useRef(0);
   const SCROLL_COOLDOWN = 1000;
 
-  const isServices = currentSlide >= 17 && currentSlide <= 45;
+  const isServices = currentSlide >= 16 && currentSlide <= 45;
 
   const isHiddenSlide = useCallback((index: number) => (
     (index === GENERATIVE_AI_DETAIL_SLIDE && !showGenerativeAiDetail) ||
@@ -310,9 +305,9 @@ export default function App() {
   ]);
 
   const getCategoryRange = (index: number) => {
-    if (index < 8) return [0, 7];      // Intro (Slides 0-7)
-    if (index >= 8 && index < 17) return [8, 16]; // AI Section (Slides 8-16)
-    return [17, TOTAL_SLIDES - 1];      // Services, Accomplishments & Thank You
+    if (index < 7) return [0, 6];      // Intro (Slides 0-6)
+    if (index >= 7 && index < 16) return [7, 15]; // AI Section (Slides 7-15)
+    return [16, TOTAL_SLIDES - 1];      // Services, Accomplishments & Thank You
   };
 
   const [min, max] = getCategoryRange(currentSlide);

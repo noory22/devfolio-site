@@ -930,24 +930,24 @@ export const RMTBackground = () => (
                     {[
                         {
                             color: "brand-cyan",
-                            text: "Ventilators – Developed & produced"
+                            text: "RMT has successfully established Pakistan’s and Saudi Arabia’s first medical device industries and commissioned over 20 production/testing machines in medical device factories."
                         },
                         {
                             color: "brand-cyan",
-                            text: " FDA Approvals – Secured"
+                            text: "Pioneer in the R&D, Production and Licensing of Medical Devices and Healthcare Technologies in Pakistan."
                         },
                         {
                             color: "brand-cyan",
-                            text: "10 R&D domains – Embedded systems, Software Medical Design, Healthcare Software & AI, Biomaterials & Drug Synthesis."
+                            text: "The team includes specialists in biomaterials, production, quality, regulatory affairs, finance, software, marketing, and technical consulting."
                         },
-                        {
-                            color: "brand-blue",
-                            text: "ISO 13485 & DRAP – Certified"
-                        },
-                        {
-                            color: "brand-cyan",
-                            text: "Full-scale in-house production capabilities"
-                        },
+                        // {
+                        //     color: "brand-blue",
+                        //     text: "ISO 13485 & DRAP – Certified"
+                        // },
+                        // {
+                        //     color: "brand-cyan",
+                        //     text: "Full-scale in-house production capabilities"
+                        // },
                     ].map((item, i) => (
                         <div key={i} className="flex gap-4 md:gap-5 xl:gap-6">
                             <div
@@ -1064,6 +1064,7 @@ export const RMTBackground2 = () => (
                         style={{ marginLeft: "clamp(1.25rem, 2.5vw, 3rem)" }}
                     >
                         {[
+                            "Ventilators, FDA Approvals",
                             "R&D of Medical Devices / Healthcare Technologies",
                             "Production of Medical Devices / Healthcare Technologies",
                             "Regulatory Approvals of Medical Devices / Healthcare Technologies."
@@ -1158,13 +1159,13 @@ export const AnimatedMap = () => {
     }, [dimensions.width, show2DMap]);
 
     const gData = [
-        { lat: 45.6083, lng: -94.2069, label: 'Head Office (USA)', color: '#0070f3' },
+        { lat: 44.9778, lng: -93.2650, label: 'Head Office (USA)', color: '#0070f3' },
         { lat: 33.6844, lng: 73.0479, label: 'Off-shore R&D and Production Facility (Isb)', color: '#00dfd8' }
     ];
 
     const arcsData = [
-        { startLat: 45.6083, startLng: -94.2069, endLat: 33.6844, endLng: 73.0479 },
-        { startLat: 33.6844, startLng: 73.0479, endLat: 45.6083, endLng: -94.2069 }
+        { startLat: 44.9778, startLng: -93.2650, endLat: 33.6844, endLng: 73.0479 },
+        { startLat: 33.6844, startLng: 73.0479, endLat: 44.9778, endLng: -93.2650 }
     ];
 
     return (
@@ -1543,9 +1544,9 @@ export const OurCompany = () => (
             style={{ gap: "clamp(1rem, 2vw, 2.5rem)" }}
         >
             {[
-                { title: "R & D Wing", desc: "Advanced labs for biomaterials, software, AI, and medical device design." },
-                { title: "Production Wing", desc: "ISO Class 5, 7 and 8 cleanrooms for medical grade manufacturing." },
-                { title: "Regulatory Wing", desc: "Expert approvals including FDA, CE, UKCA, and SFDA." }
+                { title: "R & D Wing", desc: "Comprises of 10 diffferent domains:Embedded Systems, Software Medical Design, Healthcare Software & AI, Biomaterials & Drug synthesis." },
+                { title: "Production Wing", desc: "DRAP & ISO 13485 Certified. ISOClass 5, 7 and 8 cleanrooms for medical grade manufacturing." },
+                { title: "Regulatory Wing", desc: "Highly experienced regulatory experts in specialized regions: FDA, CE, UKCA, and SFDA." }
             ].map((wing, i) => (
                 <motion.div
                     key={i}

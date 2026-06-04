@@ -893,7 +893,7 @@ export const AIShapingHealthcare = () => {
 
   return (
     <Container>
-      <SubHeading>AI IN HEALTHCARE</SubHeading>
+      {/* <SubHeading>AI IN HEALTHCARE</SubHeading> */}
       <Heading gradient>How AI is Shaping Healthcare – The Core Roles</Heading>
       
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 xl:gap-10 items-center">
@@ -917,7 +917,7 @@ export const AIShapingHealthcare = () => {
               className="absolute bottom-4 left-4 right-4 font-mono text-brand-cyan/80"
               style={{ fontSize: "clamp(0.55rem, 0.8vw, 0.85rem)" }}
             >
-              [SYSTEM ACTIVE] Neural Network Analysis Engine
+              {/* [SYSTEM ACTIVE] Neural Network Analysis Engine */}
             </div>
           </div>
         </div>
@@ -995,7 +995,7 @@ export const AIKeyApplications = () => {
 
   return (
     <Container>
-      <SubHeading>REAL-WORLD VALUE</SubHeading>
+      {/* <SubHeading>REAL-WORLD VALUE</SubHeading> */}
       <Heading gradient>Key Real-World Applications Already Delivering Value</Heading>
       
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 xl:gap-10 items-center">
@@ -1056,7 +1056,7 @@ export const AIKeyApplications = () => {
               style={{ padding: "clamp(0.9rem, 1.5vw, 1.75rem)" }}
             >
               <div className="flex items-center gap-2 text-brand-cyan">
-                <Sparkles style={{ width: "clamp(0.9rem, 1.2vw, 1.3rem)", height: "clamp(0.9rem, 1.2vw, 1.3rem)" }} className="animate-pulse" />
+                {/* <Sparkles style={{ width: "clamp(0.9rem, 1.2vw, 1.3rem)", height: "clamp(0.9rem, 1.2vw, 1.3rem)" }} className="animate-pulse" /> */}
                 <span
                   className="font-bold uppercase tracking-widest font-mono"
                   style={{ fontSize: "clamp(0.55rem, 0.8vw, 0.9rem)" }}
@@ -1151,14 +1151,15 @@ export const AIEthicsFramework = () => {
 
   return (
     <Container>
-      <SubHeading>CHALLENGES</SubHeading>
+      {/* <SubHeading>CHALLENGES</SubHeading> */}
       <Heading gradient>The ETHICS Framework – Challenges After AI Adoption</Heading>
       
       <p
-        className="text-white/60 font-light max-w-2xl mb-5 leading-relaxed"
+        className="text-white/60 font-light w-full mb-5 leading-relaxed"
         style={{ fontSize: "clamp(0.72rem, 1.05vw, 1.1rem)" }}
       >
-        Medical progress is no longer measured solely by model accuracy. True integration depends on how we address the critical barriers defined by the{" "}
+        Medical progress is no longer measured solely by model accuracy. True integration depends on how we address the 
+        <span className="font-bold text-brand-cyan"> critical barriers</span> defined by the{" "}
         <span className="font-bold text-brand-cyan">ETHICS</span> framework:
       </p>
 
@@ -1202,7 +1203,7 @@ export const AIEthicsFramework = () => {
         ))}
       </div>
 
-      <div className="mt-5 flex justify-center">
+      {/* <div className="mt-5 flex justify-center">
         <div
           className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-red-950/20 border border-red-500/20 text-red-400 tracking-wider uppercase font-semibold"
           style={{ fontSize: "clamp(0.58rem, 0.8vw, 0.9rem)" }}
@@ -1210,7 +1211,7 @@ export const AIEthicsFramework = () => {
           <AlertTriangle style={{ width: "clamp(0.7rem, 1vw, 1rem)", height: "clamp(0.7rem, 1vw, 1rem)" }} />
           These are not minor issues – they represent critical barriers to safe deployment.
         </div>
-      </div>
+      </div> */}
     </Container>
   );
 };
@@ -1237,7 +1238,7 @@ export const AIDataAlgorithmicFailures = () => {
 
   return (
     <Container>
-      <SubHeading>RISKS & FAILURES</SubHeading>
+      {/* <SubHeading>RISKS & FAILURES</SubHeading> */}
       <Heading gradient>Data & Algorithmic Failures</Heading>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 xl:gap-10 items-center">
@@ -1337,7 +1338,7 @@ export const AIHumanSystemicBarriers = () => {
 
   return (
     <Container>
-      <SubHeading>RISKS & FAILURES</SubHeading>
+      {/* <SubHeading>RISKS & FAILURES</SubHeading> */}
       <Heading gradient>Human & Systemic Barriers</Heading>
       
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 xl:gap-10 items-center">
@@ -1443,11 +1444,11 @@ export const AITechnicalMitigations = () => {
 
   return (
     <Container>
-      <SubHeading>MITIGATION STRATEGIES</SubHeading>
+      {/* <SubHeading>MITIGATION STRATEGIES</SubHeading> */}
       <Heading gradient>Solution 1 – Technical Mitigations</Heading>
       
       <p
-        className="text-white/50 font-light max-w-2xl mb-5"
+        className="text-white/50 font-light w-full mb-5"
         style={{ fontSize: "clamp(0.72rem, 1.05vw, 1.1rem)" }}
       >
         Technology alone is not a silver bullet, but without implementing these engineering guardrails, healthcare AI remains unsafe for clinical deployment:
@@ -1525,7 +1526,7 @@ export const AIHumanWorkflowIntegration = () => {
 
   return (
     <Container>
-      <SubHeading>MITIGATION STRATEGIES</SubHeading>
+      {/* <SubHeading>MITIGATION STRATEGIES</SubHeading> */}
       <Heading gradient>Solution 2 – Human & Workflow Integration</Heading>
       
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 xl:gap-10 items-center">
@@ -1679,7 +1680,7 @@ export const AIRegulatoryRoadmap = () => {
 
   return (
     <Container>
-      <SubHeading>MITIGATION STRATEGIES</SubHeading>
+      {/* <SubHeading>MITIGATION STRATEGIES</SubHeading> */}
       <Heading gradient>Solution 3 – Regulatory & Structural Roadmap</Heading>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 xl:gap-10 items-center">
