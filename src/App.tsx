@@ -7,7 +7,7 @@ import Labs from "./components/Labs";
 // import Regulatory from "./components/Regulatory";
 import Contact from "./components/Contact";
 import { motion, AnimatePresence } from "motion/react";
-import * as AIContent from "./components/AIContent";
+// AI content slides are disabled in this app view.
 
 // --- Unique transition variants per slide ---
 const slideTransitions = [
@@ -85,20 +85,20 @@ const slideComponents = [
   Content.RMTBackground2,
   Content.OurCompany,
   // Content.GlobalLocations,
-  // Content.AnimatedMap,
-  Content.OneStopDestination,
+  Content.AnimatedMap,
+  // Content.OneStopDestination,
   Content.ServicesIntro,
   
   // AI Section
-  AIContent.AIShapingHealthcare,
-  AIContent.AIKeyApplications,
-  AIContent.AIEthicsFramework,
-  AIContent.AIDataAlgorithmicFailures,
-  AIContent.AIHumanSystemicBarriers,
-  AIContent.AITechnicalMitigations,
-  AIContent.AIHumanWorkflowIntegration,
-  AIContent.AIRegulatoryRoadmap,
-  AIContent.AICeocallToAction,
+  // AIContent.AIShapingHealthcare,
+  // AIContent.AIKeyApplications,
+  // AIContent.AIEthicsFramework,
+  // AIContent.AIDataAlgorithmicFailures,
+  // AIContent.AIHumanSystemicBarriers,
+  // AIContent.AITechnicalMitigations,
+  // AIContent.AIHumanWorkflowIntegration,
+  // AIContent.AIRegulatoryRoadmap,
+  // AIContent.AICeocallToAction,
 
   // Services Section
   Content.ServicesCategories,
