@@ -3,7 +3,7 @@ import { motion } from "motion/react";
 const navItems = [
   { name: "Intro", index: 0 },
   // { name: "AI", index: 8 },
-  { name: "Services", index: 17 },
+  { name: "Services", index: 8 },
 ];
 
 const containerVariants = {
@@ -27,9 +27,9 @@ const itemVariants = {
 
 export default function Navbar({ currentSlide = 0, setCurrentSlide }: { currentSlide?: number, setCurrentSlide?: (i: number) => void }) {
   const isItemActive = (name: string) => {
-    if (name === "Intro") return currentSlide < 8;
+    if (name === "Intro") return currentSlide < 7;
     // if (name === "AI") return currentSlide >= 8 && currentSlide < 17;
-    if (name === "Services") return currentSlide >= 17;
+    if (name === "Services") return currentSlide >= 7;
     return false;
   };
 

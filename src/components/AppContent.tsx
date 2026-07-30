@@ -140,7 +140,7 @@ export const SoftwareTeam = () => {
     return (
         <Container>
             {/* <SubHeading>Software Team</SubHeading> */}
-            <Heading gradient>RMT Software Center</Heading>
+            <Heading gradient>RMT Software Division</Heading>
             <div className="text-left text-white/90 ">
                 <Heading2>Our Software Core Team</Heading2>
             </div>
@@ -267,6 +267,97 @@ export const CEOIntro = () => {
 };
 
 
+// export const RMTBackground = () => (
+//     <Container>
+//         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+//             <div>
+//                 <Heading gradient>Our Legacy</Heading>
+//                 <div className="space-y-6 md:space-y-8 mt-6 md:mt-8">
+//                     {[
+//                         { color: "brand-cyan", text: "RMT has successfully established Pakistan's and Saudi Arabia's first medical device industries and commissioned over 20 production/testing machines in medical device factories." },
+//                         { color: "brand-blue", text: "Pioneer in the R&D, Production and Licensing of Medical Devices and Healthcare Technologies in Pakistan." },
+//                         { color: "brand-cyan", text: "The team includes specialists in biomaterials, production, quality, regulatory affairs, finance, software, marketing, and technical consulting." },
+//                     ].map((item, i) => (
+//                         <div key={i} className="flex gap-4 md:gap-6">
+//                             <div className={`self-stretch w-1 bg-${item.color} rounded-full shrink-0`} />
+//                             <p className="text-base md:text-lg lg:text-xl text-white/70 font-light leading-relaxed">
+//                                 {item.text}
+//                             </p>
+//                         </div>
+//                     ))}
+//                 </div>
+//             </div>
+//             <div className="relative group lg:h-full flex items-center justify-center">
+//                 <div className="glass-dark rounded-4xl md:rounded-[3rem] border border-white/10 overflow-hidden w-full max-w-md sm:max-w-xl mx-auto aspect-[5/6] lg:h-[70vh] lg:max-h-[650px] lg:w-auto lg:aspect-[5/6] flex items-center justify-center relative p-3 md:p-4">
+//                     <div className="w-full h-full rounded-3xl md:rounded-[2.2rem] overflow-hidden relative flex items-center justify-center">
+//                         <img 
+//                             src="/assets/leagacy.png" 
+//                             alt="RMT Legacy" 
+//                             className="w-full h-full object-contain rounded-3xl md:rounded-[2.2rem] opacity-90 group-hover:opacity-100 transition-all duration-700 group-hover:scale-105"
+//                         />
+//                         <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none rounded-3xl md:rounded-[2.2rem]" />
+//                     </div>
+//                     <motion.div
+//                         animate={{ scale: [1, 1.03, 1], opacity: [0.3, 0.5, 0.3] }}
+//                         transition={{ duration: 5, repeat: Infinity }}
+//                         className="absolute inset-3 md:inset-4 border border-brand-cyan/30 rounded-3xl md:rounded-[2.5rem] pointer-events-none"
+//                     />
+//                 </div>
+//             </div>
+//         </div>
+//     </Container>
+// );
+
+
+// export const RMTBackground2 = () => (
+//     <Container>
+//         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+//             <div>
+//                 <Heading gradient>Our Legacy</Heading>
+//                 <div className="space-y-6 md:space-y-8 mt-6 md:mt-8">
+//                     <div className="flex gap-4 md:gap-6">
+//                         <div className="self-stretch w-1 bg-brand-cyan rounded-full shrink-0" />
+//                         <p className="text-base md:text-lg lg:text-xl text-white/70 font-light leading-relaxed">
+//                             Cross-functional RMT Team has been involved for the last 02 decades in:
+//                         </p>
+//                     </div>
+//                     <ul className="space-y-4 md:space-y-5 ml-6 md:ml-8">
+//                         {[
+//                             "R&D of Medical Devices / Healthcare Technologies",
+//                             "Production of Medical Devices / Healthcare Technologies",
+//                             "Regulatory Approvals of Medical Devices / Healthcare Technologies."
+//                         ].map((text, i) => (
+//                             <li key={i} className="flex gap-4 md:gap-6">
+//                                 <div className="h-2 w-2 bg-brand-blue rounded-full shrink-0 mt-2.5" />
+//                                 <p className="text-base md:text-lg lg:text-xl text-white/70 font-light leading-relaxed">
+//                                     {text}
+//                                 </p>
+//                             </li>
+//                         ))}
+//                     </ul>
+//                 </div>
+//             </div>
+//             <div className="relative group lg:h-full flex items-center justify-center">
+//                 <div className="glass-dark rounded-4xl md:rounded-[3rem] border border-white/10 overflow-hidden w-full max-w-md sm:max-w-xl mx-auto aspect-[5/6] lg:h-[70vh] lg:max-h-[650px] lg:w-auto lg:aspect-[5/6] flex items-center justify-center relative p-3 md:p-4">
+//                     <div className="w-full h-full rounded-3xl md:rounded-[2.2rem] overflow-hidden relative flex items-center justify-center">
+//                         <img
+//                             src="/assets/pakFacility.png"
+//                             alt="RMT Legacy Part 2"
+//                             className="w-full h-full object-contain rounded-3xl md:rounded-[2.2rem] opacity-90 group-hover:opacity-100 transition-all duration-700 group-hover:scale-105"
+//                         />
+//                         <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none rounded-3xl md:rounded-[2.2rem]" />
+//                     </div>
+//                     <motion.div
+//                         animate={{ scale: [1, 1.03, 1], opacity: [0.3, 0.5, 0.3] }}
+//                         transition={{ duration: 5, repeat: Infinity }}
+//                         className="absolute inset-3 md:inset-4 border border-brand-cyan/30 rounded-3xl md:rounded-[2.5rem] pointer-events-none"
+//                     />
+//                 </div>
+//             </div>
+//         </div>
+//     </Container>
+// );
+
 export const RMTBackground = () => (
     <Container>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
@@ -287,19 +378,23 @@ export const RMTBackground = () => (
                     ))}
                 </div>
             </div>
-            <div className="relative group lg:h-full flex items-center justify-center">
-                <div className="glass-dark rounded-4xl md:rounded-[3rem] border border-white/10 overflow-hidden w-full max-w-md sm:max-w-xl mx-auto aspect-[5/6] lg:h-[70vh] lg:max-h-[650px] lg:w-auto lg:aspect-[5/6] flex items-center justify-center relative">
-                    <img 
-                    src="/assets/leagacy.png" 
-                    alt="RMT Legacy" 
-                    className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-700 group-hover:scale-105"
-                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
-                    <motion.div
-                        animate={{ scale: [1, 1.05, 1], opacity: [0.3, 0.5, 0.3] }}
-                        transition={{ duration: 5, repeat: Infinity }}
-                        className="absolute inset-4 border border-brand-cyan/20 rounded-3xl md:rounded-[2.5rem] pointer-events-none"
-                    />
+
+            {/* Image frame — sized to the image's real shape, not a fixed box */}
+            <div className="relative group flex items-center justify-center">
+                <div className="glass-dark rounded-4xl md:rounded-[3rem] border border-white/10 inline-flex p-3 md:p-4 max-w-md sm:max-w-xl mx-auto">
+                    <div className="relative overflow-hidden rounded-3xl md:rounded-[2.2rem]">
+                        <img
+                            src="/assets/leagacy.png"
+                            alt="RMT Legacy"
+                            className="block w-full h-full max-h-[60vh] lg:max-h-[600px] object-contain rounded-3xl md:rounded-[2.2rem] opacity-90 group-hover:opacity-100 transition-all duration-700 group-hover:scale-105"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none rounded-3xl md:rounded-[2.2rem]" />
+                        <motion.div
+                            animate={{ scale: [1, 1.03, 1], opacity: [0.3, 0.5, 0.3] }}
+                            transition={{ duration: 5, repeat: Infinity }}
+                            className="absolute inset-0 border border-brand-cyan/30 rounded-3xl md:rounded-[2.2rem] pointer-events-none"
+                        />
+                    </div>
                 </div>
             </div>
         </div>
@@ -335,19 +430,23 @@ export const RMTBackground2 = () => (
                     </ul>
                 </div>
             </div>
-            <div className="relative group lg:h-full flex items-center justify-center">
-                <div className="glass-dark rounded-4xl md:rounded-[3rem] border border-white/10 overflow-hidden w-full max-w-md sm:max-w-xl mx-auto aspect-[5/6] lg:h-[70vh] lg:max-h-[650px] lg:w-auto lg:aspect-[5/6] flex items-center justify-center relative">
-                    <img
-                        src="/assets/pakFacility.png"
-                        alt="RMT Legacy Part 2"
-                        className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-700 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
-                    <motion.div
-                        animate={{ scale: [1, 1.05, 1], opacity: [0.3, 0.5, 0.3] }}
-                        transition={{ duration: 5, repeat: Infinity }}
-                        className="absolute inset-4 border border-brand-cyan/20 rounded-3xl md:rounded-[2.5rem] pointer-events-none"
-                    />
+
+            {/* Image frame — sized to the image's real shape, not a fixed box */}
+            <div className="relative group flex items-center justify-center">
+                <div className="glass-dark rounded-4xl md:rounded-[3rem] border border-white/10 inline-flex p-3 md:p-4 max-w-md sm:max-w-xl mx-auto">
+                    <div className="relative overflow-hidden rounded-3xl md:rounded-[2.2rem]">
+                        <img
+                            src="/assets/pakFacility.png"
+                            alt="RMT Legacy Part 2"
+                            className="block w-full h-full max-h-[60vh] lg:max-h-[600px] object-contain rounded-3xl md:rounded-[2.2rem] opacity-90 group-hover:opacity-100 transition-all duration-700 group-hover:scale-105"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none rounded-3xl md:rounded-[2.2rem]" />
+                        <motion.div
+                            animate={{ scale: [1, 1.03, 1], opacity: [0.3, 0.5, 0.3] }}
+                            transition={{ duration: 5, repeat: Infinity }}
+                            className="absolute inset-0 border border-brand-cyan/30 rounded-3xl md:rounded-[2.2rem] pointer-events-none"
+                        />
+                    </div>
                 </div>
             </div>
         </div>
@@ -901,7 +1000,7 @@ export const AnimatedMap = () => {
 // 8. Services Intro
 export const ServicesIntro = () => (
     <Container className="text-center items-center">
-        <SubHeading>SERVICES</SubHeading>
+        {/* <SubHeading>SERVICES</SubHeading> */}
         <Heading gradient>Empowering our clients amidst a digital revolution</Heading>
         <p className="max-w-4xl text-lg md:text-xl text-white/50 font-light leading-relaxed">
             At Revive Medical Technologies (RMT), we operate in the novel areas of healthcare innovation, providing cutting-edge software solutions designed to meet the diverse needs of the industry. Our services encompass a wide range of advanced technologies and applications, each meticulously crafted to enhance efficiency, accuracy, and patient care.
@@ -1266,11 +1365,7 @@ export const ServicesCategories = ({ onSelect }: { onSelect: (index: number) => 
                             damping: 14,
                         }}
                         whileHover={{ y: -8, scale: 1.02 }}
-                        onClick={() => {
-                            const slideIndices = [17, 23, 30, 34, 40];
-                            onSelect(slideIndices[i]);
-                        }}
-                        className="group relative cursor-pointer flex flex-col"
+                        className="group relative flex flex-col"
                         style={{ perspective: "1000px" }}
                     >
                         {/* Animated conic border */}
@@ -1366,7 +1461,7 @@ export const ServicesCategories = ({ onSelect }: { onSelect: (index: number) => 
     );
 };
 
-export const CategoryDetail = ({ title, items, categoryNum, description, onItemClick, clickableIndices = [] }: { title: string, items: { title: string, desc: string }[], categoryNum: string, description?: string, onItemClick?: (index: number) => void, clickableIndices?: number[] }) => (
+export const CategoryDetail = ({ title, items, categoryNum, description }: { title: string, items: { title: string, desc: string }[], categoryNum: string, description?: string, onItemClick?: (index: number) => void, clickableIndices?: number[] }) => (
     <Container className="justify-center py-4">
         <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-5 md:gap-8 mb-6 sm:mb-8 md:mb-10">
             <motion.div
@@ -1391,23 +1486,20 @@ export const CategoryDetail = ({ title, items, categoryNum, description, onItemC
             </motion.p>
         )}
         <div className={`grid gap-3 sm:gap-4 md:gap-5 items-stretch ${items.length <= 3 ? 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3' : items.length <= 4 ? 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-4' : 'grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5'}`}>
-            {items.map((item, i) => {
-                const isClickable = clickableIndices.includes(i) && !!onItemClick;
-
-                return (
-                    <motion.div
-                        key={i}
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: i * 0.05 }}
-                        whileHover={{
-                            y: -8,
-                            scale: 1.02,
-                            transition: { duration: 0.2 }
-                        }}
-                        className="group relative flex flex-col h-full"
-                    >
+            {items.map((item, i) => (
+                <motion.div
+                    key={i}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.05 }}
+                    whileHover={{
+                        y: -8,
+                        scale: 1.02,
+                        transition: { duration: 0.2 }
+                    }}
+                    className="group relative flex flex-col h-full"
+                >
                     {/* Continuous Border Animation for detail cards */}
                     <div className="absolute inset-0 rounded-3xl p-[1.5px] overflow-hidden">
                         <motion.div
@@ -1417,13 +1509,11 @@ export const CategoryDetail = ({ title, items, categoryNum, description, onItemC
                         />
                     </div>
 
-                        <button
-                            type="button"
-                            onClick={isClickable ? () => onItemClick?.(i) : undefined}
-                            disabled={!isClickable}
-                            className="relative h-full flex w-full flex-col bg-dark-surface/95 backdrop-blur-md rounded-3xl p-6 md:p-8 z-10 border border-white/5 transition-all duration-300 group-hover:border-brand-cyan/20 group-hover:shadow-[0_0_30px_rgba(0,223,216,0.15)] text-left cursor-default focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-cyan/70"
-                            aria-label={isClickable ? `Open ${item.title} details` : item.title}
-                        >
+                    {/* Non-clickable card — hover effects only */}
+                    <div
+                        className="relative h-full flex w-full flex-col bg-dark-surface/95 backdrop-blur-md rounded-3xl p-6 md:p-8 z-10 border border-white/5 transition-all duration-300 group-hover:border-brand-cyan/20 group-hover:shadow-[0_0_30px_rgba(0,223,216,0.15)] text-left select-none"
+                        aria-label={item.title}
+                    >
                         {/* Compact Decorative Number */}
                         <div className="absolute top-0 right-0 p-6 text-5xl font-bold text-white/1 group-hover:text-brand-cyan/3 transition-colors pointer-events-none">0{i + 1}</div>
 
@@ -1444,10 +1534,9 @@ export const CategoryDetail = ({ title, items, categoryNum, description, onItemC
                             <span className="text-[9px] uppercase tracking-widest font-bold text-brand-cyan/60">Module 0{i + 1}</span>
                             <div className="w-1.5 h-1.5 rounded-full bg-brand-cyan/40" />
                         </div>
-                        </button>
-                    </motion.div>
-                );
-            })}
+                    </div>
+                </motion.div>
+            ))}
         </div>
     </Container>
 );
@@ -2441,7 +2530,7 @@ export const FhirIntegrationDetail = () => (
 //     );
 // };
 
-export const Cat2Details = ({ onOpenCustomMedicalDetail, onOpenMedicalMobileDetail, onOpenStoreDeploymentDetail, onOpenRpmDetail, onOpenEhrDetail, onOpenImagingDetail }: { onOpenCustomMedicalDetail?: () => void, onOpenMedicalMobileDetail?: () => void, onOpenStoreDeploymentDetail?: () => void, onOpenRpmDetail?: () => void, onOpenEhrDetail?: () => void, onOpenImagingDetail?: () => void }) => {
+export const Cat2Details = () => {
     const items = [
         { title: "Custom Medical Applications", desc: "Secure, scalable, and user-friendly web-based platforms for clinical, administrative, or patient use." },
         { title: "Medical Mobile Apps", desc: "Native and cross-platform mobile applications for patients, providers, and field researchers." },
@@ -2470,12 +2559,6 @@ export const Cat2Details = ({ onOpenCustomMedicalDetail, onOpenMedicalMobileDeta
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-6 gap-3 sm:gap-4 md:gap-5 w-full">
                 {items.map((item, i) => {
-                    const isCustomMedicalCard = i === 0;
-                    const isMedicalMobileCard = i === 1;
-                    const isStoreDeploymentCard = i === 2;
-                    const isRpmCard = i === 3;
-                    const isEhrCard = i === 4;
-                    const isImagingCard = i === 5;
                     const cardContainerClass = `group relative flex flex-col h-full ${items.length === 5
                         ? (i < 3 ? 'md:col-span-2' : 'md:col-span-3')
                         : 'md:col-span-2'
@@ -2499,47 +2582,17 @@ export const Cat2Details = ({ onOpenCustomMedicalDetail, onOpenMedicalMobileDeta
                                     className="absolute inset-[-150%] bg-[conic-gradient(from_0deg,transparent_20%,#0070f3_40%,#00dfd8_60%,transparent_80%)] opacity-20 group-hover:opacity-100 transition-opacity duration-500"
                                 />
                             </div>
-                            <button
-                                type="button"
-                                onClick={
-                                    isCustomMedicalCard
-                                        ? onOpenCustomMedicalDetail
-                                        : isMedicalMobileCard
-                                            ? onOpenMedicalMobileDetail
-                                            : isStoreDeploymentCard
-                                                ? onOpenStoreDeploymentDetail
-                                                : isRpmCard
-                                                    ? onOpenRpmDetail
-                                                    : isEhrCard
-                                                        ? onOpenEhrDetail
-                                                        : isImagingCard
-                                                            ? onOpenImagingDetail
-                                            : undefined
-                                }
-                                disabled={!isCustomMedicalCard && !isMedicalMobileCard && !isStoreDeploymentCard && !isRpmCard && !isEhrCard && !isImagingCard}
-                                className="relative h-full flex w-full flex-col bg-dark-surface/95 backdrop-blur-md rounded-2xl p-5 md:p-6 z-10 border border-white/5 transition-all duration-300 group-hover:border-brand-cyan/20 group-hover:shadow-[0_0_30px_rgba(0,223,216,0.15)] text-left cursor-default focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-cyan/70"
-                                aria-label={
-                                    isCustomMedicalCard
-                                        ? "Open custom medical applications details"
-                                        : isMedicalMobileCard
-                                            ? "Open medical mobile apps details"
-                                            : isStoreDeploymentCard
-                                                ? "Open PlayStore and App Store deployment details"
-                                                : isRpmCard
-                                                    ? "Open remote patient monitoring details"
-                                                    : isEhrCard
-                                                        ? "Open electronic health records details"
-                                                        : isImagingCard
-                                                            ? "Open medical imaging and analysis details"
-                                            : item.title
-                                }
+                            {/* Non-clickable card — hover effects only */}
+                            <div
+                                className="relative h-full flex w-full flex-col bg-dark-surface/95 backdrop-blur-md rounded-2xl p-5 md:p-6 z-10 border border-white/5 transition-all duration-300 group-hover:border-brand-cyan/20 group-hover:shadow-[0_0_30px_rgba(0,223,216,0.15)] text-left select-none"
+                                aria-label={item.title}
                             >
                                 <div className="mb-3 w-9 h-9 flex items-center justify-center rounded-lg bg-brand-blue/10 text-brand-blue border border-brand-blue/20 group-hover:bg-brand-blue group-hover:text-white transition-all duration-500 shrink-0">
                                     <span className="text-xs font-bold">{i + 1}</span>
                                 </div>
                                 <h3 className="text-base md:text-lg font-bold mb-2 group-hover:text-brand-cyan transition-colors duration-300 leading-snug">{item.title}</h3>
                                 <p className="text-white/40 text-xs leading-relaxed group-hover:text-white/70 transition-colors grow">{item.desc}</p>
-                            </button>
+                            </div>
                         </motion.div>
                     );
                 })}

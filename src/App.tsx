@@ -59,14 +59,8 @@ const slideTransitions = [
     animate: { opacity: 1, y: 0, transition: { duration: 0.8 } },
     exit: { opacity: 0, y: -100, transition: { duration: 0.5 } },
   },
-  // 8-16: AI Slides (9 slides, using horizontal slide transition)
+  // 8 to 16: Services and other slides (using vertical transition)
   ...Array(9).fill(null).map(() => ({
-    initial: { opacity: 0, x: 150 },
-    animate: { opacity: 1, x: 0, transition: { duration: 0.8, ease: "easeOut" } },
-    exit: { opacity: 0, x: -150, transition: { duration: 0.5, ease: "easeIn" } },
-  })),
-  // 17 to 48: Services and other slides (using vertical transition)
-  ...Array(32).fill(null).map(() => ({
     initial: { opacity: 0, y: 100 },
     animate: { opacity: 1, y: 0, transition: { duration: 0.8 } },
     exit: { opacity: 0, y: -100, transition: { duration: 0.5 } },
@@ -100,36 +94,36 @@ const slideComponents = [
   // AIContent.AIRegulatoryRoadmap,
   // AIContent.AICeocallToAction,
 
-  // Services Section
+  // Services Section (Main Category Slides)
   Content.ServicesCategories,
-  Content.Cat1Details,
-  Content.GenerativeAiDetail,
-  Content.ClinicalDecisionSupportDetail,
-  Content.PredictiveHealthAnalyticsDetail,
-  Content.CustomAiDetail,
-  Content.BillingEfficiencyDetail,
-  Content.Cat2Details,
-  Content.CustomMedicalApplicationsDetail,
-  Content.MedicalMobileAppsDetail,
-  Content.StoreDeploymentDetail,
-  Content.RpmDetail,
-  Content.EhrDetail,
-  Content.ImagingAnalysisDetail,
-  Content.Cat3Details,
-  Content.SchedulerDetail,
-  Content.WorkflowOrchestrationDetail,
-  Content.RecommendationEnginesDetail,
-  Content.Cat5Details,
-  Content.QaMedicalSoftwareDetail,
-  Content.Iec62304ComplianceDetail,
-  Content.HipaaComplianceDetail,
-  Content.OncCertificationDetail,
-  Content.FhirIntegrationDetail,
-  Content.Cat4Details,
-  Content.DevOpsCloudInfrastructureDetail,
-  Content.SaaSEnablementDetail,
-  Content.QaValidationDetail,
-  Content.OngoingMaintenanceDetail,
+  Content.Cat1Details, // 01 AI & Advanced Analytics
+  // Content.GenerativeAiDetail,
+  // Content.ClinicalDecisionSupportDetail,
+  // Content.PredictiveHealthAnalyticsDetail,
+  // Content.CustomAiDetail,
+  // Content.BillingEfficiencyDetail,
+  Content.Cat2Details, // 02 Application & Platform Development
+  // Content.CustomMedicalApplicationsDetail,
+  // Content.MedicalMobileAppsDetail,
+  // Content.StoreDeploymentDetail,
+  // Content.RpmDetail,
+  // Content.EhrDetail,
+  // Content.ImagingAnalysisDetail,
+  Content.Cat3Details, // 03 Operational Efficiency & Automation
+  // Content.SchedulerDetail,
+  // Content.WorkflowOrchestrationDetail,
+  // Content.RecommendationEnginesDetail,
+  Content.Cat5Details, // 04 Software Compliance
+  // Content.QaMedicalSoftwareDetail,
+  // Content.Iec62304ComplianceDetail,
+  // Content.HipaaComplianceDetail,
+  // Content.OncCertificationDetail,
+  // Content.FhirIntegrationDetail,
+  Content.Cat4Details, // 05 Infrastructure & Lifecycle Management
+  // Content.DevOpsCloudInfrastructureDetail,
+  // Content.SaaSEnablementDetail,
+  // Content.QaValidationDetail,
+  // Content.OngoingMaintenanceDetail,
   // Regulatory,
   Content.Accomplishments,
   Content.Testimonials,
@@ -162,53 +156,17 @@ const BackgroundMapping = [
   Backgrounds.FloatingCubesBG,// 3: RMT Background
   Backgrounds.FloatingCubesBG,// 4: RMT Background 2
   Backgrounds.AuroraBG,       // 5: Our Company
-  Backgrounds.AuroraBG,       // 6: One Stop Destination
+  Backgrounds.AuroraBG,       // 6: Animated Map
   Backgrounds.AuroraBG,       // 7: Services Intro
-
-  // AI Section (8 to 16)
-  Backgrounds.DNAHelixBG,     // 8: AI Shaping Healthcare
-  Backgrounds.TechNetworkBG,  // 9: AI Key Applications
-  Backgrounds.GridPulseBG,    // 10: AI Ethics Framework
-  Backgrounds.DNAHelixBG,     // 11: AI Data Algorithmic Failures
-  Backgrounds.FloatingCubesBG,// 12: AI Human Systemic Barriers
-  Backgrounds.TechNetworkBG,  // 13: AI Technical Mitigations
-  Backgrounds.GridPulseBG,    // 14: AI Human Workflow Integration
-  Backgrounds.DNAHelixBG,     // 15: AI Regulatory Roadmap
-  Backgrounds.AuroraBG,       // 16: CEO Call to Action
-
-  // Services Section (17 to 48)
-  () => null,                 // 17: Categories
-  Backgrounds.TechNetworkBG,  // 18: Cat 1 Details
-  Backgrounds.TechNetworkBG,  // 19: Generative AI Detail
-  Backgrounds.TechNetworkBG,  // 20: Clinical Decision Support Detail
-  Backgrounds.TechNetworkBG,  // 21: Predictive Health Analytics Detail
-  Backgrounds.TechNetworkBG,  // 22: Custom AI Detail
-  Backgrounds.TechNetworkBG,  // 23: Billing Efficiency Detail
-  Backgrounds.FloatingCubesBG,// 24: Cat 2 Details
-  Backgrounds.AuroraBG,       // 25: Custom Medical Applications Detail
-  Backgrounds.FloatingCubesBG,// 26: Medical Mobile Apps Detail
-  Backgrounds.TechNetworkBG,  // 27: Store Deployment Detail
-  Backgrounds.DNAHelixBG,     // 28: RPM Detail
-  Backgrounds.TechNetworkBG,  // 29: EHR Detail
-  Backgrounds.GridPulseBG,    // 30: Imaging Analysis Detail
-  Backgrounds.AuroraBG,       // 31: Cat 3 Details
-  Backgrounds.TechNetworkBG,  // 32: Scheduler Detail
-  Backgrounds.GridPulseBG,    // 33: Workflow Orchestration Detail
-  Backgrounds.DNAHelixBG,     // 34: Recommendation Engines Detail
-  Backgrounds.DNAHelixBG,     // 35: Cat 5 Details (Software Compliance)
-  Backgrounds.TechNetworkBG,  // 36: QA Medical Software Detail
-  Backgrounds.GridPulseBG,    // 37: IEC 62304 Compliance Detail
-  Backgrounds.DNAHelixBG,     // 38: HIPAA Compliance Detail
-  Backgrounds.GridPulseBG,    // 39: ONC Health IT Detail
-  Backgrounds.TechNetworkBG,  // 40: FHIR Integration Detail
-  Backgrounds.GridPulseBG,    // 41: Cat 4 Details (Infrastructure)
-  Backgrounds.TechNetworkBG,  // 42: DevOps Detail
-  Backgrounds.DNAHelixBG,     // 43: SaaS Detail
-  Backgrounds.GridPulseBG,    // 44: QA Validation Detail
-  Backgrounds.FloatingCubesBG,// 45: Ongoing Maintenance Detail
-  Backgrounds.TechNetworkBG,  // 46: Accomplishments
-  Backgrounds.GridPulseBG,    // 47: Testimonials
-  Backgrounds.AuroraBG,       // 48: Thank You
+  () => null,                 // 8: Services Categories Overview
+  Backgrounds.TechNetworkBG,  // 9: 01 AI & Advanced Analytics
+  Backgrounds.FloatingCubesBG,// 10: 02 Application & Platform Development
+  Backgrounds.AuroraBG,       // 11: 03 Operational Efficiency & Automation
+  Backgrounds.DNAHelixBG,     // 12: 04 Software Compliance
+  Backgrounds.GridPulseBG,    // 13: 05 Infrastructure & Lifecycle Management
+  Backgrounds.TechNetworkBG,  // 14: Accomplishments
+  Backgrounds.GridPulseBG,    // 15: Testimonials
+  Backgrounds.AuroraBG,       // 16: Thank You
 ];
 
 import { ChevronLeft, ChevronRight, ChevronUp, ChevronDown } from "lucide-react";
@@ -269,49 +227,13 @@ export default function App() {
   const lastScrollTime = useRef(0);
   const SCROLL_COOLDOWN = 1000;
 
-  const isServices = currentSlide >= 17 && currentSlide <= 45;
+  const isServices = currentSlide >= 8;
 
-  const isHiddenSlide = useCallback((index: number) => (
-    (index === GENERATIVE_AI_DETAIL_SLIDE && !showGenerativeAiDetail) ||
-    (index === CLINICAL_DECISION_SUPPORT_DETAIL_SLIDE && !showClinicalDecisionSupportDetail) ||
-    (index === PREDICTIVE_HEALTH_DETAIL_SLIDE && !showPredictiveHealthDetail) ||
-    (index === CUSTOM_AI_DETAIL_SLIDE && !showCustomAiDetail) ||
-    (index === BILLING_EFFICIENCY_DETAIL_SLIDE && !showBillingEfficiencyDetail) ||
-    (index === CUSTOM_MEDICAL_DETAIL_SLIDE && !showCustomMedicalDetail) ||
-    (index === MEDICAL_MOBILE_DETAIL_SLIDE && !showMedicalMobileDetail) ||
-    (index === STORE_DEPLOYMENT_DETAIL_SLIDE && !showStoreDeploymentDetail) ||
-    (index === RPM_DETAIL_SLIDE && !showRpmDetail) ||
-    (index === EHR_DETAIL_SLIDE && !showEhrDetail) ||
-    (index === IMAGING_DETAIL_SLIDE && !showImagingDetail) ||
-    (index === SCHEDULER_DETAIL_SLIDE && !showSchedulerDetail) ||
-    (index === WORKFLOW_ORCHESTRATION_DETAIL_SLIDE && !showWorkflowDetail) ||
-    (index === RECOMMENDATION_DETAIL_SLIDE && !showRecommendationDetail) ||
-    (index === QA_MEDICAL_DETAIL_SLIDE && !showQaMedicalDetail) ||
-    (index === IEC_62304_DETAIL_SLIDE && !showIec62304Detail) ||
-    (index === HIPAA_DETAIL_SLIDE && !showHipaaDetail) ||
-    (index === ONC_DETAIL_SLIDE && !showOncDetail) ||
-    (index === FHIR_DETAIL_SLIDE && !showFhirDetail) ||
-    (index === DEVOPS_DETAIL_SLIDE && !showDevOpsDetail) ||
-    (index === SAAS_DETAIL_SLIDE && !showSaaSDetail) ||
-    (index === QA_VALIDATION_DETAIL_SLIDE && !showQaValidationDetail) ||
-    (index === MAINTENANCE_DETAIL_SLIDE && !showMaintenanceDetail)
-  ), [
-    GENERATIVE_AI_DETAIL_SLIDE, CLINICAL_DECISION_SUPPORT_DETAIL_SLIDE, PREDICTIVE_HEALTH_DETAIL_SLIDE,
-    CUSTOM_AI_DETAIL_SLIDE, BILLING_EFFICIENCY_DETAIL_SLIDE,
-    CUSTOM_MEDICAL_DETAIL_SLIDE, MEDICAL_MOBILE_DETAIL_SLIDE, STORE_DEPLOYMENT_DETAIL_SLIDE, RPM_DETAIL_SLIDE, EHR_DETAIL_SLIDE, IMAGING_DETAIL_SLIDE, SCHEDULER_DETAIL_SLIDE, WORKFLOW_ORCHESTRATION_DETAIL_SLIDE, RECOMMENDATION_DETAIL_SLIDE,
-    QA_MEDICAL_DETAIL_SLIDE, IEC_62304_DETAIL_SLIDE, HIPAA_DETAIL_SLIDE, ONC_DETAIL_SLIDE, FHIR_DETAIL_SLIDE,
-    DEVOPS_DETAIL_SLIDE, SAAS_DETAIL_SLIDE, QA_VALIDATION_DETAIL_SLIDE, MAINTENANCE_DETAIL_SLIDE,
-    showGenerativeAiDetail, showClinicalDecisionSupportDetail, showPredictiveHealthDetail,
-    showCustomAiDetail, showBillingEfficiencyDetail,
-    showCustomMedicalDetail, showMedicalMobileDetail, showStoreDeploymentDetail, showRpmDetail, showEhrDetail, showImagingDetail, showSchedulerDetail, showWorkflowDetail, showRecommendationDetail,
-    showQaMedicalDetail, showIec62304Detail, showHipaaDetail, showOncDetail, showFhirDetail,
-    showDevOpsDetail, showSaaSDetail, showQaValidationDetail, showMaintenanceDetail
-  ]);
+  const isHiddenSlide = useCallback((_index: number) => false, []);
 
   const getCategoryRange = (index: number) => {
     if (index < 8) return [0, 7];      // Intro (Slides 0-7)
-    if (index >= 8 && index < 17) return [8, 16]; // AI Section (Slides 8-16)
-    return [17, TOTAL_SLIDES - 1];      // Services, Accomplishments & Thank You
+    return [8, TOTAL_SLIDES - 1];      // Services & Final Slides (Slides 8-16)
   };
 
   const [min, max] = getCategoryRange(currentSlide);
@@ -403,17 +325,15 @@ export default function App() {
   );
 
   const getNextVisibleSlide = useCallback((from: number) => {
-    const [, max] = getCategoryRange(from);
     let next = from + 1;
-    while (next <= max && isHiddenSlide(next)) next += 1;
-    return next <= max ? next : null;
+    while (next < TOTAL_SLIDES && isHiddenSlide(next)) next += 1;
+    return next < TOTAL_SLIDES ? next : null;
   }, [isHiddenSlide]);
 
   const getPrevVisibleSlide = useCallback((from: number) => {
-    const [min,] = getCategoryRange(from);
     let prev = from - 1;
-    while (prev >= min && isHiddenSlide(prev)) prev -= 1;
-    return prev >= min ? prev : null;
+    while (prev >= 0 && isHiddenSlide(prev)) prev -= 1;
+    return prev >= 0 ? prev : null;
   }, [isHiddenSlide]);
 
   const goToNext = useCallback(() => {
@@ -775,7 +695,7 @@ export default function App() {
             <CurrentSlideComponent
               isActive={true}
               onSelect={(idx: number) => {
-                if (currentSlide === 17) {
+                if (currentSlide === 8) {
                   navigateTo(idx);
                 }
               }}
