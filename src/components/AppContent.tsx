@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Globe from "react-globe.gl";
 import { motion, useScroll, useSpring, AnimatePresence } from "motion/react";
-import { Brain, Code2, Zap, Server, ShieldCheck, ExternalLink, Smartphone, Cloud, Trophy, ClipboardList, ShieldCheckIcon } from "lucide-react";
+import { Brain, Code2, Zap, Server, ShieldCheck, ExternalLink, Smartphone, Cloud, Trophy, ClipboardList, ShieldCheckIcon, CheckCircle2, Award, Activity, Layers, Check } from "lucide-react";
 import { div } from "three/src/nodes/math/OperatorNode";
 
 const Container = ({ children, className = "", isActive, ...props }: { children: React.ReactNode, className?: string, isActive?: boolean, [key: string]: any }) => {
@@ -1307,6 +1307,7 @@ export const ServicesCategories = ({ onSelect }: { onSelect: (index: number) => 
             gradient: "from-cyan-600 to-teal-500",
             color: "#00dfd8",
             description: "Leverage cutting-edge AI models to extract insights, automate decisions, and transform clinical data into actionable intelligence.",
+            targetIndex: 9,
         },
         {
             title: "App Development",
@@ -1315,6 +1316,7 @@ export const ServicesCategories = ({ onSelect }: { onSelect: (index: number) => 
             gradient: "from-blue-600 to-cyan-500",
             color: "#0070f3",
             description: "End-to-end medical application engineering — from architecture to deployment — built for scalability and compliance.",
+            targetIndex: 10,
         },
         {
             title: "Automation",
@@ -1323,6 +1325,7 @@ export const ServicesCategories = ({ onSelect }: { onSelect: (index: number) => 
             gradient: "from-cyan-500 to-blue-600",
             color: "#00dfd8",
             description: "Streamline clinical workflows and eliminate manual overhead with intelligent process automation tailored for healthcare.",
+            targetIndex: 11,
         },
         {
             title: "Software Compliance",
@@ -1331,6 +1334,7 @@ export const ServicesCategories = ({ onSelect }: { onSelect: (index: number) => 
             gradient: "from-blue-700 to-indigo-500",
             color: "#0070f3",
             description: "Navigate FDA, HIPAA, and ISO frameworks with confidence. We embed compliance into every layer of your software stack.",
+            targetIndex: 12,
         },
         {
             title: "Infrastructure",
@@ -1339,6 +1343,7 @@ export const ServicesCategories = ({ onSelect }: { onSelect: (index: number) => 
             gradient: "from-teal-600 to-cyan-400",
             color: "#00dfd8",
             description: "Robust, HIPAA-ready cloud infrastructure designed for uptime, security, and seamless scaling across your entire platform.",
+            targetIndex: 13,
         },
     ];
 
@@ -1365,7 +1370,8 @@ export const ServicesCategories = ({ onSelect }: { onSelect: (index: number) => 
                             damping: 14,
                         }}
                         whileHover={{ y: -8, scale: 1.02 }}
-                        className="group relative flex flex-col"
+                        onClick={() => onSelect && onSelect(cat.targetIndex)}
+                        className="group relative flex flex-col cursor-pointer"
                         style={{ perspective: "1000px" }}
                     >
                         {/* Animated conic border */}
@@ -1393,12 +1399,6 @@ export const ServicesCategories = ({ onSelect }: { onSelect: (index: number) => 
                             >
                                 0{i + 1}
                             </div>
-
-                            {/* Top-right corner accent patch */}
-                            {/* <div
-                                className="absolute top-0 right-0 w-20 h-20 rounded-bl-4xl opacity-[0.08] group-hover:opacity-[0.18] transition-opacity duration-500"
-                                style={{ background: cat.color }}
-                            /> */}
 
                             {/* Gradient icon box — Regulatory style */}
                             <motion.div
@@ -1440,19 +1440,24 @@ export const ServicesCategories = ({ onSelect }: { onSelect: (index: number) => 
                             />
 
                             {/* Explore button */}
-                            <div
-                                className="mt-auto px-7 py-2.5 rounded-full border border-white/10 text-[9px] font-black uppercase tracking-[0.22em] transition-all duration-300 group-hover:text-black group-hover:border-transparent"
+                            <button
+                                type="button"
+                                className="mt-auto px-7 py-2.5 rounded-full border border-white/10 text-[9px] font-black uppercase tracking-[0.22em] transition-all duration-300 group-hover:text-black group-hover:border-transparent cursor-pointer"
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    onSelect && onSelect(cat.targetIndex);
+                                }}
                                 onMouseEnter={(e) => {
-                                    (e.currentTarget as HTMLDivElement).style.background = cat.color;
-                                    (e.currentTarget as HTMLDivElement).style.boxShadow = `0 0 20px ${cat.color}60`;
+                                    (e.currentTarget as HTMLButtonElement).style.background = cat.color;
+                                    (e.currentTarget as HTMLButtonElement).style.boxShadow = `0 0 20px ${cat.color}60`;
                                 }}
                                 onMouseLeave={(e) => {
-                                    (e.currentTarget as HTMLDivElement).style.background = "transparent";
-                                    (e.currentTarget as HTMLDivElement).style.boxShadow = "none";
+                                    (e.currentTarget as HTMLButtonElement).style.background = "transparent";
+                                    (e.currentTarget as HTMLButtonElement).style.boxShadow = "none";
                                 }}
                             >
                                 Explore Detail
-                            </div>
+                            </button>
                         </div>
                     </motion.div>
                 ))}
@@ -4350,7 +4355,7 @@ export const ClientsSlide = () => (
 //     );
 // };
 
-export const Accomplishments = () => {
+export const Accomplishments = ({ onSelect }: { onSelect?: (index: number) => void }) => {
     const accomplishments = [
         {
             value: "2",
@@ -4359,7 +4364,8 @@ export const Accomplishments = () => {
             icon: Smartphone,
             gradient: "from-cyan-600 to-teal-500",
             color: "#00dfd8",
-            image: "/assets/accomplishments/mobile_apps_bg.png"
+            image: "/assets/accomplishments/mobile_apps_bg.png",
+            targetIndex: 15
         },
         {
             value: "3",
@@ -4368,7 +4374,8 @@ export const Accomplishments = () => {
             icon: Cloud,
             gradient: "from-blue-600 to-cyan-500",
             color: "#0070f3",
-            image: "/assets/cloud.png"
+            image: "/assets/cloud.png",
+            targetIndex: 16
         },
         {
             value: "10+",
@@ -4377,7 +4384,8 @@ export const Accomplishments = () => {
             icon: Trophy,
             gradient: "from-cyan-500 to-blue-600",
             color: "#00dfd8",
-            image: "/assets/accomplishments/projects_bg.jpg"
+            image: "/assets/accomplishments/projects_bg.jpg",
+            targetIndex: 16
         },
         {
             value: "1",
@@ -4386,7 +4394,8 @@ export const Accomplishments = () => {
             icon: ClipboardList,
             gradient: "from-blue-700 to-indigo-500",
             color: "#0070f3",
-            image: "/assets/image.png"
+            image: "/assets/image.png",
+            targetIndex: 14
         },
         {
             value: "1",
@@ -4395,7 +4404,8 @@ export const Accomplishments = () => {
             icon: ShieldCheckIcon,
             gradient: "from-teal-600 to-cyan-400",
             color: "#00dfd8",
-            image: "/assets/ONC.png"
+            image: "/assets/ONC.png",
+            targetIndex: 14
         }
     ];
 
@@ -4421,7 +4431,8 @@ export const Accomplishments = () => {
                             damping: 14,
                         }}
                         whileHover={{ y: -8, scale: 1.02 }}
-                        className={`group relative flex flex-col h-full ${i < 3 ? 'md:col-span-2' : 'md:col-span-3'
+                        onClick={() => onSelect && item.targetIndex !== undefined && onSelect(item.targetIndex)}
+                        className={`group relative flex flex-col h-full cursor-pointer ${i < 3 ? 'md:col-span-2' : 'md:col-span-3'
                             }`}
                         style={{ perspective: "1000px" }}
                     >
@@ -4676,3 +4687,295 @@ export const ThankYou = () => (
         </motion.div>
     </Container>
 );
+
+// --- Achievement Detail Slide 1: ONC Health IT Certification ---
+export const ONCCertificationAchievement = ({ isActive }: { isActive?: boolean }) => (
+    <Container isActive={isActive} className="justify-center py-6 md:py-8 px-4 md:px-12">
+        <div className="w-full max-w-7xl mx-auto flex flex-col justify-center min-h-[calc(100vh-8rem)] my-auto">
+            <div className="text-left mb-6 md:mb-8">
+                {/* <SubHeading className="text-[10px] md:text-xs">ACHIEVEMENT 01 / 03</SubHeading> */}
+                <Heading gradient className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight">
+                    ONC Health IT Certification
+                </Heading>
+                <p className="text-brand-cyan text-sm sm:text-base md:text-lg font-medium tracking-wide mt-1">
+                    Proven Expertise in Certified Healthcare Solutions
+                </p>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
+                {/* Left Column: Written Overview & Highlights */}
+                <div className="lg:col-span-7 flex flex-col justify-between space-y-5">
+                    {/* Summary Overview Box */}
+                    <div className="p-4 sm:p-5 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md">
+                        <p className="text-xs sm:text-sm text-white/80 leading-relaxed">
+                            Successfully delivered ONC-certified EHR solutions by implementing industry-standard interoperability, security, and compliance requirements across the complete certification lifecycle.
+                        </p>
+                    </div>
+
+                    {/* 2-Column Grid: Deliverables & Value */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        {/* What We've Delivered */}
+                        <div className="p-4 rounded-2xl bg-slate-950/60 border border-white/10 flex flex-col justify-between">
+                            <div>
+                                <div className="flex items-center gap-2 mb-3">
+                                    <ShieldCheck className="w-4 h-4 text-brand-cyan" />
+                                    <h4 className="text-xs md:text-sm font-bold uppercase tracking-wider text-white">What We've Delivered</h4>
+                                </div>
+                                <ul className="space-y-2 text-xs text-white/70">
+                                    <li className="flex items-start gap-2"><span className="text-brand-cyan mt-0.5">•</span> ONC Certified EHR Solutions</li>
+                                    <li className="flex items-start gap-2"><span className="text-brand-cyan mt-0.5">•</span> HL7 FHIR & SMART on FHIR</li>
+                                    <li className="flex items-start gap-2"><span className="text-brand-cyan mt-0.5">•</span> Security & Privacy Compliance</li>
+                                    <li className="flex items-start gap-2"><span className="text-brand-cyan mt-0.5">•</span> Certification Readiness & Testing</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        {/* Value Delivered */}
+                        <div className="p-4 rounded-2xl bg-slate-950/60 border border-brand-cyan/20 flex flex-col justify-between">
+                            <div>
+                                <div className="flex items-center gap-2 mb-3">
+                                    <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                                    <h4 className="text-xs md:text-sm font-bold uppercase tracking-wider text-white">Value Delivered</h4>
+                                </div>
+                                <ul className="space-y-2 text-xs text-white/80">
+                                    <li className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-emerald-400 shrink-0" /> Full ONC Certification Achieved</li>
+                                    <li className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-emerald-400 shrink-0" /> Secure Interoperable Workflows</li>
+                                    <li className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-emerald-400 shrink-0" /> Accelerated Time-to-Readiness</li>
+                                    <li className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-emerald-400 shrink-0" /> Scalable Standards Compliance</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Technical Expertise Badges */}
+                    <div>
+                        <span className="text-[11px] uppercase tracking-widest text-white/40 font-mono block mb-2">Technical Expertise</span>
+                        <div className="flex flex-wrap gap-1.5 sm:gap-2">
+                            {["ONC Health IT", "EHR / EMR", "HL7 FHIR & v2", "SMART on FHIR", "C-CDA / USCDI", "CDS Hooks", "Healthcare APIs"].map((tech, i) => (
+                                <span key={i} className="px-2.5 py-1 rounded-full text-[11px] font-medium bg-brand-cyan/10 text-brand-cyan border border-brand-cyan/20">
+                                    {tech}
+                                </span>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+
+                {/* Right Column: Visual Feature Showcase Card */}
+                <div className="lg:col-span-5 flex items-center justify-center">
+                    <div className="relative w-full aspect-4/3 sm:aspect-16/10 lg:aspect-square max-h-[380px] rounded-3xl overflow-hidden border border-white/15 bg-slate-950/80 shadow-2xl group flex flex-col justify-end p-6">
+                        <img 
+                            src="/assets/ONC.png" 
+                            alt="ONC Health IT Certification" 
+                            className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700 pointer-events-none"
+                        />
+                        <div className="absolute inset-0 bg-linear-to-t from-slate-950 via-slate-950/40 to-transparent pointer-events-none" />
+                        <div className="absolute top-4 right-4 px-3 py-1.5 rounded-full bg-slate-900/90 border border-brand-cyan/40 text-brand-cyan text-xs font-mono font-bold flex items-center gap-2 shadow-lg">
+                            <ShieldCheckIcon className="w-4 h-4 text-brand-cyan" />
+                            <span>100% Certified</span>
+                        </div>
+                        <div className="relative z-10">
+                            <span className="text-xs text-brand-cyan font-mono tracking-widest uppercase">Healthcare Interoperability</span>
+                            <h3 className="text-xl sm:text-2xl font-bold text-white mt-1">ONC Certified EHR Platform</h3>
+                            <p className="text-xs text-white/60 mt-1">End-to-end certification lifecycle management & clinical integration</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </Container>
+);
+
+// --- Achievement Detail Slide 2: Remote Patient Monitoring (RPM) ---
+export const RPMAchievement = ({ isActive }: { isActive?: boolean }) => (
+    <Container isActive={isActive} className="justify-center py-6 md:py-8 px-4 md:px-12">
+        <div className="w-full max-w-7xl mx-auto flex flex-col justify-center min-h-[calc(100vh-8rem)] my-auto">
+            <div className="text-left mb-6 md:mb-8">
+                {/* <SubHeading className="text-[10px] md:text-xs">ACHIEVEMENT 02 / 03</SubHeading> */}
+                <Heading gradient className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight">
+                    Remote Patient Monitoring (RPM)
+                </Heading>
+                <p className="text-brand-cyan text-sm sm:text-base md:text-lg font-medium tracking-wide mt-1">
+                    Connecting Patients, Providers & Medical Devices
+                </p>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
+                {/* Left Column: Overview & Details */}
+                <div className="lg:col-span-7 flex flex-col justify-between space-y-5">
+                    {/* Summary Overview Box */}
+                    <div className="p-4 sm:p-5 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md">
+                        <p className="text-xs sm:text-sm text-white/80 leading-relaxed">
+                            Developed intelligent RPM platforms enabling continuous patient monitoring through SDK-based medical device integration, AI-driven health analytics, and secure clinical dashboards.
+                        </p>
+                    </div>
+
+                    {/* 2-Column Grid: Deliverables & Value */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        {/* What We've Delivered */}
+                        <div className="p-4 rounded-2xl bg-slate-950/60 border border-white/10 flex flex-col justify-between">
+                            <div>
+                                <div className="flex items-center gap-2 mb-3">
+                                    <Smartphone className="w-4 h-4 text-brand-blue" />
+                                    <h4 className="text-xs md:text-sm font-bold uppercase tracking-wider text-white">What We've Delivered</h4>
+                                </div>
+                                <ul className="space-y-2 text-xs text-white/70">
+                                    <li className="flex items-start gap-2"><span className="text-brand-cyan mt-0.5">•</span> End-to-End Connected RPM Platforms</li>
+                                    <li className="flex items-start gap-2"><span className="text-brand-cyan mt-0.5">•</span> Custom Medical Device Integration (SDKs)</li>
+                                    <li className="flex items-start gap-2"><span className="text-brand-cyan mt-0.5">•</span> AI Module Integration for Intelligent Care</li>
+                                    <li className="flex items-start gap-2"><span className="text-brand-cyan mt-0.5">•</span> Patient & Provider Real-Time Dashboards</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        {/* Value Delivered */}
+                        <div className="p-4 rounded-2xl bg-slate-950/60 border border-brand-cyan/20 flex flex-col justify-between">
+                            <div>
+                                <div className="flex items-center gap-2 mb-3">
+                                    <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                                    <h4 className="text-xs md:text-sm font-bold uppercase tracking-wider text-white">Value Delivered</h4>
+                                </div>
+                                <ul className="space-y-2 text-xs text-white/80">
+                                    <li className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-emerald-400 shrink-0" /> Real-Time Continuous Monitoring</li>
+                                    <li className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-emerald-400 shrink-0" /> Seamless IoT Device Interoperability</li>
+                                    <li className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-emerald-400 shrink-0" /> AI Insights for Proactive Alerts</li>
+                                    <li className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-emerald-400 shrink-0" /> Scalable Cloud Health Infrastructure</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Technical Expertise Badges */}
+                    <div>
+                        <span className="text-[11px] uppercase tracking-widest text-white/40 font-mono block mb-2">Technical Expertise</span>
+                        <div className="flex flex-wrap gap-1.5 sm:gap-2">
+                            {["RPM Platforms", "Device SDKs", "Healthcare IoT", "HL7 FHIR APIs", "AI Health Analytics", "Cloud Monitoring", "Secure Telemetry"].map((tech, i) => (
+                                <span key={i} className="px-2.5 py-1 rounded-full text-[11px] font-medium bg-brand-blue/15 text-blue-300 border border-brand-blue/30">
+                                    {tech}
+                                </span>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+
+                {/* Right Column: Visual Feature Showcase Card */}
+                <div className="lg:col-span-5 flex items-center justify-center">
+                    <div className="relative w-full aspect-4/3 sm:aspect-16/10 lg:aspect-square max-h-[380px] rounded-3xl overflow-hidden border border-white/15 bg-slate-950/80 shadow-2xl group flex flex-col justify-end p-6">
+                        <img 
+                            src="/assets/rpm/ehr2.png" 
+                            alt="Remote Patient Monitoring Solutions" 
+                            className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700 pointer-events-none"
+                        />
+                        <div className="absolute inset-0 bg-linear-to-t from-slate-950 via-slate-950/40 to-transparent pointer-events-none" />
+                        <div className="absolute top-4 right-4 px-3 py-1.5 rounded-full bg-slate-900/90 border border-brand-cyan/40 text-brand-cyan text-xs font-mono font-bold flex items-center gap-2 shadow-lg">
+                            <Activity className="w-4 h-4 text-brand-cyan animate-pulse" />
+                            <span>Live Telemetry</span>
+                        </div>
+                        <div className="relative z-10">
+                            <span className="text-xs text-brand-cyan font-mono tracking-widest uppercase">Connected Healthcare</span>
+                            <h3 className="text-xl sm:text-2xl font-bold text-white mt-1">Smart RPM Telemetry Suite</h3>
+                            <p className="text-xs text-white/60 mt-1">AI-powered remote care management and multi-device SDK framework</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </Container>
+);
+
+// --- Achievement Detail Slide 3: Healthcare Software Development ---
+export const HealthcareSoftwareAchievement = ({ isActive }: { isActive?: boolean }) => (
+    <Container isActive={isActive} className="justify-center py-6 md:py-8 px-4 md:px-12">
+        <div className="w-full max-w-7xl mx-auto flex flex-col justify-center min-h-[calc(100vh-8rem)] my-auto">
+            <div className="text-left mb-6 md:mb-8">
+                {/* <SubHeading className="text-[10px] md:text-xs">ACHIEVEMENT 03 / 03</SubHeading> */}
+                <Heading gradient className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight">
+                    Healthcare Software Development
+                </Heading>
+                <p className="text-brand-cyan text-sm sm:text-base md:text-lg font-medium tracking-wide mt-1">
+                    Building Secure, Compliant & Interoperable Healthcare Solutions
+                </p>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
+                {/* Left Column: Overview & Details */}
+                <div className="lg:col-span-7 flex flex-col justify-between space-y-5">
+                    {/* Summary Overview Box */}
+                    <div className="p-4 sm:p-5 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md">
+                        <p className="text-xs sm:text-sm text-white/80 leading-relaxed">
+                            Engineered enterprise-grade healthcare applications delivering seamless data exchange, HIPAA compliance, legacy system modernization, and optimized clinical workflows.
+                        </p>
+                    </div>
+
+                    {/* 2-Column Grid: Deliverables & Value */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        {/* What We've Delivered */}
+                        <div className="p-4 rounded-2xl bg-slate-950/60 border border-white/10 flex flex-col justify-between">
+                            <div>
+                                <div className="flex items-center gap-2 mb-3">
+                                    <Code2 className="w-4 h-4 text-brand-cyan" />
+                                    <h4 className="text-xs md:text-sm font-bold uppercase tracking-wider text-white">What We've Delivered</h4>
+                                </div>
+                                <ul className="space-y-2 text-xs text-white/70">
+                                    <li className="flex items-start gap-2"><span className="text-brand-cyan mt-0.5">•</span> Custom EHR & EMR Application Suites</li>
+                                    <li className="flex items-start gap-2"><span className="text-brand-cyan mt-0.5">•</span> HL7 FHIR & HL7 v2 Implementations</li>
+                                    <li className="flex items-start gap-2"><span className="text-brand-cyan mt-0.5">•</span> HIPAA Compliant Cloud Applications</li>
+                                    <li className="flex items-start gap-2"><span className="text-brand-cyan mt-0.5">•</span> Legacy System Modernization</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        {/* Value Delivered */}
+                        <div className="p-4 rounded-2xl bg-slate-950/60 border border-brand-cyan/20 flex flex-col justify-between">
+                            <div>
+                                <div className="flex items-center gap-2 mb-3">
+                                    <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                                    <h4 className="text-xs md:text-sm font-bold uppercase tracking-wider text-white">Value Delivered</h4>
+                                </div>
+                                <ul className="space-y-2 text-xs text-white/80">
+                                    <li className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-emerald-400 shrink-0" /> Standards-Compliant Architecture</li>
+                                    <li className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-emerald-400 shrink-0" /> Seamless Interoperability</li>
+                                    <li className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-emerald-400 shrink-0" /> Ironclad HIPAA Data Security</li>
+                                    <li className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-emerald-400 shrink-0" /> Scalable Cloud Native Systems</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Technical Expertise Badges */}
+                    <div>
+                        <span className="text-[11px] uppercase tracking-widest text-white/40 font-mono block mb-2">Technical Expertise</span>
+                        <div className="flex flex-wrap gap-1.5 sm:gap-2">
+                            {["HL7 FHIR", "HL7 v2", "SMART on FHIR", "HIPAA Compliance", "ONC Standards", "USCDI", "FHIR IGs", "RESTful APIs"].map((tech, i) => (
+                                <span key={i} className="px-2.5 py-1 rounded-full text-[11px] font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                                    {tech}
+                                </span>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+
+                {/* Right Column: Visual Feature Showcase Card */}
+                <div className="lg:col-span-5 flex items-center justify-center">
+                    <div className="relative w-full aspect-4/3 sm:aspect-16/10 lg:aspect-square max-h-[380px] rounded-3xl overflow-hidden border border-white/15 bg-slate-950/80 shadow-2xl group flex flex-col justify-end p-6">
+                        <img 
+                            src="/assets/custom-medical/hipaaa.png" 
+                            alt="Healthcare Software Development" 
+                            className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700 pointer-events-none"
+                        />
+                        <div className="absolute inset-0 bg-linear-to-t from-slate-950 via-slate-950/40 to-transparent pointer-events-none" />
+                        <div className="absolute top-4 right-4 px-3 py-1.5 rounded-full bg-slate-900/90 border border-brand-cyan/40 text-brand-cyan text-xs font-mono font-bold flex items-center gap-2 shadow-lg">
+                            <Layers className="w-4 h-4 text-brand-cyan" />
+                            <span>HIPAA Compliant</span>
+                        </div>
+                        <div className="relative z-10">
+                            <span className="text-xs text-brand-cyan font-mono tracking-widest uppercase">Custom Engineering</span>
+                            <h3 className="text-xl sm:text-2xl font-bold text-white mt-1">Healthcare Solutions Platform</h3>
+                            <p className="text-xs text-white/60 mt-1">Interoperable EHR application suites and FHIR API integrations</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </Container>
+);
+

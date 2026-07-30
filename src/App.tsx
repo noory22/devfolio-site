@@ -59,8 +59,8 @@ const slideTransitions = [
     animate: { opacity: 1, y: 0, transition: { duration: 0.8 } },
     exit: { opacity: 0, y: -100, transition: { duration: 0.5 } },
   },
-  // 8 to 16: Services and other slides (using vertical transition)
-  ...Array(9).fill(null).map(() => ({
+  // 8 to 19: Services and other slides (using vertical transition)
+  ...Array(12).fill(null).map(() => ({
     initial: { opacity: 0, y: 100 },
     animate: { opacity: 1, y: 0, transition: { duration: 0.8 } },
     exit: { opacity: 0, y: -100, transition: { duration: 0.5 } },
@@ -125,8 +125,11 @@ const slideComponents = [
   // Content.QaValidationDetail,
   // Content.OngoingMaintenanceDetail,
   // Regulatory,
+  Content.ONCCertificationAchievement,
+  Content.RPMAchievement,
+  Content.HealthcareSoftwareAchievement,
   Content.Accomplishments,
-  Content.Testimonials,
+  // Content.Testimonials,
   Content.ThankYou
 ];
 
@@ -164,9 +167,12 @@ const BackgroundMapping = [
   Backgrounds.AuroraBG,       // 11: 03 Operational Efficiency & Automation
   Backgrounds.DNAHelixBG,     // 12: 04 Software Compliance
   Backgrounds.GridPulseBG,    // 13: 05 Infrastructure & Lifecycle Management
-  Backgrounds.TechNetworkBG,  // 14: Accomplishments
-  Backgrounds.GridPulseBG,    // 15: Testimonials
-  Backgrounds.AuroraBG,       // 16: Thank You
+  Backgrounds.TechNetworkBG,  // 14: ONC Achievement
+  Backgrounds.FloatingCubesBG,// 15: RPM Achievement
+  Backgrounds.DNAHelixBG,     // 16: Healthcare Software Achievement
+  Backgrounds.TechNetworkBG,  // 17: Accomplishments
+  // Backgrounds.GridPulseBG,    // 18: Testimonials
+  Backgrounds.AuroraBG,       // 19: Thank You
 ];
 
 import { ChevronLeft, ChevronRight, ChevronUp, ChevronDown } from "lucide-react";
@@ -695,9 +701,7 @@ export default function App() {
             <CurrentSlideComponent
               isActive={true}
               onSelect={(idx: number) => {
-                if (currentSlide === 8) {
-                  navigateTo(idx);
-                }
+                navigateTo(idx);
               }}
               onOpenGenerativeAiDetail={openGenerativeAiDetail}
               onOpenClinicalDecisionSupportDetail={openClinicalDecisionSupportDetail}
